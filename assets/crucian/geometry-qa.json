@@ -1,0 +1,3090 @@
+{
+  "blender": "5.2.0 LTS",
+  "unit": "METERS",
+  "unit_scale": 1.0,
+  "engine": "BLENDER_EEVEE",
+  "object_count": 46,
+  "bbox_min": [
+    -0.09,
+    -0.024115,
+    -0.037
+  ],
+  "bbox_max": [
+    0.09,
+    0.024115,
+    0.047
+  ],
+  "bbox_size": [
+    0.18,
+    0.04823,
+    0.084
+  ],
+  "totals": {
+    "verts": 1937,
+    "faces": 3310,
+    "tris": 3694,
+    "non_manifold_edges": 0,
+    "boundary_edges": 0,
+    "degenerate_faces": 0,
+    "loose_verts": 0,
+    "inconsistent_normals": 0
+  },
+  "objects": [
+    {
+      "name": "Crucian_body",
+      "type": "MESH",
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "scale_applied": true,
+      "visible": true,
+      "modifiers": [],
+      "dimensions": [
+        0.155,
+        0.03,
+        0.069
+      ],
+      "stats": {
+        "verts": 760,
+        "edges": 2274,
+        "faces": 1516,
+        "tris": 1516,
+        "ngons": 0,
+        "quads": 0,
+        "tri_faces": 1516
+      },
+      "health": {
+        "verts": 760,
+        "edges": 2274,
+        "faces": 1516,
+        "non_manifold_edges": 0,
+        "boundary_edges": 0,
+        "wire_edges": 0,
+        "loose_verts": 0,
+        "degenerate_faces": 0,
+        "ngons": 0,
+        "inconsistent_normals": 0,
+        "is_closed": true,
+        "is_manifold": true,
+        "signed_volume": 0.00013979508040822715,
+        "normals_inverted": false,
+        "components": 1
+      },
+      "materials": [
+        "Silver olive skin"
+      ],
+      "uv_layers": [
+        "ScaleUV"
+      ]
+    },
+    {
+      "name": "Oral_lip_actual_rim",
+      "type": "MESH",
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "scale_applied": true,
+      "visible": true,
+      "modifiers": [],
+      "dimensions": [
+        0.003,
+        0.0066,
+        0.0064
+      ],
+      "stats": {
+        "verts": 160,
+        "edges": 480,
+        "faces": 320,
+        "tris": 320,
+        "ngons": 0,
+        "quads": 0,
+        "tri_faces": 320
+      },
+      "health": {
+        "verts": 160,
+        "edges": 480,
+        "faces": 320,
+        "non_manifold_edges": 0,
+        "boundary_edges": 0,
+        "wire_edges": 0,
+        "loose_verts": 0,
+        "degenerate_faces": 0,
+        "ngons": 0,
+        "inconsistent_normals": 0,
+        "is_closed": true,
+        "is_manifold": true,
+        "signed_volume": 3.8350407104530275e-08,
+        "normals_inverted": false,
+        "components": 1
+      },
+      "materials": [
+        "Grey fleshy lips"
+      ],
+      "uv_layers": []
+    },
+    {
+      "name": "Mouth_recess",
+      "type": "MESH",
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "scale_applied": true,
+      "visible": true,
+      "modifiers": [],
+      "dimensions": [
+        0.0003,
+        0.0038,
+        0.0036
+      ],
+      "stats": {
+        "verts": 80,
+        "edges": 234,
+        "faces": 156,
+        "tris": 156,
+        "ngons": 0,
+        "quads": 0,
+        "tri_faces": 156
+      },
+      "health": {
+        "verts": 80,
+        "edges": 234,
+        "faces": 156,
+        "non_manifold_edges": 0,
+        "boundary_edges": 0,
+        "wire_edges": 0,
+        "loose_verts": 0,
+        "degenerate_faces": 0,
+        "ngons": 0,
+        "inconsistent_normals": 0,
+        "is_closed": true,
+        "is_manifold": true,
+        "signed_volume": 3.2100896060412713e-09,
+        "normals_inverted": false,
+        "components": 1
+      },
+      "materials": [
+        "Real recessed mouth cavity"
+      ],
+      "uv_layers": []
+    },
+    {
+      "name": "Eye_iris",
+      "type": "MESH",
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "scale_applied": true,
+      "visible": true,
+      "modifiers": [],
+      "dimensions": [
+        0.0044,
+        0.002,
+        0.0044
+      ],
+      "stats": {
+        "verts": 114,
+        "edges": 240,
+        "faces": 128,
+        "tris": 224,
+        "ngons": 0,
+        "quads": 96,
+        "tri_faces": 32
+      },
+      "health": {
+        "verts": 114,
+        "edges": 240,
+        "faces": 128,
+        "non_manifold_edges": 0,
+        "boundary_edges": 0,
+        "wire_edges": 0,
+        "loose_verts": 0,
+        "degenerate_faces": 0,
+        "ngons": 0,
+        "inconsistent_normals": 0,
+        "is_closed": true,
+        "is_manifold": true,
+        "signed_volume": 1.900471409134128e-08,
+        "normals_inverted": false,
+        "components": 1
+      },
+      "materials": [
+        "Muted bronze silver iris"
+      ],
+      "uv_layers": [
+        "UVMap"
+      ]
+    },
+    {
+      "name": "Eye_pupil",
+      "type": "MESH",
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "scale_applied": true,
+      "visible": true,
+      "modifiers": [],
+      "dimensions": [
+        0.0026,
+        0.0009,
+        0.00284
+      ],
+      "stats": {
+        "verts": 114,
+        "edges": 240,
+        "faces": 128,
+        "tris": 224,
+        "ngons": 0,
+        "quads": 96,
+        "tri_faces": 32
+      },
+      "health": {
+        "verts": 114,
+        "edges": 240,
+        "faces": 128,
+        "non_manifold_edges": 0,
+        "boundary_edges": 0,
+        "wire_edges": 0,
+        "loose_verts": 0,
+        "degenerate_faces": 0,
+        "ngons": 0,
+        "inconsistent_normals": 0,
+        "is_closed": true,
+        "is_manifold": true,
+        "signed_volume": 3.2618249856678234e-09,
+        "normals_inverted": false,
+        "components": 1
+      },
+      "materials": [
+        "Small dark pupil"
+      ],
+      "uv_layers": [
+        "UVMap"
+      ]
+    },
+    {
+      "name": "Eye_iris.001",
+      "type": "MESH",
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "scale_applied": true,
+      "visible": true,
+      "modifiers": [],
+      "dimensions": [
+        0.0044,
+        0.002,
+        0.0044
+      ],
+      "stats": {
+        "verts": 114,
+        "edges": 240,
+        "faces": 128,
+        "tris": 224,
+        "ngons": 0,
+        "quads": 96,
+        "tri_faces": 32
+      },
+      "health": {
+        "verts": 114,
+        "edges": 240,
+        "faces": 128,
+        "non_manifold_edges": 0,
+        "boundary_edges": 0,
+        "wire_edges": 0,
+        "loose_verts": 0,
+        "degenerate_faces": 0,
+        "ngons": 0,
+        "inconsistent_normals": 0,
+        "is_closed": true,
+        "is_manifold": true,
+        "signed_volume": 1.9004713794141502e-08,
+        "normals_inverted": false,
+        "components": 1
+      },
+      "materials": [
+        "Muted bronze silver iris"
+      ],
+      "uv_layers": [
+        "UVMap"
+      ]
+    },
+    {
+      "name": "Eye_pupil.001",
+      "type": "MESH",
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "scale_applied": true,
+      "visible": true,
+      "modifiers": [],
+      "dimensions": [
+        0.0026,
+        0.0009,
+        0.00284
+      ],
+      "stats": {
+        "verts": 114,
+        "edges": 240,
+        "faces": 128,
+        "tris": 224,
+        "ngons": 0,
+        "quads": 96,
+        "tri_faces": 32
+      },
+      "health": {
+        "verts": 114,
+        "edges": 240,
+        "faces": 128,
+        "non_manifold_edges": 0,
+        "boundary_edges": 0,
+        "wire_edges": 0,
+        "loose_verts": 0,
+        "degenerate_faces": 0,
+        "ngons": 0,
+        "inconsistent_normals": 0,
+        "is_closed": true,
+        "is_manifold": true,
+        "signed_volume": 3.261824985667741e-09,
+        "normals_inverted": false,
+        "components": 1
+      },
+      "materials": [
+        "Small dark pupil"
+      ],
+      "uv_layers": [
+        "UVMap"
+      ]
+    },
+    {
+      "name": "Dorsal",
+      "type": "MESH",
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "scale_applied": true,
+      "visible": true,
+      "modifiers": [],
+      "dimensions": [
+        0.075,
+        0.00023,
+        0.028
+      ],
+      "stats": {
+        "verts": 20,
+        "edges": 54,
+        "faces": 36,
+        "tris": 36,
+        "ngons": 0,
+        "quads": 0,
+        "tri_faces": 36
+      },
+      "health": {
+        "verts": 20,
+        "edges": 54,
+        "faces": 36,
+        "non_manifold_edges": 0,
+        "boundary_edges": 0,
+        "wire_edges": 0,
+        "loose_verts": 0,
+        "degenerate_faces": 0,
+        "ngons": 0,
+        "inconsistent_normals": 0,
+        "is_closed": true,
+        "is_manifold": true,
+        "signed_volume": 1.503049964473908e-07,
+        "normals_inverted": false,
+        "components": 1
+      },
+      "materials": [
+        "Translucent warm grey fins"
+      ],
+      "uv_layers": []
+    },
+    {
+      "name": "Dorsal_ray",
+      "type": "MESH",
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "scale_applied": true,
+      "visible": true,
+      "modifiers": [],
+      "dimensions": [
+        0.001234,
+        0.000247,
+        0.009558
+      ],
+      "stats": {
+        "verts": 10,
+        "edges": 24,
+        "faces": 16,
+        "tris": 16,
+        "ngons": 0,
+        "quads": 0,
+        "tri_faces": 16
+      },
+      "health": {
+        "verts": 10,
+        "edges": 24,
+        "faces": 16,
+        "non_manifold_edges": 0,
+        "boundary_edges": 0,
+        "wire_edges": 0,
+        "loose_verts": 0,
+        "degenerate_faces": 0,
+        "ngons": 0,
+        "inconsistent_normals": 0,
+        "is_closed": true,
+        "is_manifold": true,
+        "signed_volume": 3.8515727019011504e-10,
+        "normals_inverted": false,
+        "components": 1
+      },
+      "materials": [
+        "Fin rays"
+      ],
+      "uv_layers": []
+    },
+    {
+      "name": "Dorsal_ray.001",
+      "type": "MESH",
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "scale_applied": true,
+      "visible": true,
+      "modifiers": [],
+      "dimensions": [
+        0.001234,
+        0.000247,
+        0.011147
+      ],
+      "stats": {
+        "verts": 10,
+        "edges": 24,
+        "faces": 16,
+        "tris": 16,
+        "ngons": 0,
+        "quads": 0,
+        "tri_faces": 16
+      },
+      "health": {
+        "verts": 10,
+        "edges": 24,
+        "faces": 16,
+        "non_manifold_edges": 0,
+        "boundary_edges": 0,
+        "wire_edges": 0,
+        "loose_verts": 0,
+        "degenerate_faces": 0,
+        "ngons": 0,
+        "inconsistent_normals": 0,
+        "is_closed": true,
+        "is_manifold": true,
+        "signed_volume": 4.488881889001953e-10,
+        "normals_inverted": false,
+        "components": 1
+      },
+      "materials": [
+        "Fin rays"
+      ],
+      "uv_layers": []
+    },
+    {
+      "name": "Dorsal_ray.002",
+      "type": "MESH",
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "scale_applied": true,
+      "visible": true,
+      "modifiers": [],
+      "dimensions": [
+        0.001234,
+        0.000247,
+        0.012738
+      ],
+      "stats": {
+        "verts": 10,
+        "edges": 24,
+        "faces": 16,
+        "tris": 16,
+        "ngons": 0,
+        "quads": 0,
+        "tri_faces": 16
+      },
+      "health": {
+        "verts": 10,
+        "edges": 24,
+        "faces": 16,
+        "non_manifold_edges": 0,
+        "boundary_edges": 0,
+        "wire_edges": 0,
+        "loose_verts": 0,
+        "degenerate_faces": 0,
+        "ngons": 0,
+        "inconsistent_normals": 0,
+        "is_closed": true,
+        "is_manifold": true,
+        "signed_volume": 5.126830849212114e-10,
+        "normals_inverted": false,
+        "components": 1
+      },
+      "materials": [
+        "Fin rays"
+      ],
+      "uv_layers": []
+    },
+    {
+      "name": "Dorsal_ray.003",
+      "type": "MESH",
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "scale_applied": true,
+      "visible": true,
+      "modifiers": [],
+      "dimensions": [
+        0.001234,
+        0.000247,
+        0.012456
+      ],
+      "stats": {
+        "verts": 10,
+        "edges": 24,
+        "faces": 16,
+        "tris": 16,
+        "ngons": 0,
+        "quads": 0,
+        "tri_faces": 16
+      },
+      "health": {
+        "verts": 10,
+        "edges": 24,
+        "faces": 16,
+        "non_manifold_edges": 0,
+        "boundary_edges": 0,
+        "wire_edges": 0,
+        "loose_verts": 0,
+        "degenerate_faces": 0,
+        "ngons": 0,
+        "inconsistent_normals": 0,
+        "is_closed": true,
+        "is_manifold": true,
+        "signed_volume": 5.013781559975793e-10,
+        "normals_inverted": false,
+        "components": 1
+      },
+      "materials": [
+        "Fin rays"
+      ],
+      "uv_layers": []
+    },
+    {
+      "name": "Dorsal_ray.004",
+      "type": "MESH",
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "scale_applied": true,
+      "visible": true,
+      "modifiers": [],
+      "dimensions": [
+        0.001234,
+        0.000247,
+        0.012144
+      ],
+      "stats": {
+        "verts": 10,
+        "edges": 24,
+        "faces": 16,
+        "tris": 16,
+        "ngons": 0,
+        "quads": 0,
+        "tri_faces": 16
+      },
+      "health": {
+        "verts": 10,
+        "edges": 24,
+        "faces": 16,
+        "non_manifold_edges": 0,
+        "boundary_edges": 0,
+        "wire_edges": 0,
+        "loose_verts": 0,
+        "degenerate_faces": 0,
+        "ngons": 0,
+        "inconsistent_normals": 0,
+        "is_closed": true,
+        "is_manifold": true,
+        "signed_volume": 4.888627564059294e-10,
+        "normals_inverted": false,
+        "components": 1
+      },
+      "materials": [
+        "Fin rays"
+      ],
+      "uv_layers": []
+    },
+    {
+      "name": "Dorsal_ray.005",
+      "type": "MESH",
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "scale_applied": true,
+      "visible": true,
+      "modifiers": [],
+      "dimensions": [
+        0.001234,
+        0.000247,
+        0.011832
+      ],
+      "stats": {
+        "verts": 10,
+        "edges": 24,
+        "faces": 16,
+        "tris": 16,
+        "ngons": 0,
+        "quads": 0,
+        "tri_faces": 16
+      },
+      "health": {
+        "verts": 10,
+        "edges": 24,
+        "faces": 16,
+        "non_manifold_edges": 0,
+        "boundary_edges": 0,
+        "wire_edges": 0,
+        "loose_verts": 0,
+        "degenerate_faces": 0,
+        "ngons": 0,
+        "inconsistent_normals": 0,
+        "is_closed": true,
+        "is_manifold": true,
+        "signed_volume": 4.763487838992147e-10,
+        "normals_inverted": false,
+        "components": 1
+      },
+      "materials": [
+        "Fin rays"
+      ],
+      "uv_layers": []
+    },
+    {
+      "name": "Dorsal_ray.006",
+      "type": "MESH",
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "scale_applied": true,
+      "visible": true,
+      "modifiers": [],
+      "dimensions": [
+        0.001234,
+        0.000247,
+        0.010696
+      ],
+      "stats": {
+        "verts": 10,
+        "edges": 24,
+        "faces": 16,
+        "tris": 16,
+        "ngons": 0,
+        "quads": 0,
+        "tri_faces": 16
+      },
+      "health": {
+        "verts": 10,
+        "edges": 24,
+        "faces": 16,
+        "non_manifold_edges": 0,
+        "boundary_edges": 0,
+        "wire_edges": 0,
+        "loose_verts": 0,
+        "degenerate_faces": 0,
+        "ngons": 0,
+        "inconsistent_normals": 0,
+        "is_closed": true,
+        "is_manifold": true,
+        "signed_volume": 4.3076596388415204e-10,
+        "normals_inverted": false,
+        "components": 1
+      },
+      "materials": [
+        "Fin rays"
+      ],
+      "uv_layers": []
+    },
+    {
+      "name": "Dorsal_ray.007",
+      "type": "MESH",
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "scale_applied": true,
+      "visible": true,
+      "modifiers": [],
+      "dimensions": [
+        0.001234,
+        0.000247,
+        0.009414
+      ],
+      "stats": {
+        "verts": 10,
+        "edges": 24,
+        "faces": 16,
+        "tris": 16,
+        "ngons": 0,
+        "quads": 0,
+        "tri_faces": 16
+      },
+      "health": {
+        "verts": 10,
+        "edges": 24,
+        "faces": 16,
+        "non_manifold_edges": 0,
+        "boundary_edges": 0,
+        "wire_edges": 0,
+        "loose_verts": 0,
+        "degenerate_faces": 0,
+        "ngons": 0,
+        "inconsistent_normals": 0,
+        "is_closed": true,
+        "is_manifold": true,
+        "signed_volume": 3.793994004276329e-10,
+        "normals_inverted": false,
+        "components": 1
+      },
+      "materials": [
+        "Fin rays"
+      ],
+      "uv_layers": []
+    },
+    {
+      "name": "Dorsal_ray.008",
+      "type": "MESH",
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "scale_applied": true,
+      "visible": true,
+      "modifiers": [],
+      "dimensions": [
+        0.001233,
+        0.000247,
+        0.008133
+      ],
+      "stats": {
+        "verts": 10,
+        "edges": 24,
+        "faces": 16,
+        "tris": 16,
+        "ngons": 0,
+        "quads": 0,
+        "tri_faces": 16
+      },
+      "health": {
+        "verts": 10,
+        "edges": 24,
+        "faces": 16,
+        "non_manifold_edges": 0,
+        "boundary_edges": 0,
+        "wire_edges": 0,
+        "loose_verts": 0,
+        "degenerate_faces": 0,
+        "ngons": 0,
+        "inconsistent_normals": 0,
+        "is_closed": true,
+        "is_manifold": true,
+        "signed_volume": 3.281124887062514e-10,
+        "normals_inverted": false,
+        "components": 1
+      },
+      "materials": [
+        "Fin rays"
+      ],
+      "uv_layers": []
+    },
+    {
+      "name": "Dorsal_ray.009",
+      "type": "MESH",
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "scale_applied": true,
+      "visible": true,
+      "modifiers": [],
+      "dimensions": [
+        0.001232,
+        0.000247,
+        0.006149
+      ],
+      "stats": {
+        "verts": 10,
+        "edges": 24,
+        "faces": 16,
+        "tris": 16,
+        "ngons": 0,
+        "quads": 0,
+        "tri_faces": 16
+      },
+      "health": {
+        "verts": 10,
+        "edges": 24,
+        "faces": 16,
+        "non_manifold_edges": 0,
+        "boundary_edges": 0,
+        "wire_edges": 0,
+        "loose_verts": 0,
+        "degenerate_faces": 0,
+        "ngons": 0,
+        "inconsistent_normals": 0,
+        "is_closed": true,
+        "is_manifold": true,
+        "signed_volume": 2.4882279621242325e-10,
+        "normals_inverted": false,
+        "components": 1
+      },
+      "materials": [
+        "Fin rays"
+      ],
+      "uv_layers": []
+    },
+    {
+      "name": "Dorsal_ray.010",
+      "type": "MESH",
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "scale_applied": true,
+      "visible": true,
+      "modifiers": [],
+      "dimensions": [
+        0.001228,
+        0.000247,
+        0.004067
+      ],
+      "stats": {
+        "verts": 10,
+        "edges": 24,
+        "faces": 16,
+        "tris": 16,
+        "ngons": 0,
+        "quads": 0,
+        "tri_faces": 16
+      },
+      "health": {
+        "verts": 10,
+        "edges": 24,
+        "faces": 16,
+        "non_manifold_edges": 0,
+        "boundary_edges": 0,
+        "wire_edges": 0,
+        "loose_verts": 0,
+        "degenerate_faces": 0,
+        "ngons": 0,
+        "inconsistent_normals": 0,
+        "is_closed": true,
+        "is_manifold": true,
+        "signed_volume": 1.6605705766341397e-10,
+        "normals_inverted": false,
+        "components": 1
+      },
+      "materials": [
+        "Fin rays"
+      ],
+      "uv_layers": []
+    },
+    {
+      "name": "Dorsal_ray.011",
+      "type": "MESH",
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "scale_applied": true,
+      "visible": true,
+      "modifiers": [],
+      "dimensions": [
+        0.001213,
+        0.000247,
+        0.002246
+      ],
+      "stats": {
+        "verts": 10,
+        "edges": 24,
+        "faces": 16,
+        "tris": 16,
+        "ngons": 0,
+        "quads": 0,
+        "tri_faces": 16
+      },
+      "health": {
+        "verts": 10,
+        "edges": 24,
+        "faces": 16,
+        "non_manifold_edges": 0,
+        "boundary_edges": 0,
+        "wire_edges": 0,
+        "loose_verts": 0,
+        "degenerate_faces": 0,
+        "ngons": 0,
+        "inconsistent_normals": 0,
+        "is_closed": true,
+        "is_manifold": true,
+        "signed_volume": 9.51725174182581e-11,
+        "normals_inverted": false,
+        "components": 1
+      },
+      "materials": [
+        "Fin rays"
+      ],
+      "uv_layers": []
+    },
+    {
+      "name": "Dorsal_ray.012",
+      "type": "MESH",
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "scale_applied": true,
+      "visible": true,
+      "modifiers": [],
+      "dimensions": [
+        0.001064,
+        0.000247,
+        0.000511
+      ],
+      "stats": {
+        "verts": 10,
+        "edges": 24,
+        "faces": 16,
+        "tris": 16,
+        "ngons": 0,
+        "quads": 0,
+        "tri_faces": 16
+      },
+      "health": {
+        "verts": 10,
+        "edges": 24,
+        "faces": 16,
+        "non_manifold_edges": 0,
+        "boundary_edges": 0,
+        "wire_edges": 0,
+        "loose_verts": 0,
+        "degenerate_faces": 0,
+        "ngons": 0,
+        "inconsistent_normals": 0,
+        "is_closed": true,
+        "is_manifold": true,
+        "signed_volume": 4.1774610417291197e-11,
+        "normals_inverted": false,
+        "components": 1
+      },
+      "materials": [
+        "Fin rays"
+      ],
+      "uv_layers": []
+    },
+    {
+      "name": "Forked_caudal",
+      "type": "MESH",
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "scale_applied": true,
+      "visible": true,
+      "modifiers": [],
+      "dimensions": [
+        0.029,
+        0.00023,
+        0.049
+      ],
+      "stats": {
+        "verts": 18,
+        "edges": 48,
+        "faces": 32,
+        "tris": 32,
+        "ngons": 0,
+        "quads": 0,
+        "tri_faces": 32
+      },
+      "health": {
+        "verts": 18,
+        "edges": 48,
+        "faces": 32,
+        "non_manifold_edges": 0,
+        "boundary_edges": 0,
+        "wire_edges": 0,
+        "loose_verts": 0,
+        "degenerate_faces": 0,
+        "ngons": 0,
+        "inconsistent_normals": 0,
+        "is_closed": true,
+        "is_manifold": true,
+        "signed_volume": 1.7088999351792038e-07,
+        "normals_inverted": false,
+        "components": 1
+      },
+      "materials": [
+        "Translucent warm grey fins"
+      ],
+      "uv_layers": []
+    },
+    {
+      "name": "Caudal_ray",
+      "type": "MESH",
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "scale_applied": true,
+      "visible": true,
+      "modifiers": [],
+      "dimensions": [
+        0.028065,
+        0.000247,
+        0.01736
+      ],
+      "stats": {
+        "verts": 15,
+        "edges": 39,
+        "faces": 26,
+        "tris": 26,
+        "ngons": 0,
+        "quads": 0,
+        "tri_faces": 26
+      },
+      "health": {
+        "verts": 15,
+        "edges": 39,
+        "faces": 26,
+        "non_manifold_edges": 0,
+        "boundary_edges": 0,
+        "wire_edges": 0,
+        "loose_verts": 0,
+        "degenerate_faces": 0,
+        "ngons": 0,
+        "inconsistent_normals": 0,
+        "is_closed": true,
+        "is_manifold": true,
+        "signed_volume": 1.3184460275720301e-09,
+        "normals_inverted": false,
+        "components": 1
+      },
+      "materials": [
+        "Fin rays"
+      ],
+      "uv_layers": []
+    },
+    {
+      "name": "Caudal_ray.001",
+      "type": "MESH",
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "scale_applied": true,
+      "visible": true,
+      "modifiers": [],
+      "dimensions": [
+        0.026422,
+        0.000247,
+        0.012693
+      ],
+      "stats": {
+        "verts": 15,
+        "edges": 39,
+        "faces": 26,
+        "tris": 26,
+        "ngons": 0,
+        "quads": 0,
+        "tri_faces": 26
+      },
+      "health": {
+        "verts": 15,
+        "edges": 39,
+        "faces": 26,
+        "non_manifold_edges": 0,
+        "boundary_edges": 0,
+        "wire_edges": 0,
+        "loose_verts": 0,
+        "degenerate_faces": 0,
+        "ngons": 0,
+        "inconsistent_normals": 0,
+        "is_closed": true,
+        "is_manifold": true,
+        "signed_volume": 1.1706420403347306e-09,
+        "normals_inverted": false,
+        "components": 1
+      },
+      "materials": [
+        "Fin rays"
+      ],
+      "uv_layers": []
+    },
+    {
+      "name": "Caudal_ray.002",
+      "type": "MESH",
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "scale_applied": true,
+      "visible": true,
+      "modifiers": [],
+      "dimensions": [
+        0.024771,
+        0.000247,
+        0.008024
+      ],
+      "stats": {
+        "verts": 15,
+        "edges": 39,
+        "faces": 26,
+        "tris": 26,
+        "ngons": 0,
+        "quads": 0,
+        "tri_faces": 26
+      },
+      "health": {
+        "verts": 15,
+        "edges": 39,
+        "faces": 26,
+        "non_manifold_edges": 0,
+        "boundary_edges": 0,
+        "wire_edges": 0,
+        "loose_verts": 0,
+        "degenerate_faces": 0,
+        "ngons": 0,
+        "inconsistent_normals": 0,
+        "is_closed": true,
+        "is_manifold": true,
+        "signed_volume": 1.0408151981755537e-09,
+        "normals_inverted": false,
+        "components": 1
+      },
+      "materials": [
+        "Fin rays"
+      ],
+      "uv_layers": []
+    },
+    {
+      "name": "Caudal_ray.003",
+      "type": "MESH",
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "scale_applied": true,
+      "visible": true,
+      "modifiers": [],
+      "dimensions": [
+        0.023389,
+        0.000247,
+        0.004132
+      ],
+      "stats": {
+        "verts": 15,
+        "edges": 39,
+        "faces": 26,
+        "tris": 26,
+        "ngons": 0,
+        "quads": 0,
+        "tri_faces": 26
+      },
+      "health": {
+        "verts": 15,
+        "edges": 39,
+        "faces": 26,
+        "non_manifold_edges": 0,
+        "boundary_edges": 0,
+        "wire_edges": 0,
+        "loose_verts": 0,
+        "degenerate_faces": 0,
+        "ngons": 0,
+        "inconsistent_normals": 0,
+        "is_closed": true,
+        "is_manifold": true,
+        "signed_volume": 9.512653209925584e-10,
+        "normals_inverted": false,
+        "components": 1
+      },
+      "materials": [
+        "Fin rays"
+      ],
+      "uv_layers": []
+    },
+    {
+      "name": "Caudal_ray.004",
+      "type": "MESH",
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "scale_applied": true,
+      "visible": true,
+      "modifiers": [],
+      "dimensions": [
+        0.022,
+        0.000247,
+        0.000235
+      ],
+      "stats": {
+        "verts": 15,
+        "edges": 39,
+        "faces": 26,
+        "tris": 26,
+        "ngons": 0,
+        "quads": 0,
+        "tri_faces": 26
+      },
+      "health": {
+        "verts": 15,
+        "edges": 39,
+        "faces": 26,
+        "non_manifold_edges": 0,
+        "boundary_edges": 0,
+        "wire_edges": 0,
+        "loose_verts": 0,
+        "degenerate_faces": 0,
+        "ngons": 0,
+        "inconsistent_normals": 0,
+        "is_closed": true,
+        "is_manifold": true,
+        "signed_volume": 8.840069218592967e-10,
+        "normals_inverted": false,
+        "components": 1
+      },
+      "materials": [
+        "Fin rays"
+      ],
+      "uv_layers": []
+    },
+    {
+      "name": "Caudal_ray.005",
+      "type": "MESH",
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "scale_applied": true,
+      "visible": true,
+      "modifiers": [],
+      "dimensions": [
+        0.023389,
+        0.000247,
+        0.004132
+      ],
+      "stats": {
+        "verts": 15,
+        "edges": 39,
+        "faces": 26,
+        "tris": 26,
+        "ngons": 0,
+        "quads": 0,
+        "tri_faces": 26
+      },
+      "health": {
+        "verts": 15,
+        "edges": 39,
+        "faces": 26,
+        "non_manifold_edges": 0,
+        "boundary_edges": 0,
+        "wire_edges": 0,
+        "loose_verts": 0,
+        "degenerate_faces": 0,
+        "ngons": 0,
+        "inconsistent_normals": 0,
+        "is_closed": true,
+        "is_manifold": true,
+        "signed_volume": 9.512663429299614e-10,
+        "normals_inverted": false,
+        "components": 1
+      },
+      "materials": [
+        "Fin rays"
+      ],
+      "uv_layers": []
+    },
+    {
+      "name": "Caudal_ray.006",
+      "type": "MESH",
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "scale_applied": true,
+      "visible": true,
+      "modifiers": [],
+      "dimensions": [
+        0.024771,
+        0.000247,
+        0.008024
+      ],
+      "stats": {
+        "verts": 15,
+        "edges": 39,
+        "faces": 26,
+        "tris": 26,
+        "ngons": 0,
+        "quads": 0,
+        "tri_faces": 26
+      },
+      "health": {
+        "verts": 15,
+        "edges": 39,
+        "faces": 26,
+        "non_manifold_edges": 0,
+        "boundary_edges": 0,
+        "wire_edges": 0,
+        "loose_verts": 0,
+        "degenerate_faces": 0,
+        "ngons": 0,
+        "inconsistent_normals": 0,
+        "is_closed": true,
+        "is_manifold": true,
+        "signed_volume": 1.0408125582896722e-09,
+        "normals_inverted": false,
+        "components": 1
+      },
+      "materials": [
+        "Fin rays"
+      ],
+      "uv_layers": []
+    },
+    {
+      "name": "Caudal_ray.007",
+      "type": "MESH",
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "scale_applied": true,
+      "visible": true,
+      "modifiers": [],
+      "dimensions": [
+        0.026421,
+        0.000247,
+        0.012692
+      ],
+      "stats": {
+        "verts": 15,
+        "edges": 39,
+        "faces": 26,
+        "tris": 26,
+        "ngons": 0,
+        "quads": 0,
+        "tri_faces": 26
+      },
+      "health": {
+        "verts": 15,
+        "edges": 39,
+        "faces": 26,
+        "non_manifold_edges": 0,
+        "boundary_edges": 0,
+        "wire_edges": 0,
+        "loose_verts": 0,
+        "degenerate_faces": 0,
+        "ngons": 0,
+        "inconsistent_normals": 0,
+        "is_closed": true,
+        "is_manifold": true,
+        "signed_volume": 1.1706328063642205e-09,
+        "normals_inverted": false,
+        "components": 1
+      },
+      "materials": [
+        "Fin rays"
+      ],
+      "uv_layers": []
+    },
+    {
+      "name": "Caudal_ray.008",
+      "type": "MESH",
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "scale_applied": true,
+      "visible": true,
+      "modifiers": [],
+      "dimensions": [
+        0.028336,
+        0.000247,
+        0.018137
+      ],
+      "stats": {
+        "verts": 15,
+        "edges": 39,
+        "faces": 26,
+        "tris": 26,
+        "ngons": 0,
+        "quads": 0,
+        "tri_faces": 26
+      },
+      "health": {
+        "verts": 15,
+        "edges": 39,
+        "faces": 26,
+        "non_manifold_edges": 0,
+        "boundary_edges": 0,
+        "wire_edges": 0,
+        "loose_verts": 0,
+        "degenerate_faces": 0,
+        "ngons": 0,
+        "inconsistent_normals": 0,
+        "is_closed": true,
+        "is_manifold": true,
+        "signed_volume": 1.3443649865460712e-09,
+        "normals_inverted": false,
+        "components": 1
+      },
+      "materials": [
+        "Fin rays"
+      ],
+      "uv_layers": []
+    },
+    {
+      "name": "Anal",
+      "type": "MESH",
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "scale_applied": true,
+      "visible": true,
+      "modifiers": [],
+      "dimensions": [
+        0.035,
+        0.00023,
+        0.019
+      ],
+      "stats": {
+        "verts": 12,
+        "edges": 30,
+        "faces": 20,
+        "tris": 20,
+        "ngons": 0,
+        "quads": 0,
+        "tri_faces": 20
+      },
+      "health": {
+        "verts": 12,
+        "edges": 30,
+        "faces": 20,
+        "non_manifold_edges": 0,
+        "boundary_edges": 0,
+        "wire_edges": 0,
+        "loose_verts": 0,
+        "degenerate_faces": 0,
+        "ngons": 0,
+        "inconsistent_normals": 0,
+        "is_closed": true,
+        "is_manifold": true,
+        "signed_volume": 6.324999429192389e-08,
+        "normals_inverted": false,
+        "components": 1
+      },
+      "materials": [
+        "Translucent warm grey fins"
+      ],
+      "uv_layers": []
+    },
+    {
+      "name": "Pectoral",
+      "type": "MESH",
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "scale_applied": true,
+      "visible": true,
+      "modifiers": [],
+      "dimensions": [
+        0.031,
+        0.01523,
+        0.016
+      ],
+      "stats": {
+        "verts": 10,
+        "edges": 24,
+        "faces": 16,
+        "tris": 16,
+        "ngons": 0,
+        "quads": 0,
+        "tri_faces": 16
+      },
+      "health": {
+        "verts": 10,
+        "edges": 24,
+        "faces": 16,
+        "non_manifold_edges": 0,
+        "boundary_edges": 0,
+        "wire_edges": 0,
+        "loose_verts": 0,
+        "degenerate_faces": 0,
+        "ngons": 0,
+        "inconsistent_normals": 0,
+        "is_closed": true,
+        "is_manifold": true,
+        "signed_volume": 9.429992728582662e-09,
+        "normals_inverted": false,
+        "components": 1
+      },
+      "materials": [
+        "Translucent warm grey fins"
+      ],
+      "uv_layers": []
+    },
+    {
+      "name": "Pelvic",
+      "type": "MESH",
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "scale_applied": true,
+      "visible": true,
+      "modifiers": [],
+      "dimensions": [
+        0.023,
+        0.00823,
+        0.012
+      ],
+      "stats": {
+        "verts": 8,
+        "edges": 18,
+        "faces": 12,
+        "tris": 12,
+        "ngons": 0,
+        "quads": 0,
+        "tri_faces": 12
+      },
+      "health": {
+        "verts": 8,
+        "edges": 18,
+        "faces": 12,
+        "non_manifold_edges": 0,
+        "boundary_edges": 0,
+        "wire_edges": 0,
+        "loose_verts": 0,
+        "degenerate_faces": 0,
+        "ngons": 0,
+        "inconsistent_normals": 0,
+        "is_closed": true,
+        "is_manifold": true,
+        "signed_volume": 4.013503684703121e-08,
+        "normals_inverted": false,
+        "components": 1
+      },
+      "materials": [
+        "Translucent warm grey fins"
+      ],
+      "uv_layers": []
+    },
+    {
+      "name": "Gill_cover",
+      "type": "MESH",
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "scale_applied": true,
+      "visible": true,
+      "modifiers": [],
+      "dimensions": [
+        0.007363,
+        0.00539,
+        0.029322
+      ],
+      "stats": {
+        "verts": 25,
+        "edges": 69,
+        "faces": 46,
+        "tris": 46,
+        "ngons": 0,
+        "quads": 0,
+        "tri_faces": 46
+      },
+      "health": {
+        "verts": 25,
+        "edges": 69,
+        "faces": 46,
+        "non_manifold_edges": 0,
+        "boundary_edges": 0,
+        "wire_edges": 0,
+        "loose_verts": 0,
+        "degenerate_faces": 0,
+        "ngons": 0,
+        "inconsistent_normals": 0,
+        "is_closed": true,
+        "is_manifold": true,
+        "signed_volume": 4.190318695801164e-09,
+        "normals_inverted": false,
+        "components": 1
+      },
+      "materials": [
+        "Operculum crease"
+      ],
+      "uv_layers": []
+    },
+    {
+      "name": "Pectoral_ray",
+      "type": "MESH",
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "scale_applied": true,
+      "visible": true,
+      "modifiers": [],
+      "dimensions": [
+        0.021116,
+        0.005205,
+        0.013176
+      ],
+      "stats": {
+        "verts": 10,
+        "edges": 24,
+        "faces": 16,
+        "tris": 16,
+        "ngons": 0,
+        "quads": 0,
+        "tri_faces": 16
+      },
+      "health": {
+        "verts": 10,
+        "edges": 24,
+        "faces": 16,
+        "non_manifold_edges": 0,
+        "boundary_edges": 0,
+        "wire_edges": 0,
+        "loose_verts": 0,
+        "degenerate_faces": 0,
+        "ngons": 0,
+        "inconsistent_normals": 0,
+        "is_closed": true,
+        "is_manifold": true,
+        "signed_volume": 7.249669669066259e-10,
+        "normals_inverted": false,
+        "components": 1
+      },
+      "materials": [
+        "Fin rays"
+      ],
+      "uv_layers": []
+    },
+    {
+      "name": "Pectoral_ray.001",
+      "type": "MESH",
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "scale_applied": true,
+      "visible": true,
+      "modifiers": [],
+      "dimensions": [
+        0.018121,
+        0.007199,
+        0.01118
+      ],
+      "stats": {
+        "verts": 10,
+        "edges": 24,
+        "faces": 16,
+        "tris": 16,
+        "ngons": 0,
+        "quads": 0,
+        "tri_faces": 16
+      },
+      "health": {
+        "verts": 10,
+        "edges": 24,
+        "faces": 16,
+        "non_manifold_edges": 0,
+        "boundary_edges": 0,
+        "wire_edges": 0,
+        "loose_verts": 0,
+        "degenerate_faces": 0,
+        "ngons": 0,
+        "inconsistent_normals": 0,
+        "is_closed": true,
+        "is_manifold": true,
+        "signed_volume": 6.39432785624353e-10,
+        "normals_inverted": false,
+        "components": 1
+      },
+      "materials": [
+        "Fin rays"
+      ],
+      "uv_layers": []
+    },
+    {
+      "name": "Pectoral_ray.002",
+      "type": "MESH",
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "scale_applied": true,
+      "visible": true,
+      "modifiers": [],
+      "dimensions": [
+        0.01513,
+        0.009186,
+        0.009186
+      ],
+      "stats": {
+        "verts": 10,
+        "edges": 24,
+        "faces": 16,
+        "tris": 16,
+        "ngons": 0,
+        "quads": 0,
+        "tri_faces": 16
+      },
+      "health": {
+        "verts": 10,
+        "edges": 24,
+        "faces": 16,
+        "non_manifold_edges": 0,
+        "boundary_edges": 0,
+        "wire_edges": 0,
+        "loose_verts": 0,
+        "degenerate_faces": 0,
+        "ngons": 0,
+        "inconsistent_normals": 0,
+        "is_closed": true,
+        "is_manifold": true,
+        "signed_volume": 5.659608830774032e-10,
+        "normals_inverted": false,
+        "components": 1
+      },
+      "materials": [
+        "Fin rays"
+      ],
+      "uv_layers": []
+    },
+    {
+      "name": "Pectoral_ray.003",
+      "type": "MESH",
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "scale_applied": true,
+      "visible": true,
+      "modifiers": [],
+      "dimensions": [
+        0.012153,
+        0.011164,
+        0.007192
+      ],
+      "stats": {
+        "verts": 10,
+        "edges": 24,
+        "faces": 16,
+        "tris": 16,
+        "ngons": 0,
+        "quads": 0,
+        "tri_faces": 16
+      },
+      "health": {
+        "verts": 10,
+        "edges": 24,
+        "faces": 16,
+        "non_manifold_edges": 0,
+        "boundary_edges": 0,
+        "wire_edges": 0,
+        "loose_verts": 0,
+        "degenerate_faces": 0,
+        "ngons": 0,
+        "inconsistent_normals": 0,
+        "is_closed": true,
+        "is_manifold": true,
+        "signed_volume": 5.097927923394844e-10,
+        "normals_inverted": false,
+        "components": 1
+      },
+      "materials": [
+        "Fin rays"
+      ],
+      "uv_layers": []
+    },
+    {
+      "name": "Pectoral.001",
+      "type": "MESH",
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "scale_applied": true,
+      "visible": true,
+      "modifiers": [],
+      "dimensions": [
+        0.031,
+        0.01523,
+        0.016
+      ],
+      "stats": {
+        "verts": 10,
+        "edges": 24,
+        "faces": 16,
+        "tris": 16,
+        "ngons": 0,
+        "quads": 0,
+        "tri_faces": 16
+      },
+      "health": {
+        "verts": 10,
+        "edges": 24,
+        "faces": 16,
+        "non_manifold_edges": 0,
+        "boundary_edges": 0,
+        "wire_edges": 0,
+        "loose_verts": 0,
+        "degenerate_faces": 0,
+        "ngons": 0,
+        "inconsistent_normals": 0,
+        "is_closed": true,
+        "is_manifold": true,
+        "signed_volume": 9.42999272858312e-09,
+        "normals_inverted": false,
+        "components": 1
+      },
+      "materials": [
+        "Translucent warm grey fins"
+      ],
+      "uv_layers": []
+    },
+    {
+      "name": "Pelvic.001",
+      "type": "MESH",
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "scale_applied": true,
+      "visible": true,
+      "modifiers": [],
+      "dimensions": [
+        0.023,
+        0.00823,
+        0.012
+      ],
+      "stats": {
+        "verts": 8,
+        "edges": 18,
+        "faces": 12,
+        "tris": 12,
+        "ngons": 0,
+        "quads": 0,
+        "tri_faces": 12
+      },
+      "health": {
+        "verts": 8,
+        "edges": 18,
+        "faces": 12,
+        "non_manifold_edges": 0,
+        "boundary_edges": 0,
+        "wire_edges": 0,
+        "loose_verts": 0,
+        "degenerate_faces": 0,
+        "ngons": 0,
+        "inconsistent_normals": 0,
+        "is_closed": true,
+        "is_manifold": true,
+        "signed_volume": 4.0135036847031e-08,
+        "normals_inverted": false,
+        "components": 1
+      },
+      "materials": [
+        "Translucent warm grey fins"
+      ],
+      "uv_layers": []
+    },
+    {
+      "name": "Gill_cover.001",
+      "type": "MESH",
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "scale_applied": true,
+      "visible": true,
+      "modifiers": [],
+      "dimensions": [
+        0.007363,
+        0.00539,
+        0.029322
+      ],
+      "stats": {
+        "verts": 25,
+        "edges": 69,
+        "faces": 46,
+        "tris": 46,
+        "ngons": 0,
+        "quads": 0,
+        "tri_faces": 46
+      },
+      "health": {
+        "verts": 25,
+        "edges": 69,
+        "faces": 46,
+        "non_manifold_edges": 0,
+        "boundary_edges": 0,
+        "wire_edges": 0,
+        "loose_verts": 0,
+        "degenerate_faces": 0,
+        "ngons": 0,
+        "inconsistent_normals": 0,
+        "is_closed": true,
+        "is_manifold": true,
+        "signed_volume": 4.1903187048679534e-09,
+        "normals_inverted": false,
+        "components": 1
+      },
+      "materials": [
+        "Operculum crease"
+      ],
+      "uv_layers": []
+    },
+    {
+      "name": "Pectoral_ray.004",
+      "type": "MESH",
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "scale_applied": true,
+      "visible": true,
+      "modifiers": [],
+      "dimensions": [
+        0.021116,
+        0.005205,
+        0.013176
+      ],
+      "stats": {
+        "verts": 10,
+        "edges": 24,
+        "faces": 16,
+        "tris": 16,
+        "ngons": 0,
+        "quads": 0,
+        "tri_faces": 16
+      },
+      "health": {
+        "verts": 10,
+        "edges": 24,
+        "faces": 16,
+        "non_manifold_edges": 0,
+        "boundary_edges": 0,
+        "wire_edges": 0,
+        "loose_verts": 0,
+        "degenerate_faces": 0,
+        "ngons": 0,
+        "inconsistent_normals": 0,
+        "is_closed": true,
+        "is_manifold": true,
+        "signed_volume": 7.249665779373721e-10,
+        "normals_inverted": false,
+        "components": 1
+      },
+      "materials": [
+        "Fin rays"
+      ],
+      "uv_layers": []
+    },
+    {
+      "name": "Pectoral_ray.005",
+      "type": "MESH",
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "scale_applied": true,
+      "visible": true,
+      "modifiers": [],
+      "dimensions": [
+        0.018121,
+        0.007199,
+        0.01118
+      ],
+      "stats": {
+        "verts": 10,
+        "edges": 24,
+        "faces": 16,
+        "tris": 16,
+        "ngons": 0,
+        "quads": 0,
+        "tri_faces": 16
+      },
+      "health": {
+        "verts": 10,
+        "edges": 24,
+        "faces": 16,
+        "non_manifold_edges": 0,
+        "boundary_edges": 0,
+        "wire_edges": 0,
+        "loose_verts": 0,
+        "degenerate_faces": 0,
+        "ngons": 0,
+        "inconsistent_normals": 0,
+        "is_closed": true,
+        "is_manifold": true,
+        "signed_volume": 6.394323680503168e-10,
+        "normals_inverted": false,
+        "components": 1
+      },
+      "materials": [
+        "Fin rays"
+      ],
+      "uv_layers": []
+    },
+    {
+      "name": "Pectoral_ray.006",
+      "type": "MESH",
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "scale_applied": true,
+      "visible": true,
+      "modifiers": [],
+      "dimensions": [
+        0.01513,
+        0.009186,
+        0.009186
+      ],
+      "stats": {
+        "verts": 10,
+        "edges": 24,
+        "faces": 16,
+        "tris": 16,
+        "ngons": 0,
+        "quads": 0,
+        "tri_faces": 16
+      },
+      "health": {
+        "verts": 10,
+        "edges": 24,
+        "faces": 16,
+        "non_manifold_edges": 0,
+        "boundary_edges": 0,
+        "wire_edges": 0,
+        "loose_verts": 0,
+        "degenerate_faces": 0,
+        "ngons": 0,
+        "inconsistent_normals": 0,
+        "is_closed": true,
+        "is_manifold": true,
+        "signed_volume": 5.659601772895065e-10,
+        "normals_inverted": false,
+        "components": 1
+      },
+      "materials": [
+        "Fin rays"
+      ],
+      "uv_layers": []
+    },
+    {
+      "name": "Pectoral_ray.007",
+      "type": "MESH",
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "scale_applied": true,
+      "visible": true,
+      "modifiers": [],
+      "dimensions": [
+        0.012153,
+        0.011164,
+        0.007192
+      ],
+      "stats": {
+        "verts": 10,
+        "edges": 24,
+        "faces": 16,
+        "tris": 16,
+        "ngons": 0,
+        "quads": 0,
+        "tri_faces": 16
+      },
+      "health": {
+        "verts": 10,
+        "edges": 24,
+        "faces": 16,
+        "non_manifold_edges": 0,
+        "boundary_edges": 0,
+        "wire_edges": 0,
+        "loose_verts": 0,
+        "degenerate_faces": 0,
+        "ngons": 0,
+        "inconsistent_normals": 0,
+        "is_closed": true,
+        "is_manifold": true,
+        "signed_volume": 5.097919177312495e-10,
+        "normals_inverted": false,
+        "components": 1
+      },
+      "materials": [
+        "Fin rays"
+      ],
+      "uv_layers": []
+    }
+  ],
+  "assembly": {
+    "objects": [
+      {
+        "name": "Crucian_body",
+        "nearest": "Oral_lip_actual_rim",
+        "distance": 0.0,
+        "touches": true,
+        "lowest_z": -0.03200000151991844,
+        "on_ground": false,
+        "overlapping_face_pairs": 1084
+      },
+      {
+        "name": "Oral_lip_actual_rim",
+        "nearest": "Crucian_body",
+        "distance": 0.0,
+        "touches": true,
+        "lowest_z": -0.0031999999191612005,
+        "on_ground": false,
+        "overlapping_face_pairs": 302
+      },
+      {
+        "name": "Mouth_recess",
+        "nearest": "Crucian_body",
+        "distance": 0.0,
+        "touches": true,
+        "lowest_z": -0.0017999999690800905,
+        "on_ground": false,
+        "overlapping_face_pairs": 4
+      },
+      {
+        "name": "Eye_iris",
+        "nearest": "Crucian_body",
+        "distance": 0.0,
+        "touches": true,
+        "lowest_z": 0.004100000020116568,
+        "on_ground": false,
+        "overlapping_face_pairs": 78
+      },
+      {
+        "name": "Eye_pupil",
+        "nearest": "Eye_iris",
+        "distance": 0.0,
+        "touches": true,
+        "lowest_z": 0.004979999735951424,
+        "on_ground": false,
+        "overlapping_face_pairs": 44
+      },
+      {
+        "name": "Eye_iris.001",
+        "nearest": "Crucian_body",
+        "distance": 0.0,
+        "touches": true,
+        "lowest_z": 0.004100000020116568,
+        "on_ground": false,
+        "overlapping_face_pairs": 78
+      },
+      {
+        "name": "Eye_pupil.001",
+        "nearest": "Eye_iris.001",
+        "distance": 0.0,
+        "touches": true,
+        "lowest_z": 0.004979999735951424,
+        "on_ground": false,
+        "overlapping_face_pairs": 44
+      },
+      {
+        "name": "Dorsal",
+        "nearest": "Crucian_body",
+        "distance": 0.0,
+        "touches": true,
+        "lowest_z": 0.01899999938905239,
+        "on_ground": false,
+        "overlapping_face_pairs": 309
+      },
+      {
+        "name": "Dorsal_ray",
+        "nearest": "Crucian_body",
+        "distance": 0.0,
+        "touches": true,
+        "lowest_z": 0.02552489936351776,
+        "on_ground": false,
+        "overlapping_face_pairs": 28
+      },
+      {
+        "name": "Dorsal_ray.001",
+        "nearest": "Crucian_body",
+        "distance": 0.0,
+        "touches": true,
+        "lowest_z": 0.028219131752848625,
+        "on_ground": false,
+        "overlapping_face_pairs": 33
+      },
+      {
+        "name": "Dorsal_ray.002",
+        "nearest": "Crucian_body",
+        "distance": 0.0,
+        "touches": true,
+        "lowest_z": 0.030912889167666435,
+        "on_ground": false,
+        "overlapping_face_pairs": 31
+      },
+      {
+        "name": "Dorsal_ray.003",
+        "nearest": "Crucian_body",
+        "distance": 0.0,
+        "touches": true,
+        "lowest_z": 0.0325520820915699,
+        "on_ground": false,
+        "overlapping_face_pairs": 40
+      },
+      {
+        "name": "Dorsal_ray.004",
+        "nearest": "Crucian_body",
+        "distance": 0.0,
+        "touches": true,
+        "lowest_z": 0.03348931670188904,
+        "on_ground": false,
+        "overlapping_face_pairs": 38
+      },
+      {
+        "name": "Dorsal_ray.005",
+        "nearest": "Crucian_body",
+        "distance": 0.0,
+        "touches": true,
+        "lowest_z": 0.03442653268575668,
+        "on_ground": false,
+        "overlapping_face_pairs": 36
+      },
+      {
+        "name": "Dorsal_ray.006",
+        "nearest": "Crucian_body",
+        "distance": 0.0,
+        "touches": true,
+        "lowest_z": 0.03487676382064819,
+        "on_ground": false,
+        "overlapping_face_pairs": 38
+      },
+      {
+        "name": "Dorsal_ray.007",
+        "nearest": "Crucian_body",
+        "distance": 0.0,
+        "touches": true,
+        "lowest_z": 0.03459734097123146,
+        "on_ground": false,
+        "overlapping_face_pairs": 41
+      },
+      {
+        "name": "Dorsal_ray.008",
+        "nearest": "Crucian_body",
+        "distance": 0.0,
+        "touches": true,
+        "lowest_z": 0.03431741148233414,
+        "on_ground": false,
+        "overlapping_face_pairs": 30
+      },
+      {
+        "name": "Dorsal_ray.009",
+        "nearest": "Crucian_body",
+        "distance": 0.0,
+        "touches": true,
+        "lowest_z": 0.03403456509113312,
+        "on_ground": false,
+        "overlapping_face_pairs": 32
+      },
+      {
+        "name": "Dorsal_ray.010",
+        "nearest": "Crucian_body",
+        "distance": 0.0,
+        "touches": true,
+        "lowest_z": 0.032792072743177414,
+        "on_ground": false,
+        "overlapping_face_pairs": 26
+      },
+      {
+        "name": "Dorsal_ray.011",
+        "nearest": "Crucian_body",
+        "distance": 0.0,
+        "touches": true,
+        "lowest_z": 0.03129805251955986,
+        "on_ground": false,
+        "overlapping_face_pairs": 24
+      },
+      {
+        "name": "Dorsal_ray.012",
+        "nearest": "Dorsal",
+        "distance": 0.0,
+        "touches": true,
+        "lowest_z": 0.029757307842373848,
+        "on_ground": false,
+        "overlapping_face_pairs": 22
+      },
+      {
+        "name": "Forked_caudal",
+        "nearest": "Crucian_body",
+        "distance": 0.0,
+        "touches": true,
+        "lowest_z": -0.024000000208616257,
+        "on_ground": false,
+        "overlapping_face_pairs": 489
+      },
+      {
+        "name": "Caudal_ray",
+        "nearest": "Crucian_body",
+        "distance": 0.0,
+        "touches": true,
+        "lowest_z": -0.022113807499408722,
+        "on_ground": false,
+        "overlapping_face_pairs": 52
+      },
+      {
+        "name": "Caudal_ray.001",
+        "nearest": "Crucian_body",
+        "distance": 0.0,
+        "touches": true,
+        "lowest_z": -0.016118686646223068,
+        "on_ground": false,
+        "overlapping_face_pairs": 56
+      },
+      {
+        "name": "Caudal_ray.002",
+        "nearest": "Crucian_body",
+        "distance": 0.0,
+        "touches": true,
+        "lowest_z": -0.010123995132744312,
+        "on_ground": false,
+        "overlapping_face_pairs": 56
+      },
+      {
+        "name": "Caudal_ray.003",
+        "nearest": "Crucian_body",
+        "distance": 0.0,
+        "touches": true,
+        "lowest_z": -0.005128027405589819,
+        "on_ground": false,
+        "overlapping_face_pairs": 55
+      },
+      {
+        "name": "Caudal_ray.004",
+        "nearest": "Crucian_body",
+        "distance": 0.0,
+        "touches": true,
+        "lowest_z": -0.00013000000035390258,
+        "on_ground": true,
+        "overlapping_face_pairs": 58
+      },
+      {
+        "name": "Caudal_ray.005",
+        "nearest": "Crucian_body",
+        "distance": 0.0,
+        "touches": true,
+        "lowest_z": 0.0009715994819998741,
+        "on_ground": false,
+        "overlapping_face_pairs": 59
+      },
+      {
+        "name": "Caudal_ray.006",
+        "nearest": "Crucian_body",
+        "distance": 0.0,
+        "touches": true,
+        "lowest_z": 0.0020760654006153345,
+        "on_ground": false,
+        "overlapping_face_pairs": 52
+      },
+      {
+        "name": "Caudal_ray.007",
+        "nearest": "Crucian_body",
+        "distance": 0.0,
+        "touches": true,
+        "lowest_z": 0.0034040354657918215,
+        "on_ground": false,
+        "overlapping_face_pairs": 61
+      },
+      {
+        "name": "Caudal_ray.008",
+        "nearest": "Crucian_body",
+        "distance": 0.0,
+        "touches": true,
+        "lowest_z": 0.00495491735637188,
+        "on_ground": false,
+        "overlapping_face_pairs": 57
+      },
+      {
+        "name": "Anal",
+        "nearest": "Crucian_body",
+        "distance": 0.0,
+        "touches": true,
+        "lowest_z": -0.032999999821186066,
+        "on_ground": false,
+        "overlapping_face_pairs": 22
+      },
+      {
+        "name": "Pectoral",
+        "nearest": "Crucian_body",
+        "distance": 0.0,
+        "touches": true,
+        "lowest_z": -0.024000000208616257,
+        "on_ground": false,
+        "overlapping_face_pairs": 130
+      },
+      {
+        "name": "Pelvic",
+        "nearest": "Crucian_body",
+        "distance": 0.0,
+        "touches": true,
+        "lowest_z": -0.03700000047683716,
+        "on_ground": false,
+        "overlapping_face_pairs": 8
+      },
+      {
+        "name": "Gill_cover",
+        "nearest": "Crucian_body",
+        "distance": 0.0,
+        "touches": true,
+        "lowest_z": -0.016161875799298286,
+        "on_ground": false,
+        "overlapping_face_pairs": 84
+      },
+      {
+        "name": "Pectoral_ray",
+        "nearest": "Crucian_body",
+        "distance": 0.0,
+        "touches": true,
+        "lowest_z": -0.022093528881669044,
+        "on_ground": false,
+        "overlapping_face_pairs": 140
+      },
+      {
+        "name": "Pectoral_ray.001",
+        "nearest": "Crucian_body",
+        "distance": 0.0,
+        "touches": true,
+        "lowest_z": -0.02009386010468006,
+        "on_ground": false,
+        "overlapping_face_pairs": 118
+      },
+      {
+        "name": "Pectoral_ray.002",
+        "nearest": "Crucian_body",
+        "distance": 0.0,
+        "touches": true,
+        "lowest_z": -0.018094323575496674,
+        "on_ground": false,
+        "overlapping_face_pairs": 113
+      },
+      {
+        "name": "Pectoral_ray.003",
+        "nearest": "Crucian_body",
+        "distance": 0.0,
+        "touches": true,
+        "lowest_z": -0.01609501615166664,
+        "on_ground": false,
+        "overlapping_face_pairs": 113
+      },
+      {
+        "name": "Pectoral.001",
+        "nearest": "Crucian_body",
+        "distance": 0.0,
+        "touches": true,
+        "lowest_z": -0.024000000208616257,
+        "on_ground": false,
+        "overlapping_face_pairs": 126
+      },
+      {
+        "name": "Pelvic.001",
+        "nearest": "Crucian_body",
+        "distance": 0.0,
+        "touches": true,
+        "lowest_z": -0.03700000047683716,
+        "on_ground": false,
+        "overlapping_face_pairs": 8
+      },
+      {
+        "name": "Gill_cover.001",
+        "nearest": "Crucian_body",
+        "distance": 0.0,
+        "touches": true,
+        "lowest_z": -0.016161875799298286,
+        "on_ground": false,
+        "overlapping_face_pairs": 85
+      },
+      {
+        "name": "Pectoral_ray.004",
+        "nearest": "Crucian_body",
+        "distance": 0.0,
+        "touches": true,
+        "lowest_z": -0.022093528881669044,
+        "on_ground": false,
+        "overlapping_face_pairs": 143
+      },
+      {
+        "name": "Pectoral_ray.005",
+        "nearest": "Crucian_body",
+        "distance": 0.0,
+        "touches": true,
+        "lowest_z": -0.02009386010468006,
+        "on_ground": false,
+        "overlapping_face_pairs": 111
+      },
+      {
+        "name": "Pectoral_ray.006",
+        "nearest": "Crucian_body",
+        "distance": 0.0,
+        "touches": true,
+        "lowest_z": -0.018094323575496674,
+        "on_ground": false,
+        "overlapping_face_pairs": 104
+      },
+      {
+        "name": "Pectoral_ray.007",
+        "nearest": "Crucian_body",
+        "distance": 0.0,
+        "touches": true,
+        "lowest_z": -0.01609501615166664,
+        "on_ground": false,
+        "overlapping_face_pairs": 112
+      }
+    ],
+    "floating": [],
+    "tolerance": 0.00020440678441299733,
+    "checked": 46,
+    "ok": true
+  },
+  "problems": [],
+  "ok": true
+}

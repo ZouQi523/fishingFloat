@@ -1,0 +1,314 @@
+Navigated; inspecting page
+STATE {
+  options: {
+    leadMassG: 4,
+    floatMassG: 0.6,
+    baitMassG: 0.34,
+    baitDensity: 1100,
+    baitRadius: 0.003329067050248536,
+    hookExtent: 0.019329067050248536,
+    waterY: 0.83,
+    bottomY: 0.055,
+    waterDensity: 998.2336361398824,
+    lineMaterial: 'nylon',
+    lineDensity: 1140,
+    mainDiameter: 0.00022,
+    subDiameter: 0.00016,
+    mainLength: 1.2,
+    floatToSwivel: 0.42,
+    windOnSurface: true,
+    leadAboveSwivel: 0.055,
+    leadTravel: 0.08,
+    leadLocked: true,
+    leaderLengths: [ 0.12, 0.15 ],
+    rodTip: { x: -0.5, y: 1.1, z: 0.025 }
+  },
+  time: 20.049999999999184,
+  nodes: {
+    rod: { x: -0.5, y: 1.1, z: 0.025 },
+    floatFoot: {
+      x: -0.1815129487253166,
+      y: 0.6503604549519466,
+      z: 0.02531293161340835
+    },
+    floatTop: {
+      x: -0.18151294843536867,
+      y: 0.9103604807370645,
+      z: 0.025312931613075473
+    },
+    lead: {
+      x: -0.18151294883016383,
+      y: 0.28536043080088963,
+      z: 0.025312931613600865
+    },
+    swivel: {
+      x: -0.18151294879142094,
+      y: 0.23035828813928647,
+      z: 0.0253129316136067
+    },
+    leaderAnchor: {
+      x: -0.18151294879142094,
+      y: 0.22435828813928646,
+      z: 0.0253129316136067
+    },
+    hooks: [ [Object], [Object] ]
+  },
+  curves: {
+    wind: [
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      ... 191 more items
+    ],
+    upper: [
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object]
+    ],
+    lower: [
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object]
+    ],
+    leaders: [ [Array], [Array] ]
+  },
+  markers: {
+    floatStops: [ [Object], [Object], [Object], [Object] ],
+    leadStops: [ [Object], [Object] ]
+  },
+  leadCoordinate: 0.055,
+  velocityY: 4.7477307418830605e-7,
+  velocities: [
+    {
+      x: 7.951639346970296e-10,
+      y: 4.7477307418830605e-7,
+      z: 1.897648704840549e-12
+    },
+    {
+      x: 2.3768054191464216e-9,
+      y: 4.74841419517702e-7,
+      z: 4.1033842990145786e-12
+    },
+    {
+      x: -8.169265264257319e-10,
+      y: 4.7471350850258887e-7,
+      z: -1.388056336537602e-12
+    },
+    {
+      x: -6.867306723279398e-10,
+      y: 4.6970793254885734e-7,
+      z: -9.575673587391975e-13
+    },
+    {
+      x: 1.9489077018874923e-10,
+      y: 4.7547982551243706e-7,
+      z: 3.8219427622721014e-13
+    },
+    {
+      x: 1.347055800238195e-10,
+      y: 4.6970793254885734e-7,
+      z: 2.4147350785597155e-13
+    }
+  ],
+  evaluation: {
+    buoyancyN: 0.050434131923526984,
+    weightN: 0.050604185511642856,
+    bottomSupportN: 0.000034720208184901535,
+    rodReaction: { x: 0, y: 0.00006707181637399839, z: 0 },
+    rodTensionN: 0.00006707181637399839,
+    surfaceSupportN: 0.00006819783520431337,
+    windSurfaceLength: 0.2854537781733345,
+    lineMassG: 0.05819084107650074,
+    lineBuoyancyG: 0.03452476908477488,
+    lineApparentMassG: 0.02366607199172586,
+    floatDisplacedVolume: 0.0000043831119390857475,
+    displacedVolume: 0.000005151950420019859,
+    exposureM: 0.08036048073706459,
+    tiltRad: 0,
+    staticResidualN: 6.372835265857008e-8,
+    status: 'hooks-bottom',
+    contacts: { hooks: [Array], lead: false, float: false },
+    tension: {
+      wind: 0.00006707181637399839,
+      upper: 0.03689568082666314,
+      lower: 0.0010103121549786568,
+      leaders: [Array]
+    },
+    maxLengthError: 0.0000021426616031647305,
+    options: {
+      leadMassG: 4,
+      floatMassG: 0.6,
+      baitMassG: 0.34,
+      baitDensity: 1100,
+      baitRadius: 0.003329067050248536,
+      hookExtent: 0.019329067050248536,
+      waterY: 0.83,
+      bottomY: 0.055,
+      waterDensity: 998.2336361398824,
+      lineMaterial: 'nylon',
+      lineDensity: 1140,
+      mainDiameter: 0.00022,
+      subDiameter: 0.00016,
+      mainLength: 1.2,
+      floatToSwivel: 0.42,
+      windOnSurface: true,
+      leadAboveSwivel: 0.055,
+      leadTravel: 0.08,
+      leadLocked: true,
+      leaderLengths: [Array],
+      rodTip: [Object]
+    }
+  },
+  topY: 0.9103604807370645,
+  leadMass: 4,
+  castPhase: 0,
+  paused: false
+}
+ACTION {
+  passed: 147,
+  checks: [
+    'simulation is paused before observation-only interaction checks',
+    'scene labels, grab handles, numeric focus readout and floating tips are absent',
+    'rig picking is disabled while camera orbit remains enabled',
+    'standalone workshop starts hidden and replaces old HUD slider controls',
+    'btnAdjustFloat is visible',
+    'btnAdjustFloat receives real pointer input',
+    'float workshop starts an exact-original draft',
+    'float is a fullscreen accessible illustrated workshop, separate from hidden legacy inputs',
+    'workshop disables orbit and makes background HUD inert',
+    'float draft bounds preserve seat spacing and stored running travel',
+    'float grip announces current value and bounds',
+    'float blank canvas click does not move hardware',
+    'float upward illustrated-hardware mouse drag changes draft only and freezes simulation',
+    'float canvas drag never moves camera',
+    'seatCancel is visible',
+    'seatCancel receives real pointer input',
+    'float Cancel preserves options, nodes, time and pause state',
+    'float Cancel returns focus to opener',
+    'btnAdjustFloat is visible',
+    'btnAdjustFloat receives real pointer input',
+    'seatGrip is visible',
+    'seatGrip receives real pointer input',
+    'float real grip mouse drag edits only draft',
+    'float focused grip ArrowUp adds a half centimetre without committing',
+    'seatGrip is visible',
+    'seatGrip receives real pointer input',
+    'float active captured mouse gesture changes draft',
+    'float hardware gesture owns real pointer capture',
+    'float lost pointer capture reverts only its current gesture',
+    'seatRestore is visible',
+    'seatRestore receives real pointer input',
+    'float Restore resets only draft to its standard setting',
+    'float Home and ArrowDown clamp at lower bound',
+    'float End and ArrowUp clamp at upper bound',
+    'float Tab at last control stays in workshop',
+    'float Shift-Tab at first control stays in workshop',
+    'seatRestore is visible',
+    'seatRestore receives real pointer input',
+    'seatDone is visible',
+    'seatDone receives real pointer input',
+    'float Done commits only the selected seat',
+    'float Done leaves every other rig option unchanged',
+    'float Done recasts while preserving pause state and camera',
+    'float Done preserves lead mass, line mass and fixed material lengths',
+    'btnAdjustFloat is visible',
+    'btnAdjustFloat receives real pointer input',
+    'seatGrip is visible',
+    'seatGrip receives real pointer input',
+    'float mobile touch grip drag changes draft only',
+    'seatGrip is visible',
+    'seatGrip receives real pointer input',
+    'float second touch gesture changes current draft',
+    'float touchCancel rolls back only the active gesture',
+    'float Escape discards draft and restores camera controls',
+    'float Escape restores opener focus',
+    'btnAdjustLead is visible',
+    'btnAdjustLead receives real pointer input',
+    'lead workshop starts an exact-original draft',
+    'lead is a fullscreen accessible illustrated workshop, separate from hidden legacy inputs',
+    'workshop disables orbit and makes background HUD inert',
+    'lead draft bounds preserve seat spacing and stored running travel',
+    'lead grip announces current value and bounds',
+    'lead blank canvas click does not move hardware',
+    'lead upward illustrated-hardware mouse drag changes draft only and freezes simulation',
+    'lead canvas drag never moves camera',
+    'seatCancel is visible',
+    'seatCancel receives real pointer input',
+    'lead Cancel preserves options, nodes, time and pause state',
+    'lead Cancel returns focus to opener',
+    'btnAdjustLead is visible',
+    'btnAdjustLead receives real pointer input',
+    'seatGrip is visible',
+    'seatGrip receives real pointer input',
+    'lead real grip mouse drag edits only draft',
+    'lead focused grip ArrowUp adds a half centimetre without committing',
+    'seatGrip is visible',
+    'seatGrip receives real pointer input',
+    'lead active captured mouse gesture changes draft',
+    'lead hardware gesture owns real pointer capture',
+    'lead lost pointer capture reverts only its current gesture',
+    'seatRestore is visible',
+    'seatRestore receives real pointer input',
+    'lead Restore resets only draft to its standard setting',
+    'lead Home and ArrowDown clamp at lower bound',
+    'lead End and ArrowUp clamp at upper bound',
+    'lead Tab at last control stays in workshop',
+    'lead Shift-Tab at first control stays in workshop',
+    'seatRestore is visible',
+    'seatRestore receives real pointer input',
+    'seatDone is visible',
+    'seatDone receives real pointer input',
+    'lead Done commits only the selected seat',
+    'lead Done leaves every other rig option unchanged',
+    'lead Done recasts while preserving pause state and camera',
+    'lead Done preserves lead mass, line mass and fixed material lengths',
+    'btnAdjustLead is visible',
+    'btnAdjustLead receives real pointer input',
+    'seatGrip is visible',
+    'seatGrip receives real pointer input',
+    'lead mobile touch grip drag changes draft only',
+    ... 47 more items
+  ]
+}
+SCREENSHOT preview-water-drag-mobile.png ERRORS 0
+HUD {
+  text: '浮研 FLOAT LAB\n' +
+    '实时观察\n' +
+    '已暂停\n' +
+    '铅皮质量\n' +
+    '4.00 g\n' +
+    '露出漂目\n' +
+    '5.1 目\n' +
+    '移漂\n' +
+    '移铅\n' +
+    '剪铅皮\n' +
+    '线长固定 · 主线 120 cm · 子线 12 / 15 cm\n' +
+    '暂停 · 单钩触底 · 锁铅',
+  info: { frame: 3522, calls: 43, triangles: 303574, points: 0, lines: 519 }
+}

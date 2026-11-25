@@ -1,0 +1,17 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Node
+node_modules/
+
+# Blender 自动备份
+*.blend1
+
+# 调研阶段下载的其余候选扫描模型（体积过大，不随仓库发布）
+# 仅保留最终采用的 assets/candidates/research-ffish-ccd31440
+assets/candidates/research-ffish-1059a32b/
+assets/candidates/research-ffish-14a40202/

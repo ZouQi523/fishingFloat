@@ -1,0 +1,317 @@
+Navigated; inspecting page
+STATE {
+  options: {
+    leadMassG: 4,
+    floatMassG: 0.6,
+    baitMassG: 0.34,
+    baitDensity: 1100,
+    baitRadius: 0.003329067050248536,
+    hookExtent: 0.019329067050248536,
+    waterY: 0.83,
+    bottomY: 0.055,
+    waterDensity: 998.2336361398824,
+    lineMaterial: 'nylon',
+    lineDensity: 1140,
+    mainDiameter: 0.00022,
+    subDiameter: 0.00016,
+    mainLength: 1.2,
+    floatToSwivel: 0.42,
+    windOnSurface: true,
+    leadAboveSwivel: 0.055,
+    leadTravel: 0.08,
+    leadLocked: true,
+    leaderLengths: [ 0.12, 0.15 ],
+    rodTip: { x: -0.5, y: 1.1, z: 0.025 }
+  },
+  time: 21.574999999999097,
+  nodes: {
+    rod: { x: -0.5, y: 1.1, z: 0.025 },
+    floatFoot: {
+      x: -0.18151294880381522,
+      y: 0.6503604494110549,
+      z: 0.025312931613426983
+    },
+    floatTop: {
+      x: -0.18151294883810046,
+      y: 0.9103604751953608,
+      z: 0.025312931613340785
+    },
+    lead: {
+      x: -0.18151294873392157,
+      y: 0.28536042526070704,
+      z: 0.025312931613520398
+    },
+    swivel: {
+      x: -0.18151294873804494,
+      y: 0.23035828265875521,
+      z: 0.02531293161350851
+    },
+    leaderAnchor: {
+      x: -0.18151294873804494,
+      y: 0.2243582826587552,
+      z: 0.02531293161350851
+    },
+    hooks: [ [Object], [Object] ]
+  },
+  curves: {
+    wind: [
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      ... 191 more items
+    ],
+    upper: [
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object]
+    ],
+    lower: [
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object]
+    ],
+    leaders: [ [Array], [Array] ]
+  },
+  markers: {
+    floatStops: [ [Object], [Object], [Object], [Object] ],
+    leadStops: [ [Object], [Object] ]
+  },
+  leadCoordinate: 0.055,
+  velocityY: 9.385026089603343e-10,
+  velocities: [
+    {
+      x: 1.216160505634889e-10,
+      y: 9.385026089603343e-10,
+      z: -6.994405055138486e-14
+    },
+    {
+      x: 6.279177178214468e-10,
+      y: 9.386358357232893e-10,
+      z: -7.444045380111675e-13
+    },
+    {
+      x: -1.5032641798029545e-10,
+      y: 9.383827048736748e-10,
+      z: 1.740274591099933e-13
+    },
+    {
+      x: -6.664668816824815e-11,
+      y: 9.284173430046394e-10,
+      z: 2.2315482794965646e-13
+    },
+    {
+      x: 5.5782045649266365e-11,
+      y: 9.39878175287845e-10,
+      z: -4.746203430272544e-14
+    },
+    {
+      x: 3.5784708529718046e-11,
+      y: 9.284140123355655e-10,
+      z: -2.4980018054066022e-14
+    }
+  ],
+  lastInteraction: {
+    hooks: [ [Object], [Object] ],
+    lineContacts: [],
+    nodes: [ [Object], [Object], [Object], [Object], [Object], [Object] ],
+    total: { x: 0, y: 0, z: 0 }
+  },
+  evaluation: {
+    buoyancyN: 0.05043413201852184,
+    weightN: 0.050604185511642856,
+    bottomSupportN: 0.00003478398119637311,
+    rodReaction: { x: 0, y: 0.00006707181646202793, z: 0 },
+    rodTensionN: 0.00006707181646202793,
+    surfaceSupportN: 0.00006819783396372503,
+    windSurfaceLength: 0.28545377298063845,
+    lineMassG: 0.05819084107650074,
+    lineBuoyancyG: 0.03452476918331217,
+    lineApparentMassG: 0.023666071893188572,
+    floatDisplacedVolume: 0.0000043831119486909554,
+    displacedVolume: 0.000005151950429723779,
+    exposureM: 0.08036047519536083,
+    tiltRad: 0,
+    staticResidualN: 1.3850111342365596e-10,
+    status: 'hooks-bottom',
+    contacts: { hooks: [Array], lead: false, float: false },
+    tension: {
+      wind: 0.00006707181646202793,
+      upper: 0.03689565851797251,
+      lower: 0.0010102514810746352,
+      leaders: [Array]
+    },
+    maxLengthError: 0.000002142601951825307,
+    options: {
+      leadMassG: 4,
+      floatMassG: 0.6,
+      baitMassG: 0.34,
+      baitDensity: 1100,
+      baitRadius: 0.003329067050248536,
+      hookExtent: 0.019329067050248536,
+      waterY: 0.83,
+      bottomY: 0.055,
+      waterDensity: 998.2336361398824,
+      lineMaterial: 'nylon',
+      lineDensity: 1140,
+      mainDiameter: 0.00022,
+      subDiameter: 0.00016,
+      mainLength: 1.2,
+      floatToSwivel: 0.42,
+      windOnSurface: true,
+      leadAboveSwivel: 0.055,
+      leadTravel: 0.08,
+      leadLocked: true,
+      leaderLengths: [Array],
+      rodTip: [Object]
+    }
+  },
+  topY: 0.9103604751953608,
+  leadMass: 4,
+  castPhase: 0,
+  paused: false
+}
+ACTION {
+  checks: 45,
+  names: [
+    'fish starts disabled: original trim baseline remains the default',
+    'laboratory panel is initially collapsed',
+    'single-file app has no external scripts/styles',
+    'offline load made no network resource requests',
+    'pause freezes rig and behavior across real frames',
+    'expanded panel stays within desktop/mobile viewport',
+    'manual experiment button nibble',
+    'real callback enables and triggers nibble',
+    'manual experiment button quick',
+    'real callback enables and triggers quick',
+    'manual experiment button spit',
+    'real callback enables and triggers spit',
+    'manual experiment button lift',
+    'real callback enables and triggers lift',
+    'manual experiment button sideways',
+    'real callback enables and triggers sideways',
+    'manual experiment button down',
+    'real callback enables and triggers down',
+    'manual experiment button rub',
+    'real callback enables and triggers rub',
+    'manual experiment button probe',
+    'real callback enables and triggers probe',
+    'downward behavior button does not promise a forced black float',
+    'single-step advances exactly one fixed physical tick and stays paused',
+    'single-step drives the original rig at the same fixed clock',
+    'per-state force configuration reaches behavior engine',
+    'per-state configuration does not overwrite global parameters',
+    'clear state override restores global fallback',
+    'hook-mass control updates real tackle, not behavior force',
+    'independent tackle workshop freezes fish and original rig together',
+    'slow-motion selector reaches fixed clock',
+    'slow motion advances simulation below wall-clock rate',
+    'actual approach and oral contact capture bait in browser',
+    'behavior transmits real nonzero hook force into the original solver',
+    'head lifting naturally changes exposed marks without scripted float coordinates',
+    'actual model lip tracks physical mouth through moving/pitched poses',
+    'history retains only last ten simulation seconds',
+    'curve has real suction/release behavior events',
+    'fish-loaded line constraints remain within tolerance',
+    'live physical telemetry renders exposed marks and mouth',
+    'history canvas and behavior event text render',
+    'same seed and reset reproduce exact browser physical history',
+    'offline fish is real original-scene geometry with a measured lip',
+    'existing optics and WebGL remain healthy with fish',
+    'final populated panel remains on-screen'
+  ],
+  viewport: { width: 1440, height: 1000 },
+  physical: {
+    time: 3.75,
+    state: 'lift',
+    mouth: {
+      x: 0.010969810025526642,
+      y: 0.1987961485480801,
+      z: 0.02460046053923793
+    },
+    marks: 5.513948788173661,
+    force: {
+      x: -6.42227432657963e-7,
+      y: 0.0004535685893559936,
+      z: -9.078998392576801e-7
+    }
+  },
+  model: {
+    enabled: true,
+    visible: true,
+    state: 'lift',
+    time: 3.7500000000000813,
+    modelMouth: {
+      x: 0.010969810025526647,
+      y: 0.1987961485480801,
+      z: 0.02460046053923793
+    },
+    physicalMouth: {
+      x: 0.010969810025526642,
+      y: 0.1987961485480801,
+      z: 0.02460046053923793
+    },
+    error: 5.204170427930421e-18,
+    modelMouthLocal: [
+      0.08999999999999991,
+      2.710505431213761e-20,
+      -5.624298769768555e-20
+    ],
+    mouthSource: {
+      mesh: 'Oral_lip_actual_rim',
+      kind: 'actual exported front lip vertices centroid',
+      vertexCount: 80
+    },
+    position: {
+      x: -0.07586728615910264,
+      y: 0.17514622833211685,
+      z: 0.02460046053923793
+    },
+    direction: { x: 0.9648566242736597, y: 0.26277689128848053, z: 0 },
+    counts: { meshes: 46, vertices: 11082, triangles: 3694 }
+  },
+  offline: true,
+  screenshot: '100% clarity debug; shipped default is 35%'
+}
+SCREENSHOT preview-fish-final-fish-desktop.png ERRORS 0
+HUD {
+  text: '浮研 FLOAT LAB\n' +
+    '静观水面 · 风线默认贴水\n' +
+    '实时观察\n' +
+    '已暂停\n' +
+    '铅皮质量\n' +
+    '4.00 g\n' +
+    '露出漂目\n' +
+    '5.5 目\n' +
+    '移漂\n' +
+    '移铅\n' +
+    '剪铅皮\n' +
+    '线长固定 · 主线 120 cm · 子线 12 / 15 cm\n' +
+    '暂停 · 半水悬浮 · 锁铅',
+  info: { frame: 991, calls: 44, triangles: 304510, points: 0, lines: 519 }
+}

@@ -1,0 +1,104 @@
+{
+  "unit": {
+    "passed": 188,
+    "failed": 0,
+    "evidence": "qa-performance-unit.log"
+  },
+  "browser": [
+    {
+      "device": "desktop",
+      "mode": "regression",
+      "checks": 89,
+      "errors": 0,
+      "evidence": "preview-performance-regression-desktop.json",
+      "screenshot": "preview-performance-regression-desktop.png"
+    },
+    {
+      "device": "desktop",
+      "mode": "drag",
+      "checks": 147,
+      "errors": 0,
+      "evidence": "preview-performance-drag-desktop.json",
+      "screenshot": "preview-performance-drag-desktop.png"
+    },
+    {
+      "device": "desktop",
+      "mode": "scope",
+      "checks": 261,
+      "errors": 0,
+      "evidence": "preview-performance-scope-desktop.json",
+      "screenshot": "preview-performance-scope-desktop.png"
+    },
+    {
+      "device": "desktop",
+      "mode": "water",
+      "checks": 58,
+      "errors": 0,
+      "evidence": "preview-performance-water-desktop.json",
+      "screenshot": "preview-performance-water-desktop.png"
+    },
+    {
+      "device": "desktop",
+      "mode": "fish",
+      "checks": 46,
+      "errors": 0,
+      "evidence": "preview-performance-fish-desktop.json",
+      "screenshot": "preview-performance-fish-desktop.png"
+    },
+    {
+      "device": "mobile",
+      "mode": "regression",
+      "checks": 89,
+      "errors": 0,
+      "evidence": "preview-performance-regression-mobile.json",
+      "screenshot": "preview-performance-regression-mobile.png"
+    },
+    {
+      "device": "mobile",
+      "mode": "drag",
+      "checks": 147,
+      "errors": 0,
+      "evidence": "preview-performance-drag-mobile.json",
+      "screenshot": "preview-performance-drag-mobile.png"
+    },
+    {
+      "device": "mobile",
+      "mode": "scope",
+      "checks": 261,
+      "errors": 0,
+      "evidence": "preview-performance-scope-mobile.json",
+      "screenshot": "preview-performance-scope-mobile.png"
+    },
+    {
+      "device": "mobile",
+      "mode": "water",
+      "checks": 58,
+      "errors": 0,
+      "evidence": "preview-performance-water-mobile.json",
+      "screenshot": "preview-performance-water-mobile.png"
+    },
+    {
+      "device": "mobile",
+      "mode": "fish",
+      "checks": 47,
+      "errors": 0,
+      "evidence": "preview-performance-fish-mobile.json",
+      "screenshot": "preview-performance-fish-mobile.png"
+    }
+  ],
+  "browserTotal": 1203,
+  "sourceSyntaxAndEmbedding": 19,
+  "indexBytes": 5283289,
+  "indexSHA256": "f920da6c856b5b599e9ceabbf9faf97b3f81a7f2141a543f960198bc46ef9d5a",
+  "modelHash": "281aa1fb3da062e2a01135377b56549b0af147fefe61975582b607777060fb67",
+  "modelTriangles": 19900,
+  "collision": {
+    "supportPoints": 830,
+    "surfacePoints": 5090,
+    "skin": 0.0015
+  },
+  "scope": "indoor real crucian scan, whole-body local-terrain collision, live scope double-click and touch-double-tap enlargement; no outdoor venue",
+  "mobileLimitation": "desktop Chrome touch and mobile emulation, not real phone or Safari",
+  "performanceEvidence": "qa-performance-final-summary.json",
+  "previousBuildSHA256": "e8fb553f4a3ea8462fe40df60b1fa2bde27262eb2afdf141bcedc6b7dba52145"
+}

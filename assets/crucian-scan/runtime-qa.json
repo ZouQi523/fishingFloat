@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "modelHash": "281aa1fb3da062e2a01135377b56549b0af147fefe61975582b607777060fb67",
+  "classicOffline": true,
+  "immutableCollisionArrays": true,
+  "rgbaBytes": 4194304,
+  "rgbaExactlyMatchesSavedPng": true,
+  "textureRowOrder": "bottom-up for WebGL flipY=false",
+  "glbVersion": 2,
+  "glbMeshCount": 1,
+  "glbTriangleCount": 19900,
+  "glbImageCount": 1,
+  "glbBufferBoundsMatchRuntime": true,
+  "meshJsBytes": 10511335,
+  "bodyJsBytes": 187958
+}

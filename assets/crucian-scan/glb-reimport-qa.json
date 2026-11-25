@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "meshCount": 1,
+  "triangles": 19900,
+  "vertices": 14592,
+  "dimensionsBlender": [
+    0.17998984456062317,
+    0.02618975006043911,
+    0.08219684287905693
+  ],
+  "structuralRepairRequired": false,
+  "materials": [
+    "Photographic_albedo_reprojected_not_repainted"
+  ]
+}

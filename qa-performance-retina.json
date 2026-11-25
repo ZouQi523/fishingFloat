@@ -1,0 +1,2322 @@
+{
+  "recordedAt": "2026-11-25T11:14:56.454Z",
+  "htmlBytes": 5283289,
+  "htmlSHA256": "f920da6c856b5b599e9ceabbf9faf97b3f81a7f2141a543f960198bc46ef9d5a",
+  "deviceScaleFactor": 3,
+  "cpuRate": 1,
+  "results": [
+    {
+      "viewport": "1440x1000",
+      "deviceScaleFactor": 3,
+      "startup": {
+        "readyObservedMs": 1805.3000001907349,
+        "paint": [
+          {
+            "name": "first-paint",
+            "start": 52
+          },
+          {
+            "name": "first-contentful-paint",
+            "start": 52
+          }
+        ],
+        "navigation": [
+          {
+            "domInteractive": 47.90000009536743,
+            "domContentLoaded": 48.30000019073486
+          }
+        ],
+        "longTasks": [
+          {
+            "start": 1482,
+            "duration": 213
+          }
+        ],
+        "boot": {
+          "state": "ready",
+          "stage": "观察室已就绪",
+          "completedUnits": 38,
+          "totalUnits": 38,
+          "activeModule": "",
+          "scheduling": "double-requestAnimationFrame",
+          "error": null,
+          "loaderBudgetMs": 8,
+          "largeModuleBytes": 200000,
+          "paintOpportunities": 17,
+          "events": [
+            {
+              "name": "boot:start",
+              "elapsedMs": 0
+            },
+            {
+              "name": "stage:正在读取离线模块清单",
+              "elapsedMs": 22.40000009536743
+            },
+            {
+              "name": "manifest:ready",
+              "elapsedMs": 42.10000014305115
+            },
+            {
+              "name": "stage:解压 1/18 · vendor/three.module.js",
+              "elapsedMs": 42.10000014305115
+            },
+            {
+              "name": "decompressed:vendor/three.module.js",
+              "elapsedMs": 79.20000004768372
+            },
+            {
+              "name": "stage:执行 1/18 · vendor/three.module.js",
+              "elapsedMs": 79.20000004768372
+            },
+            {
+              "name": "executed:vendor/three.module.js",
+              "elapsedMs": 120.70000004768372
+            },
+            {
+              "name": "stage:解压 2/18 · vendor/OrbitControls.js",
+              "elapsedMs": 120.70000004768372
+            },
+            {
+              "name": "decompressed:vendor/OrbitControls.js",
+              "elapsedMs": 139.79999995231628
+            },
+            {
+              "name": "stage:执行 2/18 · vendor/OrbitControls.js",
+              "elapsedMs": 139.79999995231628
+            },
+            {
+              "name": "executed:vendor/OrbitControls.js",
+              "elapsedMs": 140.29999995231628
+            },
+            {
+              "name": "stage:解压 3/18 · src/physics.js",
+              "elapsedMs": 140.29999995231628
+            },
+            {
+              "name": "decompressed:src/physics.js",
+              "elapsedMs": 140.5
+            },
+            {
+              "name": "stage:执行 3/18 · src/physics.js",
+              "elapsedMs": 140.5
+            },
+            {
+              "name": "executed:src/physics.js",
+              "elapsedMs": 141.10000014305115
+            },
+            {
+              "name": "stage:解压 4/18 · src/tackle.js",
+              "elapsedMs": 141.10000014305115
+            },
+            {
+              "name": "decompressed:src/tackle.js",
+              "elapsedMs": 141.40000009536743
+            },
+            {
+              "name": "stage:执行 4/18 · src/tackle.js",
+              "elapsedMs": 141.40000009536743
+            },
+            {
+              "name": "executed:src/tackle.js",
+              "elapsedMs": 141.90000009536743
+            },
+            {
+              "name": "stage:解压 5/18 · src/fish-body.js",
+              "elapsedMs": 141.90000009536743
+            },
+            {
+              "name": "decompressed:src/fish-body.js",
+              "elapsedMs": 142.70000004768372
+            },
+            {
+              "name": "stage:执行 5/18 · src/fish-body.js",
+              "elapsedMs": 142.70000004768372
+            },
+            {
+              "name": "executed:src/fish-body.js",
+              "elapsedMs": 143.90000009536743
+            },
+            {
+              "name": "stage:解压 6/18 · src/fish-collision.js",
+              "elapsedMs": 143.90000009536743
+            },
+            {
+              "name": "decompressed:src/fish-collision.js",
+              "elapsedMs": 144.20000004768372
+            },
+            {
+              "name": "stage:执行 6/18 · src/fish-collision.js",
+              "elapsedMs": 144.20000004768372
+            },
+            {
+              "name": "executed:src/fish-collision.js",
+              "elapsedMs": 144.5
+            },
+            {
+              "name": "stage:解压 7/18 · src/terrain-cache.js",
+              "elapsedMs": 144.5
+            },
+            {
+              "name": "decompressed:src/terrain-cache.js",
+              "elapsedMs": 176
+            },
+            {
+              "name": "stage:执行 7/18 · src/terrain-cache.js",
+              "elapsedMs": 176.10000014305115
+            },
+            {
+              "name": "executed:src/terrain-cache.js",
+              "elapsedMs": 208.20000004768372
+            },
+            {
+              "name": "stage:解压 8/18 · src/tank-floor.js",
+              "elapsedMs": 208.20000004768372
+            },
+            {
+              "name": "decompressed:src/tank-floor.js",
+              "elapsedMs": 208.79999995231628
+            },
+            {
+              "name": "stage:执行 8/18 · src/tank-floor.js",
+              "elapsedMs": 208.79999995231628
+            },
+            {
+              "name": "executed:src/tank-floor.js",
+              "elapsedMs": 209.10000014305115
+            },
+            {
+              "name": "stage:解压 9/18 · src/fish-behavior.js",
+              "elapsedMs": 209.10000014305115
+            },
+            {
+              "name": "decompressed:src/fish-behavior.js",
+              "elapsedMs": 209.40000009536743
+            },
+            {
+              "name": "stage:执行 9/18 · src/fish-behavior.js",
+              "elapsedMs": 209.40000009536743
+            },
+            {
+              "name": "executed:src/fish-behavior.js",
+              "elapsedMs": 209.70000004768372
+            },
+            {
+              "name": "stage:解压 10/18 · src/fish-lab.js",
+              "elapsedMs": 209.70000004768372
+            },
+            {
+              "name": "decompressed:src/fish-lab.js",
+              "elapsedMs": 209.90000009536743
+            },
+            {
+              "name": "stage:执行 10/18 · src/fish-lab.js",
+              "elapsedMs": 209.90000009536743
+            },
+            {
+              "name": "executed:src/fish-lab.js",
+              "elapsedMs": 210.10000014305115
+            },
+            {
+              "name": "stage:解压 11/18 · src/crucian-mesh.js",
+              "elapsedMs": 210.10000014305115
+            },
+            {
+              "name": "decompressed:src/crucian-mesh.js",
+              "elapsedMs": 269.60000014305115
+            },
+            {
+              "name": "stage:执行 11/18 · src/crucian-mesh.js",
+              "elapsedMs": 269.60000014305115
+            },
+            {
+              "name": "executed:src/crucian-mesh.js",
+              "elapsedMs": 308.10000014305115
+            },
+            {
+              "name": "stage:解压 12/18 · src/fish-view.js",
+              "elapsedMs": 308.10000014305115
+            },
+            {
+              "name": "decompressed:src/fish-view.js",
+              "elapsedMs": 323.2000000476837
+            },
+            {
+              "name": "stage:执行 12/18 · src/fish-view.js",
+              "elapsedMs": 323.2999999523163
+            },
+            {
+              "name": "executed:src/fish-view.js",
+              "elapsedMs": 323.5
+            },
+            {
+              "name": "stage:解压 13/18 · src/fish-panel.js",
+              "elapsedMs": 323.5
+            },
+            {
+              "name": "decompressed:src/fish-panel.js",
+              "elapsedMs": 323.7000000476837
+            },
+            {
+              "name": "stage:执行 13/18 · src/fish-panel.js",
+              "elapsedMs": 323.7000000476837
+            },
+            {
+              "name": "executed:src/fish-panel.js",
+              "elapsedMs": 324
+            },
+            {
+              "name": "stage:解压 14/18 · src/optics.js",
+              "elapsedMs": 324
+            },
+            {
+              "name": "decompressed:src/optics.js",
+              "elapsedMs": 324.2999999523163
+            },
+            {
+              "name": "stage:执行 14/18 · src/optics.js",
+              "elapsedMs": 324.2999999523163
+            },
+            {
+              "name": "executed:src/optics.js",
+              "elapsedMs": 324.40000009536743
+            },
+            {
+              "name": "stage:解压 15/18 · src/seat-workshop.js",
+              "elapsedMs": 324.40000009536743
+            },
+            {
+              "name": "decompressed:src/seat-workshop.js",
+              "elapsedMs": 324.7000000476837
+            },
+            {
+              "name": "stage:执行 15/18 · src/seat-workshop.js",
+              "elapsedMs": 324.7000000476837
+            },
+            {
+              "name": "executed:src/seat-workshop.js",
+              "elapsedMs": 324.90000009536743
+            },
+            {
+              "name": "stage:解压 16/18 · src/float-scope.js",
+              "elapsedMs": 324.90000009536743
+            },
+            {
+              "name": "decompressed:src/float-scope.js",
+              "elapsedMs": 325
+            },
+            {
+              "name": "stage:执行 16/18 · src/float-scope.js",
+              "elapsedMs": 325
+            },
+            {
+              "name": "executed:src/float-scope.js",
+              "elapsedMs": 325.2000000476837
+            },
+            {
+              "name": "stage:解压 17/18 · src/performance.js",
+              "elapsedMs": 325.2000000476837
+            },
+            {
+              "name": "decompressed:src/performance.js",
+              "elapsedMs": 325.2999999523163
+            },
+            {
+              "name": "stage:执行 17/18 · src/performance.js",
+              "elapsedMs": 325.2999999523163
+            },
+            {
+              "name": "executed:src/performance.js",
+              "elapsedMs": 325.5
+            },
+            {
+              "name": "stage:解压 18/18 · src/app.js",
+              "elapsedMs": 325.5
+            },
+            {
+              "name": "decompressed:src/app.js",
+              "elapsedMs": 325.7999999523163
+            },
+            {
+              "name": "stage:执行 18/18 · src/app.js",
+              "elapsedMs": 325.7999999523163
+            },
+            {
+              "name": "stage:初始化物理钓组 · 保留 240 Hz 解算",
+              "elapsedMs": 326.90000009536743
+            },
+            {
+              "name": "executed:src/app.js",
+              "elapsedMs": 326.90000009536743
+            },
+            {
+              "name": "settle-start",
+              "elapsedMs": 356.5
+            },
+            {
+              "name": "stage:稳定钓组 · 0.25 / 20 秒物理时间",
+              "elapsedMs": 378.7999999523163
+            },
+            {
+              "name": "stage:稳定钓组 · 0.5 / 20 秒物理时间",
+              "elapsedMs": 389.60000014305115
+            },
+            {
+              "name": "stage:稳定钓组 · 0.75 / 20 秒物理时间",
+              "elapsedMs": 396.2000000476837
+            },
+            {
+              "name": "stage:稳定钓组 · 1 / 20 秒物理时间",
+              "elapsedMs": 409.10000014305115
+            },
+            {
+              "name": "stage:稳定钓组 · 1.25 / 20 秒物理时间",
+              "elapsedMs": 420.7000000476837
+            },
+            {
+              "name": "stage:稳定钓组 · 1.5 / 20 秒物理时间",
+              "elapsedMs": 431.90000009536743
+            },
+            {
+              "name": "stage:稳定钓组 · 1.75 / 20 秒物理时间",
+              "elapsedMs": 444
+            },
+            {
+              "name": "stage:稳定钓组 · 2 / 20 秒物理时间",
+              "elapsedMs": 455.2999999523163
+            },
+            {
+              "name": "stage:稳定钓组 · 2.25 / 20 秒物理时间",
+              "elapsedMs": 466.90000009536743
+            },
+            {
+              "name": "stage:稳定钓组 · 2.5 / 20 秒物理时间",
+              "elapsedMs": 478.7000000476837
+            },
+            {
+              "name": "stage:稳定钓组 · 2.75 / 20 秒物理时间",
+              "elapsedMs": 490.90000009536743
+            },
+            {
+              "name": "stage:稳定钓组 · 3 / 20 秒物理时间",
+              "elapsedMs": 503.2999999523163
+            },
+            {
+              "name": "stage:稳定钓组 · 3.25 / 20 秒物理时间",
+              "elapsedMs": 515.4000000953674
+            },
+            {
+              "name": "stage:稳定钓组 · 3.5 / 20 秒物理时间",
+              "elapsedMs": 527.1000001430511
+            },
+            {
+              "name": "stage:稳定钓组 · 3.75 / 20 秒物理时间",
+              "elapsedMs": 538.5
+            },
+            {
+              "name": "stage:稳定钓组 · 4 / 20 秒物理时间",
+              "elapsedMs": 549.5
+            },
+            {
+              "name": "stage:稳定钓组 · 4.25 / 20 秒物理时间",
+              "elapsedMs": 560.2000000476837
+            },
+            {
+              "name": "stage:稳定钓组 · 4.5 / 20 秒物理时间",
+              "elapsedMs": 571.4000000953674
+            },
+            {
+              "name": "stage:稳定钓组 · 4.75 / 20 秒物理时间",
+              "elapsedMs": 582.2999999523163
+            },
+            {
+              "name": "stage:稳定钓组 · 5 / 20 秒物理时间",
+              "elapsedMs": 593.6000001430511
+            },
+            {
+              "name": "stage:稳定钓组 · 5.25 / 20 秒物理时间",
+              "elapsedMs": 604.4000000953674
+            },
+            {
+              "name": "stage:稳定钓组 · 5.5 / 20 秒物理时间",
+              "elapsedMs": 615.4000000953674
+            },
+            {
+              "name": "stage:稳定钓组 · 5.75 / 20 秒物理时间",
+              "elapsedMs": 626.1000001430511
+            },
+            {
+              "name": "stage:稳定钓组 · 6 / 20 秒物理时间",
+              "elapsedMs": 636.7999999523163
+            },
+            {
+              "name": "stage:稳定钓组 · 6.25 / 20 秒物理时间",
+              "elapsedMs": 647.7000000476837
+            },
+            {
+              "name": "stage:稳定钓组 · 6.5 / 20 秒物理时间",
+              "elapsedMs": 658.7999999523163
+            },
+            {
+              "name": "stage:稳定钓组 · 6.75 / 20 秒物理时间",
+              "elapsedMs": 669.7999999523163
+            },
+            {
+              "name": "stage:稳定钓组 · 7 / 20 秒物理时间",
+              "elapsedMs": 680.7000000476837
+            },
+            {
+              "name": "stage:稳定钓组 · 7.25 / 20 秒物理时间",
+              "elapsedMs": 691.7999999523163
+            },
+            {
+              "name": "stage:稳定钓组 · 7.5 / 20 秒物理时间",
+              "elapsedMs": 702.2000000476837
+            },
+            {
+              "name": "stage:稳定钓组 · 7.75 / 20 秒物理时间",
+              "elapsedMs": 713.5
+            },
+            {
+              "name": "stage:稳定钓组 · 8 / 20 秒物理时间",
+              "elapsedMs": 724.6000001430511
+            },
+            {
+              "name": "stage:稳定钓组 · 8.25 / 20 秒物理时间",
+              "elapsedMs": 735.2000000476837
+            },
+            {
+              "name": "stage:稳定钓组 · 8.5 / 20 秒物理时间",
+              "elapsedMs": 745.6000001430511
+            },
+            {
+              "name": "stage:稳定钓组 · 8.75 / 20 秒物理时间",
+              "elapsedMs": 755.7999999523163
+            },
+            {
+              "name": "stage:稳定钓组 · 9 / 20 秒物理时间",
+              "elapsedMs": 766.7999999523163
+            },
+            {
+              "name": "stage:稳定钓组 · 9.25 / 20 秒物理时间",
+              "elapsedMs": 777
+            },
+            {
+              "name": "stage:稳定钓组 · 9.5 / 20 秒物理时间",
+              "elapsedMs": 787.2999999523163
+            },
+            {
+              "name": "stage:稳定钓组 · 9.75 / 20 秒物理时间",
+              "elapsedMs": 797.6000001430511
+            },
+            {
+              "name": "stage:稳定钓组 · 10 / 20 秒物理时间",
+              "elapsedMs": 807.9000000953674
+            },
+            {
+              "name": "stage:稳定钓组 · 10.25 / 20 秒物理时间",
+              "elapsedMs": 818.5
+            },
+            {
+              "name": "stage:稳定钓组 · 10.5 / 20 秒物理时间",
+              "elapsedMs": 828.7999999523163
+            },
+            {
+              "name": "stage:稳定钓组 · 10.75 / 20 秒物理时间",
+              "elapsedMs": 838.9000000953674
+            },
+            {
+              "name": "stage:稳定钓组 · 11 / 20 秒物理时间",
+              "elapsedMs": 850
+            },
+            {
+              "name": "stage:稳定钓组 · 11.25 / 20 秒物理时间",
+              "elapsedMs": 861
+            },
+            {
+              "name": "stage:稳定钓组 · 11.5 / 20 秒物理时间",
+              "elapsedMs": 872
+            },
+            {
+              "name": "stage:稳定钓组 · 11.75 / 20 秒物理时间",
+              "elapsedMs": 882.7999999523163
+            },
+            {
+              "name": "stage:稳定钓组 · 12 / 20 秒物理时间",
+              "elapsedMs": 893.2000000476837
+            },
+            {
+              "name": "stage:稳定钓组 · 12.25 / 20 秒物理时间",
+              "elapsedMs": 903.7000000476837
+            },
+            {
+              "name": "stage:稳定钓组 · 12.5 / 20 秒物理时间",
+              "elapsedMs": 914.6000001430511
+            },
+            {
+              "name": "stage:稳定钓组 · 12.75 / 20 秒物理时间",
+              "elapsedMs": 925.7999999523163
+            },
+            {
+              "name": "stage:稳定钓组 · 13 / 20 秒物理时间",
+              "elapsedMs": 936.6000001430511
+            },
+            {
+              "name": "stage:稳定钓组 · 13.25 / 20 秒物理时间",
+              "elapsedMs": 947.4000000953674
+            },
+            {
+              "name": "stage:稳定钓组 · 13.5 / 20 秒物理时间",
+              "elapsedMs": 958
+            },
+            {
+              "name": "stage:稳定钓组 · 13.75 / 20 秒物理时间",
+              "elapsedMs": 968.1000001430511
+            },
+            {
+              "name": "stage:稳定钓组 · 14 / 20 秒物理时间",
+              "elapsedMs": 978.6000001430511
+            },
+            {
+              "name": "stage:稳定钓组 · 14.25 / 20 秒物理时间",
+              "elapsedMs": 989.2000000476837
+            },
+            {
+              "name": "stage:稳定钓组 · 14.5 / 20 秒物理时间",
+              "elapsedMs": 999.5
+            },
+            {
+              "name": "stage:稳定钓组 · 14.75 / 20 秒物理时间",
+              "elapsedMs": 1009.9000000953674
+            },
+            {
+              "name": "stage:稳定钓组 · 15 / 20 秒物理时间",
+              "elapsedMs": 1020.1000001430511
+            },
+            {
+              "name": "stage:稳定钓组 · 15.25 / 20 秒物理时间",
+              "elapsedMs": 1030.6000001430511
+            },
+            {
+              "name": "stage:稳定钓组 · 15.5 / 20 秒物理时间",
+              "elapsedMs": 1041.1000001430511
+            },
+            {
+              "name": "stage:稳定钓组 · 15.75 / 20 秒物理时间",
+              "elapsedMs": 1051.5
+            },
+            {
+              "name": "stage:稳定钓组 · 16 / 20 秒物理时间",
+              "elapsedMs": 1062.5
+            },
+            {
+              "name": "stage:稳定钓组 · 16.25 / 20 秒物理时间",
+              "elapsedMs": 1072.7999999523163
+            },
+            {
+              "name": "stage:稳定钓组 · 16.5 / 20 秒物理时间",
+              "elapsedMs": 1082.9000000953674
+            },
+            {
+              "name": "stage:稳定钓组 · 16.75 / 20 秒物理时间",
+              "elapsedMs": 1093.7000000476837
+            },
+            {
+              "name": "stage:稳定钓组 · 17 / 20 秒物理时间",
+              "elapsedMs": 1103.9000000953674
+            },
+            {
+              "name": "stage:稳定钓组 · 17.25 / 20 秒物理时间",
+              "elapsedMs": 1114.1000001430511
+            },
+            {
+              "name": "stage:稳定钓组 · 17.5 / 20 秒物理时间",
+              "elapsedMs": 1125
+            },
+            {
+              "name": "stage:稳定钓组 · 17.75 / 20 秒物理时间",
+              "elapsedMs": 1135.5
+            },
+            {
+              "name": "stage:稳定钓组 · 18 / 20 秒物理时间",
+              "elapsedMs": 1145.7999999523163
+            },
+            {
+              "name": "stage:稳定钓组 · 18.25 / 20 秒物理时间",
+              "elapsedMs": 1156.1000001430511
+            },
+            {
+              "name": "stage:稳定钓组 · 18.5 / 20 秒物理时间",
+              "elapsedMs": 1166.9000000953674
+            },
+            {
+              "name": "stage:稳定钓组 · 18.75 / 20 秒物理时间",
+              "elapsedMs": 1177.2999999523163
+            },
+            {
+              "name": "stage:稳定钓组 · 19 / 20 秒物理时间",
+              "elapsedMs": 1187.7999999523163
+            },
+            {
+              "name": "stage:稳定钓组 · 19.25 / 20 秒物理时间",
+              "elapsedMs": 1198.7000000476837
+            },
+            {
+              "name": "stage:稳定钓组 · 19.5 / 20 秒物理时间",
+              "elapsedMs": 1209.4000000953674
+            },
+            {
+              "name": "stage:稳定钓组 · 19.75 / 20 秒物理时间",
+              "elapsedMs": 1219.7000000476837
+            },
+            {
+              "name": "stage:稳定钓组 · 20 / 20 秒物理时间",
+              "elapsedMs": 1230.6000001430511
+            },
+            {
+              "name": "settle-end",
+              "elapsedMs": 1231.5
+            },
+            {
+              "name": "stage:准备渲染器与扫描鱼资源",
+              "elapsedMs": 1231.5
+            },
+            {
+              "name": "fish-resources-ready",
+              "elapsedMs": 1286.9000000953674
+            },
+            {
+              "name": "stage:准备日光与水体环境",
+              "elapsedMs": 1286.9000000953674
+            },
+            {
+              "name": "stage:载入同源砂石碰撞高度场",
+              "elapsedMs": 1302.1000001430511
+            },
+            {
+              "name": "terrain-start",
+              "elapsedMs": 1322.9000000953674
+            },
+            {
+              "name": "terrain-end",
+              "elapsedMs": 1329.6000001430511
+            },
+            {
+              "name": "stage:构建水草、钓具与观察相机",
+              "elapsedMs": 1329.6000001430511
+            },
+            {
+              "name": "stage:预热着色器、鱼纹理与双相机光学",
+              "elapsedMs": 1374.1000001430511
+            },
+            {
+              "name": "gpu-prewarm-start",
+              "elapsedMs": 1389.7000000476837
+            },
+            {
+              "name": "gpu-prewarm-end",
+              "elapsedMs": 1669.2999999523163
+            },
+            {
+              "name": "stage:绘制首个可交互场景",
+              "elapsedMs": 1669.2999999523163
+            },
+            {
+              "name": "first-scene-frame",
+              "elapsedMs": 1704.2000000476837
+            },
+            {
+              "name": "app:ready",
+              "elapsedMs": 1704.2000000476837
+            },
+            {
+              "name": "stage:场景已就绪 · 等待首帧绘制机会",
+              "elapsedMs": 1704.2000000476837
+            },
+            {
+              "name": "frame:opportunity",
+              "elapsedMs": 1746.2999999523163
+            },
+            {
+              "name": "boot:finish",
+              "elapsedMs": 1746.4000000953674
+            }
+          ]
+        }
+      },
+      "startupSamples": [
+        {
+          "readyObservedMs": 1805.3000001907349,
+          "paint": [
+            {
+              "name": "first-paint",
+              "start": 52
+            },
+            {
+              "name": "first-contentful-paint",
+              "start": 52
+            }
+          ],
+          "navigation": [
+            {
+              "domInteractive": 47.90000009536743,
+              "domContentLoaded": 48.30000019073486
+            }
+          ],
+          "longTasks": [
+            {
+              "start": 1482,
+              "duration": 213
+            }
+          ],
+          "boot": {
+            "state": "ready",
+            "stage": "观察室已就绪",
+            "completedUnits": 38,
+            "totalUnits": 38,
+            "activeModule": "",
+            "scheduling": "double-requestAnimationFrame",
+            "error": null,
+            "loaderBudgetMs": 8,
+            "largeModuleBytes": 200000,
+            "paintOpportunities": 17,
+            "events": [
+              {
+                "name": "boot:start",
+                "elapsedMs": 0
+              },
+              {
+                "name": "stage:正在读取离线模块清单",
+                "elapsedMs": 22.40000009536743
+              },
+              {
+                "name": "manifest:ready",
+                "elapsedMs": 42.10000014305115
+              },
+              {
+                "name": "stage:解压 1/18 · vendor/three.module.js",
+                "elapsedMs": 42.10000014305115
+              },
+              {
+                "name": "decompressed:vendor/three.module.js",
+                "elapsedMs": 79.20000004768372
+              },
+              {
+                "name": "stage:执行 1/18 · vendor/three.module.js",
+                "elapsedMs": 79.20000004768372
+              },
+              {
+                "name": "executed:vendor/three.module.js",
+                "elapsedMs": 120.70000004768372
+              },
+              {
+                "name": "stage:解压 2/18 · vendor/OrbitControls.js",
+                "elapsedMs": 120.70000004768372
+              },
+              {
+                "name": "decompressed:vendor/OrbitControls.js",
+                "elapsedMs": 139.79999995231628
+              },
+              {
+                "name": "stage:执行 2/18 · vendor/OrbitControls.js",
+                "elapsedMs": 139.79999995231628
+              },
+              {
+                "name": "executed:vendor/OrbitControls.js",
+                "elapsedMs": 140.29999995231628
+              },
+              {
+                "name": "stage:解压 3/18 · src/physics.js",
+                "elapsedMs": 140.29999995231628
+              },
+              {
+                "name": "decompressed:src/physics.js",
+                "elapsedMs": 140.5
+              },
+              {
+                "name": "stage:执行 3/18 · src/physics.js",
+                "elapsedMs": 140.5
+              },
+              {
+                "name": "executed:src/physics.js",
+                "elapsedMs": 141.10000014305115
+              },
+              {
+                "name": "stage:解压 4/18 · src/tackle.js",
+                "elapsedMs": 141.10000014305115
+              },
+              {
+                "name": "decompressed:src/tackle.js",
+                "elapsedMs": 141.40000009536743
+              },
+              {
+                "name": "stage:执行 4/18 · src/tackle.js",
+                "elapsedMs": 141.40000009536743
+              },
+              {
+                "name": "executed:src/tackle.js",
+                "elapsedMs": 141.90000009536743
+              },
+              {
+                "name": "stage:解压 5/18 · src/fish-body.js",
+                "elapsedMs": 141.90000009536743
+              },
+              {
+                "name": "decompressed:src/fish-body.js",
+                "elapsedMs": 142.70000004768372
+              },
+              {
+                "name": "stage:执行 5/18 · src/fish-body.js",
+                "elapsedMs": 142.70000004768372
+              },
+              {
+                "name": "executed:src/fish-body.js",
+                "elapsedMs": 143.90000009536743
+              },
+              {
+                "name": "stage:解压 6/18 · src/fish-collision.js",
+                "elapsedMs": 143.90000009536743
+              },
+              {
+                "name": "decompressed:src/fish-collision.js",
+                "elapsedMs": 144.20000004768372
+              },
+              {
+                "name": "stage:执行 6/18 · src/fish-collision.js",
+                "elapsedMs": 144.20000004768372
+              },
+              {
+                "name": "executed:src/fish-collision.js",
+                "elapsedMs": 144.5
+              },
+              {
+                "name": "stage:解压 7/18 · src/terrain-cache.js",
+                "elapsedMs": 144.5
+              },
+              {
+                "name": "decompressed:src/terrain-cache.js",
+                "elapsedMs": 176
+              },
+              {
+                "name": "stage:执行 7/18 · src/terrain-cache.js",
+                "elapsedMs": 176.10000014305115
+              },
+              {
+                "name": "executed:src/terrain-cache.js",
+                "elapsedMs": 208.20000004768372
+              },
+              {
+                "name": "stage:解压 8/18 · src/tank-floor.js",
+                "elapsedMs": 208.20000004768372
+              },
+              {
+                "name": "decompressed:src/tank-floor.js",
+                "elapsedMs": 208.79999995231628
+              },
+              {
+                "name": "stage:执行 8/18 · src/tank-floor.js",
+                "elapsedMs": 208.79999995231628
+              },
+              {
+                "name": "executed:src/tank-floor.js",
+                "elapsedMs": 209.10000014305115
+              },
+              {
+                "name": "stage:解压 9/18 · src/fish-behavior.js",
+                "elapsedMs": 209.10000014305115
+              },
+              {
+                "name": "decompressed:src/fish-behavior.js",
+                "elapsedMs": 209.40000009536743
+              },
+              {
+                "name": "stage:执行 9/18 · src/fish-behavior.js",
+                "elapsedMs": 209.40000009536743
+              },
+              {
+                "name": "executed:src/fish-behavior.js",
+                "elapsedMs": 209.70000004768372
+              },
+              {
+                "name": "stage:解压 10/18 · src/fish-lab.js",
+                "elapsedMs": 209.70000004768372
+              },
+              {
+                "name": "decompressed:src/fish-lab.js",
+                "elapsedMs": 209.90000009536743
+              },
+              {
+                "name": "stage:执行 10/18 · src/fish-lab.js",
+                "elapsedMs": 209.90000009536743
+              },
+              {
+                "name": "executed:src/fish-lab.js",
+                "elapsedMs": 210.10000014305115
+              },
+              {
+                "name": "stage:解压 11/18 · src/crucian-mesh.js",
+                "elapsedMs": 210.10000014305115
+              },
+              {
+                "name": "decompressed:src/crucian-mesh.js",
+                "elapsedMs": 269.60000014305115
+              },
+              {
+                "name": "stage:执行 11/18 · src/crucian-mesh.js",
+                "elapsedMs": 269.60000014305115
+              },
+              {
+                "name": "executed:src/crucian-mesh.js",
+                "elapsedMs": 308.10000014305115
+              },
+              {
+                "name": "stage:解压 12/18 · src/fish-view.js",
+                "elapsedMs": 308.10000014305115
+              },
+              {
+                "name": "decompressed:src/fish-view.js",
+                "elapsedMs": 323.2000000476837
+              },
+              {
+                "name": "stage:执行 12/18 · src/fish-view.js",
+                "elapsedMs": 323.2999999523163
+              },
+              {
+                "name": "executed:src/fish-view.js",
+                "elapsedMs": 323.5
+              },
+              {
+                "name": "stage:解压 13/18 · src/fish-panel.js",
+                "elapsedMs": 323.5
+              },
+              {
+                "name": "decompressed:src/fish-panel.js",
+                "elapsedMs": 323.7000000476837
+              },
+              {
+                "name": "stage:执行 13/18 · src/fish-panel.js",
+                "elapsedMs": 323.7000000476837
+              },
+              {
+                "name": "executed:src/fish-panel.js",
+                "elapsedMs": 324
+              },
+              {
+                "name": "stage:解压 14/18 · src/optics.js",
+                "elapsedMs": 324
+              },
+              {
+                "name": "decompressed:src/optics.js",
+                "elapsedMs": 324.2999999523163
+              },
+              {
+                "name": "stage:执行 14/18 · src/optics.js",
+                "elapsedMs": 324.2999999523163
+              },
+              {
+                "name": "executed:src/optics.js",
+                "elapsedMs": 324.40000009536743
+              },
+              {
+                "name": "stage:解压 15/18 · src/seat-workshop.js",
+                "elapsedMs": 324.40000009536743
+              },
+              {
+                "name": "decompressed:src/seat-workshop.js",
+                "elapsedMs": 324.7000000476837
+              },
+              {
+                "name": "stage:执行 15/18 · src/seat-workshop.js",
+                "elapsedMs": 324.7000000476837
+              },
+              {
+                "name": "executed:src/seat-workshop.js",
+                "elapsedMs": 324.90000009536743
+              },
+              {
+                "name": "stage:解压 16/18 · src/float-scope.js",
+                "elapsedMs": 324.90000009536743
+              },
+              {
+                "name": "decompressed:src/float-scope.js",
+                "elapsedMs": 325
+              },
+              {
+                "name": "stage:执行 16/18 · src/float-scope.js",
+                "elapsedMs": 325
+              },
+              {
+                "name": "executed:src/float-scope.js",
+                "elapsedMs": 325.2000000476837
+              },
+              {
+                "name": "stage:解压 17/18 · src/performance.js",
+                "elapsedMs": 325.2000000476837
+              },
+              {
+                "name": "decompressed:src/performance.js",
+                "elapsedMs": 325.2999999523163
+              },
+              {
+                "name": "stage:执行 17/18 · src/performance.js",
+                "elapsedMs": 325.2999999523163
+              },
+              {
+                "name": "executed:src/performance.js",
+                "elapsedMs": 325.5
+              },
+              {
+                "name": "stage:解压 18/18 · src/app.js",
+                "elapsedMs": 325.5
+              },
+              {
+                "name": "decompressed:src/app.js",
+                "elapsedMs": 325.7999999523163
+              },
+              {
+                "name": "stage:执行 18/18 · src/app.js",
+                "elapsedMs": 325.7999999523163
+              },
+              {
+                "name": "stage:初始化物理钓组 · 保留 240 Hz 解算",
+                "elapsedMs": 326.90000009536743
+              },
+              {
+                "name": "executed:src/app.js",
+                "elapsedMs": 326.90000009536743
+              },
+              {
+                "name": "settle-start",
+                "elapsedMs": 356.5
+              },
+              {
+                "name": "stage:稳定钓组 · 0.25 / 20 秒物理时间",
+                "elapsedMs": 378.7999999523163
+              },
+              {
+                "name": "stage:稳定钓组 · 0.5 / 20 秒物理时间",
+                "elapsedMs": 389.60000014305115
+              },
+              {
+                "name": "stage:稳定钓组 · 0.75 / 20 秒物理时间",
+                "elapsedMs": 396.2000000476837
+              },
+              {
+                "name": "stage:稳定钓组 · 1 / 20 秒物理时间",
+                "elapsedMs": 409.10000014305115
+              },
+              {
+                "name": "stage:稳定钓组 · 1.25 / 20 秒物理时间",
+                "elapsedMs": 420.7000000476837
+              },
+              {
+                "name": "stage:稳定钓组 · 1.5 / 20 秒物理时间",
+                "elapsedMs": 431.90000009536743
+              },
+              {
+                "name": "stage:稳定钓组 · 1.75 / 20 秒物理时间",
+                "elapsedMs": 444
+              },
+              {
+                "name": "stage:稳定钓组 · 2 / 20 秒物理时间",
+                "elapsedMs": 455.2999999523163
+              },
+              {
+                "name": "stage:稳定钓组 · 2.25 / 20 秒物理时间",
+                "elapsedMs": 466.90000009536743
+              },
+              {
+                "name": "stage:稳定钓组 · 2.5 / 20 秒物理时间",
+                "elapsedMs": 478.7000000476837
+              },
+              {
+                "name": "stage:稳定钓组 · 2.75 / 20 秒物理时间",
+                "elapsedMs": 490.90000009536743
+              },
+              {
+                "name": "stage:稳定钓组 · 3 / 20 秒物理时间",
+                "elapsedMs": 503.2999999523163
+              },
+              {
+                "name": "stage:稳定钓组 · 3.25 / 20 秒物理时间",
+                "elapsedMs": 515.4000000953674
+              },
+              {
+                "name": "stage:稳定钓组 · 3.5 / 20 秒物理时间",
+                "elapsedMs": 527.1000001430511
+              },
+              {
+                "name": "stage:稳定钓组 · 3.75 / 20 秒物理时间",
+                "elapsedMs": 538.5
+              },
+              {
+                "name": "stage:稳定钓组 · 4 / 20 秒物理时间",
+                "elapsedMs": 549.5
+              },
+              {
+                "name": "stage:稳定钓组 · 4.25 / 20 秒物理时间",
+                "elapsedMs": 560.2000000476837
+              },
+              {
+                "name": "stage:稳定钓组 · 4.5 / 20 秒物理时间",
+                "elapsedMs": 571.4000000953674
+              },
+              {
+                "name": "stage:稳定钓组 · 4.75 / 20 秒物理时间",
+                "elapsedMs": 582.2999999523163
+              },
+              {
+                "name": "stage:稳定钓组 · 5 / 20 秒物理时间",
+                "elapsedMs": 593.6000001430511
+              },
+              {
+                "name": "stage:稳定钓组 · 5.25 / 20 秒物理时间",
+                "elapsedMs": 604.4000000953674
+              },
+              {
+                "name": "stage:稳定钓组 · 5.5 / 20 秒物理时间",
+                "elapsedMs": 615.4000000953674
+              },
+              {
+                "name": "stage:稳定钓组 · 5.75 / 20 秒物理时间",
+                "elapsedMs": 626.1000001430511
+              },
+              {
+                "name": "stage:稳定钓组 · 6 / 20 秒物理时间",
+                "elapsedMs": 636.7999999523163
+              },
+              {
+                "name": "stage:稳定钓组 · 6.25 / 20 秒物理时间",
+                "elapsedMs": 647.7000000476837
+              },
+              {
+                "name": "stage:稳定钓组 · 6.5 / 20 秒物理时间",
+                "elapsedMs": 658.7999999523163
+              },
+              {
+                "name": "stage:稳定钓组 · 6.75 / 20 秒物理时间",
+                "elapsedMs": 669.7999999523163
+              },
+              {
+                "name": "stage:稳定钓组 · 7 / 20 秒物理时间",
+                "elapsedMs": 680.7000000476837
+              },
+              {
+                "name": "stage:稳定钓组 · 7.25 / 20 秒物理时间",
+                "elapsedMs": 691.7999999523163
+              },
+              {
+                "name": "stage:稳定钓组 · 7.5 / 20 秒物理时间",
+                "elapsedMs": 702.2000000476837
+              },
+              {
+                "name": "stage:稳定钓组 · 7.75 / 20 秒物理时间",
+                "elapsedMs": 713.5
+              },
+              {
+                "name": "stage:稳定钓组 · 8 / 20 秒物理时间",
+                "elapsedMs": 724.6000001430511
+              },
+              {
+                "name": "stage:稳定钓组 · 8.25 / 20 秒物理时间",
+                "elapsedMs": 735.2000000476837
+              },
+              {
+                "name": "stage:稳定钓组 · 8.5 / 20 秒物理时间",
+                "elapsedMs": 745.6000001430511
+              },
+              {
+                "name": "stage:稳定钓组 · 8.75 / 20 秒物理时间",
+                "elapsedMs": 755.7999999523163
+              },
+              {
+                "name": "stage:稳定钓组 · 9 / 20 秒物理时间",
+                "elapsedMs": 766.7999999523163
+              },
+              {
+                "name": "stage:稳定钓组 · 9.25 / 20 秒物理时间",
+                "elapsedMs": 777
+              },
+              {
+                "name": "stage:稳定钓组 · 9.5 / 20 秒物理时间",
+                "elapsedMs": 787.2999999523163
+              },
+              {
+                "name": "stage:稳定钓组 · 9.75 / 20 秒物理时间",
+                "elapsedMs": 797.6000001430511
+              },
+              {
+                "name": "stage:稳定钓组 · 10 / 20 秒物理时间",
+                "elapsedMs": 807.9000000953674
+              },
+              {
+                "name": "stage:稳定钓组 · 10.25 / 20 秒物理时间",
+                "elapsedMs": 818.5
+              },
+              {
+                "name": "stage:稳定钓组 · 10.5 / 20 秒物理时间",
+                "elapsedMs": 828.7999999523163
+              },
+              {
+                "name": "stage:稳定钓组 · 10.75 / 20 秒物理时间",
+                "elapsedMs": 838.9000000953674
+              },
+              {
+                "name": "stage:稳定钓组 · 11 / 20 秒物理时间",
+                "elapsedMs": 850
+              },
+              {
+                "name": "stage:稳定钓组 · 11.25 / 20 秒物理时间",
+                "elapsedMs": 861
+              },
+              {
+                "name": "stage:稳定钓组 · 11.5 / 20 秒物理时间",
+                "elapsedMs": 872
+              },
+              {
+                "name": "stage:稳定钓组 · 11.75 / 20 秒物理时间",
+                "elapsedMs": 882.7999999523163
+              },
+              {
+                "name": "stage:稳定钓组 · 12 / 20 秒物理时间",
+                "elapsedMs": 893.2000000476837
+              },
+              {
+                "name": "stage:稳定钓组 · 12.25 / 20 秒物理时间",
+                "elapsedMs": 903.7000000476837
+              },
+              {
+                "name": "stage:稳定钓组 · 12.5 / 20 秒物理时间",
+                "elapsedMs": 914.6000001430511
+              },
+              {
+                "name": "stage:稳定钓组 · 12.75 / 20 秒物理时间",
+                "elapsedMs": 925.7999999523163
+              },
+              {
+                "name": "stage:稳定钓组 · 13 / 20 秒物理时间",
+                "elapsedMs": 936.6000001430511
+              },
+              {
+                "name": "stage:稳定钓组 · 13.25 / 20 秒物理时间",
+                "elapsedMs": 947.4000000953674
+              },
+              {
+                "name": "stage:稳定钓组 · 13.5 / 20 秒物理时间",
+                "elapsedMs": 958
+              },
+              {
+                "name": "stage:稳定钓组 · 13.75 / 20 秒物理时间",
+                "elapsedMs": 968.1000001430511
+              },
+              {
+                "name": "stage:稳定钓组 · 14 / 20 秒物理时间",
+                "elapsedMs": 978.6000001430511
+              },
+              {
+                "name": "stage:稳定钓组 · 14.25 / 20 秒物理时间",
+                "elapsedMs": 989.2000000476837
+              },
+              {
+                "name": "stage:稳定钓组 · 14.5 / 20 秒物理时间",
+                "elapsedMs": 999.5
+              },
+              {
+                "name": "stage:稳定钓组 · 14.75 / 20 秒物理时间",
+                "elapsedMs": 1009.9000000953674
+              },
+              {
+                "name": "stage:稳定钓组 · 15 / 20 秒物理时间",
+                "elapsedMs": 1020.1000001430511
+              },
+              {
+                "name": "stage:稳定钓组 · 15.25 / 20 秒物理时间",
+                "elapsedMs": 1030.6000001430511
+              },
+              {
+                "name": "stage:稳定钓组 · 15.5 / 20 秒物理时间",
+                "elapsedMs": 1041.1000001430511
+              },
+              {
+                "name": "stage:稳定钓组 · 15.75 / 20 秒物理时间",
+                "elapsedMs": 1051.5
+              },
+              {
+                "name": "stage:稳定钓组 · 16 / 20 秒物理时间",
+                "elapsedMs": 1062.5
+              },
+              {
+                "name": "stage:稳定钓组 · 16.25 / 20 秒物理时间",
+                "elapsedMs": 1072.7999999523163
+              },
+              {
+                "name": "stage:稳定钓组 · 16.5 / 20 秒物理时间",
+                "elapsedMs": 1082.9000000953674
+              },
+              {
+                "name": "stage:稳定钓组 · 16.75 / 20 秒物理时间",
+                "elapsedMs": 1093.7000000476837
+              },
+              {
+                "name": "stage:稳定钓组 · 17 / 20 秒物理时间",
+                "elapsedMs": 1103.9000000953674
+              },
+              {
+                "name": "stage:稳定钓组 · 17.25 / 20 秒物理时间",
+                "elapsedMs": 1114.1000001430511
+              },
+              {
+                "name": "stage:稳定钓组 · 17.5 / 20 秒物理时间",
+                "elapsedMs": 1125
+              },
+              {
+                "name": "stage:稳定钓组 · 17.75 / 20 秒物理时间",
+                "elapsedMs": 1135.5
+              },
+              {
+                "name": "stage:稳定钓组 · 18 / 20 秒物理时间",
+                "elapsedMs": 1145.7999999523163
+              },
+              {
+                "name": "stage:稳定钓组 · 18.25 / 20 秒物理时间",
+                "elapsedMs": 1156.1000001430511
+              },
+              {
+                "name": "stage:稳定钓组 · 18.5 / 20 秒物理时间",
+                "elapsedMs": 1166.9000000953674
+              },
+              {
+                "name": "stage:稳定钓组 · 18.75 / 20 秒物理时间",
+                "elapsedMs": 1177.2999999523163
+              },
+              {
+                "name": "stage:稳定钓组 · 19 / 20 秒物理时间",
+                "elapsedMs": 1187.7999999523163
+              },
+              {
+                "name": "stage:稳定钓组 · 19.25 / 20 秒物理时间",
+                "elapsedMs": 1198.7000000476837
+              },
+              {
+                "name": "stage:稳定钓组 · 19.5 / 20 秒物理时间",
+                "elapsedMs": 1209.4000000953674
+              },
+              {
+                "name": "stage:稳定钓组 · 19.75 / 20 秒物理时间",
+                "elapsedMs": 1219.7000000476837
+              },
+              {
+                "name": "stage:稳定钓组 · 20 / 20 秒物理时间",
+                "elapsedMs": 1230.6000001430511
+              },
+              {
+                "name": "settle-end",
+                "elapsedMs": 1231.5
+              },
+              {
+                "name": "stage:准备渲染器与扫描鱼资源",
+                "elapsedMs": 1231.5
+              },
+              {
+                "name": "fish-resources-ready",
+                "elapsedMs": 1286.9000000953674
+              },
+              {
+                "name": "stage:准备日光与水体环境",
+                "elapsedMs": 1286.9000000953674
+              },
+              {
+                "name": "stage:载入同源砂石碰撞高度场",
+                "elapsedMs": 1302.1000001430511
+              },
+              {
+                "name": "terrain-start",
+                "elapsedMs": 1322.9000000953674
+              },
+              {
+                "name": "terrain-end",
+                "elapsedMs": 1329.6000001430511
+              },
+              {
+                "name": "stage:构建水草、钓具与观察相机",
+                "elapsedMs": 1329.6000001430511
+              },
+              {
+                "name": "stage:预热着色器、鱼纹理与双相机光学",
+                "elapsedMs": 1374.1000001430511
+              },
+              {
+                "name": "gpu-prewarm-start",
+                "elapsedMs": 1389.7000000476837
+              },
+              {
+                "name": "gpu-prewarm-end",
+                "elapsedMs": 1669.2999999523163
+              },
+              {
+                "name": "stage:绘制首个可交互场景",
+                "elapsedMs": 1669.2999999523163
+              },
+              {
+                "name": "first-scene-frame",
+                "elapsedMs": 1704.2000000476837
+              },
+              {
+                "name": "app:ready",
+                "elapsedMs": 1704.2000000476837
+              },
+              {
+                "name": "stage:场景已就绪 · 等待首帧绘制机会",
+                "elapsedMs": 1704.2000000476837
+              },
+              {
+                "name": "frame:opportunity",
+                "elapsedMs": 1746.2999999523163
+              },
+              {
+                "name": "boot:finish",
+                "elapsedMs": 1746.4000000953674
+              }
+            ]
+          }
+        }
+      ],
+      "startupMedianMs": 1805.3000001907349,
+      "cases": [
+        {
+          "scenario": "default",
+          "frames": 300,
+          "elapsedMs": 4999.7,
+          "meanFPS": 60.00360021601296,
+          "medianMs": 16.699999999999818,
+          "p95Ms": 16.700000000000728,
+          "p99Ms": 16.800000000000182,
+          "over33ms": 0,
+          "renderSubmitMeanMs": 3.0296666502952574,
+          "drawCallsPerFrame": 351.3333333333333,
+          "shadowUpdatesPerFrame": 1,
+          "appWorkMeanMs": 4.498671080979002,
+          "appWorkP95Ms": 5.1000001430511475,
+          "pixelRatio": 1.5,
+          "quality": {
+            "targetFPS": 60,
+            "frameBudgetMs": 16.666666666666668,
+            "mode": "auto",
+            "name": "清晰",
+            "scale": 1,
+            "opticalScale": 1,
+            "reflectionInterval": 3,
+            "tier": 0,
+            "pixelRatio": 1.5,
+            "samples": 120,
+            "fps": 60.003000154299464,
+            "p95Ms": 17.59999990463257,
+            "p99Ms": 17.59999990463257,
+            "workP95Ms": 5,
+            "over33ms": 0,
+            "suspended": false,
+            "observations": 402,
+            "belowTargetAtMinimum": false,
+            "changes": [],
+            "measurement": "requestAnimationFrame wall intervals; workMs is CPU submission, not GPU elapsed time"
+          },
+          "physicsTime": 26.71666666666547
+        },
+        {
+          "scenario": "fish",
+          "frames": 300,
+          "elapsedMs": 4999.9,
+          "meanFPS": 60.00120002400049,
+          "medianMs": 16.69999999999891,
+          "p95Ms": 16.700000000000728,
+          "p99Ms": 16.80000000000109,
+          "over33ms": 0,
+          "renderSubmitMeanMs": 3.103999999364217,
+          "drawCallsPerFrame": 353.6666666666667,
+          "shadowUpdatesPerFrame": 1,
+          "appWorkMeanMs": 5.325249171336228,
+          "appWorkP95Ms": 6.900000095367432,
+          "pixelRatio": 1.5,
+          "quality": {
+            "targetFPS": 60,
+            "frameBudgetMs": 16.666666666666668,
+            "mode": "auto",
+            "name": "清晰",
+            "scale": 1,
+            "opticalScale": 1,
+            "reflectionInterval": 3,
+            "tier": 0,
+            "pixelRatio": 1.5,
+            "samples": 120,
+            "fps": 60.006000601490804,
+            "p95Ms": 17.40000009536743,
+            "p99Ms": 17.59999990463257,
+            "workP95Ms": 6.800000190734863,
+            "over33ms": 0,
+            "suspended": false,
+            "observations": 799,
+            "belowTargetAtMinimum": false,
+            "changes": [],
+            "measurement": "requestAnimationFrame wall intervals; workMs is CPU submission, not GPU elapsed time"
+          },
+          "physicsTime": 33.333333333332895
+        },
+        {
+          "scenario": "expanded",
+          "frames": 300,
+          "elapsedMs": 4999.800000000003,
+          "meanFPS": 60.002400096003804,
+          "medianMs": 16.69999999999709,
+          "p95Ms": 16.799999999999272,
+          "p99Ms": 16.799999999999272,
+          "over33ms": 0,
+          "renderSubmitMeanMs": 3.157333329518636,
+          "drawCallsPerFrame": 353.78,
+          "shadowUpdatesPerFrame": 1,
+          "appWorkMeanMs": 5.339534883879348,
+          "appWorkP95Ms": 6.800000190734863,
+          "pixelRatio": 1.5,
+          "quality": {
+            "targetFPS": 60,
+            "frameBudgetMs": 16.666666666666668,
+            "mode": "auto",
+            "name": "清晰",
+            "scale": 1,
+            "opticalScale": 1,
+            "reflectionInterval": 3,
+            "tier": 0,
+            "pixelRatio": 1.5,
+            "samples": 120,
+            "fps": 59.99100135122762,
+            "p95Ms": 17.59999990463257,
+            "p99Ms": 17.700000047683716,
+            "workP95Ms": 6.900000095367432,
+            "over33ms": 0,
+            "suspended": false,
+            "observations": 1196,
+            "belowTargetAtMinimum": false,
+            "changes": [],
+            "measurement": "requestAnimationFrame wall intervals; workMs is CPU submission, not GPU elapsed time"
+          },
+          "physicsTime": 39.95000000000483
+        }
+      ],
+      "boot": {
+        "state": "ready",
+        "stage": "观察室已就绪",
+        "completedUnits": 38,
+        "totalUnits": 38,
+        "activeModule": "",
+        "scheduling": "double-requestAnimationFrame",
+        "error": null,
+        "loaderBudgetMs": 8,
+        "largeModuleBytes": 200000,
+        "paintOpportunities": 17,
+        "events": [
+          {
+            "name": "boot:start",
+            "elapsedMs": 0
+          },
+          {
+            "name": "stage:正在读取离线模块清单",
+            "elapsedMs": 22.40000009536743
+          },
+          {
+            "name": "manifest:ready",
+            "elapsedMs": 42.10000014305115
+          },
+          {
+            "name": "stage:解压 1/18 · vendor/three.module.js",
+            "elapsedMs": 42.10000014305115
+          },
+          {
+            "name": "decompressed:vendor/three.module.js",
+            "elapsedMs": 79.20000004768372
+          },
+          {
+            "name": "stage:执行 1/18 · vendor/three.module.js",
+            "elapsedMs": 79.20000004768372
+          },
+          {
+            "name": "executed:vendor/three.module.js",
+            "elapsedMs": 120.70000004768372
+          },
+          {
+            "name": "stage:解压 2/18 · vendor/OrbitControls.js",
+            "elapsedMs": 120.70000004768372
+          },
+          {
+            "name": "decompressed:vendor/OrbitControls.js",
+            "elapsedMs": 139.79999995231628
+          },
+          {
+            "name": "stage:执行 2/18 · vendor/OrbitControls.js",
+            "elapsedMs": 139.79999995231628
+          },
+          {
+            "name": "executed:vendor/OrbitControls.js",
+            "elapsedMs": 140.29999995231628
+          },
+          {
+            "name": "stage:解压 3/18 · src/physics.js",
+            "elapsedMs": 140.29999995231628
+          },
+          {
+            "name": "decompressed:src/physics.js",
+            "elapsedMs": 140.5
+          },
+          {
+            "name": "stage:执行 3/18 · src/physics.js",
+            "elapsedMs": 140.5
+          },
+          {
+            "name": "executed:src/physics.js",
+            "elapsedMs": 141.10000014305115
+          },
+          {
+            "name": "stage:解压 4/18 · src/tackle.js",
+            "elapsedMs": 141.10000014305115
+          },
+          {
+            "name": "decompressed:src/tackle.js",
+            "elapsedMs": 141.40000009536743
+          },
+          {
+            "name": "stage:执行 4/18 · src/tackle.js",
+            "elapsedMs": 141.40000009536743
+          },
+          {
+            "name": "executed:src/tackle.js",
+            "elapsedMs": 141.90000009536743
+          },
+          {
+            "name": "stage:解压 5/18 · src/fish-body.js",
+            "elapsedMs": 141.90000009536743
+          },
+          {
+            "name": "decompressed:src/fish-body.js",
+            "elapsedMs": 142.70000004768372
+          },
+          {
+            "name": "stage:执行 5/18 · src/fish-body.js",
+            "elapsedMs": 142.70000004768372
+          },
+          {
+            "name": "executed:src/fish-body.js",
+            "elapsedMs": 143.90000009536743
+          },
+          {
+            "name": "stage:解压 6/18 · src/fish-collision.js",
+            "elapsedMs": 143.90000009536743
+          },
+          {
+            "name": "decompressed:src/fish-collision.js",
+            "elapsedMs": 144.20000004768372
+          },
+          {
+            "name": "stage:执行 6/18 · src/fish-collision.js",
+            "elapsedMs": 144.20000004768372
+          },
+          {
+            "name": "executed:src/fish-collision.js",
+            "elapsedMs": 144.5
+          },
+          {
+            "name": "stage:解压 7/18 · src/terrain-cache.js",
+            "elapsedMs": 144.5
+          },
+          {
+            "name": "decompressed:src/terrain-cache.js",
+            "elapsedMs": 176
+          },
+          {
+            "name": "stage:执行 7/18 · src/terrain-cache.js",
+            "elapsedMs": 176.10000014305115
+          },
+          {
+            "name": "executed:src/terrain-cache.js",
+            "elapsedMs": 208.20000004768372
+          },
+          {
+            "name": "stage:解压 8/18 · src/tank-floor.js",
+            "elapsedMs": 208.20000004768372
+          },
+          {
+            "name": "decompressed:src/tank-floor.js",
+            "elapsedMs": 208.79999995231628
+          },
+          {
+            "name": "stage:执行 8/18 · src/tank-floor.js",
+            "elapsedMs": 208.79999995231628
+          },
+          {
+            "name": "executed:src/tank-floor.js",
+            "elapsedMs": 209.10000014305115
+          },
+          {
+            "name": "stage:解压 9/18 · src/fish-behavior.js",
+            "elapsedMs": 209.10000014305115
+          },
+          {
+            "name": "decompressed:src/fish-behavior.js",
+            "elapsedMs": 209.40000009536743
+          },
+          {
+            "name": "stage:执行 9/18 · src/fish-behavior.js",
+            "elapsedMs": 209.40000009536743
+          },
+          {
+            "name": "executed:src/fish-behavior.js",
+            "elapsedMs": 209.70000004768372
+          },
+          {
+            "name": "stage:解压 10/18 · src/fish-lab.js",
+            "elapsedMs": 209.70000004768372
+          },
+          {
+            "name": "decompressed:src/fish-lab.js",
+            "elapsedMs": 209.90000009536743
+          },
+          {
+            "name": "stage:执行 10/18 · src/fish-lab.js",
+            "elapsedMs": 209.90000009536743
+          },
+          {
+            "name": "executed:src/fish-lab.js",
+            "elapsedMs": 210.10000014305115
+          },
+          {
+            "name": "stage:解压 11/18 · src/crucian-mesh.js",
+            "elapsedMs": 210.10000014305115
+          },
+          {
+            "name": "decompressed:src/crucian-mesh.js",
+            "elapsedMs": 269.60000014305115
+          },
+          {
+            "name": "stage:执行 11/18 · src/crucian-mesh.js",
+            "elapsedMs": 269.60000014305115
+          },
+          {
+            "name": "executed:src/crucian-mesh.js",
+            "elapsedMs": 308.10000014305115
+          },
+          {
+            "name": "stage:解压 12/18 · src/fish-view.js",
+            "elapsedMs": 308.10000014305115
+          },
+          {
+            "name": "decompressed:src/fish-view.js",
+            "elapsedMs": 323.2000000476837
+          },
+          {
+            "name": "stage:执行 12/18 · src/fish-view.js",
+            "elapsedMs": 323.2999999523163
+          },
+          {
+            "name": "executed:src/fish-view.js",
+            "elapsedMs": 323.5
+          },
+          {
+            "name": "stage:解压 13/18 · src/fish-panel.js",
+            "elapsedMs": 323.5
+          },
+          {
+            "name": "decompressed:src/fish-panel.js",
+            "elapsedMs": 323.7000000476837
+          },
+          {
+            "name": "stage:执行 13/18 · src/fish-panel.js",
+            "elapsedMs": 323.7000000476837
+          },
+          {
+            "name": "executed:src/fish-panel.js",
+            "elapsedMs": 324
+          },
+          {
+            "name": "stage:解压 14/18 · src/optics.js",
+            "elapsedMs": 324
+          },
+          {
+            "name": "decompressed:src/optics.js",
+            "elapsedMs": 324.2999999523163
+          },
+          {
+            "name": "stage:执行 14/18 · src/optics.js",
+            "elapsedMs": 324.2999999523163
+          },
+          {
+            "name": "executed:src/optics.js",
+            "elapsedMs": 324.40000009536743
+          },
+          {
+            "name": "stage:解压 15/18 · src/seat-workshop.js",
+            "elapsedMs": 324.40000009536743
+          },
+          {
+            "name": "decompressed:src/seat-workshop.js",
+            "elapsedMs": 324.7000000476837
+          },
+          {
+            "name": "stage:执行 15/18 · src/seat-workshop.js",
+            "elapsedMs": 324.7000000476837
+          },
+          {
+            "name": "executed:src/seat-workshop.js",
+            "elapsedMs": 324.90000009536743
+          },
+          {
+            "name": "stage:解压 16/18 · src/float-scope.js",
+            "elapsedMs": 324.90000009536743
+          },
+          {
+            "name": "decompressed:src/float-scope.js",
+            "elapsedMs": 325
+          },
+          {
+            "name": "stage:执行 16/18 · src/float-scope.js",
+            "elapsedMs": 325
+          },
+          {
+            "name": "executed:src/float-scope.js",
+            "elapsedMs": 325.2000000476837
+          },
+          {
+            "name": "stage:解压 17/18 · src/performance.js",
+            "elapsedMs": 325.2000000476837
+          },
+          {
+            "name": "decompressed:src/performance.js",
+            "elapsedMs": 325.2999999523163
+          },
+          {
+            "name": "stage:执行 17/18 · src/performance.js",
+            "elapsedMs": 325.2999999523163
+          },
+          {
+            "name": "executed:src/performance.js",
+            "elapsedMs": 325.5
+          },
+          {
+            "name": "stage:解压 18/18 · src/app.js",
+            "elapsedMs": 325.5
+          },
+          {
+            "name": "decompressed:src/app.js",
+            "elapsedMs": 325.7999999523163
+          },
+          {
+            "name": "stage:执行 18/18 · src/app.js",
+            "elapsedMs": 325.7999999523163
+          },
+          {
+            "name": "stage:初始化物理钓组 · 保留 240 Hz 解算",
+            "elapsedMs": 326.90000009536743
+          },
+          {
+            "name": "executed:src/app.js",
+            "elapsedMs": 326.90000009536743
+          },
+          {
+            "name": "settle-start",
+            "elapsedMs": 356.5
+          },
+          {
+            "name": "stage:稳定钓组 · 0.25 / 20 秒物理时间",
+            "elapsedMs": 378.7999999523163
+          },
+          {
+            "name": "stage:稳定钓组 · 0.5 / 20 秒物理时间",
+            "elapsedMs": 389.60000014305115
+          },
+          {
+            "name": "stage:稳定钓组 · 0.75 / 20 秒物理时间",
+            "elapsedMs": 396.2000000476837
+          },
+          {
+            "name": "stage:稳定钓组 · 1 / 20 秒物理时间",
+            "elapsedMs": 409.10000014305115
+          },
+          {
+            "name": "stage:稳定钓组 · 1.25 / 20 秒物理时间",
+            "elapsedMs": 420.7000000476837
+          },
+          {
+            "name": "stage:稳定钓组 · 1.5 / 20 秒物理时间",
+            "elapsedMs": 431.90000009536743
+          },
+          {
+            "name": "stage:稳定钓组 · 1.75 / 20 秒物理时间",
+            "elapsedMs": 444
+          },
+          {
+            "name": "stage:稳定钓组 · 2 / 20 秒物理时间",
+            "elapsedMs": 455.2999999523163
+          },
+          {
+            "name": "stage:稳定钓组 · 2.25 / 20 秒物理时间",
+            "elapsedMs": 466.90000009536743
+          },
+          {
+            "name": "stage:稳定钓组 · 2.5 / 20 秒物理时间",
+            "elapsedMs": 478.7000000476837
+          },
+          {
+            "name": "stage:稳定钓组 · 2.75 / 20 秒物理时间",
+            "elapsedMs": 490.90000009536743
+          },
+          {
+            "name": "stage:稳定钓组 · 3 / 20 秒物理时间",
+            "elapsedMs": 503.2999999523163
+          },
+          {
+            "name": "stage:稳定钓组 · 3.25 / 20 秒物理时间",
+            "elapsedMs": 515.4000000953674
+          },
+          {
+            "name": "stage:稳定钓组 · 3.5 / 20 秒物理时间",
+            "elapsedMs": 527.1000001430511
+          },
+          {
+            "name": "stage:稳定钓组 · 3.75 / 20 秒物理时间",
+            "elapsedMs": 538.5
+          },
+          {
+            "name": "stage:稳定钓组 · 4 / 20 秒物理时间",
+            "elapsedMs": 549.5
+          },
+          {
+            "name": "stage:稳定钓组 · 4.25 / 20 秒物理时间",
+            "elapsedMs": 560.2000000476837
+          },
+          {
+            "name": "stage:稳定钓组 · 4.5 / 20 秒物理时间",
+            "elapsedMs": 571.4000000953674
+          },
+          {
+            "name": "stage:稳定钓组 · 4.75 / 20 秒物理时间",
+            "elapsedMs": 582.2999999523163
+          },
+          {
+            "name": "stage:稳定钓组 · 5 / 20 秒物理时间",
+            "elapsedMs": 593.6000001430511
+          },
+          {
+            "name": "stage:稳定钓组 · 5.25 / 20 秒物理时间",
+            "elapsedMs": 604.4000000953674
+          },
+          {
+            "name": "stage:稳定钓组 · 5.5 / 20 秒物理时间",
+            "elapsedMs": 615.4000000953674
+          },
+          {
+            "name": "stage:稳定钓组 · 5.75 / 20 秒物理时间",
+            "elapsedMs": 626.1000001430511
+          },
+          {
+            "name": "stage:稳定钓组 · 6 / 20 秒物理时间",
+            "elapsedMs": 636.7999999523163
+          },
+          {
+            "name": "stage:稳定钓组 · 6.25 / 20 秒物理时间",
+            "elapsedMs": 647.7000000476837
+          },
+          {
+            "name": "stage:稳定钓组 · 6.5 / 20 秒物理时间",
+            "elapsedMs": 658.7999999523163
+          },
+          {
+            "name": "stage:稳定钓组 · 6.75 / 20 秒物理时间",
+            "elapsedMs": 669.7999999523163
+          },
+          {
+            "name": "stage:稳定钓组 · 7 / 20 秒物理时间",
+            "elapsedMs": 680.7000000476837
+          },
+          {
+            "name": "stage:稳定钓组 · 7.25 / 20 秒物理时间",
+            "elapsedMs": 691.7999999523163
+          },
+          {
+            "name": "stage:稳定钓组 · 7.5 / 20 秒物理时间",
+            "elapsedMs": 702.2000000476837
+          },
+          {
+            "name": "stage:稳定钓组 · 7.75 / 20 秒物理时间",
+            "elapsedMs": 713.5
+          },
+          {
+            "name": "stage:稳定钓组 · 8 / 20 秒物理时间",
+            "elapsedMs": 724.6000001430511
+          },
+          {
+            "name": "stage:稳定钓组 · 8.25 / 20 秒物理时间",
+            "elapsedMs": 735.2000000476837
+          },
+          {
+            "name": "stage:稳定钓组 · 8.5 / 20 秒物理时间",
+            "elapsedMs": 745.6000001430511
+          },
+          {
+            "name": "stage:稳定钓组 · 8.75 / 20 秒物理时间",
+            "elapsedMs": 755.7999999523163
+          },
+          {
+            "name": "stage:稳定钓组 · 9 / 20 秒物理时间",
+            "elapsedMs": 766.7999999523163
+          },
+          {
+            "name": "stage:稳定钓组 · 9.25 / 20 秒物理时间",
+            "elapsedMs": 777
+          },
+          {
+            "name": "stage:稳定钓组 · 9.5 / 20 秒物理时间",
+            "elapsedMs": 787.2999999523163
+          },
+          {
+            "name": "stage:稳定钓组 · 9.75 / 20 秒物理时间",
+            "elapsedMs": 797.6000001430511
+          },
+          {
+            "name": "stage:稳定钓组 · 10 / 20 秒物理时间",
+            "elapsedMs": 807.9000000953674
+          },
+          {
+            "name": "stage:稳定钓组 · 10.25 / 20 秒物理时间",
+            "elapsedMs": 818.5
+          },
+          {
+            "name": "stage:稳定钓组 · 10.5 / 20 秒物理时间",
+            "elapsedMs": 828.7999999523163
+          },
+          {
+            "name": "stage:稳定钓组 · 10.75 / 20 秒物理时间",
+            "elapsedMs": 838.9000000953674
+          },
+          {
+            "name": "stage:稳定钓组 · 11 / 20 秒物理时间",
+            "elapsedMs": 850
+          },
+          {
+            "name": "stage:稳定钓组 · 11.25 / 20 秒物理时间",
+            "elapsedMs": 861
+          },
+          {
+            "name": "stage:稳定钓组 · 11.5 / 20 秒物理时间",
+            "elapsedMs": 872
+          },
+          {
+            "name": "stage:稳定钓组 · 11.75 / 20 秒物理时间",
+            "elapsedMs": 882.7999999523163
+          },
+          {
+            "name": "stage:稳定钓组 · 12 / 20 秒物理时间",
+            "elapsedMs": 893.2000000476837
+          },
+          {
+            "name": "stage:稳定钓组 · 12.25 / 20 秒物理时间",
+            "elapsedMs": 903.7000000476837
+          },
+          {
+            "name": "stage:稳定钓组 · 12.5 / 20 秒物理时间",
+            "elapsedMs": 914.6000001430511
+          },
+          {
+            "name": "stage:稳定钓组 · 12.75 / 20 秒物理时间",
+            "elapsedMs": 925.7999999523163
+          },
+          {
+            "name": "stage:稳定钓组 · 13 / 20 秒物理时间",
+            "elapsedMs": 936.6000001430511
+          },
+          {
+            "name": "stage:稳定钓组 · 13.25 / 20 秒物理时间",
+            "elapsedMs": 947.4000000953674
+          },
+          {
+            "name": "stage:稳定钓组 · 13.5 / 20 秒物理时间",
+            "elapsedMs": 958
+          },
+          {
+            "name": "stage:稳定钓组 · 13.75 / 20 秒物理时间",
+            "elapsedMs": 968.1000001430511
+          },
+          {
+            "name": "stage:稳定钓组 · 14 / 20 秒物理时间",
+            "elapsedMs": 978.6000001430511
+          },
+          {
+            "name": "stage:稳定钓组 · 14.25 / 20 秒物理时间",
+            "elapsedMs": 989.2000000476837
+          },
+          {
+            "name": "stage:稳定钓组 · 14.5 / 20 秒物理时间",
+            "elapsedMs": 999.5
+          },
+          {
+            "name": "stage:稳定钓组 · 14.75 / 20 秒物理时间",
+            "elapsedMs": 1009.9000000953674
+          },
+          {
+            "name": "stage:稳定钓组 · 15 / 20 秒物理时间",
+            "elapsedMs": 1020.1000001430511
+          },
+          {
+            "name": "stage:稳定钓组 · 15.25 / 20 秒物理时间",
+            "elapsedMs": 1030.6000001430511
+          },
+          {
+            "name": "stage:稳定钓组 · 15.5 / 20 秒物理时间",
+            "elapsedMs": 1041.1000001430511
+          },
+          {
+            "name": "stage:稳定钓组 · 15.75 / 20 秒物理时间",
+            "elapsedMs": 1051.5
+          },
+          {
+            "name": "stage:稳定钓组 · 16 / 20 秒物理时间",
+            "elapsedMs": 1062.5
+          },
+          {
+            "name": "stage:稳定钓组 · 16.25 / 20 秒物理时间",
+            "elapsedMs": 1072.7999999523163
+          },
+          {
+            "name": "stage:稳定钓组 · 16.5 / 20 秒物理时间",
+            "elapsedMs": 1082.9000000953674
+          },
+          {
+            "name": "stage:稳定钓组 · 16.75 / 20 秒物理时间",
+            "elapsedMs": 1093.7000000476837
+          },
+          {
+            "name": "stage:稳定钓组 · 17 / 20 秒物理时间",
+            "elapsedMs": 1103.9000000953674
+          },
+          {
+            "name": "stage:稳定钓组 · 17.25 / 20 秒物理时间",
+            "elapsedMs": 1114.1000001430511
+          },
+          {
+            "name": "stage:稳定钓组 · 17.5 / 20 秒物理时间",
+            "elapsedMs": 1125
+          },
+          {
+            "name": "stage:稳定钓组 · 17.75 / 20 秒物理时间",
+            "elapsedMs": 1135.5
+          },
+          {
+            "name": "stage:稳定钓组 · 18 / 20 秒物理时间",
+            "elapsedMs": 1145.7999999523163
+          },
+          {
+            "name": "stage:稳定钓组 · 18.25 / 20 秒物理时间",
+            "elapsedMs": 1156.1000001430511
+          },
+          {
+            "name": "stage:稳定钓组 · 18.5 / 20 秒物理时间",
+            "elapsedMs": 1166.9000000953674
+          },
+          {
+            "name": "stage:稳定钓组 · 18.75 / 20 秒物理时间",
+            "elapsedMs": 1177.2999999523163
+          },
+          {
+            "name": "stage:稳定钓组 · 19 / 20 秒物理时间",
+            "elapsedMs": 1187.7999999523163
+          },
+          {
+            "name": "stage:稳定钓组 · 19.25 / 20 秒物理时间",
+            "elapsedMs": 1198.7000000476837
+          },
+          {
+            "name": "stage:稳定钓组 · 19.5 / 20 秒物理时间",
+            "elapsedMs": 1209.4000000953674
+          },
+          {
+            "name": "stage:稳定钓组 · 19.75 / 20 秒物理时间",
+            "elapsedMs": 1219.7000000476837
+          },
+          {
+            "name": "stage:稳定钓组 · 20 / 20 秒物理时间",
+            "elapsedMs": 1230.6000001430511
+          },
+          {
+            "name": "settle-end",
+            "elapsedMs": 1231.5
+          },
+          {
+            "name": "stage:准备渲染器与扫描鱼资源",
+            "elapsedMs": 1231.5
+          },
+          {
+            "name": "fish-resources-ready",
+            "elapsedMs": 1286.9000000953674
+          },
+          {
+            "name": "stage:准备日光与水体环境",
+            "elapsedMs": 1286.9000000953674
+          },
+          {
+            "name": "stage:载入同源砂石碰撞高度场",
+            "elapsedMs": 1302.1000001430511
+          },
+          {
+            "name": "terrain-start",
+            "elapsedMs": 1322.9000000953674
+          },
+          {
+            "name": "terrain-end",
+            "elapsedMs": 1329.6000001430511
+          },
+          {
+            "name": "stage:构建水草、钓具与观察相机",
+            "elapsedMs": 1329.6000001430511
+          },
+          {
+            "name": "stage:预热着色器、鱼纹理与双相机光学",
+            "elapsedMs": 1374.1000001430511
+          },
+          {
+            "name": "gpu-prewarm-start",
+            "elapsedMs": 1389.7000000476837
+          },
+          {
+            "name": "gpu-prewarm-end",
+            "elapsedMs": 1669.2999999523163
+          },
+          {
+            "name": "stage:绘制首个可交互场景",
+            "elapsedMs": 1669.2999999523163
+          },
+          {
+            "name": "first-scene-frame",
+            "elapsedMs": 1704.2000000476837
+          },
+          {
+            "name": "app:ready",
+            "elapsedMs": 1704.2000000476837
+          },
+          {
+            "name": "stage:场景已就绪 · 等待首帧绘制机会",
+            "elapsedMs": 1704.2000000476837
+          },
+          {
+            "name": "frame:opportunity",
+            "elapsedMs": 1746.2999999523163
+          },
+          {
+            "name": "boot:finish",
+            "elapsedMs": 1746.4000000953674
+          }
+        ]
+      },
+      "gpu": {
+        "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M3 Pro, Unspecified Version)",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/158.0.0.0 Safari/537.36"
+      }
+    }
+  ],
+  "errors": [],
+  "externalRequests": [],
+  "notes": "Headless Chrome on this host, foreground emulation. Fresh file:// document loads; OS file/shader caches are NOT flushed. rAF wall intervals include browser scheduling; render submit CPU timing is NOT GPU elapsed time. Mobile viewport is NOT a real phone."
+}

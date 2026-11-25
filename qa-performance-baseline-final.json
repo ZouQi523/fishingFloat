@@ -1,0 +1,340 @@
+{
+  "recordedAt": "2026-11-25T11:13:44.240Z",
+  "htmlBytes": 12316176,
+  "htmlSHA256": "e8fb553f4a3ea8462fe40df60b1fa2bde27262eb2afdf141bcedc6b7dba52145",
+  "deviceScaleFactor": 1,
+  "cpuRate": 1,
+  "results": [
+    {
+      "viewport": "1440x1000",
+      "deviceScaleFactor": 1,
+      "startup": {
+        "readyObservedMs": 1930.5,
+        "paint": [
+          {
+            "name": "first-paint",
+            "start": 124
+          },
+          {
+            "name": "first-contentful-paint",
+            "start": 124
+          }
+        ],
+        "navigation": [
+          {
+            "domInteractive": 1857.2999999523163,
+            "domContentLoaded": 1857.2999999523163
+          }
+        ],
+        "longTasks": [
+          {
+            "start": 149,
+            "duration": 1667
+          }
+        ]
+      },
+      "startupSamples": [
+        {
+          "readyObservedMs": 1930.5,
+          "paint": [
+            {
+              "name": "first-paint",
+              "start": 124
+            },
+            {
+              "name": "first-contentful-paint",
+              "start": 124
+            }
+          ],
+          "navigation": [
+            {
+              "domInteractive": 1857.2999999523163,
+              "domContentLoaded": 1857.2999999523163
+            }
+          ],
+          "longTasks": [
+            {
+              "start": 149,
+              "duration": 1667
+            }
+          ]
+        },
+        {
+          "readyObservedMs": 1580.5,
+          "paint": [
+            {
+              "name": "first-paint",
+              "start": 56
+            },
+            {
+              "name": "first-contentful-paint",
+              "start": 56
+            }
+          ],
+          "navigation": [
+            {
+              "domInteractive": 1525.2999999523163,
+              "domContentLoaded": 1525.3999998569489
+            }
+          ],
+          "longTasks": [
+            {
+              "start": 74.70000004768372,
+              "duration": 1411
+            }
+          ]
+        },
+        {
+          "readyObservedMs": 1571.3999998569489,
+          "paint": [
+            {
+              "name": "first-paint",
+              "start": 56
+            },
+            {
+              "name": "first-contentful-paint",
+              "start": 56
+            }
+          ],
+          "navigation": [
+            {
+              "domInteractive": 1522.0999999046326,
+              "domContentLoaded": 1522.0999999046326
+            }
+          ],
+          "longTasks": [
+            {
+              "start": 80.19999980926514,
+              "duration": 1402
+            }
+          ]
+        }
+      ],
+      "startupMedianMs": 1580.5,
+      "cases": [
+        {
+          "scenario": "default",
+          "frames": 300,
+          "elapsedMs": 4999.7,
+          "meanFPS": 60.00360021601296,
+          "medianMs": 16.699999999999818,
+          "p95Ms": 16.799999999999727,
+          "p99Ms": 16.800000000000182,
+          "over33ms": 0,
+          "renderSubmitMeanMs": 3.4486666679382325,
+          "drawCallsPerFrame": 351.3333333333333,
+          "shadowUpdatesPerFrame": 4.666666666666667,
+          "appWorkMeanMs": 7.196345517801684,
+          "appWorkP95Ms": 8.5,
+          "pixelRatio": 1,
+          "physicsTime": 26.94999999999879
+        },
+        {
+          "scenario": "fish",
+          "frames": 300,
+          "elapsedMs": 4999.800000000001,
+          "meanFPS": 60.002400096003825,
+          "medianMs": 16.69999999999891,
+          "p95Ms": 16.700000000000728,
+          "p99Ms": 16.80000000000109,
+          "over33ms": 0,
+          "renderSubmitMeanMs": 3.4600000150998436,
+          "drawCallsPerFrame": 353.6666666666667,
+          "shadowUpdatesPerFrame": 4.666666666666667,
+          "appWorkMeanMs": 7.770099669199845,
+          "appWorkP95Ms": 9.100000143051147,
+          "pixelRatio": 1,
+          "physicsTime": 33.566666666666414
+        },
+        {
+          "scenario": "expanded",
+          "frames": 300,
+          "elapsedMs": 4999.799999999999,
+          "meanFPS": 60.00240009600385,
+          "medianMs": 16.700000000000728,
+          "p95Ms": 16.700000000000728,
+          "p99Ms": 16.799999999999272,
+          "over33ms": 0,
+          "renderSubmitMeanMs": 3.466333323319753,
+          "drawCallsPerFrame": 353.78,
+          "shadowUpdatesPerFrame": 4.666666666666667,
+          "appWorkMeanMs": 7.700996665859539,
+          "appWorkP95Ms": 9,
+          "pixelRatio": 1,
+          "physicsTime": 40.18333333333835
+        }
+      ],
+      "gpu": {
+        "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M3 Pro, Unspecified Version)",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/158.0.0.0 Safari/537.36"
+      }
+    },
+    {
+      "viewport": "390x844",
+      "deviceScaleFactor": 1,
+      "startup": {
+        "readyObservedMs": 1572.5,
+        "paint": [
+          {
+            "name": "first-paint",
+            "start": 48
+          },
+          {
+            "name": "first-contentful-paint",
+            "start": 48
+          }
+        ],
+        "navigation": [
+          {
+            "domInteractive": 1526,
+            "domContentLoaded": 1526
+          }
+        ],
+        "longTasks": [
+          {
+            "start": 80.5,
+            "duration": 1419
+          }
+        ]
+      },
+      "startupSamples": [
+        {
+          "readyObservedMs": 1572.5,
+          "paint": [
+            {
+              "name": "first-paint",
+              "start": 48
+            },
+            {
+              "name": "first-contentful-paint",
+              "start": 48
+            }
+          ],
+          "navigation": [
+            {
+              "domInteractive": 1526,
+              "domContentLoaded": 1526
+            }
+          ],
+          "longTasks": [
+            {
+              "start": 80.5,
+              "duration": 1419
+            }
+          ]
+        },
+        {
+          "readyObservedMs": 1583.4000000953674,
+          "paint": [
+            {
+              "name": "first-paint",
+              "start": 44
+            },
+            {
+              "name": "first-contentful-paint",
+              "start": 44
+            }
+          ],
+          "navigation": [
+            {
+              "domInteractive": 1531.7000000476837,
+              "domContentLoaded": 1531.7000000476837
+            }
+          ],
+          "longTasks": [
+            {
+              "start": 86.20000004768372,
+              "duration": 1418
+            }
+          ]
+        },
+        {
+          "readyObservedMs": 1578.8999998569489,
+          "paint": [
+            {
+              "name": "first-paint",
+              "start": 40
+            },
+            {
+              "name": "first-contentful-paint",
+              "start": 40
+            }
+          ],
+          "navigation": [
+            {
+              "domInteractive": 1533.3999998569489,
+              "domContentLoaded": 1533.3999998569489
+            }
+          ],
+          "longTasks": [
+            {
+              "start": 72.89999985694885,
+              "duration": 1434
+            }
+          ]
+        }
+      ],
+      "startupMedianMs": 1578.8999998569489,
+      "cases": [
+        {
+          "scenario": "default",
+          "frames": 300,
+          "elapsedMs": 4999.799999999999,
+          "meanFPS": 60.00240009600385,
+          "medianMs": 16.699999999999818,
+          "p95Ms": 16.700000000000728,
+          "p99Ms": 16.800000000000182,
+          "over33ms": 0,
+          "renderSubmitMeanMs": 3.262333331902822,
+          "drawCallsPerFrame": 351.3333333333333,
+          "shadowUpdatesPerFrame": 4.666666666666667,
+          "appWorkMeanMs": 6.767109630907889,
+          "appWorkP95Ms": 8,
+          "pixelRatio": 1,
+          "physicsTime": 26.94166666666546
+        },
+        {
+          "scenario": "fish",
+          "frames": 300,
+          "elapsedMs": 4999.799999999999,
+          "meanFPS": 60.00240009600385,
+          "medianMs": 16.69999999999891,
+          "p95Ms": 16.799999999999272,
+          "p99Ms": 16.80000000000109,
+          "over33ms": 0,
+          "renderSubmitMeanMs": 3.3160000117619832,
+          "drawCallsPerFrame": 353.6666666666667,
+          "shadowUpdatesPerFrame": 4.666666666666667,
+          "appWorkMeanMs": 7.396677744348976,
+          "appWorkP95Ms": 9.900000095367432,
+          "pixelRatio": 1,
+          "physicsTime": 33.562499999999744
+        },
+        {
+          "scenario": "expanded",
+          "frames": 300,
+          "elapsedMs": 4999.899999999998,
+          "meanFPS": 60.001200024000504,
+          "medianMs": 16.69999999999709,
+          "p95Ms": 16.799999999999272,
+          "p99Ms": 16.80000000000291,
+          "over33ms": 0,
+          "renderSubmitMeanMs": 3.309000001748403,
+          "drawCallsPerFrame": 353.78,
+          "shadowUpdatesPerFrame": 4.666666666666667,
+          "appWorkMeanMs": 7.375415291897086,
+          "appWorkP95Ms": 8.700000047683716,
+          "pixelRatio": 1,
+          "physicsTime": 40.17500000000501
+        }
+      ],
+      "gpu": {
+        "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M3 Pro, Unspecified Version)",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/158.0.0.0 Safari/537.36"
+      }
+    }
+  ],
+  "errors": [],
+  "externalRequests": [],
+  "notes": "Headless Chrome on this host, foreground emulation. Fresh file:// document loads; OS file/shader caches are NOT flushed. rAF wall intervals include browser scheduling; render submit CPU timing is NOT GPU elapsed time. Mobile viewport is NOT a real phone."
+}

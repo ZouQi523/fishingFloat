@@ -1,0 +1,38 @@
+✔ one original scene and water mesh serve distinct perspective and orthographic optical views (8.900709ms)
+✔ reflection tracks the corresponding world-space camera pose, projection and clipping side (2.130667ms)
+✔ reflection initializes immediately, then staggered thirds remain independent per camera (2.948958ms)
+✔ capture restores complete renderer and visibility state on success (1.940375ms)
+✔ capture restores complete renderer and visibility state when pass 1 throws (1.695916ms)
+✔ capture restores complete renderer and visibility state when pass 2 throws (1.742125ms)
+✔ primary resize and inset viewport sizes remain independent, capped and nonzero (1.548167ms)
+✔ depth inverse projection round-trips actual world hits for both camera types and camera motion (1.73575ms)
+✔ dispose releases both cameras optical targets and owned materials without removing app-owned volume (2.622334ms)
+✔ global time/impact/center survive view binding while update keeps following the main camera (1.605541ms)
+✔ water clarity is bounded, defaults to .35 and ignores invalid nonfinite input (1.555792ms)
+✔ both real camera captures share transmission without replacing material or losing reflection (2.267ms)
+✔ shared lake palette, green transmission and deterministic fallback lighting initialize immediately (2.408208ms)
+✔ initial lighting uses real parented sun and target world transforms without changing the lights (1.444708ms)
+✔ update refreshes world sun direction, live colors and intensities while leaving real lights unchanged (1.555709ms)
+✔ coincident sun and target use a finite up direction on creation and subsequent updates (1.088167ms)
+✔ main and scope bindings retain one material, lake tints and live lighting with no scene or mesh clones (1.45325ms)
+✔ water scattering and highlights use supplied illumination while real refraction and Fresnel remain (1.315084ms)
+✔ adaptive optical scale applies once per camera and resize keeps projection/depth coherent (1.431667ms)
+✔ staggered views avoid synchronized six-pass reflection spikes after initialization (1.558708ms)
+✔ 60 FPS means a 16.67 ms rendering budget, not a physics step (0.408209ms)
+✔ Retina startup reserves pixel headroom without capping refresh rate (0.106833ms)
+✔ healthy 60 Hz frames keep initial quality and expose real timings (0.382458ms)
+✔ sustained overload reduces only rendering quality with cooldown (0.207625ms)
+✔ isolated hitch does not trigger an immediate quality change (0.129458ms)
+✔ hidden-tab and debugger pauses do not downgrade quality (0.156542ms)
+✔ recovery requires sustained headroom and avoids oscillation (1.313084ms)
+✔ nonfinite, negative or zero measurements never poison monitor (0.077833ms)
+✔ snapshot quality change history is isolated from caller mutations (0.118667ms)
+✔ chunked startup settles exactly the original 4800 solver steps (1901.579584ms)
+ℹ tests 30
+ℹ suites 0
+ℹ pass 30
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1971.578208

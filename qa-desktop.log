@@ -1,0 +1,304 @@
+Navigated; inspecting page
+STATE {
+  options: {
+    leadMassG: 4,
+    floatMassG: 0.6,
+    baitMassG: 0.34,
+    baitDensity: 1100,
+    baitRadius: 0.003329067050248536,
+    hookExtent: 0.019329067050248536,
+    waterY: 0.83,
+    bottomY: 0.055,
+    waterDensity: 998.2336361398824,
+    lineMaterial: 'nylon',
+    lineDensity: 1140,
+    mainDiameter: 0.00022,
+    subDiameter: 0.00016,
+    mainLength: 1.2,
+    floatToSwivel: 0.42,
+    windOnSurface: true,
+    leadAboveSwivel: 0.055,
+    leadTravel: 0.08,
+    leadLocked: true,
+    leaderLengths: [ 0.12, 0.15 ],
+    rodTip: { x: -0.5, y: 1.1, z: 0.025 }
+  },
+  time: 20.049999999999184,
+  nodes: {
+    rod: { x: -0.5, y: 1.1, z: 0.025 },
+    floatFoot: {
+      x: -0.1815129487253166,
+      y: 0.6503604549519466,
+      z: 0.02531293161340835
+    },
+    floatTop: {
+      x: -0.18151294843536867,
+      y: 0.9103604807370645,
+      z: 0.025312931613075473
+    },
+    lead: {
+      x: -0.18151294883016383,
+      y: 0.28536043080088963,
+      z: 0.025312931613600865
+    },
+    swivel: {
+      x: -0.18151294879142094,
+      y: 0.23035828813928647,
+      z: 0.0253129316136067
+    },
+    leaderAnchor: {
+      x: -0.18151294879142094,
+      y: 0.22435828813928646,
+      z: 0.0253129316136067
+    },
+    hooks: [ [Object], [Object] ]
+  },
+  curves: {
+    wind: [
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      ... 191 more items
+    ],
+    upper: [
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object]
+    ],
+    lower: [
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object]
+    ],
+    leaders: [ [Array], [Array] ]
+  },
+  markers: {
+    floatStops: [ [Object], [Object], [Object], [Object] ],
+    leadStops: [ [Object], [Object] ]
+  },
+  leadCoordinate: 0.055,
+  velocityY: 4.7477307418830605e-7,
+  velocities: [
+    {
+      x: 7.951639346970296e-10,
+      y: 4.7477307418830605e-7,
+      z: 1.897648704840549e-12
+    },
+    {
+      x: 2.3768054191464216e-9,
+      y: 4.74841419517702e-7,
+      z: 4.1033842990145786e-12
+    },
+    {
+      x: -8.169265264257319e-10,
+      y: 4.7471350850258887e-7,
+      z: -1.388056336537602e-12
+    },
+    {
+      x: -6.867306723279398e-10,
+      y: 4.6970793254885734e-7,
+      z: -9.575673587391975e-13
+    },
+    {
+      x: 1.9489077018874923e-10,
+      y: 4.7547982551243706e-7,
+      z: 3.8219427622721014e-13
+    },
+    {
+      x: 1.347055800238195e-10,
+      y: 4.6970793254885734e-7,
+      z: 2.4147350785597155e-13
+    }
+  ],
+  evaluation: {
+    buoyancyN: 0.050434131923526984,
+    weightN: 0.050604185511642856,
+    bottomSupportN: 0.000034720208184901535,
+    rodReaction: { x: 0, y: 0.00006707181637399839, z: 0 },
+    rodTensionN: 0.00006707181637399839,
+    surfaceSupportN: 0.00006819783520431337,
+    windSurfaceLength: 0.2854537781733345,
+    lineMassG: 0.05819084107650074,
+    lineBuoyancyG: 0.03452476908477488,
+    lineApparentMassG: 0.02366607199172586,
+    floatDisplacedVolume: 0.0000043831119390857475,
+    displacedVolume: 0.000005151950420019859,
+    exposureM: 0.08036048073706459,
+    tiltRad: 0,
+    staticResidualN: 6.372835265857008e-8,
+    status: 'hooks-bottom',
+    contacts: { hooks: [Array], lead: false, float: false },
+    tension: {
+      wind: 0.00006707181637399839,
+      upper: 0.03689568082666314,
+      lower: 0.0010103121549786568,
+      leaders: [Array]
+    },
+    maxLengthError: 0.0000021426616031647305,
+    options: {
+      leadMassG: 4,
+      floatMassG: 0.6,
+      baitMassG: 0.34,
+      baitDensity: 1100,
+      baitRadius: 0.003329067050248536,
+      hookExtent: 0.019329067050248536,
+      waterY: 0.83,
+      bottomY: 0.055,
+      waterDensity: 998.2336361398824,
+      lineMaterial: 'nylon',
+      lineDensity: 1140,
+      mainDiameter: 0.00022,
+      subDiameter: 0.00016,
+      mainLength: 1.2,
+      floatToSwivel: 0.42,
+      windOnSurface: true,
+      leadAboveSwivel: 0.055,
+      leadTravel: 0.08,
+      leadLocked: true,
+      leaderLengths: [Array],
+      rodTip: [Object]
+    }
+  },
+  topY: 0.9103604807370645,
+  leadMass: 4,
+  castPhase: 0,
+  paused: false
+}
+ACTION {
+  passed: 89,
+  windMaxTurnDegrees: 14.931322393172334,
+  checks: [
+    'WebGL initialized without error',
+    'full connected rig is initial view',
+    'initial total bait mass applied',
+    'advanced settings are closed on first load',
+    'pre-tied mainline and leaders have no editable length controls',
+    'manual operation does not expose numeric tackle or rod adjustments',
+    'move-float, move-lead and trim remain directly accessible on the main HUD',
+    'tank has no floating labels, numeric hints or clickable handles',
+    'model picking is disabled, not just visually hidden',
+    'pause freezes all six nodes and physical time',
+    'rod plus bed plus water closes three-dimensional static force balance',
+    'slack wind line has explicit water-surface residence and interface support',
+    'advanced forces show interface support separately from buoyancy',
+    'wind line visibly lies on the water rather than forming a submerged hanging loop',
+    'only the necessary float-seat approach descends below the surface',
+    'displayed vertical balance includes the water-surface support',
+    'default long leader reaches bed independently',
+    'total bait mass drives per-ball radius',
+    'all three mainline sections conserve total material length',
+    'rod wind line terminates at float seat',
+    'mainline terminates at independent swivel upper eye',
+    'both leaders begin on swivel lower eye',
+    'unequal leaders retain true lengths',
+    'wind tube and guide retain dense same-curve sampling through water contact bends',
+    'rendered wind line has no sharp air/water or water/seat corner',
+    'render sampling does not noticeably shorten the conserved wind material',
+    'smooth rendered wind remains attached to the real rod and seat',
+    'swivel is not a child of movable lead',
+    'all rigid mesh anchors consume solver snapshot',
+    'both hooks and rod eye consume solver snapshot',
+    'visible tubes retain physical line diameters',
+    'optional one-pixel guides can be disabled independently',
+    'seat workshop is initially a hidden modal dialog',
+    'former HUD slider panel and controls are removed',
+    'legacy seat inputs and outputs remain hidden for integrations',
+    'HUD opens separate float workshop',
+    'workshop starts from exact original float setting',
+    'illustrated float grip exposes slider semantics',
+    'keyboard float adjustment is a half-centimetre draft only',
+    'cancel float discards draft without recasting',
+    'cancel returns focus to float opener',
+    'Done commits only selected float option and recasts without changing pause',
+    'confirm float leaves camera unchanged',
+    'HUD opens separate lead workshop',
+    'workshop starts from exact original lead setting',
+    'illustrated lead grip exposes slider semantics',
+    'keyboard lead adjustment is a half-centimetre draft only',
+    'cancel lead discards draft without recasting',
+    'cancel returns focus to lead opener',
+    'Done commits only selected lead option and recasts without changing pause',
+    'confirm lead leaves camera unchanged',
+    'opening preserves an off-step original setting exactly',
+    'float lower bound preserves lead stop and stored running travel',
+    'committing float lower bound never changes lead position or stored travel',
+    'moving float seat conserves entire mainline length',
+    'moving float seat does not create or destroy line mass',
+    'deeper float setting physically lowers terminal rig',
+    'legacy input events cannot resize the pre-tied lines',
+    'application API also preserves fixed mainline and leader lengths',
+    'released lead remains between the physical stops',
+    'locking running lead captures actual coordinate beyond old slider limit',
+    'locked lead disables free-travel adjustment',
+    'lift moves fixed rod boundary by 55 cm',
+    'rod-side tension actually raises both hooks',
+    'lifted rig load includes actual rod reaction',
+    'rod lowers to original boundary',
+    'fluorocarbon changes real line mass',
+    'PE density changes real mass without invented negative total weight',
+    'mainline mass responds to diameter squared',
+    'removing bait removes its volume and weight',
+    'water temperature updates freshwater density',
+    'public configure synchronizes environment controls and survives unrelated edits',
+    'line diameter input clamps to lower physical bound',
+    'heavy lead reset synchronizes actual lead mass',
+    'overloaded rig is supported by bed or rod, not fabricated midwater equilibrium',
+    'overloaded rig balances with external supports',
+    'trim workshop opens',
+    'cutting preview retains half of 5 g lead',
+    'cut commit synchronizes solver and workshop',
+    'cutting lead increases float exposure',
+    'recast resets full connected geometry and time',
+    'exclusive view selection Rig',
+    'exclusive view selection Float',
+    'exclusive view selection Tank',
+    'expanded scrollable parameter panel fits viewport',
+    'observation controls fit viewport',
+    'no horizontal page overflow',
+    'WebGL survives all controls',
+    'resume advances connected physical integration'
+  ]
+}
+SCREENSHOT preview-water-regression.png ERRORS 0
+HUD {
+  text: '浮研 FLOAT LAB\n' +
+    '静观水面 · 风线默认贴水\n' +
+    '实时观察\n' +
+    '钩触底\n' +
+    '铅皮质量\n' +
+    '4.00 g\n' +
+    '露出漂目\n' +
+    '5.1 目\n' +
+    '移漂\n' +
+    '移铅\n' +
+    '剪铅皮\n' +
+    '线长固定 · 主线 120 cm · 子线 12 / 15 cm\n' +
+    '单钩触底 · 锁铅',
+  info: { frame: 243, calls: 43, triangles: 303574, points: 0, lines: 519 }
+}

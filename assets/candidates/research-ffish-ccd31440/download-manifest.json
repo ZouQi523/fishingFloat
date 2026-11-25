@@ -1,0 +1,37 @@
+{
+  "uid": "ccd3144068d34cd9b15f3c38d2fb790b",
+  "title": "CC0 ギンブナ 🐟 Crucian Carp, C. auratus langsdorfii",
+  "author": "ffish.asia / floraZia.com",
+  "authorURL": "https://sketchfab.com/ffishAsia-and-floraZia",
+  "sourceURL": "https://sketchfab.com/3d-models/cc0-crucian-carp-c-auratus-langsdorfii-ccd3144068d34cd9b15f3c38d2fb790b",
+  "downloadURL": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-154/ccd3144068d34cd9b15f3c38d2fb790b.glb",
+  "downloadHTTP": 200,
+  "contentType": "model/gltf-binary",
+  "license": {
+    "uri": "https://api.sketchfab.com/v3/licenses/7c23a1ba438d4306920229c12afcb5f9",
+    "label": "CC0 Public Domain",
+    "fullName": "CC0 Public Domain",
+    "requirements": "Credit is not mandatory. Commercial use is allowed.",
+    "url": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "slug": "cc0"
+  },
+  "previewURL": "https://media.sketchfab.com/models/ccd3144068d34cd9b15f3c38d2fb790b/thumbnails/f06de9c74c014260ae35d5181592d734/a6b20b20c0804fa38e25708fbd2f23f9.jpeg",
+  "bytes": 17854280,
+  "sha256": "03f157b0c6fb945e44d008a14f8faa9db32bf74f046ca18fcc1081b9f569a529",
+  "trianglesSource": 369207,
+  "gltfMeshCount": 7,
+  "gltfTextures": 2,
+  "gltfImages": 2,
+  "gltfExternalBuffers": [],
+  "gltfExternalImages": [],
+  "gltfAsset": {
+    "extras": {
+      "author": "ffish.asia / floraZia.com (https://sketchfab.com/ffishAsia-and-floraZia)",
+      "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
+      "source": "https://sketchfab.com/3d-models/crucian-carp-carassius-auratus-langsdorfii-ccd3144068d34cd9b15f3c38d2fb790b",
+      "title": "ギンブナ Crucian Carp, Carassius auratus langsdorfii"
+    },
+    "generator": "Sketchfab-13.46.0",
+    "version": "2.0"
+  }
+}

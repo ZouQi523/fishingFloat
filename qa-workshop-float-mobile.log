@@ -1,0 +1,209 @@
+Navigated; inspecting page
+STATE {
+  options: {
+    leadMassG: 4,
+    floatMassG: 0.6,
+    baitMassG: 0.34,
+    baitDensity: 1100,
+    baitRadius: 0.003329067050248536,
+    hookExtent: 0.019329067050248536,
+    waterY: 0.83,
+    bottomY: 0.055,
+    waterDensity: 998.2336361398824,
+    lineMaterial: 'nylon',
+    lineDensity: 1140,
+    mainDiameter: 0.00022,
+    subDiameter: 0.00016,
+    mainLength: 1.2,
+    floatToSwivel: 0.42,
+    windOnSurface: true,
+    leadAboveSwivel: 0.055,
+    leadTravel: 0.08,
+    leadLocked: true,
+    leaderLengths: [ 0.12, 0.15 ],
+    rodTip: { x: -0.5, y: 1.1, z: 0.025 }
+  },
+  time: 21.27370000004688,
+  nodes: {
+    rod: { x: -0.5, y: 1.1, z: 0.025 },
+    floatFoot: {
+      x: -0.18151294876373372,
+      y: 0.6503520666885839,
+      z: 0.02531293161357938
+    },
+    floatTop: {
+      x: -0.18151294878165425,
+      y: 0.9103520837364125,
+      z: 0.025312931613717102
+    },
+    lead: {
+      x: -0.1815129487662849,
+      y: 0.28535205073925574,
+      z: 0.025312931613438724
+    },
+    swivel: {
+      x: -0.18151294877331595,
+      y: 0.23035063688334212,
+      z: 0.025312931613450232
+    },
+    leaderAnchor: {
+      x: -0.18151294877331595,
+      y: 0.2243506368833421,
+      z: 0.025312931613450232
+    },
+    hooks: [ [Object], [Object] ]
+  },
+  curves: {
+    wind: [
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      ... 191 more items
+    ],
+    upper: [
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object]
+    ],
+    lower: [
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object]
+    ],
+    leaders: [ [Array], [Array] ]
+  },
+  markers: {
+    floatStops: [ [Object], [Object], [Object], [Object] ],
+    leadStops: [ [Object], [Object] ]
+  },
+  leadCoordinate: 0.055,
+  velocityY: -0.00010247424482388893,
+  velocities: [
+    {
+      x: -1.5401040275194738e-10,
+      y: -0.00010247424482388893,
+      z: -4.4297403172994947e-13
+    },
+    {
+      x: -1.308807563399407e-9,
+      y: -0.00010247477122159891,
+      z: -5.338404997771186e-13
+    },
+    {
+      x: 2.9614207995372843e-10,
+      y: -0.00010247377274780565,
+      z: 2.3232903762060285e-13
+    },
+    {
+      x: 2.1798865684515873e-10,
+      y: -0.00010243321073296466,
+      z: 9.499676204931317e-14
+    },
+    {
+      x: -8.945390749843586e-11,
+      y: -0.00010247440719813702,
+      z: -1.6521176008576204e-14
+    },
+    {
+      x: -6.097140005965048e-11,
+      y: -0.00010243321072883438,
+      z: 1.3423455506968165e-14
+    }
+  ],
+  evaluation: {
+    buoyancyN: 0.050434275822629854,
+    weightN: 0.050604185511642856,
+    bottomSupportN: 0,
+    rodReaction: { x: 0, y: 0.00006707201554876469, z: 0 },
+    rodTensionN: 0.00006707201554876469,
+    surfaceSupportN: 0.00006819595683613823,
+    windSurfaceLength: 0.28544591594001306,
+    lineMassG: 0.05819084107650074,
+    lineBuoyancyG: 0.03452491825539188,
+    lineApparentMassG: 0.02366592282110886,
+    floatDisplacedVolume: 0.000004383126489240821,
+    displacedVolume: 0.000005151965119609506,
+    exposureM: 0.08035208373641256,
+    tiltRad: 0,
+    staticResidualN: 0.00003464171662809932,
+    status: 'hooks-bottom',
+    contacts: { hooks: [Array], lead: false, float: false },
+    tension: {
+      wind: 0.00006707201554876469,
+      upper: 0.036907845695547684,
+      lower: 0.001042722706281982,
+      leaders: [Array]
+    },
+    maxLengthError: 0.0000014138559136164797,
+    options: {
+      leadMassG: 4,
+      floatMassG: 0.6,
+      baitMassG: 0.34,
+      baitDensity: 1100,
+      baitRadius: 0.003329067050248536,
+      hookExtent: 0.019329067050248536,
+      waterY: 0.83,
+      bottomY: 0.055,
+      waterDensity: 998.2336361398824,
+      lineMaterial: 'nylon',
+      lineDensity: 1140,
+      mainDiameter: 0.00022,
+      subDiameter: 0.00016,
+      mainLength: 1.2,
+      floatToSwivel: 0.42,
+      windOnSurface: true,
+      leadAboveSwivel: 0.055,
+      leadTravel: 0.08,
+      leadLocked: true,
+      leaderLengths: [Array],
+      rodTip: [Object]
+    }
+  },
+  topY: 0.9103520837364125,
+  leadMass: 4,
+  castPhase: 0,
+  paused: false
+}
+ACTION undefined
+SCREENSHOT preview-workshop-float-mobile.png ERRORS 0
+HUD {
+  text: '浮研 FLOAT LAB\n' +
+    '实时观察\n' +
+    '钩触底\n' +
+    '铅皮质量\n' +
+    '4.00 g\n' +
+    '露出漂目\n' +
+    '5.1 目\n' +
+    '移漂\n' +
+    '移铅\n' +
+    '剪铅皮\n' +
+    '线长固定 · 主线 120 cm · 子线 12 / 15 cm\n' +
+    '单钩触底 · 锁铅',
+  info: { frame: 199, calls: 112, triangles: 318434, points: 0, lines: 519 }
+}

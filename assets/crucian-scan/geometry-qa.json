@@ -1,0 +1,84 @@
+{
+  "passed": true,
+  "id": "silver-crucian-scan-ccd31440",
+  "modelHash": "281aa1fb3da062e2a01135377b56549b0af147fefe61975582b607777060fb67",
+  "source": "real ccd31440 scanned fish; never procedurally rebuilt",
+  "renderTriangles": 19900,
+  "renderUniqueVertices": 9963,
+  "isolatedSingleTriangleDebrisRemoved": 18,
+  "renderBoundsMin": [
+    -0.1790218,
+    -0.0341566,
+    -0.0150501
+  ],
+  "renderBoundsMax": [
+    0.000968,
+    0.0480402,
+    0.0111397
+  ],
+  "renderExtent": [
+    0.1799898,
+    0.0821968,
+    0.0261898
+  ],
+  "actualLipVertexIndices": [
+    34526,
+    53242,
+    53297,
+    7351,
+    7337,
+    7291,
+    7255,
+    7112,
+    46399,
+    52003,
+    33443,
+    33398,
+    33461,
+    46552,
+    30405,
+    54767
+  ],
+  "actualLipCentroidError": 8.838834764841642e-09,
+  "normalLengthMaxError": 1.5726629754020394e-07,
+  "uvFinite": true,
+  "photographicTexture": {
+    "width": 1024,
+    "height": 1024,
+    "channels": 4,
+    "origin": "original photographic albedo projected high-to-low via EMIT bake; no procedural painting",
+    "rowOrder": "bottom to top / flipY false"
+  },
+  "colorCardExcluded": [
+    {
+      "name": "Object_4",
+      "triangles": 12
+    }
+  ],
+  "allOriginalImportedVerticesTested": 375838,
+  "collisionSupportCount": 830,
+  "surfaceSampleCount": 5090,
+  "skin": 0.0015,
+  "continuousTailSway": {
+    "amplitude": 0.003,
+    "startX": -0.03,
+    "span": 0.15,
+    "frequency": 7,
+    "phase": 4
+  },
+  "continuousEnvelope": "convex hull of ALL cleaned pre-decimation scan vertices AND final render vertices Minkowski +/-3mm local Z plus 0.1mm XYZ numerical padding; includes all fins and every tail-sway phase",
+  "constructionPadding": 0.0001,
+  "maximumOriginalSweptHullOverrun": -9.702398423844238e-05,
+  "maximumRenderedContinuouslySweptHullOverrun": -9.999992470408775e-05,
+  "quantizationTolerance": 1e-06,
+  "independentSurfaceProbeCount": 69731,
+  "maximumSurfaceProbeToSampleDistance": 0.002274339087307453,
+  "provenSurfaceCoverageBound": 0.002982,
+  "boundaryEdges": 98,
+  "nonmanifoldEdges": 98,
+  "looseVertices": 0,
+  "connectedComponentVertexCounts": [
+    9963
+  ],
+  "topologyNote": "Photogrammetry scan may have pre-existing nonmanifold seams; not represented as watertight CAD."
+}

@@ -1,0 +1,1225 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>鱼缸侧视 · 一只浮漂</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #04060a; overflow: hidden; }
+  canvas { display: block; width: 100vw; height: 100vh; }
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<script>
+(function () {
+  'use strict';
+
+  const cv = document.getElementById('c');
+  const ctx = cv.getContext('2d');
+  const DPR = Math.min(window.devicePixelRatio || 1, 2);
+  const TAU = Math.PI * 2;
+
+  /* ---------- 小工具 ---------- */
+  function seeded(a) {
+    return function () {
+      a |= 0; a = a + 0x6D2B79F5 | 0;
+      let t = Math.imul(a ^ a >>> 15, 1 | a);
+      t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+      return ((t ^ t >>> 14) >>> 0) / 4294967296;
+    };
+  }
+  function rr(g, x, y, w, h, r) {
+    r = Math.min(r, w / 2, h / 2);
+    g.beginPath();
+    g.moveTo(x + r, y);
+    g.lineTo(x + w - r, y); g.arcTo(x + w, y, x + w, y + r, r);
+    g.lineTo(x + w, y + h - r); g.arcTo(x + w, y + h, x + w - r, y + h, r);
+    g.lineTo(x + r, y + h); g.arcTo(x, y + h, x, y + h - r, r);
+    g.lineTo(x, y + r); g.arcTo(x, y, x + r, y, r);
+    g.closePath();
+  }
+  function mk(cssW, cssH, scale) {
+    const c = document.createElement('canvas');
+    c.width = Math.max(1, Math.round(cssW * scale));
+    c.height = Math.max(1, Math.round(cssH * scale));
+    const g = c.getContext('2d');
+    g.scale(scale, scale);
+    return { c: c, g: g, scale: scale };
+  }
+
+  /* ---------- 舞台状态 ---------- */
+  // 漂的逻辑画布（单位：逻辑像素，原点在画布内 (ox, oy)，对应"水面/漂身中心"）
+  const FU = { w: 84, h: 320, ox: 42, oy: 212 };
+
+  let W = 0, H = 0;
+  let tank = { x: 0, y: 0, w: 0, h: 0 };
+  let waterY = 0;
+  let fScale = 1;
+  let back = null, front = null, floatCv = null, tintCv = null;
+  let bubbles = [];
+
+  /* ---------- 鱼缸静态背景 ---------- */
+  function buildBack(g) {
+    g.save();
+    rr(g, tank.x, tank.y, tank.w, tank.h, 12);
+    g.clip();
+
+    // 水面上方的空气（缸内上层）
+    const ag = g.createLinearGradient(0, tank.y, 0, waterY);
+    ag.addColorStop(0.00, '#070c11');
+    ag.addColorStop(0.62, '#101d25');
+    ag.addColorStop(1.00, '#1d333c');
+    g.fillStyle = ag;
+    g.fillRect(tank.x, tank.y, tank.w, waterY - tank.y);
+
+    // 顶部灯槽（给上面的暗区一个合理的来由）
+    const hh = tank.h * 0.05;
+    const hgd = g.createLinearGradient(0, tank.y, 0, tank.y + hh);
+    hgd.addColorStop(0, '#04070a');
+    hgd.addColorStop(0.75, '#131d23');
+    hgd.addColorStop(1, '#22343c');
+    g.fillStyle = hgd;
+    g.fillRect(tank.x, tank.y, tank.w, hh);
+
+    // 灯管与向下漏出的光
+    const lgd = g.createLinearGradient(0, tank.y + hh - 4, 0, tank.y + hh + 30);
+    lgd.addColorStop(0, 'rgba(205,242,255,0.50)');
+    lgd.addColorStop(0.25, 'rgba(190,235,255,0.16)');
+    lgd.addColorStop(1, 'rgba(190,235,255,0)');
+    g.fillStyle = lgd;
+    g.fillRect(tank.x, tank.y + hh - 4, tank.w, 34);
+
+    // 水体
+    const wg = g.createLinearGradient(0, waterY, 0, tank.y + tank.h);
+    wg.addColorStop(0.00, '#319fbd');
+    wg.addColorStop(0.14, '#1c7e9c');
+    wg.addColorStop(0.42, '#0d5570');
+    wg.addColorStop(0.72, '#08384a');
+    wg.addColorStop(1.00, '#041f29');
+    g.fillStyle = wg;
+    g.fillRect(tank.x, waterY, tank.w, tank.h);
+
+    // 水面下亮带
+    const sb = g.createLinearGradient(0, waterY, 0, waterY + tank.h * 0.13);
+    sb.addColorStop(0, 'rgba(196,242,255,0.22)');
+    sb.addColorStop(1, 'rgba(196,242,255,0)');
+    g.fillStyle = sb;
+    g.fillRect(tank.x, waterY, tank.w, tank.h * 0.13);
+
+    // 中部体积光晕
+    const rg = g.createRadialGradient(
+      tank.x + tank.w * 0.5, waterY + tank.h * 0.16, 0,
+      tank.x + tank.w * 0.5, waterY + tank.h * 0.20, tank.w * 0.55
+    );
+    rg.addColorStop(0, 'rgba(130,225,248,0.16)');
+    rg.addColorStop(1, 'rgba(130,225,248,0)');
+    g.fillStyle = rg;
+    g.fillRect(tank.x, waterY, tank.w, tank.h);
+
+    // 砂石床（床面做起伏，避免一条硬直线）
+    const gy = tank.y + tank.h * 0.87;
+    g.save();
+    g.beginPath();
+    g.moveTo(tank.x, tank.y + tank.h);
+    g.lineTo(tank.x, gy);
+    const edge = seeded(99);
+    for (let x = tank.x; x <= tank.x + tank.w + 8; x += 8) {
+      const d = x - tank.x;
+      const yy = gy
+        + Math.sin(d * 0.0115) * 6
+        + Math.sin(d * 0.0295 + 1.7) * 3
+        + (edge() - 0.5) * 2.6;
+      g.lineTo(x, yy);
+    }
+    g.lineTo(tank.x + tank.w, tank.y + tank.h);
+    g.closePath();
+    g.clip();
+
+    const sg = g.createLinearGradient(0, gy - 20, 0, tank.y + tank.h);
+    sg.addColorStop(0, '#9c8964');
+    sg.addColorStop(0.25, '#75643f');
+    sg.addColorStop(0.65, '#4d4029');
+    sg.addColorStop(1, '#221d14');
+    g.fillStyle = sg;
+    g.fillRect(tank.x, gy - 24, tank.w, tank.h);
+
+    // 卵石
+    const rnd = seeded(7);
+    for (let i = 0; i < 420; i++) {
+      const px = tank.x + rnd() * tank.w;
+      const d = Math.pow(rnd(), 0.62);
+      const py = gy + 2 + d * (tank.y + tank.h - gy);
+      const rad = 1.2 + rnd() * (5.0 + d * 4.0);
+      g.beginPath();
+      g.ellipse(px, py, rad, rad * (0.48 + rnd() * 0.4), rnd() * 3.14, 0, TAU);
+      g.fillStyle = 'hsla(' + (24 + rnd() * 24) + ',' + (14 + rnd() * 22) + '%,' +
+        (24 + rnd() * 32) + '%,' + (0.7 + rnd() * 0.3) + ')';
+      g.fill();
+      if (rad > 3.4) { // 大颗的给一点顶光
+        g.beginPath();
+        g.ellipse(px - rad * 0.22, py - rad * 0.24, rad * 0.55, rad * 0.3, -0.3, 0, TAU);
+        g.fillStyle = 'rgba(255,240,210,0.16)';
+        g.fill();
+      }
+    }
+    g.restore();
+
+    // 底部压暗
+    const bg = g.createLinearGradient(0, tank.y + tank.h * 0.68, 0, tank.y + tank.h);
+    bg.addColorStop(0, 'rgba(0,0,0,0)');
+    bg.addColorStop(1, 'rgba(0,0,0,0.55)');
+    g.fillStyle = bg;
+    g.fillRect(tank.x, waterY, tank.w, tank.h);
+    g.restore();
+  }
+
+  /* ---------- 玻璃 / 边框（前景层） ---------- */
+  function buildFront(g) {
+    g.save();
+    rr(g, tank.x, tank.y, tank.w, tank.h, 12);
+    g.clip();
+
+    // 斜向玻璃反光带
+    const bands = [
+      { x: 0.11, w: 0.135, a: 0.055 },
+      { x: 0.31, w: 0.042, a: 0.032 },
+      { x: 0.73, w: 0.095, a: 0.040 }
+    ];
+    for (let i = 0; i < bands.length; i++) {
+      const b = bands[i];
+      g.save();
+      g.translate(tank.x + tank.w * b.x, tank.y);
+      g.transform(1, 0, -0.42, 1, 0, 0);
+      const bw = tank.w * b.w;
+      const lg = g.createLinearGradient(0, 0, bw, 0);
+      lg.addColorStop(0, 'rgba(255,255,255,0)');
+      lg.addColorStop(0.5, 'rgba(214,240,255,' + b.a + ')');
+      lg.addColorStop(1, 'rgba(255,255,255,0)');
+      g.fillStyle = lg;
+      g.fillRect(0, -10, bw, tank.h + 20);
+      g.restore();
+    }
+
+    // 顶部内阴影
+    const tg = g.createLinearGradient(0, tank.y, 0, tank.y + tank.h * 0.085);
+    tg.addColorStop(0, 'rgba(0,0,0,0.5)');
+    tg.addColorStop(1, 'rgba(0,0,0,0)');
+    g.fillStyle = tg;
+    g.fillRect(tank.x, tank.y, tank.w, tank.h * 0.085);
+
+    // 底部内阴影
+    const bg = g.createLinearGradient(0, tank.y + tank.h * 0.86, 0, tank.y + tank.h);
+    bg.addColorStop(0, 'rgba(0,0,0,0)');
+    bg.addColorStop(1, 'rgba(0,0,0,0.52)');
+    g.fillStyle = bg;
+    g.fillRect(tank.x, tank.y + tank.h * 0.86, tank.w, tank.h * 0.14);
+
+    // 左右玻璃厚度
+    const egl = g.createLinearGradient(tank.x, 0, tank.x + 26, 0);
+    egl.addColorStop(0, 'rgba(190,225,245,0.20)');
+    egl.addColorStop(1, 'rgba(190,225,245,0)');
+    g.fillStyle = egl;
+    g.fillRect(tank.x, tank.y, 26, tank.h);
+
+    const egr = g.createLinearGradient(tank.x + tank.w, 0, tank.x + tank.w - 22, 0);
+    egr.addColorStop(0, 'rgba(190,225,245,0.16)');
+    egr.addColorStop(1, 'rgba(190,225,245,0)');
+    g.fillStyle = egr;
+    g.fillRect(tank.x + tank.w - 22, tank.y, 22, tank.h);
+    g.restore();
+
+    // 缸框
+    g.lineWidth = Math.max(4, tank.h * 0.014);
+    g.strokeStyle = 'rgba(9,13,17,0.96)';
+    rr(g, tank.x, tank.y, tank.w, tank.h, 12);
+    g.stroke();
+
+    g.lineWidth = 1;
+    g.strokeStyle = 'rgba(150,190,215,0.16)';
+    rr(g, tank.x + 1, tank.y + 1, tank.w - 2, tank.h - 2, 11);
+    g.stroke();
+  }
+
+  /* ---------- 浮漂 ----------------------------------------------------
+     局部坐标：y = 0 是"设计水线"，向下为正。
+     漂尾 -186 ~ -72.5 ｜ 漂身 -75 ~ 8.5 ｜ 漂脚 8.5 ~ 88（水下）
+
+     侧廓只用一张表描述，既用来描形状，也用来做浮力积分 —— 所以"漂看起来
+     是几目"和"物理上该沉多少"永远是同一件事。
+  ------------------------------------------------------------------- */
+  const TIP_TOP = -186, TIP_BOT = -72.5, BODY_TOP = -75, BODY_BOT = 8.5;
+  const LEG_BOT = 88, BAND_H = 13.2;
+
+  const BODY_PTS = [
+    [-75.0, 2.60], [-70, 4.90], [-64, 7.40], [-58, 9.90], [-52, 12.00],
+    [-46, 13.50], [-40, 14.30], [-34, 14.55], [-28, 14.20], [-22, 13.40],
+    [-16, 12.20], [-10, 10.60], [-4, 8.60], [1, 6.40], [5, 4.40], [8.5, 3.25]
+  ];
+
+  // 漂身半宽（Catmull-Rom 插值，比折线平滑）
+  function bodyHalf(y) {
+    const P = BODY_PTS;
+    if (y <= P[0][0]) return P[0][1];
+    if (y >= P[P.length - 1][0]) return P[P.length - 1][1];
+    let i = 0;
+    while (i < P.length - 2 && P[i + 1][0] < y) i++;
+    const p0 = P[Math.max(0, i - 1)], p1 = P[i], p2 = P[i + 1], p3 = P[Math.min(P.length - 1, i + 2)];
+    const t = (y - p1[0]) / (p2[0] - p1[0]), t2 = t * t, t3 = t2 * t;
+    return 0.5 * (2 * p1[1] + (-p0[1] + p2[1]) * t +
+      (2 * p0[1] - 5 * p1[1] + 4 * p2[1] - p3[1]) * t2 +
+      (-p0[1] + 3 * p1[1] - 3 * p2[1] + p3[1]) * t3);
+  }
+
+  // 任意高度处的半宽（尾 / 身 / 脚三段）
+  function halfWidth(y) {
+    if (y <= BODY_TOP) {
+      const t = (y - TIP_TOP) / (BODY_TOP - TIP_TOP);
+      return 1.34 + 0.96 * Math.max(0, Math.min(1, t));
+    }
+    if (y <= BODY_BOT) return bodyHalf(y);
+    const t = Math.min(1, (y - BODY_BOT) / (LEG_BOT - BODY_BOT));
+    return 2.6 - 0.86 * t;
+  }
+
+  // 排水体积表：V(y) = ∫(y→底) 半宽² dy
+  const VOL = (function () {
+    const step = 0.5;
+    const n = Math.round((LEG_BOT - TIP_TOP) / step) + 1;
+    const cum = new Float64Array(n);
+    const w2 = new Float64Array(n);
+    for (let i = 0; i < n; i++) {
+      const hw = halfWidth(TIP_TOP + i * step);
+      w2[i] = hw * hw;
+    }
+    cum[n - 1] = 0;
+    for (let i = n - 2; i >= 0; i--) cum[i] = cum[i + 1] + (w2[i] + w2[i + 1]) * 0.5 * step;
+    return { step: step, n: n, cum: cum };
+  })();
+
+  function volumeAt(y) {
+    const t = (Math.max(TIP_TOP, Math.min(LEG_BOT, y)) - TIP_TOP) / VOL.step;
+    const i = Math.min(VOL.n - 2, Math.floor(t));
+    const f = t - i;
+    return VOL.cum[i] + (VOL.cum[i + 1] - VOL.cum[i]) * f;
+  }
+
+  // 给定排水体积，反解水线落在漂的哪个高度
+  function depthForVolume(v) {
+    if (v >= VOL.cum[0]) return TIP_TOP;
+    if (v <= 0) return LEG_BOT;
+    let lo = 0, hi = VOL.n - 1;
+    while (hi - lo > 1) {
+      const m = (lo + hi) >> 1;
+      if (VOL.cum[m] > v) lo = m; else hi = m;
+    }
+    const d = VOL.cum[lo] - VOL.cum[hi];
+    const f = d > 0 ? (VOL.cum[lo] - v) / d : 0;
+    return TIP_TOP + (lo + f) * VOL.step;
+  }
+
+  /* ---------- 调漂状态 ---------- */
+  const LEAD_MAX = 20, LEAD_DEFAULT = 3, LEAD_REF = 10, STEP_V = 19;
+  const V_REF = volumeAt(TIP_TOP + 5 * BAND_H);   // 基准：露 5 目
+  let lead = LEAD_DEFAULT;
+  let ywTarget = TIP_TOP + 6 * BAND_H;
+  let ywDisplay = ywTarget;
+  let floatAnchorY = 0;
+  let T = 0;
+  let leadHover = false;
+
+  // 加/减铅 -> 重新解平衡水线
+  function updateTrim() {
+    const v = V_REF + (lead - LEAD_REF) * STEP_V;
+    ywTarget = Math.max(TIP_TOP + 2, depthForVolume(v));
+  }
+  updateTrim();
+  ywDisplay = ywTarget;
+
+  function bodyPath(g) {
+    const y0 = BODY_TOP, y1 = BODY_BOT, st = 1;
+    g.beginPath();
+    g.moveTo(bodyHalf(y0), y0);
+    for (let y = y0 + st; y < y1; y += st) g.lineTo(bodyHalf(y), y);
+    g.lineTo(bodyHalf(y1), y1);
+    for (let y = y1 - st; y > y0; y -= st) g.lineTo(-bodyHalf(y), y);
+    g.lineTo(-bodyHalf(y0), y0);
+    g.closePath();
+  }
+
+  function drawBody(g) {
+    g.save();
+    bodyPath(g);
+    g.clip();
+
+    // ① 底：琥珀漆柱面受光（主光来自左上方的灯槽）
+    const bg = g.createLinearGradient(-15, 0, 15, 0);
+    bg.addColorStop(0.00, '#1b1005');
+    bg.addColorStop(0.06, '#6a3d13');
+    bg.addColorStop(0.16, '#b06f26');
+    bg.addColorStop(0.28, '#dfa049');
+    bg.addColorStop(0.38, '#f7cd86');
+    bg.addColorStop(0.45, '#ffedba');
+    bg.addColorStop(0.54, '#f4cf8d');
+    bg.addColorStop(0.66, '#dba04e');
+    bg.addColorStop(0.80, '#a86c28');
+    bg.addColorStop(0.92, '#5b350e');
+    bg.addColorStop(1.00, '#170d04');
+    g.fillStyle = bg;
+    g.fillRect(-17, -78, 34, 90);
+
+    // ② 竖向光照：上亮下暗
+    const litG = g.createLinearGradient(0, -78, 0, 10);
+    litG.addColorStop(0.00, 'rgba(255,235,190,0.22)');
+    litG.addColorStop(0.35, 'rgba(255,250,238,0.05)');
+    litG.addColorStop(0.70, 'rgba(35,18,0,0.10)');
+    litG.addColorStop(1.00, 'rgba(10,5,0,0.42)');
+    g.fillStyle = litG;
+    g.fillRect(-17, -78, 34, 90);
+
+    // ③ 纤维纹理：只在暗侧/边缘可见，受光面被"吃掉"
+    const rnd = seeded(1234);
+    for (let i = 0; i < 70; i++) {
+      const x0 = -14.6 + rnd() * 29.2;
+      const bend = (rnd() - 0.5) * 4.5;
+      const lightSide = x0 < -2 && x0 > -11;
+      const a = (0.014 + rnd() * 0.05) * (lightSide ? 0.28 : 1.0);
+      g.strokeStyle = (i % 3 === 0)
+        ? 'rgba(255,238,196,' + a.toFixed(4) + ')'
+        : 'rgba(56,30,6,' + a.toFixed(4) + ')';
+      g.lineWidth = 0.3 + rnd() * 0.8;
+      g.beginPath();
+      g.moveTo(x0, -78);
+      g.bezierCurveTo(x0 + bend, -50, x0 + bend * 0.6, -14, x0 * 0.4, 10);
+      g.stroke();
+    }
+
+    // ④ 上下端帽：曲面转过去的地方压暗
+    const capT = g.createLinearGradient(0, -78, 0, -58);
+    capT.addColorStop(0.00, 'rgba(44,22,6,0.70)');
+    capT.addColorStop(1.00, 'rgba(44,22,6,0)');
+    g.fillStyle = capT;
+    g.fillRect(-17, -78, 34, 22);
+
+    const capB = g.createLinearGradient(0, -8, 0, 10);
+    capB.addColorStop(0.00, 'rgba(14,6,0,0)');
+    capB.addColorStop(1.00, 'rgba(8,3,0,0.76)');
+    g.fillStyle = capB;
+    g.fillRect(-17, -8, 34, 18);
+
+    // 肩部亮弧
+    g.beginPath();
+    g.ellipse(0, -73.2, 6.2, 1.7, 0, 0, Math.PI);
+    g.strokeStyle = 'rgba(255,240,205,0.24)';
+    g.lineWidth = 0.9;
+    g.stroke();
+
+    // ⑤ 窄镜面高光（涂层反光）
+    const hg = g.createLinearGradient(-11, 0, -2.5, 0);
+    hg.addColorStop(0.00, 'rgba(255,255,255,0)');
+    hg.addColorStop(0.34, 'rgba(255,255,255,0.06)');
+    hg.addColorStop(0.52, 'rgba(255,255,252,0.62)');
+    hg.addColorStop(0.62, 'rgba(255,255,255,0.30)');
+    hg.addColorStop(0.80, 'rgba(255,255,255,0.03)');
+    hg.addColorStop(1.00, 'rgba(255,255,255,0)');
+    g.fillStyle = hg;
+    g.fillRect(-15, -78, 14, 90);
+
+    // ⑥ 镜面热点（拉成竖椭圆）
+    g.save();
+    g.translate(-6.0, -47);
+    g.scale(0.46, 1.55);
+    const spot = g.createRadialGradient(0, 0, 0, 0, 0, 10);
+    spot.addColorStop(0.00, 'rgba(255,255,255,0.72)');
+    spot.addColorStop(0.35, 'rgba(255,252,242,0.22)');
+    spot.addColorStop(1.00, 'rgba(255,255,255,0)');
+    g.fillStyle = spot;
+    g.fillRect(-11, -11, 22, 22);
+    g.restore();
+
+    // ⑦ 漂身漆环（跟着曲面明暗）
+    function ringFill(y, h, edge, lit) {
+      const rg = g.createLinearGradient(-15, 0, 15, 0);
+      rg.addColorStop(0.00, edge);
+      rg.addColorStop(0.40, lit);
+      rg.addColorStop(0.56, lit);
+      rg.addColorStop(1.00, edge);
+      g.fillStyle = rg;
+      g.fillRect(-17, y, 34, h);
+    }
+    ringFill(-70.8, 3.6, '#050508', '#3c3c46');
+    ringFill(-64.8, 2.3, '#3a0a05', '#d4523a');
+    ringFill(2.6, 2.4, '#050508', '#33333c');
+
+    // ⑧ 右缘轮廓光（水面青色反光）
+    const rim = g.createLinearGradient(-15, 0, 15, 0);
+    rim.addColorStop(0.00, 'rgba(200,240,255,0)');
+    rim.addColorStop(0.66, 'rgba(200,240,255,0)');
+    rim.addColorStop(0.90, 'rgba(190,235,255,0.34)');
+    rim.addColorStop(1.00, 'rgba(225,252,255,0.62)');
+    g.strokeStyle = rim;
+    g.lineWidth = 2.4;
+    bodyPath(g);
+    g.stroke();
+
+    // ⑨ 下半部的水面反光（冷色，压住暗部让体积更实）
+    const bounce = g.createLinearGradient(-6, -10, 12, 8);
+    bounce.addColorStop(0.0, 'rgba(130,215,240,0)');
+    bounce.addColorStop(1.0, 'rgba(130,215,240,0.14)');
+    g.fillStyle = bounce;
+    g.fillRect(-17, -16, 34, 28);
+
+    // ⑩ 水下焦散：几条缓慢横移的亮带，最能说明"这是泡在水里的圆柱"
+    g.globalCompositeOperation = 'lighter';
+    for (let i = 0; i < 3; i++) {
+      const ph = ((T * 0.11 + i * 0.37) % 1 + 1) % 1;
+      const x = -30 + ph * 60;
+      const cw = 6 + i * 1.5;
+      const cg = g.createLinearGradient(x - cw, 0, x + cw, 0);
+      cg.addColorStop(0.0, 'rgba(150,230,255,0)');
+      cg.addColorStop(0.5, 'rgba(175,242,255,0.11)');
+      cg.addColorStop(1.0, 'rgba(150,230,255,0)');
+      g.save();
+      g.translate(0, -28);
+      g.rotate(-0.22);
+      g.translate(0, 28);
+      g.fillStyle = cg;
+      g.fillRect(x - cw, -80, cw * 2, 94);
+      g.restore();
+    }
+    g.globalCompositeOperation = 'source-over';
+
+    g.restore();
+
+    // 细轮廓
+    bodyPath(g);
+    g.strokeStyle = 'rgba(30,16,4,0.55)';
+    g.lineWidth = 0.5;
+    g.stroke();
+  }
+
+  function tipPath(g) {
+    g.beginPath();
+    g.moveTo(-2.30, TIP_BOT);
+    g.lineTo(-1.34, TIP_TOP + 1.4);
+    g.quadraticCurveTo(0, TIP_TOP - 1.1, 1.34, TIP_TOP + 1.4);
+    g.lineTo(2.30, TIP_BOT);
+    g.closePath();
+  }
+
+  function drawTip(g) {
+    const n = Math.ceil((TIP_BOT - TIP_TOP) / BAND_H);
+
+    g.save();
+    tipPath(g);
+    g.clip();
+
+    g.fillStyle = '#f4f2e8';
+    g.fillRect(-4, TIP_TOP - 2, 8, TIP_BOT - TIP_TOP + 4);
+
+    // 目：橙红 / 荧光黄绿交替，顶端两目全橙红
+    for (let i = 0; i < n; i++) {
+      const y1 = TIP_BOT - i * BAND_H;
+      const y0 = Math.max(TIP_TOP - 1, y1 - BAND_H);
+      g.fillStyle = (i >= n - 2) ? '#f52a06' : (i % 2 === 0 ? '#f95410' : '#c9ef1a');
+      g.fillRect(-4, y0, 8, y1 - y0);
+      g.fillStyle = 'rgba(10,10,14,0.62)';
+      g.fillRect(-4, y1 - 0.95, 8, 0.95);
+    }
+
+    // 圆柱明暗（对比拉强，边缘转暗 -> 有圆柱感）
+    const sg = g.createLinearGradient(-2.35, 0, 2.35, 0);
+    sg.addColorStop(0.00, 'rgba(18,6,0,0.52)');
+    sg.addColorStop(0.16, 'rgba(40,18,0,0.10)');
+    sg.addColorStop(0.34, 'rgba(255,255,255,0.46)');
+    sg.addColorStop(0.48, 'rgba(255,255,255,0.18)');
+    sg.addColorStop(0.76, 'rgba(30,10,0,0.08)');
+    sg.addColorStop(1.00, 'rgba(14,4,0,0.48)');
+    g.fillStyle = sg;
+    g.fillRect(-4, TIP_TOP - 2, 8, TIP_BOT - TIP_TOP + 4);
+
+    // 顶端荧光漆的透光感
+    g.save();
+    g.translate(0, TIP_TOP + 16);
+    g.scale(1, 2.6);
+    const glow = g.createRadialGradient(0, 0, 0, 0, 0, 14);
+    glow.addColorStop(0.0, 'rgba(255,120,40,0.30)');
+    glow.addColorStop(0.5, 'rgba(255,90,20,0.12)');
+    glow.addColorStop(1.0, 'rgba(255,80,10,0)');
+    g.fillStyle = glow;
+    g.fillRect(-16, -16, 32, 32);
+    g.restore();
+
+    // 右缘轮廓光
+    const rim = g.createLinearGradient(-2.4, 0, 2.4, 0);
+    rim.addColorStop(0.0, 'rgba(210,245,255,0)');
+    rim.addColorStop(0.8, 'rgba(210,245,255,0)');
+    rim.addColorStop(1.0, 'rgba(215,245,255,0.5)');
+    g.strokeStyle = rim;
+    g.lineWidth = 1.2;
+    tipPath(g);
+    g.stroke();
+
+    g.restore();
+
+    tipPath(g);
+    g.strokeStyle = 'rgba(50,24,8,0.4)';
+    g.lineWidth = 0.4;
+    g.stroke();
+  }
+
+  function drawLeg(g) {
+    g.beginPath();
+    g.moveTo(-2.6, BODY_BOT - 1);
+    g.lineTo(-1.7, 84);
+    g.quadraticCurveTo(0, 88, 1.7, 84);
+    g.lineTo(2.6, BODY_BOT - 1);
+    g.closePath();
+    const lg = g.createLinearGradient(-2.8, 0, 2.8, 0);
+    lg.addColorStop(0.00, '#04060a');
+    lg.addColorStop(0.22, '#2b343d');
+    lg.addColorStop(0.38, '#5a6874');
+    lg.addColorStop(0.52, '#1e242a');
+    lg.addColorStop(0.78, '#0b0f13');
+    lg.addColorStop(1.00, '#030407');
+    g.fillStyle = lg;
+    g.fill();
+
+    // 碳纤高光
+    g.beginPath();
+    g.moveTo(-1.35, 12);
+    g.lineTo(-0.95, 82);
+    g.strokeStyle = 'rgba(170,200,220,0.34)';
+    g.lineWidth = 0.5;
+    g.stroke();
+
+    // 右缘轮廓光
+    g.beginPath();
+    g.moveTo(1.25, 14);
+    g.lineTo(0.95, 80);
+    g.strokeStyle = 'rgba(150,210,235,0.20)';
+    g.lineWidth = 0.45;
+    g.stroke();
+
+    // 漂身与漂脚的接环
+    g.beginPath();
+    g.ellipse(0, BODY_BOT - 0.8, 3.7, 1.6, 0, 0, TAU);
+    const cg = g.createLinearGradient(-3.7, 0, 3.7, 0);
+    cg.addColorStop(0.00, '#0a0d10');
+    cg.addColorStop(0.40, '#4a545e');
+    cg.addColorStop(0.60, '#333b43');
+    cg.addColorStop(1.00, '#090c0f');
+    g.fillStyle = cg;
+    g.fill();
+    g.strokeStyle = 'rgba(190,215,235,0.28)';
+    g.lineWidth = 0.4;
+    g.stroke();
+  }
+
+  function renderFloat() {
+    const k = fScale * DPR;
+    const g = floatCv.g;
+    g.setTransform(1, 0, 0, 1, 0, 0);
+    g.clearRect(0, 0, floatCv.c.width, floatCv.c.height);
+    g.setTransform(k, 0, 0, k, FU.ox * k, FU.oy * k);
+    drawLeg(g);
+    drawBody(g);
+    drawTip(g);
+  }
+
+  // 水下部分：整体压一层水色（只作用在漂的不透明像素上）
+  function tintFloat() {
+    const g = tintCv.g;
+    g.setTransform(1, 0, 0, 1, 0, 0);
+    g.clearRect(0, 0, tintCv.c.width, tintCv.c.height);
+    g.drawImage(floatCv.c, 0, 0);
+    g.globalCompositeOperation = 'source-atop';
+    g.fillStyle = 'rgba(14,96,122,0.16)';
+    g.fillRect(0, 0, tintCv.c.width, tintCv.c.height);
+    g.globalCompositeOperation = 'source-over';
+  }
+
+  /* ---------- 台钓线组：主线 + 铅皮座 + 铅皮 + 八字环 + 子线双钩 ---------- */
+  const RIG_LINE_TOP = 88;     // 漂脚末端
+  const RIG_SEAT_TOP = 112;    // 铅皮座顶端
+  const RIG_SEAT_W = 6.5;
+
+  function leadHeight() { return 16 + lead * 1.0; }
+  function leadWidth() { return 14 + lead * 0.25; }
+
+  function drawRig(cx, ay, fs) {
+    const Y = function (v) { return ay + v * fs; };
+    const h = leadHeight();
+    const seatTop = RIG_SEAT_TOP;
+    const leadTop = seatTop + 5;
+    const seatBot = seatTop + h + 10;
+    const ringY = seatBot + 6;
+    const hookY = ringY + 5;
+
+    ctx.save();
+    ctx.lineCap = 'round';
+    ctx.globalAlpha = 0.95;
+
+    // 主线（漂脚 -> 铅皮座）
+    ctx.beginPath();
+    ctx.moveTo(cx, Y(RIG_LINE_TOP - 2));
+    ctx.lineTo(cx, Y(leadTop));
+    ctx.strokeStyle = 'rgba(208,238,248,0.24)';
+    ctx.lineWidth = Math.max(0.7, 0.8 * fs);
+    ctx.stroke();
+
+    // 铅皮座（塑料）
+    const sw = RIG_SEAT_W * fs, sh = (h + 10) * fs;
+    const sg = ctx.createLinearGradient(cx - sw / 2, 0, cx + sw / 2, 0);
+    sg.addColorStop(0.00, '#08111a');
+    sg.addColorStop(0.35, '#3a5652');
+    sg.addColorStop(0.55, '#22332f');
+    sg.addColorStop(1.00, '#070e11');
+    rr(ctx, cx - sw / 2, Y(seatTop), sw, sh, sw * 0.45);
+    ctx.fillStyle = sg;
+    ctx.fill();
+
+    // 铅皮：手缠的金属皮（段数越多越长越厚）
+    const half = leadWidth() * fs / 2;
+    const lw = half * 2, lh = h * fs;
+    const mg = ctx.createLinearGradient(cx - half, 0, cx + half, 0);
+    mg.addColorStop(0.00, '#252c32');
+    mg.addColorStop(0.12, '#68757f');
+    mg.addColorStop(0.27, '#ccd7de');
+    mg.addColorStop(0.39, '#f6fbfd');
+    mg.addColorStop(0.55, '#a7b4bd');
+    mg.addColorStop(0.79, '#4e5a63');
+    mg.addColorStop(1.00, '#1f262c');
+    rr(ctx, cx - half, Y(leadTop), lw, lh, Math.min(2.4 * fs, lw * 0.28));
+    ctx.fillStyle = mg;
+    ctx.fill();
+
+    // 缠绕纹
+    ctx.strokeStyle = 'rgba(14,20,24,0.45)';
+    ctx.lineWidth = Math.max(0.5, 0.65 * fs);
+    for (let i = 1; i * 1.7 < h; i++) {
+      const yy = Y(leadTop) + i * 1.7 * fs;
+      ctx.beginPath();
+      ctx.moveTo(cx - half * 0.9, yy);
+      ctx.lineTo(cx + half * 0.9, yy);
+      ctx.stroke();
+    }
+
+    // 上下端面（暗示圆柱）
+    ctx.beginPath();
+    ctx.ellipse(cx, Y(leadTop), half * 0.94, 1.5 * fs, 0, 0, TAU);
+    ctx.fillStyle = 'rgba(240,250,253,0.34)';
+    ctx.fill();
+    ctx.beginPath();
+    ctx.ellipse(cx, Y(leadTop + h), half * 0.94, 1.5 * fs, 0, 0, TAU);
+    ctx.fillStyle = 'rgba(8,14,18,0.48)';
+    ctx.fill();
+
+    // 八字环
+    ctx.beginPath();
+    ctx.arc(cx, Y(ringY), 2.6 * fs, 0, TAU);
+    ctx.strokeStyle = 'rgba(198,224,236,0.58)';
+    ctx.lineWidth = Math.max(0.7, 0.9 * fs);
+    ctx.stroke();
+
+    // 子线 + 双钩
+    for (let d = -1; d <= 1; d += 2) {
+      const ex = cx + d * 24 * fs;
+      const ey = Y(hookY + 22);
+      ctx.beginPath();
+      ctx.moveTo(cx, Y(hookY));
+      ctx.quadraticCurveTo(cx + d * 12 * fs, Y(hookY + 16), ex, ey);
+      ctx.strokeStyle = 'rgba(206,236,248,0.20)';
+      ctx.lineWidth = Math.max(0.55, 0.6 * fs);
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.arc(ex, ey + 2.4 * fs, 2.8 * fs, d > 0 ? -0.5 : 2.6, d > 0 ? 2.6 : 5.7);
+      ctx.strokeStyle = 'rgba(214,240,250,0.52)';
+      ctx.lineWidth = Math.max(0.6, 0.75 * fs);
+      ctx.stroke();
+    }
+
+    ctx.restore();
+  }
+
+  /* ---------- 铅皮点击热区 ---------- */
+  function leadHitArea() {
+    const fs = fScale;
+    const cx = tank.x + tank.w * 0.5;
+    const h = leadHeight();
+    const top = floatAnchorY + (RIG_SEAT_TOP + 5) * fs - 12;
+    const bot = floatAnchorY + (RIG_SEAT_TOP + 5 + h) * fs + 12;
+    const w = Math.max(44, leadWidth() * fs + 24);
+    return { x: cx - w / 2, y: top, w: w, h: bot - top };
+  }
+
+  function hitLead(p) {
+    const a = leadHitArea();
+    return p.x >= a.x && p.x <= a.x + a.w && p.y >= a.y && p.y <= a.y + a.h;
+  }
+
+  function setLead(d) {
+    lead = Math.max(0, Math.min(LEAD_MAX, lead + d));
+    updateTrim();
+  }
+
+  /* ---------- HUD ---------- */
+  function drawHUD() {
+    const exposed = Math.max(0, (ywDisplay - TIP_TOP) / BAND_H);
+    const compact = tank.w < 580;
+    const f1 = compact ? 11 : 13, f2 = compact ? 9.5 : 11;
+    const pad = compact ? 10 : 13;
+    const x = tank.x + (compact ? 11 : 16);
+    const y = tank.y + tank.h * 0.055 + (compact ? 8 : 12);
+
+    ctx.save();
+    ctx.textBaseline = 'middle';
+    ctx.font = '600 ' + f1 + 'px ui-sans-serif, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif';
+    const t1 = '铅皮 ' + lead + ' / ' + LEAD_MAX + ' 段';
+    const t2 = '露出 ' + exposed.toFixed(1) + ' 目';
+    const w1 = ctx.measureText(t1).width, w2 = ctx.measureText(t2).width;
+    const ph = compact ? 44 : 54;
+    const pw = Math.min(tank.w - 22, Math.max(w1 + w2 + pad * 2 + 12, compact ? 168 : 210));
+
+    ctx.fillStyle = 'rgba(4,12,16,0.55)';
+    rr(ctx, x, y, pw, ph, 8);
+    ctx.fill();
+    ctx.strokeStyle = 'rgba(150,205,225,0.20)';
+    ctx.lineWidth = 1;
+    rr(ctx, x, y, pw, ph, 8);
+    ctx.stroke();
+
+    ctx.fillStyle = 'rgba(214,244,252,0.92)';
+    ctx.fillText(t1, x + pad, y + (compact ? 14 : 17));
+    ctx.fillStyle = 'rgba(140,235,210,0.95)';
+    ctx.fillText(t2, x + pw - pad - w2, y + (compact ? 14 : 17));
+
+    ctx.font = f2 + 'px ui-sans-serif, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif';
+    ctx.fillStyle = leadHover ? 'rgba(190,235,255,0.95)' : 'rgba(168,202,216,0.62)';
+    ctx.fillText(leadHover ? '滚轮微调 · 右键减铅' : '点击铅皮加铅 · 右键减铅',
+      x + pad, y + (compact ? 31 : 38));
+    ctx.restore();
+  }
+
+  /* ---------- 动态水体元素 ---------- */
+  function drawShafts(t) {
+    ctx.save();
+    ctx.beginPath();
+    ctx.rect(tank.x, waterY, tank.w, tank.y + tank.h - waterY);
+    ctx.clip();
+
+    const seeds = [[0.17, 0.13], [0.41, 0.10], [0.63, 0.155], [0.86, 0.085]];
+    for (let i = 0; i < seeds.length; i++) {
+      const a = 0.045 + 0.032 * Math.sin(t * 0.5 + i * 1.7);
+      if (a <= 0) continue;
+      const w = tank.w * seeds[i][1];
+      ctx.save();
+      ctx.translate(tank.x + tank.w * seeds[i][0], waterY);
+      ctx.transform(1, 0, -0.35, 1, 0, 0);
+      const lg = ctx.createLinearGradient(0, 0, 0, tank.h);
+      lg.addColorStop(0, 'rgba(190,240,255,' + a.toFixed(4) + ')');
+      lg.addColorStop(0.55, 'rgba(150,220,240,' + (a * 0.35).toFixed(4) + ')');
+      lg.addColorStop(1, 'rgba(150,220,240,0)');
+      ctx.fillStyle = lg;
+      ctx.fillRect(-w / 2, 0, w, tank.h);
+      ctx.restore();
+    }
+    ctx.restore();
+  }
+
+  const PLANTS = [
+    { x: 0.105, n: 8, h: 0.34, c1: '#0c3522', c2: '#3f9560' },
+    { x: 0.245, n: 6, h: 0.20, c1: '#0a2d1d', c2: '#2f7d4f' },
+    { x: 0.782, n: 9, h: 0.40, c1: '#0c3522', c2: '#439c66' },
+    { x: 0.895, n: 5, h: 0.24, c1: '#092a1b', c2: '#2b7449' }
+  ];
+
+  // 水草：宽叶带弧度，从底往上由深到亮
+  function drawPlants(t) {
+    ctx.save();
+    ctx.beginPath();
+    ctx.rect(tank.x, waterY, tank.w, tank.y + tank.h - waterY);
+    ctx.clip();
+
+    const base = tank.y + tank.h * 0.925;
+    for (let p = 0; p < PLANTS.length; p++) {
+      const P = PLANTS[p];
+      const bx0 = tank.x + tank.w * P.x;
+      for (let i = 0; i < P.n; i++) {
+        const bx = bx0 + (i - P.n / 2) * tank.w * 0.009 + Math.sin(i * 2.3) * 4;
+        const len = tank.h * P.h * (0.6 + 0.55 * ((i * 0.37 + p * 0.21) % 1));
+        const sway = Math.sin(t * 0.8 + i * 0.9 + p) * len * 0.11
+                   + Math.sin(t * 0.37 + i * 1.7) * len * 0.04;
+        const w = 4.2 + (i % 3) * 1.7;
+
+        ctx.beginPath();
+        ctx.moveTo(bx - w, base);
+        ctx.bezierCurveTo(
+          bx - w * 1.9 + sway * 0.35, base - len * 0.45,
+          bx - w * 0.9 + sway * 0.85, base - len * 0.80,
+          bx + sway, base - len
+        );
+        ctx.bezierCurveTo(
+          bx + w * 1.4 + sway * 0.85, base - len * 0.78,
+          bx + w * 2.0 + sway * 0.35, base - len * 0.42,
+          bx + w, base
+        );
+        ctx.closePath();
+
+        const gd = ctx.createLinearGradient(0, base - len, 0, base);
+        gd.addColorStop(0, P.c2);
+        gd.addColorStop(0.55, P.c1);
+        gd.addColorStop(1, '#06180f');
+        ctx.fillStyle = gd;
+        ctx.globalAlpha = 0.78 + 0.2 * Math.sin(i * 1.3 + p);
+        ctx.fill();
+      }
+    }
+    ctx.globalAlpha = 1;
+    ctx.restore();
+  }
+
+  // 石头压在水草前面，做出前后层次
+  function drawRocks() {
+    ctx.save();
+    ctx.beginPath();
+    ctx.rect(tank.x, waterY, tank.w, tank.y + tank.h - waterY);
+    ctx.clip();
+
+    const rocks = [
+      [0.152, 0.072, 0.052, 0.05],
+      [0.845, 0.052, 0.040, 0.06],
+      [0.600, 0.033, 0.028, 0.03],
+      [0.315, 0.024, 0.020, 0.02]
+    ];
+    const baseY = tank.y + tank.h * 0.925;
+    for (let i = 0; i < rocks.length; i++) {
+      const cx = tank.x + tank.w * rocks[i][0];
+      const rw = tank.w * rocks[i][1];
+      const rh = tank.h * rocks[i][2];
+      const cy = baseY + rh * 0.15;
+
+      ctx.beginPath();
+      ctx.ellipse(cx, cy, rw, rh, rocks[i][3], 0, TAU);
+      const grd = ctx.createLinearGradient(cx, cy - rh, cx, cy + rh);
+      grd.addColorStop(0.00, '#556662');
+      grd.addColorStop(0.42, '#2e3a37');
+      grd.addColorStop(1.00, '#0d1312');
+      ctx.fillStyle = grd;
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.ellipse(cx - rw * 0.16, cy - rh * 0.46, rw * 0.60, rh * 0.28, -0.22, 0, TAU);
+      ctx.fillStyle = 'rgba(165,195,190,0.16)';
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.ellipse(cx + rw * 0.22, cy + rh * 0.18, rw * 0.42, rh * 0.52, 0.28, 0, TAU);
+      ctx.fillStyle = 'rgba(44,96,64,0.18)';
+      ctx.fill();
+    }
+    ctx.restore();
+  }
+
+  function drawBubbles(t) {
+    ctx.save();
+    ctx.beginPath();
+    ctx.rect(tank.x, waterY, tank.w, tank.y + tank.h - waterY);
+    ctx.clip();
+
+    const bottom = tank.y + tank.h * 0.875;
+    const depth = bottom - waterY;
+    for (let i = 0; i < bubbles.length; i++) {
+      const b = bubbles[i];
+      const u = ((b.y + t * b.spd) % 1 + 1) % 1;
+      const yy = bottom - u * depth;
+      const xx = tank.x + tank.w * b.sx + b.off + Math.sin(t * 1.3 + b.ph) * 3.2;
+      const fade = Math.min(1, u * 8) * Math.min(1, (1 - u) * 5);
+
+      ctx.beginPath();
+      ctx.arc(xx, yy, b.r, 0, TAU);
+      ctx.fillStyle = 'rgba(214,248,255,' + (0.10 * fade).toFixed(3) + ')';
+      ctx.fill();
+      ctx.strokeStyle = 'rgba(224,252,255,' + (0.34 * fade).toFixed(3) + ')';
+      ctx.lineWidth = 0.7;
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.arc(xx - b.r * 0.32, yy - b.r * 0.34, b.r * 0.28, 0, TAU);
+      ctx.fillStyle = 'rgba(255,255,255,' + (0.5 * fade).toFixed(3) + ')';
+      ctx.fill();
+    }
+    ctx.restore();
+  }
+
+  /* ---------- 布局 ---------- */
+  function layout() {
+    W = window.innerWidth;
+    H = window.innerHeight;
+    cv.width = Math.round(W * DPR);
+    cv.height = Math.round(H * DPR);
+    cv.style.width = W + 'px';
+    cv.style.height = H + 'px';
+
+    const m = Math.min(W * 0.045, H * 0.06);
+    const maxW = W - m * 2, maxH = H - m * 2;
+    // 横屏用宽扁缸，竖屏用高一点的缸，避免漂在窄屏上被缸顶裁掉
+    const aspect = W >= H ? 0.62 : 1.4;
+    let tw = maxW, th = tw * aspect;
+    if (th > maxH) { th = maxH; tw = th / aspect; }
+    tank = { x: (W - tw) / 2, y: (H - th) / 2, w: tw, h: th };
+    waterY = tank.y + tank.h * 0.27;
+    // 漂的大小同时受"水体高度"和"水面上方空气高度"约束
+    fScale = Math.min(tank.h / 640, (tank.h * 0.27 - 14) / 186);
+    if (fScale < 0.2) fScale = 0.2;
+
+    back = mk(W, H, DPR); buildBack(back.g);
+    front = mk(W, H, DPR); buildFront(front.g);
+    floatCv = mk(FU.w, FU.h, fScale * DPR);
+    tintCv = mk(FU.w, FU.h, fScale * DPR);
+
+    const rnd = seeded(42);
+    bubbles = [];
+    const src = [[0.145, 6], [0.795, 7], [0.285, 4], [0.865, 3]];
+    for (let s = 0; s < src.length; s++) {
+      for (let i = 0; i < src[s][1]; i++) {
+        bubbles.push({
+          sx: src[s][0],
+          off: (rnd() - 0.5) * 34,
+          y: rnd(),
+          r: 1.0 + rnd() * 2.4,
+          spd: 0.022 + rnd() * 0.045,
+          ph: rnd() * TAU
+        });
+      }
+    }
+  }
+
+  /* ---------- 主循环 ---------- */
+  let start = 0;
+
+  function frame(now) {
+    if (!start) start = now;
+    const t = (now - start) / 1000;
+    T = t;
+
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    ctx.clearRect(0, 0, W, H);
+
+    // 房间
+    const room = ctx.createRadialGradient(
+      W * 0.5, H * 0.45, 0, W * 0.5, H * 0.5, Math.max(W, H) * 0.8
+    );
+    room.addColorStop(0, '#1a2530');
+    room.addColorStop(0.55, '#0a1015');
+    room.addColorStop(1, '#020405');
+    ctx.fillStyle = room;
+    ctx.fillRect(0, 0, W, H);
+
+    ctx.drawImage(back.c, 0, 0, W, H);
+
+    // 缸内
+    ctx.save();
+    rr(ctx, tank.x, tank.y, tank.w, tank.h, 12);
+    ctx.clip();
+
+    drawShafts(t);
+    drawPlants(t);
+    drawRocks();
+    drawBubbles(t);
+
+    const fx = tank.x + tank.w * 0.5;
+    const bob = Math.sin(t * 1.7) * 2.2 + Math.sin(t * 0.63 + 1.2) * 1.6;
+    const tilt = Math.sin(t * 0.83 + 0.5) * 0.013 + Math.sin(t * 1.9) * 0.004;
+    const fw = FU.w * fScale, fh = FU.h * fScale;
+
+    // 平衡水线平滑跟随：点击铅皮后浮漂是"慢慢沉/浮"，不是硬跳
+    ywDisplay += (ywTarget - ywDisplay) * 0.12;
+    // 局部 y = ywDisplay 落在水面 -> 漂的画布原点位置
+    floatAnchorY = waterY + bob - ywDisplay * fScale;
+
+    // 水面上方的一点反光，缓和空气/水的硬边
+    const airGlow = ctx.createLinearGradient(0, waterY - 76, 0, waterY);
+    airGlow.addColorStop(0, 'rgba(120,185,205,0)');
+    airGlow.addColorStop(1, 'rgba(120,185,205,0.11)');
+    ctx.fillStyle = airGlow;
+    ctx.fillRect(tank.x, waterY - 76, tank.w, 76);
+
+    // 水面线（在漂之前画，漂会挡住它）
+    ctx.save();
+    // 表层亮膜
+    const skin = ctx.createLinearGradient(0, waterY - 2, 0, waterY + 10);
+    skin.addColorStop(0, 'rgba(190,240,255,0.20)');
+    skin.addColorStop(1, 'rgba(190,240,255,0)');
+    ctx.fillStyle = skin;
+    ctx.fillRect(tank.x, waterY - 2, tank.w, 12);
+
+    ctx.beginPath();
+    ctx.moveTo(tank.x, waterY);
+    for (let x = tank.x; x <= tank.x + tank.w; x += 5) {
+      const y = waterY + Math.sin(x * 0.021 + t * 1.25) * 1.5 + Math.sin(x * 0.0068 - t * 0.62) * 2.1;
+      ctx.lineTo(x, y);
+    }
+    ctx.strokeStyle = 'rgba(150,220,245,0.16)';
+    ctx.lineWidth = 7;
+    ctx.stroke();
+    ctx.strokeStyle = 'rgba(214,246,255,0.55)';
+    ctx.lineWidth = 1.6;
+    ctx.stroke();
+    ctx.restore();
+
+    renderFloat();
+    tintFloat();
+
+    // 水下部分
+    ctx.save();
+    ctx.beginPath();
+    ctx.rect(tank.x, waterY, tank.w, tank.y + tank.h - waterY);
+    ctx.clip();
+    ctx.translate(fx, floatAnchorY);
+    ctx.rotate(tilt);
+    ctx.translate(Math.sin(t * 0.7) * 1.1, 0); // 折射错位
+    ctx.drawImage(tintCv.c, -FU.ox * fScale, -FU.oy * fScale, fw, fh);
+    ctx.restore();
+
+    // 线组：主线 / 铅皮座 / 铅皮 / 八字环 / 子线双钩
+    drawRig(fx, floatAnchorY, fScale);
+
+    // 鼠标悬在铅皮上时给个虚线提示
+    if (leadHover) {
+      const a = leadHitArea();
+      ctx.save();
+      ctx.setLineDash([4, 4]);
+      ctx.strokeStyle = 'rgba(140,235,255,0.55)';
+      ctx.lineWidth = 1;
+      rr(ctx, a.x, a.y, a.w, a.h, 6);
+      ctx.stroke();
+      ctx.restore();
+    }
+
+    // 水面涟漪
+    ctx.save();
+    for (let i = 0; i < 3; i++) {
+      const u = ((t * 0.32 + i / 3) % 1 + 1) % 1;
+      const rad = (6 + u * 112) * fScale;
+      const a = (1 - u) * 0.20;
+      ctx.beginPath();
+      ctx.ellipse(fx, waterY + bob, rad, rad * 0.17, 0, 0, TAU);
+      ctx.strokeStyle = 'rgba(215,250,255,' + a.toFixed(3) + ')';
+      ctx.lineWidth = 0.8;
+      ctx.stroke();
+    }
+    ctx.restore();
+
+    // 水面以上部分
+    ctx.save();
+    ctx.beginPath();
+    ctx.rect(tank.x, tank.y, tank.w, waterY - tank.y);
+    ctx.clip();
+    ctx.translate(fx, floatAnchorY);
+    ctx.rotate(tilt);
+    ctx.drawImage(floatCv.c, -FU.ox * fScale, -FU.oy * fScale, fw, fh);
+    ctx.restore();
+
+    // 水线处的表面张力（弯月面）
+    ctx.save();
+    ctx.beginPath();
+    ctx.ellipse(fx, waterY + bob, 15 * fScale, 3.4 * fScale, 0, 0, TAU);
+    ctx.strokeStyle = 'rgba(255,255,255,0.50)';
+    ctx.lineWidth = 0.9;
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.ellipse(fx, waterY + bob + 1.4, 13 * fScale, 2.6 * fScale, 0, 0, TAU);
+    ctx.strokeStyle = 'rgba(0,40,55,0.25)';
+    ctx.lineWidth = 1.6;
+    ctx.stroke();
+    ctx.restore();
+
+    ctx.restore(); // 缸内裁剪结束
+
+    ctx.drawImage(front.c, 0, 0, W, H);
+
+    // 暗角
+    const vg = ctx.createRadialGradient(
+      W * 0.5, H * 0.5, Math.min(W, H) * 0.35,
+      W * 0.5, H * 0.5, Math.max(W, H) * 0.72
+    );
+    vg.addColorStop(0, 'rgba(0,0,0,0)');
+    vg.addColorStop(1, 'rgba(0,0,0,0.62)');
+    ctx.fillStyle = vg;
+    ctx.fillRect(0, 0, W, H);
+
+    drawHUD();
+
+    requestAnimationFrame(frame);
+  }
+
+  /* ---------- 交互：点击铅皮调漂 ---------- */
+  function canvasPoint(e) {
+    const r = cv.getBoundingClientRect();
+    return { x: e.clientX - r.left, y: e.clientY - r.top };
+  }
+
+  let holdTimer = null, holdInterval = null, holdDir = 1;
+
+  function stopHold() {
+    if (holdTimer) { clearTimeout(holdTimer); holdTimer = null; }
+    if (holdInterval) { clearInterval(holdInterval); holdInterval = null; }
+  }
+  // 按住不放可以连续加减铅
+  function startHold(dir) {
+    stopHold();
+    holdTimer = setTimeout(function () {
+      holdInterval = setInterval(function () { setLead(dir); }, 110);
+    }, 340);
+  }
+
+  cv.style.touchAction = 'none';
+  cv.style.cursor = 'default';
+
+  cv.addEventListener('pointermove', function (e) {
+    leadHover = hitLead(canvasPoint(e));
+    cv.style.cursor = leadHover ? 'pointer' : 'default';
+  });
+  cv.addEventListener('pointerleave', function () {
+    leadHover = false;
+    stopHold();
+  });
+
+  cv.addEventListener('pointerdown', function (e) {
+    const p = canvasPoint(e);
+    if (!hitLead(p)) return;
+    e.preventDefault();
+    holdDir = (e.button === 2) ? -1 : 1;
+    setLead(holdDir);
+    startHold(holdDir);
+  });
+
+  cv.addEventListener('pointerup', stopHold);
+  cv.addEventListener('pointercancel', stopHold);
+
+  cv.addEventListener('contextmenu', function (e) {
+    if (hitLead(canvasPoint(e))) e.preventDefault();
+  });
+
+  cv.addEventListener('wheel', function (e) {
+    if (!hitLead(canvasPoint(e))) return;
+    e.preventDefault();
+    setLead(e.deltaY > 0 ? 1 : -1);
+  }, { passive: false });
+
+  /* ---------- 启动 ---------- */
+  let rid = 0;
+  window.addEventListener('resize', function () {
+    cancelAnimationFrame(rid);
+    rid = requestAnimationFrame(function () {
+      layout();
+    });
+  });
+
+  layout();
+  requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

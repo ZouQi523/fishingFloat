@@ -1,0 +1,226 @@
+{
+  "animationCount": 0,
+  "categories": [
+    {
+      "uid": "ed9e048550b2478eb1ab2faaba192832",
+      "name": "Animals & Pets",
+      "slug": "animals-pets",
+      "uri": "https://api.sketchfab.com/v3/categories/ed9e048550b2478eb1ab2faaba192832",
+      "icon": "https://static.sketchfab.com/static/builds/web/dist/static/assets/images/icons/categories/926733e187aa5a479aedd2581bffb3ea-v2.svg",
+      "thumbnails": [
+        {
+          "width": "512",
+          "height": "288",
+          "url": "https://static.sketchfab.com/categories/ed9e048550b2478eb1ab2faaba192832/512x288.png"
+        },
+        {
+          "width": "800",
+          "height": "450",
+          "url": "https://static.sketchfab.com/categories/ed9e048550b2478eb1ab2faaba192832/800x450.png"
+        }
+      ]
+    },
+    {
+      "uid": "17d20ca7b35243d4a45171838b50704c",
+      "name": "Science & Technology",
+      "slug": "science-technology",
+      "uri": "https://api.sketchfab.com/v3/categories/17d20ca7b35243d4a45171838b50704c",
+      "icon": "https://static.sketchfab.com/static/builds/web/dist/static/assets/images/icons/categories/86b1bae49e0ed3f43b2d59b26700234e-v2.svg",
+      "thumbnails": [
+        {
+          "width": "512",
+          "height": "288",
+          "url": "https://static.sketchfab.com/categories/17d20ca7b35243d4a45171838b50704c/512x288.png"
+        },
+        {
+          "width": "800",
+          "height": "450",
+          "url": "https://static.sketchfab.com/categories/17d20ca7b35243d4a45171838b50704c/800x450.png"
+        }
+      ]
+    }
+  ],
+  "commentCount": 0,
+  "createdAt": "2021-03-24T04:10:04.102894",
+  "embedUrl": "https://sketchfab.com/models/ccd3144068d34cd9b15f3c38d2fb790b/embed",
+  "faceCount": 369207,
+  "isAgeRestricted": false,
+  "license": {
+    "uri": "https://api.sketchfab.com/v3/licenses/7c23a1ba438d4306920229c12afcb5f9",
+    "label": "CC0 Public Domain",
+    "fullName": "CC0 Public Domain",
+    "requirements": "Credit is not mandatory. Commercial use is allowed.",
+    "url": "http://creativecommons.org/publicdomain/zero/1.0/",
+    "slug": "cc0"
+  },
+  "likeCount": 8,
+  "name": "CC0 ギンブナ 🐟 Crucian Carp, C. auratus langsdorfii",
+  "publishedAt": "2021-03-24T04:12:35.166895",
+  "soundCount": 0,
+  "staffpickedAt": null,
+  "tags": [
+    {
+      "name": "fish",
+      "slug": "fish",
+      "uri": "https://api.sketchfab.com/v3/tags/fish"
+    },
+    {
+      "name": "cc0",
+      "slug": "cc0",
+      "uri": "https://api.sketchfab.com/v3/tags/cc0"
+    },
+    {
+      "name": "freshwater",
+      "slug": "freshwater",
+      "uri": "https://api.sketchfab.com/v3/tags/freshwater"
+    },
+    {
+      "name": "publicdomain",
+      "slug": "publicdomain",
+      "uri": "https://api.sketchfab.com/v3/tags/publicdomain"
+    },
+    {
+      "name": "carassius",
+      "slug": "carassius",
+      "uri": "https://api.sketchfab.com/v3/tags/carassius"
+    },
+    {
+      "name": "chordata",
+      "slug": "chordata",
+      "uri": "https://api.sketchfab.com/v3/tags/chordata"
+    },
+    {
+      "name": "animalia",
+      "slug": "animalia",
+      "uri": "https://api.sketchfab.com/v3/tags/animalia"
+    },
+    {
+      "name": "ffishasia",
+      "slug": "ffishasia",
+      "uri": "https://api.sketchfab.com/v3/tags/ffishasia"
+    },
+    {
+      "name": "langsdorfii",
+      "slug": "langsdorfii",
+      "uri": "https://api.sketchfab.com/v3/tags/langsdorfii"
+    },
+    {
+      "name": "auratus",
+      "slug": "auratus",
+      "uri": "https://api.sketchfab.com/v3/tags/auratus"
+    },
+    {
+      "name": "osteichthyes",
+      "slug": "osteichthyes",
+      "uri": "https://api.sketchfab.com/v3/tags/osteichthyes"
+    },
+    {
+      "name": "cypriniformes",
+      "slug": "cypriniformes",
+      "uri": "https://api.sketchfab.com/v3/tags/cypriniformes"
+    },
+    {
+      "name": "cyprinidae",
+      "slug": "cyprinidae",
+      "uri": "https://api.sketchfab.com/v3/tags/cyprinidae"
+    }
+  ],
+  "thumbnails": {
+    "images": [
+      {
+        "uid": "eccc79e178ff4830b672e3e6e80f36d3",
+        "width": 64,
+        "height": 36,
+        "size": 806,
+        "url": "https://media.sketchfab.com/models/ccd3144068d34cd9b15f3c38d2fb790b/thumbnails/f06de9c74c014260ae35d5181592d734/3e1074454c19428cb4857a7979e5304e.jpeg"
+      },
+      {
+        "uid": "521ce28dcdf04abba06998d76412119d",
+        "width": 256,
+        "height": 144,
+        "size": 4705,
+        "url": "https://media.sketchfab.com/models/ccd3144068d34cd9b15f3c38d2fb790b/thumbnails/f06de9c74c014260ae35d5181592d734/ed403ca2a680498b84f47366256e2f21.jpeg"
+      },
+      {
+        "uid": "938d9d3475ae42bd82c8a33bb8827bd9",
+        "width": 720,
+        "height": 405,
+        "size": 28091,
+        "url": "https://media.sketchfab.com/models/ccd3144068d34cd9b15f3c38d2fb790b/thumbnails/f06de9c74c014260ae35d5181592d734/0cc5560dced84183a30dfb4a2478cd83.jpeg"
+      },
+      {
+        "uid": "81cc4bd936f0483d855a77792520db94",
+        "width": 1024,
+        "height": 576,
+        "size": 53145,
+        "url": "https://media.sketchfab.com/models/ccd3144068d34cd9b15f3c38d2fb790b/thumbnails/f06de9c74c014260ae35d5181592d734/d7a64bbaba914d198439b670e712da9d.jpeg"
+      },
+      {
+        "uid": "977968dc1fa44ee59e753ce8bf308e57",
+        "width": 1920,
+        "height": 1080,
+        "size": 178121,
+        "url": "https://media.sketchfab.com/models/ccd3144068d34cd9b15f3c38d2fb790b/thumbnails/f06de9c74c014260ae35d5181592d734/a6b20b20c0804fa38e25708fbd2f23f9.jpeg"
+      }
+    ]
+  },
+  "uid": "ccd3144068d34cd9b15f3c38d2fb790b",
+  "uri": "https://api.sketchfab.com/v3/models/ccd3144068d34cd9b15f3c38d2fb790b",
+  "user": {
+    "uid": "19cfc338f034437189579a2aa1f0e1ff",
+    "username": "ffishAsia-and-floraZia",
+    "displayName": "ffish.asia / floraZia.com",
+    "account": "pro",
+    "profileUrl": "https://sketchfab.com/ffishAsia-and-floraZia",
+    "avatar": {
+      "uid": "fcacc84a68154e3a98b9f3d1ce7a413a",
+      "uri": "https://api.sketchfab.com/v3/avatars/fcacc84a68154e3a98b9f3d1ce7a413a",
+      "images": [
+        {
+          "width": 100,
+          "height": 100,
+          "size": 3622,
+          "url": "https://media.sketchfab.com/avatars/fcacc84a68154e3a98b9f3d1ce7a413a/821da58844df4e568d1939081d023caa.jpeg"
+        },
+        {
+          "width": 90,
+          "height": 90,
+          "size": 3053,
+          "url": "https://media.sketchfab.com/avatars/fcacc84a68154e3a98b9f3d1ce7a413a/dbec28e52d1f4e6b8ff6baa0e9551c94.jpeg"
+        },
+        {
+          "width": 48,
+          "height": 48,
+          "size": 1061,
+          "url": "https://media.sketchfab.com/avatars/fcacc84a68154e3a98b9f3d1ce7a413a/b749d50bb80b45c0b66f1eaa289272f2.jpeg"
+        },
+        {
+          "width": 32,
+          "height": 32,
+          "size": 665,
+          "url": "https://media.sketchfab.com/avatars/fcacc84a68154e3a98b9f3d1ce7a413a/b671f00bdb8d4e6e8500bdb66b61e727.jpeg"
+        }
+      ]
+    },
+    "uri": "https://api.sketchfab.com/v3/users/19cfc338f034437189579a2aa1f0e1ff"
+  },
+  "vertexCount": 184676,
+  "viewCount": 1039,
+  "viewerUrl": "https://sketchfab.com/3d-models/cc0-crucian-carp-c-auratus-langsdorfii-ccd3144068d34cd9b15f3c38d2fb790b",
+  "isDownloadable": true,
+  "isProtected": false,
+  "description": "License: **CC0**  \n\n  \nAnimalia 動物界  \n　Chordata 脊索動物門  \n　　Osteichthyes 硬骨魚綱  \n　　　Cypriniformes コイ目  \n　　　　Cyprinidae コイ科  \n　　　　　Carassius フナ属  \n　　　　　　Carassius auratus langsdorfii ギンブナ  \n  \nフナ ふな 銀鮒 淡水魚 魚類",
+  "price": null,
+  "downloadCount": 214,
+  "editorUrl": "https://sketchfab.com/models/ccd3144068d34cd9b15f3c38d2fb790b/edit",
+  "status": {
+    "warning": {},
+    "processing": "SUCCEEDED"
+  },
+  "source": "website",
+  "hasCommentsDisabled": false,
+  "updatedAt": "2025-03-07T03:39:48.878680",
+  "pbrType": null,
+  "textureCount": 2,
+  "materialCount": 2
+}

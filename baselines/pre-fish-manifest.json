@@ -1,0 +1,18 @@
+{
+  "index.html": "3e447c0ddd0ab5c7dfff93caa11a9ad36c7d4755e1d613f23982c24f6837d3f7",
+  "build.py": "0ef610a01d1165ad43524049aaae3133ec9dbbcb97f4efddbb933548bbddd77b",
+  "PHYSICS.md": "326350d9a3dab016c8e85eeb2292715c7edbad81bfdd0097596e92147afb3b19",
+  "src/app.js": "1663f8e896a63e36cf855821d024f59adb126f18f0eac4bc4cf12e47177d0983",
+  "src/float-scope.js": "bf04a85b212363112107070c26b840611330a2af80ec3fa930142c91407661a8",
+  "src/optics.js": "99ccaecd3310f7cf7b2c9c6cba9ff4ae4dd2ea2c3b094e4770a994a7ce41d7f5",
+  "src/physics.js": "d9ae73dc5d6f0c03b06b64f3dbf862f3edc94e32b727c23f70c1f381a96837ab",
+  "src/seat-workshop.js": "26f9ba1af89cfbaa6b4991ffeefdc8b7e02ba7cbd6f627f3f7413b4bad8acd98",
+  "src/shell.html": "40ce8d1b6bd47fb609831826eff9b812e048852c3a4c36017299762f41b86f1a",
+  "src/tackle.js": "001e46d061a8bc7ff41f6ab77d463ce766b42c87123cc763f48ee5f7bcc2ed60",
+  "tests/fish-coupling.test.cjs": "27b1fb4ad89083555a70e02d0a2cf412f927b920dd377159364e800de999c091",
+  "tests/float-scope.test.cjs": "f274be579797e81e32598ddab46c8a0819c1abab3ea38c9087f7b7080eae79a2",
+  "tests/optics-cameras.test.cjs": "e59aa539b48bf43d45d447f2018da33fbb9aa55743d8813be33dafcbf6992614",
+  "tests/physics.test.cjs": "aa8a227dfe40b357f22f28542143925e4c47d327af3c6a5e8da5b2c499cd2058",
+  "tests/tackle.test.cjs": "6ce8ff765ff6b2fda36a49a8f0ab90a096639438b22462d64721668b7ee97211",
+  "tests/wind-interface.test.cjs": "abdf4829b39ce85f8a06f98350286d3d062cae78b6848f701eb0fcb9ca43b4bb"
+}

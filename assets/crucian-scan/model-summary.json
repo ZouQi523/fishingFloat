@@ -1,0 +1,105 @@
+{
+  "id": "silver-crucian-scan-ccd31440",
+  "name": "Real scanned silver crucian carp",
+  "modelHash": "281aa1fb3da062e2a01135377b56549b0af147fefe61975582b607777060fb67",
+  "units": "metres",
+  "axes": "+X head / +Y dorsal / +Z lateral",
+  "mouthLocal": [
+    0,
+    0,
+    0
+  ],
+  "mouthSource": {
+    "mesh": "Silver_crucian_scan",
+    "kind": "centroid of actual scanned open lip vertices, 16 angular sectors",
+    "vertexIndices": [
+      34526,
+      53242,
+      53297,
+      7351,
+      7337,
+      7291,
+      7255,
+      7112,
+      46399,
+      52003,
+      33443,
+      33398,
+      33461,
+      46552,
+      30405,
+      54767
+    ],
+    "sourceVertexIndices": [
+      6930,
+      9600,
+      9606,
+      1613,
+      1608,
+      1597,
+      1592,
+      1567,
+      8749,
+      9443,
+      6708,
+      6699,
+      6711,
+      8781,
+      6023,
+      9734
+    ]
+  },
+  "counts": {
+    "meshes": 1,
+    "vertices": 59700,
+    "triangles": 19900
+  },
+  "source": {
+    "id": "ccd3144068d34cd9b15f3c38d2fb790b",
+    "author": "ffish.asia / floraZia.com",
+    "license": "CC BY 4.0 (conservative; current source says CC0)",
+    "url": "https://sketchfab.com/3d-models/cc0-crucian-carp-c-auratus-langsdorfii-ccd3144068d34cd9b15f3c38d2fb790b",
+    "download": "https://huggingface.co/datasets/allenai/objaverse/resolve/main/glbs/000-154/ccd3144068d34cd9b15f3c38d2fb790b.glb"
+  },
+  "deformation": {
+    "amplitude": 0.003,
+    "startX": -0.03,
+    "span": 0.15,
+    "frequency": 7,
+    "phase": 4
+  },
+  "animation": "continuous local-Z tail sway; source hull swept +/-3mm bounds every phase",
+  "sourceVertices": 184668,
+  "hullVertices": 830,
+  "surfacePointCount": 5090,
+  "sourceTriangles": 369195,
+  "colorCardRemoved": [
+    {
+      "name": "Object_4",
+      "faces": 12
+    }
+  ],
+  "isolatedSingleTriangleDebrisRemoved": 18,
+  "bboxMin": [
+    -0.1790218,
+    -0.0341566,
+    -0.0150501
+  ],
+  "bboxMax": [
+    0.000968,
+    0.0480402,
+    0.0111397
+  ],
+  "texture": {
+    "width": 1024,
+    "height": 1024,
+    "channels": 4,
+    "origin": "original photographic albedo projected high-to-low via EMIT bake; no procedural painting",
+    "rowOrder": "bottom to top / flipY false"
+  },
+  "mouthSourcePreTranslation": [
+    0.07762,
+    -0.0031936,
+    0.00105
+  ]
+}

@@ -1,0 +1,2 @@
+{"passed":true,"cases":9,"artifact":{"bytes":5283289,"sha256":"f920da6c856b5b599e9ceabbf9faf97b3f81a7f2141a543f960198bc46ef9d5a"},"notes":"60 Hz measurement tolerance; not a claim for all devices or real phones."}
+Verifier negative cases: 10/10 rejected correctly

@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#091319">
+<title>浮研 FLOAT LAB · 调漂观察室</title>
+<style>
+  :root {
+    color-scheme: dark;
+    --ink: #091319;
+    --paper: #e8f2f3;
+    --dim: #94aeb8;
+    --accent: #a9e6cc;
+    --border: rgba(180, 216, 225, .16);
+    --panel: rgba(10, 23, 30, .82);
+    --mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body {
+    height: 100%; overflow: hidden;
+    background: #091319;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    color: var(--paper); -webkit-font-smoothing: antialiased;
+  }
+  button, input, select { font: inherit; }
+  button, summary, input, select { -webkit-tap-highlight-color: transparent; }
+  button, summary { touch-action: manipulation; }
+  button:focus-visible, summary:focus-visible, input:focus-visible, select:focus-visible {
+    outline: 2px solid var(--accent); outline-offset: 4px;
+  }
+  button { min-height: 36px; color: var(--paper); cursor: pointer; }
+  #c { display: block; width: 100vw; height: 100vh; height: 100dvh; touch-action: none; cursor: grab; }
+  #c:active { cursor: grabbing; }
+  .panel {
+    background: var(--panel); border: 1px solid var(--border);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, .18);
+    backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+  }
+  #hud {
+    position: fixed; z-index: 4; top: max(24px, env(safe-area-inset-top)); left: 24px;
+    width: 250px; border-radius: 16px; padding: 16px; user-select: none;
+  }
+  .brand { display: flex; align-items: center; gap: 9px; }
+  .brand-mark { width: 17px; height: 24px; position: relative; flex: 0 0 auto; }
+  .brand-mark::before { content: ""; position: absolute; width: 2px; height: 24px; background: var(--accent); left: 8px; }
+  .brand-mark::after { content: ""; position: absolute; width: 11px; height: 11px; border: 1px solid var(--accent); border-radius: 50%; top: 8px; left: 3px; background: #122b30; }
+  .brand-name { font-size: 17px; font-weight: 600; letter-spacing: .16em; }
+  .brand-name span { font-family: var(--mono); font-size: 10px; color: var(--dim); letter-spacing: .10em; margin-left: 5px; }
+  .eyebrow { margin-top: 9px; color: var(--dim); font-size: 10px; letter-spacing: .16em; }
+  .hud-topline { display: flex; align-items: center; justify-content: space-between; margin: 20px 0 12px; }
+  .section-k { font-size: 10px; font-weight: 500; letter-spacing: .12em; color: var(--dim); }
+  #statusBadge { font-size: 9px; color: var(--accent); background: rgba(126, 211, 180, .09); border: 1px solid rgba(169, 230, 204, .18); border-radius: 20px; padding: 4px 8px; white-space: nowrap; }
+  #statusBadge::before { content: ""; display: inline-block; width: 4px; height: 4px; border-radius: 50%; background: currentColor; margin-right: 5px; vertical-align: 2px; }
+  .hrow { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .reading + .reading { border-left: 1px solid var(--border); padding-left: 16px; }
+  .k { font-size: 10px; color: var(--dim); letter-spacing: .08em; }
+  .v { margin-top: 7px; font-size: 24px; font-weight: 400; letter-spacing: -.05em; font-family: var(--mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .v.accent { color: var(--accent); }
+  .unit { font-size: 11px; color: var(--dim); letter-spacing: 0; }
+  .hint { margin-top: 14px; font-size: 10px; color: var(--dim); line-height: 1.6; }
+  .state { margin-top: 8px; font-size: 10px; line-height: 1.6; color: #eac29a; }
+  .state:empty { display: none; }
+  .line { margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--border); font-size: 10px; line-height: 1.7; color: var(--dim); font-variant-numeric: tabular-nums; }
+  .btns { display: flex; gap: 8px; margin-top: 13px; }
+  .btns button, .trim-foot button {
+    flex: 1; padding: 10px 8px; font-size: 11px; border: 1px solid var(--border);
+    border-radius: 8px; background: rgba(155, 196, 209, .055); transition: background .16s, border-color .16s;
+  }
+  button:hover { background-color: rgba(155, 196, 209, .14); }
+  .btns button.primary, .trim-foot button.primary { background: var(--accent); color: #102b24; border-color: var(--accent); font-weight: 600; }
+  .btns button.primary:hover, .trim-foot button.primary:hover { background: #c2f2df; }
+  #physicsPanel {
+    position: fixed; z-index: 5; top: max(24px, env(safe-area-inset-top)); right: 24px;
+    width: 326px; max-height: calc(100vh - 110px); max-height: calc(100dvh - 110px);
+    border-radius: 14px; overflow: hidden;
+  }
+  #physicsPanel[open] { display: flex; flex-direction: column; }
+  #physicsPanel summary { list-style: none; cursor: pointer; min-height: 42px; padding: 13px 16px; display: flex; align-items: center; justify-content: space-between; gap: 8px; font-size: 11px; letter-spacing: .06em; }
+  #physicsPanel > summary { flex: 0 0 auto; min-height: 48px; }
+  #physicsPanel summary::-webkit-details-marker { display: none; }
+  .summary-sub { font-family: var(--mono); color: var(--dim); font-size: 9px; margin-left: auto; margin-right: 6px; letter-spacing: .04em; }
+  .chevron { flex: 0 0 auto; width: 6px; height: 6px; border-right: 1px solid var(--dim); border-bottom: 1px solid var(--dim); transform: rotate(45deg); transition: transform .2s; margin-top: -3px; }
+  details[open] > summary > .chevron { transform: rotate(225deg); margin-top: 3px; }
+  .details-body { min-height: 0; max-height: calc(100vh - 160px); max-height: calc(100dvh - 160px); padding: 0 14px 16px; overflow-y: auto; overscroll-behavior: contain; scrollbar-gutter: stable; scrollbar-width: thin; scrollbar-color: #38535d transparent; }
+  .rig-topology { color: #c3dfd6; font-size: 10px; line-height: 1.9; padding: 11px 12px; background: rgba(169, 230, 204, .055); border: 1px solid rgba(169, 230, 204, .12); border-radius: 9px; }
+  .rig-topology strong { display: block; font-size: 9px; letter-spacing: .12em; color: var(--accent); font-weight: 500; margin-bottom: 3px; }
+  .control-section { border-top: 1px solid var(--border); margin-top: 12px; }
+  #physicsPanel .control-section > summary { padding: 12px 0; }
+  .section-index { font-family: var(--mono); font-size: 9px; color: #6f968e; margin-right: 7px; }
+  .section-content { padding: 0 0 3px; }
+  .settings { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px 10px; }
+  .field { min-width: 0; display: flex; flex-direction: column; gap: 5px; font-size: 10px; color: var(--dim); }
+  .field-label { display: flex; align-items: center; justify-content: space-between; gap: 5px; min-height: 18px; line-height: 1.5; }
+  .field-label small { flex-shrink: 0; color: #88a6ae; font-size: 9px; }
+  input[type=number], select {
+    width: 100%; min-height: 38px; padding: 8px 9px; color: var(--paper); background: rgba(3, 12, 17, .42);
+    border: 1px solid var(--border); border-radius: 7px; font-family: var(--mono); font-size: 12px;
+  }
+  select { font-family: inherit; font-size: 11px; }
+  input[type=range] { width: 100%; height: 36px; margin: 0; accent-color: var(--accent); cursor: pointer; }
+  .water-visibility { grid-column: 1 / -1; }
+  .water-visibility .rig-help { margin-top: 0; }
+  .range-reading { color: var(--accent); font: 12px var(--mono); white-space: nowrap; }
+  .range-reading small { font: 9px var(--mono); color: var(--dim); }
+  .full-width { grid-column: 1 / -1; }
+  .rig-actions { margin: 12px 0 0; }
+  .rig-actions button { min-height: 38px; }
+  .rig-help { color: #8eaaaF; font-size: 10px; line-height: 1.8; margin-top: 12px; }
+  .rig-readouts { margin-top: 12px; padding: 9px 11px; background: rgba(3, 12, 17, .28); border: 1px solid var(--border); border-radius: 8px; }
+  .rig-readout { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; padding: 4px 0; font-size: 10px; line-height: 1.6; color: var(--dim); }
+  .rig-readout dd { color: #c5d9de; text-align: right; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+  .rig-readout dt { flex-shrink: 0; }
+  #tackleStatus { display: block; padding-bottom: 7px; margin-bottom: 5px; border-bottom: 1px solid var(--border); color: var(--accent); font-size: 10px; line-height: 1.7; }
+  .force-head { margin: 0 0 12px; display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+  .force-head small { color: #88a6ae; font-size: 9px; }
+  .force-list { display: grid; gap: 10px; }
+  .force-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; font-size: 10px; color: var(--dim); }
+  .force-row dt { display: flex; align-items: center; gap: 7px; }
+  .force-row dt::before { content: ""; width: 5px; height: 5px; border-radius: 1px; background: var(--force-color, #a9e6cc); }
+  .force-row dd { flex-shrink: 0; font-family: var(--mono); font-size: 11px; color: var(--paper); }
+  .force-row:nth-child(2) { --force-color: #e5b68b; }
+  .force-row:nth-child(3) { --force-color: #8cb9e4; }
+  .force-row:nth-child(4) { --force-color: #c5b2e8; }
+  .force-row:last-child { --force-color: #9baab0; padding-top: 10px; border-top: 1px solid var(--border); }
+  .toggle { display: flex; gap: 9px; align-items: center; min-height: 36px; margin-top: 6px; font-size: 10px; line-height: 1.6; color: var(--dim); cursor: pointer; }
+  input[type=checkbox] { flex: 0 0 auto; accent-color: var(--accent); width: 16px; height: 16px; }
+  #rigDetails { margin-top: 13px; color: #9eb6bf; font-size: 10px; line-height: 1.7; }
+  .model-note { margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--border); font-size: 9px; color: #88a6ae; line-height: 1.8; }
+  #observationBar { position: fixed; z-index: 6; bottom: max(24px, env(safe-area-inset-bottom)); left: 50%; transform: translateX(-50%); display: flex; align-items: center; padding: 6px; gap: 5px; border-radius: 12px; white-space: nowrap; }
+  .tool-label { padding: 0 10px; font-family: var(--mono); color: #7e9aa5; font-size: 9px; letter-spacing: .10em; }
+  .tool-divider { height: 20px; width: 1px; background: var(--border); margin: 0 4px; }
+  #observationBar button { border: 1px solid transparent; background: transparent; border-radius: 7px; padding: 10px 13px; font-size: 11px; color: #a9c0c9; transition: background .15s, color .15s; }
+  #observationBar button:hover { background: rgba(155, 196, 209, .10); color: var(--paper); }
+  #observationBar button.active, #observationBar button[aria-pressed=true] { color: var(--accent); border-color: rgba(169, 230, 204, .16); background: rgba(169, 230, 204, .08); }
+  #observationBar #btnRecast { color: #d9e9ed; }
+  #trim { position: fixed; inset: 0; z-index: 20; display: none; flex-direction: column; background: radial-gradient(100% 90% at 50% 0%, #162b35 0%, #09151d 60%, #060d12 100%); }
+  #trim.on { display: flex; }
+  .trim-head { display: flex; justify-content: space-between; align-items: flex-end; padding: max(32px, env(safe-area-inset-top)) 40px 4px; gap: 16px; }
+  .trim-title { font-size: 20px; font-weight: 500; letter-spacing: .12em; }
+  .trim-title small { display: block; color: #819fa9; font-family: var(--mono); font-size: 9px; letter-spacing: .16em; margin-bottom: 9px; }
+  .trim-sub { margin-top: 10px; font-size: 11px; color: var(--dim); line-height: 1.6; }
+  .trim-read { text-align: right; }
+  .trim-k { font-size: 10px; letter-spacing: .12em; color: var(--dim); margin-bottom: 6px; }
+  .trim-v { font-family: var(--mono); font-size: 32px; color: var(--accent); font-variant-numeric: tabular-nums; line-height: 1.15; white-space: nowrap; }
+  #trimCanvas { flex: 1; min-height: 0; width: 100%; display: block; cursor: none; touch-action: none; }
+  .trim-foot { display: flex; gap: 10px; justify-content: center; padding: 6px 24px max(28px, env(safe-area-inset-bottom)); }
+  .trim-foot button { flex: 0 1 160px; padding: 12px 18px; font-size: 12px; }
+  #performanceStatus { position: fixed; z-index: 4; right: 24px; bottom: max(8px, env(safe-area-inset-bottom)); pointer-events: none; color: #94aeb8; font: 9px/1.6 var(--mono); text-align: right; }
+  #floatApp[aria-busy="true"] { pointer-events: none; user-select: none; }
+  #loading { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; padding: 24px; font-size: 12px; color: #abc5cc; background: #091319; z-index: 100; }
+  .loading-card { width: min(430px, 100%); }
+  .loading-brand { color: #a9e6cc; font: 12px var(--mono); letter-spacing: .2em; margin-bottom: 22px; }
+  #loadingStage { color: #e8f2f3; font-size: 15px; line-height: 1.7; overflow-wrap: anywhere; }
+  #loadingProgress { display: block; width: 100%; height: 6px; margin: 19px 0 13px; accent-color: #a9e6cc; }
+  #loadingDetail, .loading-support { color: #94aeb8; font-size: 11px; line-height: 1.8; overflow-wrap: anywhere; }
+  .loading-support { margin-top: 12px; font-size: 10px; }
+  #loadingRetry { padding: 9px 18px; margin-top: 18px; border: 1px solid #a9e6cc66; border-radius: 7px; background: #18332f; color: #a9e6cc; }
+  @media (max-width: 1000px) {
+    #hud { top: 16px; left: 16px; width: 240px; padding: 15px; }
+    #physicsPanel { top: max(16px, env(safe-area-inset-top)); right: 16px; width: 304px; }
+  }
+  @media (max-width: 620px) {
+    #hud { top: max(12px, env(safe-area-inset-top)); left: 12px; width: min(190px, calc(100vw - 158px)); padding: 12px; border-radius: 12px; }
+    .brand-name { font-size: 14px; }
+    .brand-name span { font-size: 8px; margin-left: 2px; }
+    .brand-mark { transform: scale(.85); width: 13px; }
+    .brand { gap: 7px; }
+    .eyebrow { font-size: 8px; margin-top: 7px; letter-spacing: .09em; }
+    .hud-topline { margin: 13px 0 10px; }
+    .section-k { font-size: 9px; }
+    #statusBadge { font-size: 8px; padding: 3px 6px; }
+    .hrow { gap: 8px; }
+    .reading + .reading { padding-left: 10px; }
+    .v { font-size: 21px; margin-top: 5px; }
+    .k, .hint, .state, .line { font-size: 9px; }
+    .hint { margin-top: 10px; }
+    .line { margin-top: 9px; padding-top: 7px; }
+    .btns { gap: 6px; margin-top: 10px; }
+    .btns button { padding: 9px 4px; font-size: 10px; }
+    #physicsPanel { top: max(12px, env(safe-area-inset-top)); right: 12px; width: 122px; }
+    #physicsPanel summary { padding: 12px 11px; font-size: 10px; letter-spacing: .02em; }
+    .summary-sub { display: none; }
+    #physicsPanel[open] { width: min(326px, calc(100vw - 24px)); z-index: 8; }
+    #physicsPanel[open] .details-body { max-height: calc(100dvh - 160px); }
+    .details-body { padding-right: 12px; padding-left: 12px; }
+    .rig-topology { padding: 9px 10px; }
+    .field-label { font-size: 10px; }
+    .force-head { align-items: flex-start; flex-direction: column; gap: 5px; }
+    #observationBar { width: calc(100% - 24px); max-width: 440px; bottom: max(14px, env(safe-area-inset-bottom)); gap: 1px; padding: 5px; justify-content: space-around; }
+    .tool-label { display: none; }
+    #observationBar button { padding: 10px 9px; font-size: 10px; }
+    .tool-divider { margin: 0 2px; height: 18px; }
+    .trim-head { padding: max(24px, env(safe-area-inset-top)) 20px 0; }
+    .trim-title { font-size: 17px; }
+    .trim-sub { font-size: 10px; max-width: 210px; }
+    .trim-v { font-size: 25px; }
+    .trim-foot { padding-left: 16px; padding-right: 16px; gap: 7px; }
+    .trim-foot button { font-size: 11px; padding: 12px 9px; }
+  }
+  @media (max-height: 540px) and (min-width: 621px) {
+    #hud { width: 215px; padding: 12px; }
+    .eyebrow, .line { display: none; }
+    .hud-topline { margin-top: 12px; }
+    #observationBar { bottom: 12px; }
+  }
+  /* Hand-first controls: dimensions remain an internal, fixed rig definition. */
+  [hidden] { display: none !important; }
+  #hud { width: 280px; }
+  #hud .hud-topline { margin-top: 12px; margin-bottom: 9px; }
+  .hand-actions { margin-top: 12px; }
+  .hand-actions button { min-height: 44px; font-size: 14px; font-weight: 600; letter-spacing: .15em; }
+  .hand-actions button[aria-pressed=true] { color: #102b24; background: var(--accent); border-color: var(--accent); }
+  #fixedLineInfo { margin-top: 9px; color: #a9c5cd; font-size: 10px; line-height: 1.6; font-variant-numeric: tabular-nums; }
+  #hud .hint { margin-top: 9px; }
+  #physicsPanel:not([open]) { width: 196px; }
+  @media (max-width: 620px) {
+    #hud { width: min(232px, calc(100vw - 158px)); padding: 12px; }
+    #hud .eyebrow { display: none; }
+    #hud .hud-topline { margin-top: 10px; margin-bottom: 8px; }
+    #hud .hint, #hud .state { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; line-height: 1.55; }
+    #hud .state:empty { display: none; }
+    #hud .hint { margin-top: 8px; }
+    #hud .state { margin-top: 5px; }
+    #fixedLineInfo { font-size: 9px; line-height: 1.55; margin-top: 7px; }
+    .hand-actions { margin-top: 10px; }
+    .hand-actions button { min-height: 44px; font-size: 13px; }
+    #physicsPanel:not([open]) { width: 122px; }
+    #physicsPanel > summary { font-size: 9.5px; padding: 11px 10px; letter-spacing: 0; gap: 5px; }
+  }
+  @media (max-height: 540px) and (min-width: 621px) {
+    #hud { width: 240px; padding: 12px; }
+    #hud .eyebrow { display: none; }
+    #hud .hud-topline { margin-top: 8px; margin-bottom: 6px; }
+    #hud .hint { margin-top: 7px; }
+    .hand-actions { margin-top: 8px; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+  #seatWorkshop { position: fixed; inset: 0; z-index: 21; display: flex; flex-direction: column; background: radial-gradient(90% 85% at 50% 10%, #18333b 0%, #0b1a22 65%, #070f15 100%); }
+  #seatWorkshop .trim-head { align-items: flex-start; }
+  .seat-eyebrow { display: block; color: #819fa9; font-family: var(--mono); font-size: 9px; letter-spacing: .16em; margin-bottom: 9px; }
+  #seatDelta { min-height: 17px; margin-top: 8px; color: var(--dim); font: 11px/1.5 var(--mono); }
+  #seatStage { position: relative; flex: 1; min-height: 110px; overflow: hidden; margin: 4px 0; }
+  #seatCanvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; touch-action: none; }
+  #seatGrip { position: absolute; z-index: 1; min-width: 92px; min-height: 44px; padding: 10px 13px; border: 1px solid rgba(169, 230, 204, .45); border-radius: 24px; color: var(--accent); background: #16332f; box-shadow: 0 4px 24px #0003; font-size: 12px; letter-spacing: .08em; cursor: grab; touch-action: none; user-select: none; }
+  #seatGrip:active { cursor: grabbing; background: #22483f; }
+  #seatGrip:focus-visible { outline-offset: 5px; }
+  #seatNote { padding: 0 24px 10px; text-align: center; color: var(--dim); font-size: 11px; line-height: 1.8; }
+  #seatWorkshop .trim-foot button { min-height: 46px; }
+  @media (max-width: 620px) {
+    #seatWorkshop .trim-head { padding: max(22px, env(safe-area-inset-top)) 20px 0; gap: 12px; }
+    #seatWorkshop .trim-sub { max-width: 205px; }
+    #seatWorkshop .trim-read { flex-shrink: 0; padding-top: 2px; }
+    #seatWorkshop .trim-v { font-size: 27px; }
+    .seat-eyebrow { font-size: 8px; letter-spacing: .1em; }
+    #seatDelta { font-size: 10px; }
+    #seatNote { padding: 0 22px 8px; font-size: 10px; }
+    #seatGrip { min-width: 84px; padding: 10px; font-size: 11px; }
+  }
+  @media (max-height: 540px) {
+    #seatWorkshop .trim-head { padding: max(12px, env(safe-area-inset-top)) 24px 0; }
+    #seatWorkshop .seat-eyebrow { display: none; }
+    #seatWorkshop .trim-title { font-size: 17px; }
+    #seatWorkshop .trim-sub { margin-top: 4px; }
+    #seatWorkshop .trim-v { font-size: 25px; }
+    #seatWorkshop .trim-foot { padding-bottom: max(12px, env(safe-area-inset-bottom)); }
+    #seatNote { padding-bottom: 4px; }
+  }
+  /* A second, read-only camera is composited into this clear window. No blur
+     or opaque panel background here: its pixels live on the shared WebGL canvas. */
+  #floatScope { position: fixed; z-index: 3; left: 24px; top: 340px; width: 280px; height: 400px; display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--border); border-radius: 14px; box-shadow: 0 10px 32px #0004; user-select: none; }
+  #floatScope { touch-action: manipulation; }
+  #floatScope[data-expanded="true"] { z-index: 9; box-shadow: 0 18px 70px #0009; }
+  .scope-zoom { flex: 0 0 24px; width: 24px; height: 24px; padding: 0; border: 1px solid var(--border); border-radius: 5px; color: var(--accent); background: transparent; cursor: pointer; font-size: 17px; }
+  .scope-zoom:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .scope-head { flex: 0 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 12px 14px; background: #0d1d26; border-bottom: 1px solid var(--border); }
+  .scope-head h2 { font-size: 12px; font-weight: 500; letter-spacing: .12em; }
+  .scope-angle { color: var(--accent); font: 10px var(--mono); white-space: nowrap; }
+  #floatScopeView { position: relative; flex: 1; min-height: 0; overflow: hidden; }
+  #floatScopeWaterline { display: none; position: absolute; left: 10px; right: 10px; border-top: 1px dashed #b8e8db45; pointer-events: none; }
+  #floatScopeWaterline span { position: absolute; right: 0; top: 4px; color: #a9c9c5; font-size: 9px; }
+  #floatScopeState { position: absolute; left: 8px; right: 8px; bottom: 8px; text-align: center; font-size: 10px; color: #a1bfc5; line-height: 1.6; pointer-events: none; }
+  #floatScope:not([data-submerged="true"]) #floatScopeState { display: none; }
+  #floatScope[data-submerged="true"] #floatScopeState { bottom: 42%; color: #e8f2e0; background: #12251b99; padding: 8px 4px; border-radius: 5px; }
+  .scope-foot { flex: 0 0 auto; display: flex; align-items: baseline; justify-content: space-between; gap: 8px; padding: 10px 14px; background: #0b1921; border-top: 1px solid var(--border); }
+  #floatScopeReading { color: var(--accent); font: 14px var(--mono); white-space: nowrap; }
+  .scope-caption { color: var(--dim); font-size: 9px; white-space: nowrap; }
+  @media (max-width: 620px) {
+    #floatScope { border-radius: 11px; }
+    .scope-head { padding: 10px; gap: 4px; }
+    .scope-head h2 { font-size: 11px; letter-spacing: .04em; }
+    .scope-angle { font-size: 9px; }
+    .scope-foot { padding: 9px 10px; flex-wrap: wrap; gap: 4px; }
+    #floatScopeReading { font-size: 13px; }
+    .scope-caption { font-size: 8px; }
+  }
+</style>
+</head>
+<body>
+<section id="loading" role="status" aria-live="polite" aria-atomic="true" tabindex="-1">
+  <div class="loading-card">
+    <p class="loading-brand">浮研 · FLOAT LAB</p>
+    <h2 id="loadingStage">正在准备离线观察室…</h2>
+    <progress id="loadingProgress" aria-label="已完成的实际启动步骤" hidden></progress>
+    <p id="loadingDetail">所有资源均在此 HTML 内 · 无需联网</p>
+    <p class="loading-support">需要支持 gzip DecompressionStream 与 WebGL2 的现代浏览器。</p>
+    <button id="loadingRetry" type="button" hidden>重新加载</button>
+    <noscript>请启用 JavaScript 后重新打开此文件；此观察室不需要网络。</noscript>
+  </div>
+</section>
+<div id="floatApp" aria-busy="true" inert>
+<canvas id="c" aria-label="三维鱼缸与浮漂观察场景"></canvas>
+<output id="performanceStatus" aria-live="off">60 FPS目标 · 自动画质</output>
+
+<aside id="hud" class="panel" aria-label="浮漂实时读数">
+  <div class="brand"><i class="brand-mark" aria-hidden="true"></i><h1 class="brand-name">浮研 <span>FLOAT LAB</span></h1></div>
+  <div class="eyebrow">静观水面 · 风线默认贴水</div>
+  <div class="hud-topline"><span class="section-k">实时观察</span><span id="statusBadge">模拟运行中</span></div>
+  <div class="hrow">
+    <div class="reading"><div class="k">铅皮质量</div><div class="v" id="leadVal">4.00 g</div></div>
+    <div class="reading"><div class="k" id="expoLabel">露出水面</div><div class="v accent"><span id="expoVal">—</span> <span class="unit" id="expoUnit">目</span></div></div>
+  </div>
+  <div class="btns hand-actions" role="group" aria-label="手动调漂常用操作"><button id="btnAdjustFloat" class="primary" type="button" aria-pressed="false" aria-expanded="false" aria-haspopup="dialog" aria-controls="seatWorkshop">移漂</button><button id="btnAdjustLead" type="button" aria-pressed="false" aria-expanded="false" aria-haspopup="dialog" aria-controls="seatWorkshop">移铅</button><button id="btnTrim" type="button">剪铅皮</button></div>
+  <div id="fixedLineInfo">线长固定 · 主线 120 cm · 子线 12 / 15 cm</div>
+  <div class="state" id="stateInfo" role="status"></div>
+</aside>
+
+<section id="floatScope" aria-labelledby="floatScopeTitle">
+  <header class="scope-head"><h2 id="floatScopeTitle">观漂小窗</h2><span class="scope-angle">水面 20°</span><button id="floatScopeZoom" class="scope-zoom" type="button" aria-label="放大观漂小窗" aria-expanded="false" title="放大 · 双击小窗">⤢</button></header>
+  <div id="floatScopeView" role="img" aria-label="同一三维场景的第二台相机，从水面上方20度观察实际浮漂和水面">
+    <div id="floatScopeWaterline" aria-hidden="true"><span>水面</span></div>
+    <div id="floatScopeState"></div>
+  </div>
+  <footer class="scope-foot"><output id="floatScopeReading" aria-label="观漂小窗读数">—</output><span id="floatScopeHint" class="scope-caption">双击放大 · 实时相机</span></footer>
+</section>
+
+<details id="physicsPanel" class="panel">
+  <summary>更多 · 环境与受力 <i class="chevron" aria-hidden="true"></i></summary>
+  <div class="details-body">
+    <p class="rig-topology"><strong>固定线长，只移动配件</strong>竿尖 → 水面风线 → 漂座 → 铅座 / 定位豆 → 八字环 → 双子线</p>
+    <details id="rigControls" class="control-section">
+      <summary><span><span class="section-index">01</span>线组状态与工具</span><i class="chevron" aria-hidden="true"></i></summary>
+      <div class="section-content">
+        <div id="legacyRigInputs" hidden aria-hidden="true">
+          <input id="floatDepth" type="range" value="42" min="18" max="80" step="0.5" tabindex="-1"><output id="floatDepthVal" for="floatDepth">42</output>
+          <input id="leadPosition" type="range" value="5.5" min="2" max="39.5" step="0.5" tabindex="-1"><output id="leadPositionVal" for="leadPosition">5.5</output>
+          <input id="leadTravel" type="range" value="8" min="0" max="20" step="0.5" tabindex="-1" aria-label="跑铅向上行程，厘米"><output id="leadTravelVal" for="leadTravel">8</output>
+          <input id="mainLength" type="number" value="120" min="80" max="180" step="1" inputmode="decimal" readonly disabled>
+          <input id="rodHeight" type="number" value="110" min="85" max="160" step="1" inputmode="decimal">
+          <input id="leaderShort" type="number" value="12" min="4" max="30" step="0.5" inputmode="decimal" readonly disabled>
+          <input id="leaderLong" type="number" value="15" min="4" max="35" step="0.5" inputmode="decimal" readonly disabled>
+          <input id="rodReach" type="number" value="50" min="15" max="75" step="1" inputmode="decimal">
+        </div>
+        <label class="toggle"><input id="leadLocked" type="checkbox" checked>夹紧定位豆 / 锁铅</label>
+        <label class="toggle"><input id="showGuides" type="checkbox" checked>线组示意高亮（不改变真实线径）</label>
+        <div class="btns rig-actions"><button id="btnLiftRod" type="button">提竿 / 还原</button><button id="btnRigReset" type="button">恢复默认线组</button></div>
+        <div class="btns"><button id="btnReset" type="button">重铅 · 5.00 g</button></div>
+        <div class="rig-readouts" aria-label="线组连接与张力读数">
+          <p id="tackleStatus" role="status">线组连接中 · 等待模拟更新</p>
+          <dl>
+            <div class="rig-readout"><dt>风线长度</dt><dd id="windLengthInfo">— cm</dd></div>
+            <div class="rig-readout"><dt>竿尖张力</dt><dd id="rodTension">— N</dd></div>
+            <div class="rig-readout"><dt>漂座张力</dt><dd id="seatTension">— N</dd></div>
+            <div class="rig-readout"><dt>铅座行程</dt><dd id="leadTravelInfo">锁铅 · 等待模拟更新</dd></div>
+          </dl>
+        </div>
+        <p class="rig-help">直接用手拖漂座或铅座，线长始终不变。风线默认贴着水面；漂座下方仍有一小段线入水，提竿拉紧时可离水。松开定位豆后，铅座只在两豆之间移动。</p>
+      </div>
+    </details>
+    <details id="environmentControls" class="control-section">
+      <summary><span><span class="section-index">02</span>水体、线材与饵重</span><i class="chevron" aria-hidden="true"></i></summary>
+      <div class="section-content settings">
+        <div class="field water-visibility">
+          <label class="field-label" for="waterTransparency">水体清澈度 <output id="waterTransparencyVal" class="range-reading" for="waterTransparency">35%</output></label>
+          <input id="waterTransparency" type="range" value="35" min="0" max="100" step="1" aria-describedby="waterTransparencyHelp" aria-valuetext="35%，湖水（默认）">
+          <p id="waterTransparencyHelp" class="rig-help">0% 浓浑 · 35% 湖水 · 100% 清水演示<br>随水下光程吸收、散射，越深越看不清；两相机和水体侧面共用，不改变浮力或水温。</p>
+        </div>
+        <label class="field"><span class="field-label">水温 <small>°C</small></span><input id="waterTemp" type="number" value="20" min="0" max="40" step="1" inputmode="decimal"></label>
+        <label class="field"><span class="field-label">线材 <small>密度</small></span><select id="lineMaterial"><option value="nylon" selected>尼龙 Nylon</option><option value="fluoro">碳线 Fluoro</option><option value="pe">编织 PE</option></select></label>
+        <label class="field"><span class="field-label">主线直径 <small>mm</small></span><input id="lineDiameter" type="number" value="0.22" min="0.05" max="1" step="0.01" inputmode="decimal"></label>
+        <label class="field"><span class="field-label">子线直径 <small>mm</small></span><input id="subDiameter" type="number" value="0.16" min="0.04" max="1" step="0.01" inputmode="decimal"></label>
+        <label class="field"><span class="field-label">双饵总质量 <small>g</small></span><input id="baitMass" type="number" value="0.34" min="0" max="5" step="0.01" inputmode="decimal"></label>
+        <label class="field"><span class="field-label">精确设铅 <small>g</small></span><input id="precisionLead" type="number" value="4.00" min="0" max="10" step="0.01" inputmode="decimal"></label>
+      </div>
+    </details>
+    <details id="forceDetails" class="control-section">
+      <summary><span><span class="section-index">03</span>受力与模型说明</span><i class="chevron" aria-hidden="true"></i></summary>
+      <div class="section-content">
+        <div class="force-head"><span class="section-k">整体外力 · 竿尖约束参与</span><small>N · 竖直分量向上为正</small></div>
+        <dl class="force-list">
+          <div class="force-row"><dt>排水浮力 ↑</dt><dd><span id="forceBuoyancy">—</span> N</dd></div>
+          <div class="force-row"><dt>钓组重力 ↓</dt><dd><span id="forceWeight">—</span> N</dd></div>
+          <div class="force-row"><dt>底部支撑 ↑</dt><dd><span id="forceSupport">—</span> N</dd></div>
+          <div class="force-row"><dt>风线水面承托 ↑</dt><dd><span id="forceSurface">—</span> N</dd></div>
+          <div class="force-row"><dt>竿尖外力 · 竖直分量</dt><dd><span id="forceRod">—</span> N</dd></div>
+          <div class="force-row"><dt>外力合计 · 竖直分量¹</dt><dd><span id="forceResidual">—</span> N</dd></div>
+        </dl>
+        <label class="toggle"><input id="showForces" type="checkbox">在场景中显示受力标记</label>
+        <div class="line" id="lineInfo">正在计算线组自重与排水浮力…</div>
+        <p id="rigDetails">连续主线、双子线的质量、浸水体积与触底状态随模拟更新。</p>
+        <p class="model-note">¹ 合计含浮力、重力、水面托力、底部支撑与竿尖约束，不含瞬时水阻；近零不等于自由悬浮或线组无张力。教学模型近似处理材质、接触与线组约束，不替代实物调漂或工程测量。</p>
+      </div>
+    </details>
+  </div>
+</details>
+
+<nav id="observationBar" class="panel" aria-label="观察与模拟控制">
+  <span class="tool-label">OBSERVE</span>
+  <button id="btnViewTank" type="button" class="active" aria-pressed="true">全缸</button>
+  <button id="btnViewFloat" type="button" aria-pressed="false">水线特写</button>
+  <button id="btnViewRig" type="button" aria-pressed="false">线组</button>
+  <span class="tool-divider" aria-hidden="true"></span>
+  <button id="btnPause" type="button" aria-pressed="false">暂停</button>
+  <button id="btnRecast" type="button">重置落水</button>
+</nav>
+
+<section id="seatWorkshop" role="dialog" aria-modal="true" aria-labelledby="seatTitle" aria-describedby="seatSubtitle" tabindex="-1" hidden>
+  <header class="trim-head">
+    <div><small id="seatEyebrow" class="seat-eyebrow">RIG WORKSHOP / 02</small><h2 id="seatTitle" class="trim-title">移动漂座</h2><p id="seatSubtitle" class="trim-sub">把线组拿到工作台上，握住配件沿主线上下移动。</p></div>
+    <div class="trim-read"><div id="seatMetric" class="trim-k">漂座距八字环</div><div class="trim-v"><output id="seatValue">42.0</output> <span class="unit">cm</span></div><div id="seatDelta">尚未移动</div></div>
+  </header>
+  <div id="seatStage">
+    <canvas id="seatCanvas" aria-label="线组工作台：拖动配件调整位置"></canvas>
+    <button id="seatGrip" type="button" role="slider" aria-label="移动漂座" aria-orientation="vertical" aria-valuemin="18" aria-valuemax="80" aria-valuenow="42" aria-describedby="seatNote">↕ 握住漂座</button>
+  </div>
+  <p id="seatNote">仅预览位置；完成后重新抛入水中，取消则保留原线组。</p>
+  <footer class="trim-foot"><button id="seatRestore" type="button">恢复默认位置</button><button id="seatCancel" type="button">取消</button><button id="seatDone" class="primary" type="button">完成 · 抛入水中</button></footer>
+</section>
+
+<section id="trim" aria-label="精细剪铅面板">
+  <div class="trim-head">
+    <div><h2 class="trim-title"><small>RIG WORKSHOP / 01</small>精细剪铅</h2><div class="trim-sub">移动剪刀，在刻度上点击剪断 · 精度 0.01 g</div></div>
+    <div class="trim-read"><div class="trim-k">保留质量</div><div class="trim-v"><span id="trimVal">3.00</span> <span class="unit">g</span></div></div>
+  </div>
+  <canvas id="trimCanvas" aria-label="点击铅皮刻度设定剪切位置"></canvas>
+  <div class="trim-foot"><button id="trimRestore" type="button">恢复整块</button><button id="trimCancel" type="button">取消</button><button id="trimDone" class="primary" type="button">完成 · 抛入水中</button></div>
+</section>
+</div>
+
+<script>
+/*__BOOT__*/
+</script>
+<script id="floatModules" type="application/json">/*__MODULES__*/</script>
+</body>
+</html>

@@ -1,0 +1,506 @@
+--- baseline/build.py
++++ current/build.py
+@@ -51,7 +51,7 @@
+     three = guard(three_to_classic((VENDOR / "three.module.js").read_text(encoding="utf-8")))
+     orbit = guard(orbit_to_classic((VENDOR / "OrbitControls.js").read_text(encoding="utf-8")))
+     app = "\n".join(guard((SRC / name).read_text(encoding="utf-8"))
+-                    for name in ("physics.js", "tackle.js", "optics.js", "seat-workshop.js", "float-scope.js", "app.js"))
++                    for name in ("physics.js", "tackle.js", "fish-behavior.js", "fish-lab.js", "crucian-mesh.js", "fish-view.js", "fish-panel.js", "optics.js", "seat-workshop.js", "float-scope.js", "app.js"))
+     shell = (SRC / "shell.html").read_text(encoding="utf-8")
+ 
+     html = (shell
+--- baseline/PHYSICS.md
++++ current/PHYSICS.md
+@@ -285,7 +285,7 @@
+ python3 build.py
+ ```
+ 
+-[构建脚本](<build.py>) 将本地 Three.js、OrbitControls 与 **physics → tackle → optics → seat-workshop → float-scope → app** 顺序内嵌进 [界面模板](<src/shell.html>)，生成 [单文件入口](<index.html>)；可直接以 `file://` 打开，不依赖 CDN。仅修改源码不会自动更新生成入口。[原 2D 页面](<index-2d.html>) 保留，不参与此构建，也不由台钓模型改写。
++[构建脚本](<build.py>) 将本地 Three.js、OrbitControls 与 **physics → tackle → fish-behavior → fish-lab → crucian-mesh → fish-view → fish-panel → optics → seat-workshop → float-scope → app** 顺序内嵌进 [界面模板](<src/shell.html>)，生成 [单文件入口](<index.html>)；可直接以 `file://` 打开，不依赖 CDN。仅修改源码不会自动更新生成入口。[原 2D 页面](<index-2d.html>) 保留，不参与此构建，也不由台钓模型改写。
+ 
+ 图形层 [光学模块](<src/optics.js>) 的折射、反射、焦散和水面效果属于视觉近似，不改变排水与接触求解。可在获准使用浏览器时检查桌面/移动端视口、默认全缸、面板移漂/移铅、无配件拾取的视角观察、锁铅/跑铅、提竿、触底、暂停、真实线径与辅助线开关的一致性。
+ 
+@@ -309,6 +309,35 @@
+ MOBILE=1 node browser-check.cjs --water preview-water-opaque-mobile.png
+ ```
+ 
+-本次验证：82 项 Node 单元测试全部通过（含 19 项同场景观漂相机测试、18 项多相机水体光学/深度消光/真实光源绑定/资源释放测试）；1440×1000 桌面和 390×844 手机视口各通过 89 项通用回归、147 项真实指针/工作台交互检查、147 项观漂相机断言及 58 项水体清澈度/深度散射断言，JavaScript 错误为 0。光学测试覆盖独立深度附件、正确的每相机逆视图投影矩阵、正交平行视线、共享水体边界/消光参数、实时原光源及渲染资源释放。清澈度验证读取两视图真实 GPU 像素：0%、35%、100% 画面不同，恢复 100% 后画面完全一致；相机实际静止后才比较固定像素，并检查滑条键盘操作及物理状态不变。新增脱离 DOM 的独立 GPU 标靶夹具直接调用同一生产水面/侧面材质，覆盖透视/正交 × 水面/侧面 × 深度 1.5 cm/80 cm × 清澈度 100%/35%/0% 共 24 组黑白对比度采样、23 项断言：35% 保留浅层目标至少 45% 的清水对比度，80 cm 深层目标降至清水对比度的 4% 以下，0% 即使浅层也不可分辨；夹具不修改用户场景或物理，完成后释放 WebGL 资源。相机检查验证原始场景/浮漂 UUID 相同、20° 独立视角、真实位姿和渲染状态恢复；不再将复制模型视为同场景相机。浏览器检查显式激活页面的可见/焦点状态并等待实际动画帧，恢复模拟时验证物理时间推进。移动端检查采用桌面 Chrome 的移动视口，不等同于真机触控或 Safari 验证。
++上一阶段（鱼行为接入前）验证记录：82 项 Node 单元测试全部通过（含 19 项同场景观漂相机测试、18 项多相机水体光学/深度消光/真实光源绑定/资源释放测试）；1440×1000 桌面和 390×844 手机视口各通过 89 项通用回归、147 项真实指针/工作台交互检查、147 项观漂相机断言及 58 项水体清澈度/深度散射断言，JavaScript 错误为 0。光学测试覆盖独立深度附件、正确的每相机逆视图投影矩阵、正交平行视线、共享水体边界/消光参数、实时原光源及渲染资源释放。清澈度验证读取两视图真实 GPU 像素：0%、35%、100% 画面不同，恢复 100% 后画面完全一致；相机实际静止后才比较固定像素，并检查滑条键盘操作及物理状态不变。新增脱离 DOM 的独立 GPU 标靶夹具直接调用同一生产水面/侧面材质，覆盖透视/正交 × 水面/侧面 × 深度 1.5 cm/80 cm × 清澈度 100%/35%/0% 共 24 组黑白对比度采样、23 项断言：35% 保留浅层目标至少 45% 的清水对比度，80 cm 深层目标降至清水对比度的 4% 以下，0% 即使浅层也不可分辨；夹具不修改用户场景或物理，完成后释放 WebGL 资源。相机检查验证原始场景/浮漂 UUID 相同、20° 独立视角、真实位姿和渲染状态恢复；不再将复制模型视为同场景相机。浏览器检查显式激活页面的可见/焦点状态并等待实际动画帧，恢复模拟时验证物理时间推进。移动端检查采用桌面 Chrome 的移动视口，不等同于真机触控或 Safari 验证。
+ 
+ 漂座内毫米级线孔走线按共点接头近似，渲染线孔中心与求解承力点一致；不模拟座内线体与漂脚的局部接触。全缸观察在手机上合并末端标签以避免重叠，细节请切到水线或线组特写。
++
++## 10. 鱼类行为与真实漂相实验室
++
++本阶段只增加鱼缸实验室，未增加室外钓场。完整操作见[鱼行为指南](<FISH_LAB_GUIDE.md>)，实施次序见[开发方案](<FISH_LAB_PLAN.md>)。
++
++### 10.1 唯一受力通道与旧校准
++
++[行为模块](<src/fish-behavior.js>) 不依赖 DOM、Three.js 或线组修改接口；每个物理 tick 只返回两钩的牛顿力和可选张紧子线接触。输入进入 [TaiwanRig](<src/tackle.js>) 的 `step(h,{hooks:[vec,vec],lineContacts:[{leader,t,force}]})`，再由钩→子线→八字环→主线→浮漂约束传递。接触力按 `(1-t)/t` 分配给子线两端，长度距绷紧超过 1μm 的松线忽略接触，求解器每子步再次确认；不修改浮漂位姿，不播放预制漂相。非法非有限向量原子拒绝。`lastInteraction.nodes` 是实际积分的节点外力，`total` 为其向量和，`applied` 标记接触是否真正施加。
++
++默认关闭鱼作用。36 组旧快照哈希覆盖三配置、四时间点、未传/空/零外力，对原字段逐位回归。原静态 `staticResidualN` 定义不变，不混入新增鱼力；有鱼施力时应独立查看 `lastInteraction`，不能把旧静态残差当作全部外力已闭合的证明。可选 `hookMassG` 是每枚钩的克数（0～0.3g），同时改变惯性/重量及钢材排水；省略时仍 0.025g 且不新增默认 options 字段。改钩重不改变钩的几何尺寸。
++
++### 10.2 固定步长、随机数与模型口缘
++
++[协调器](<src/fish-lab.js>) 使用固定 `h=1/240s`；渲染只读取求解结果。暂停不累积时间，单步推进一个 h；慢放仅缩放累计时间。单次最多接受 0.25s 墙钟增量以避免切回后台后的追赶风暴，丢弃时间以 `droppedTime` 公开，不能把长时间后台停顿解释成完整物理经过。工作台打开期间两套物理时钟均冻结且不积压。
++
++同一配置、相同固定步数、相同 seed，重置后历史/事件/轨迹一致；重置在线组原配置下先自然稳定 20s，再清行为时间与随机状态。重新落水则清实验时钟，但保留旧抛投的真实初态，不偷偷预稳定。每状态可覆盖速度、持续、力、方向与扰动，null 清除覆盖；统一基础力在快吸/轻啄实验带 2.3/0.45 倍率，显式单态力不带倍率，绝对上限 0.05N。状态覆盖在该状态生效；自主巡游持续控制发现前等待。
++
++[鱼视图](<src/fish-view.js>) 在原场景中变换实际口缘顶点中心到物理鱼嘴，鱼体自然受同一水体光学遮蔽；不是固定相机前的贴图。嵌入[鲫鱼网格](<src/crucian-mesh.js>) 共 3694 三角面，18cm 长，口缘位于模型 +X 前端 0.09m；206 姿态测试实际 Float32 口缘世界误差不超过 3.58×10⁻⁹m。
++
++### 10.3 力学近似与正确解读
++
++- 鱼嘴是受肌肉速度驱动的 0.08kg 默认中性浮力粒子，有 0.8m/s² 驱动加速度上限，并积分鱼钩/接触力的反作用；不是完整鱼体六自由度或 CFD。
++- 5.5cm 内用尺度 2.8cm 的高斯吸力，距离小于 1cm 且存在饵时才判为捕获；持饵为 `0.20N/m` 弹簧加 `0.0015N·s/m` 阻尼，并截断到有效力上限。未模拟真实口腔流场、软组织、穿刺中钩或饵团变形。
++- 蹭线只覆盖鱼体中心邻近张紧子线中点的等效接触；不是任意松线/鱼鳍/身体全表面的碰撞。嘴的池壁边界和贴底俯仰为净空近似，完整鱼体仍可能局部穿底/穿饰物。
++- 八个按钮定义输入行为，不保证“顿、送、黑”的固定结果。原触底支撑、松弛空行程、主线绷紧、钩饵重量、方向与释放共同决定输出；默认底钩向下游会被池底挡住，不能据此强制压黑漂。
++- 释放后检验竖向负载/露目自然恢复；原求解器没有水平床面摩擦或绝对回位弹簧，横移后可停在新的 x/z 平衡，不能硬拉回原坐标。
++- 有符号露目按漂尾水上长度/轴向投影除以 15.7mm/目估计，负数表示没顶。接近水平时投影下限 0.08 防除零，此时读数不再等于正常竖漂可见彩格数。
++
++[数值报告](<qa-fish-experiments.json>) 记录八实验各 4000 ticks、移漂/饵重对照和两档钩重各 5000 ticks。默认各实验线长误差低于 2.7μm；抬头漂脚最大抬升约 23.22mm，而底钩下潜仅约 1.19mm 上移/0.68mm 下移，后者是底支撑限制而非失败。移漂座 0.32m 抬升约 25.98mm，0.70m 松线配置接近零；这才是配置依赖的物理结果。具体最终断言数和浏览器证据见[本阶段验收报告](<FISH_LAB_ACCEPTANCE.md>)。
+--- baseline/src/app.js
++++ current/src/app.js
+@@ -29,6 +29,7 @@
+   const rig = window.TaiwanRig.create({ ...physicsOptions, ...FIXED_LINE, leadMassG: leadMass });
+   function configureRig(patch){return rig.configure({...patch,...FIXED_LINE});}
+   let rigState = rig.settle(20);
++  const fishSimulation = window.FishLab.create({rig});
+   let currentEvaluation = rigState.evaluation;
+   let rodLifted = false;
+   const vec = p => new T.Vector3(p.x, p.y, p.z);
+@@ -45,6 +46,7 @@
+ 
+   const scene = new T.Scene();
+   scene.background = new T.Color(0x080b08);
++  const fishView = window.FishView.create({THREE:T,scene});
+ 
+   const camera = new T.PerspectiveCamera(38, 1, 0.05, 20);
+   camera.position.set(0.12, 0.86, 1.20);
+@@ -825,7 +827,7 @@
+   // “重置落水”只重置初态；提竿通过移动真实的固定竿尖边界传递张力。
+   let castPhase = 0;
+   function recast() {
+-    rig.reset({cast:true});castPhase=0;splashT=.45;
++    rig.reset({cast:true});fishSimulation.rebase();castPhase=0;splashT=.45;
+     syncRig();updateHUD();
+   }
+ 
+@@ -1150,9 +1152,12 @@
+   for(const [id,mode] of [['btnAdjustFloat','float'],['btnAdjustLead','lead']]){
+     document.getElementById(id).addEventListener('click',()=>seatWorkshop.open(mode));
+   }
+-  document.getElementById('btnPause').addEventListener('click',()=>{
+-    paused=!paused;document.getElementById('btnPause').textContent=paused?'继续模拟':'暂停';document.getElementById('btnPause').setAttribute('aria-pressed',String(paused));
+-  });
++  function setPaused(value){
++    paused=!!value;fishSimulation.setPaused(paused);
++    document.getElementById('btnPause').textContent=paused?'继续模拟':'暂停';document.getElementById('btnPause').setAttribute('aria-pressed',String(paused));
++    return paused;
++  }
++  document.getElementById('btnPause').addEventListener('click',()=>setPaused(!paused));
+   document.getElementById('btnRecast').addEventListener('click',recast);
+   document.getElementById('showForces').addEventListener('change',e=>showForces=e.target.checked);
+   const waterTransparencyInput=document.getElementById('waterTransparency');
+@@ -1301,15 +1306,19 @@
+   }
+ 
+   function animate() {
+-    const realDt = Math.min(0.05, clock.getDelta());
++    // The coordinator owns catch-up budgeting and reports dropped wall time.
++    const realDt = clock.getDelta();
+     // Drafts live entirely on the workbench. Freeze the tank without changing
+     // the user's pause setting, and drain the clock to avoid a catch-up step.
+     if(seatWorkshop.isOpen()){requestAnimationFrame(animate);return;}
+-    const dt=paused?0:realDt;
++    fishSimulation.setPaused(paused);
++    const dt=fishSimulation.advance(realDt)*fishSimulation.fixedDt;
+     t += dt;
+-    if(dt>0)rig.step(dt);
+-    // 位置、姿态、绳形与受力只消费同一个约束求解结果。
++    // Fixed physics clock; float transform only consumes original rig output.
+     syncRig();
++    const fishFrame=fishSimulation.snapshot(rigState);
++    fishView.update({...fishFrame.fish,speed:Math.hypot(fishFrame.fish.velocity.x,fishFrame.fish.velocity.y,fishFrame.fish.velocity.z)});
++    fishPanel.update(fishFrame);
+ 
+ 
+     // —— 缓慢的装饰性水草摆动（不向钓组施加虚构外力）
+@@ -1360,6 +1369,18 @@
+   window.addEventListener('resize', function () { resize();if(!seatWorkshop.isOpen())setView(viewMode);else seatWorkshop.resize();if (trimOpen) resizeTrim(); });
+   resize();
+ 
++  function refreshFish(){syncRig();const s=fishSimulation.snapshot(rigState);fishView.update({...s.fish,speed:Math.hypot(s.fish.velocity.x,s.fish.velocity.y,s.fish.velocity.z)});updateHUD();return s;}
++  const fishPanel=window.FishPanel.create({
++    getState:()=>fishSimulation.snapshot(rigState),
++    trigger:id=>{fishSimulation.trigger(id);return refreshFish();},
++    configure:p=>fishSimulation.configure(p),
++    configureRig:p=>{configureRig(p);syncTackleInputs();return refreshFish();},
++    pause:value=>{setPaused(value===undefined?!paused:value);return refreshFish();},
++    step:()=>{setPaused(true);if(!seatWorkshop.isOpen())fishSimulation.step();return refreshFish();},
++    reset:()=>{fishSimulation.reset();return refreshFish();},
++    setSpeed:value=>fishSimulation.setSpeed(value),
++    setEnabled:value=>{fishSimulation.setEnabled(value);return refreshFish();}
++  });
+   updateParameters();syncTackleInputs();syncRig();
+   setView('tank');
+   document.getElementById('loading').style.display = 'none';
+@@ -1370,7 +1391,7 @@
+       camera:{position:camera.position.toArray(),target:controls.target.toArray(),viewMode,transitioning:!!cameraTween},
+       interaction:{dragging:null,rigPickingEnabled:false,orbitEnabled:controls.enabled},
+       workshop:seatWorkshop.snapshot(),
+-      floatScope:floatScope.snapshot(),waterOptics:optics.snapshot(),sceneUuid:scene.uuid,floatUuid:floatGroup.uuid,
++      floatScope:floatScope.snapshot(),waterOptics:optics.snapshot(),fish:fishView.snapshot(),sceneUuid:scene.uuid,floatUuid:floatGroup.uuid,
+       floatTop:floatGroup.position.toArray(),floatAxis:new T.Vector3(0,1,0).applyQuaternion(floatGroup.quaternion).toArray(),
+       floatSeat:floatSeat.position.toArray(),lead:leadGroup.position.toArray(),swivel:swivelGroup.position.toArray(),
+       hookPositions:hooks.map(h=>h.position.toArray()),swivelIndependent:swivelGroup.parent===scene,
+@@ -1383,6 +1404,17 @@
+     }),
+     projectPoint:p=>{const v=vec(p).project(camera);return {x:(v.x*.5+.5)*innerWidth,y:(-v.y*.5+.5)*innerHeight};},
+     setLead,setView,recast,
++    fish:{
++      getState:()=>fishSimulation.snapshot(rigState),
++      getRenderState:()=>fishView.snapshot(),
++      trigger:id=>{fishSimulation.trigger(id);return refreshFish();},
++      configure:patch=>fishSimulation.configure(patch),
++      reset:()=>{fishSimulation.reset();return refreshFish();},
++      setEnabled:value=>{fishSimulation.setEnabled(value);return refreshFish();},
++      pause:(value=true)=>{setPaused(value);return refreshFish();},
++      setSpeed:value=>fishSimulation.setSpeed(value),
++      step:(ticks=1)=>{setPaused(true);if(!seatWorkshop.isOpen())fishSimulation.step(ticks);return refreshFish();}
++    },
+     configure:patch=>{
+       configureRig(patch);const o=rig.options;leadMass=o.leadMassG;Object.assign(physicsOptions,patch);
+       document.getElementById('precisionLead').value=leadMass.toFixed(2);
+--- baseline/src/tackle.js
++++ current/src/tackle.js
+@@ -38,7 +38,11 @@
+     const waterY = num(r.waterY, .83), bottomY = num(r.bottomY, .055);
+     if (bottomY >= waterY) throw new RangeError('bottomY must be below waterY');
+     const rod = r.rodTip || defaults.rodTip, leaders = r.leaderLengths || defaults.leaderLengths;
+-    return { leadMassG: Math.max(0, num(r.leadMassG, 4)), floatMassG: Math.max(.01, num(r.floatMassG, .6)),
++    // Preserve the legacy options shape unless hook mass was explicitly supplied.
++    const hookMassG = r.hookMassG;
++    if (hookMassG !== undefined && (!Number.isFinite(hookMassG) || hookMassG < 0))
++      throw new RangeError('hookMassG must be finite and nonnegative');
++    const normalized = { leadMassG: Math.max(0, num(r.leadMassG, 4)), floatMassG: Math.max(.01, num(r.floatMassG, .6)),
+       baitMassG, baitDensity, baitRadius, hookExtent: Math.max(.0155, baitMassG ? C.BAIT_OFFSET + baitRadius : 0),
+       waterY, bottomY, waterDensity: Math.max(1, num(r.waterDensity, 998.23)), lineMaterial: material,
+       lineDensity: P.materials[material], mainDiameter: clamp(num(r.mainDiameter, .00022), .00001, .003),
+@@ -46,6 +50,8 @@
+       leadAboveSwivel, leadTravel: clamp(num(r.leadTravel, .08), 0, floatToSwivel - leadAboveSwivel - .005),
+       leadLocked: r.leadLocked !== false, leaderLengths: [0, 1].map(i => clamp(num(leaders[i], defaults.leaderLengths[i]), .01, 5)),
+       rodTip: point(num(rod.x, -.5), num(rod.y, 1.1), num(rod.z, .025)) };
++    if (hookMassG !== undefined) normalized.hookMassG = clamp(hookMassG, 0, .3);
++    return normalized;
+   }
+   const bins = Array.from({ length: 48 }, (_, i) => {
+     const s0 = i / 48 * FL, s1 = (i + 1) / 48 * FL, s = (s0 + s1) / 2;
+@@ -254,6 +260,57 @@
+   function create(raw) {
+     let o = normalize(raw), nodes, velocities, coordinate, slideVelocity = 0, time = 0;
+     let last = { wind: 0, upper: 0, lower: 0, leaders: [0, 0], support: 0, rod: point() };
++    const emptyInteraction = () => ({ hooks: [point(), point()], lineContacts: [],
++      nodes: Array.from({ length: 6 }, () => point()), total: point() });
++    let lastInteraction = emptyInteraction();
++    // Forces are Newtons, not positions/impulses. Only real hook attachments and
++    // contacts on the two leaders are public entry points into the original solver.
++    function interactionInput(value) {
++      if (value == null) return null;
++      if (typeof value !== 'object' || Array.isArray(value)
++        || Object.keys(value).some(k => k !== 'hooks' && k !== 'lineContacts')) {
++        throw new TypeError('interaction accepts only hooks and lineContacts');
++      }
++      const force = v => {
++        if (!v || !['x', 'y', 'z'].every(k => Number.isFinite(v[k]))) throw new RangeError('interaction force must be a finite {x,y,z} vector in N');
++        return copy(v);
++      };
++      const hooks = value.hooks === undefined ? [point(), point()] : value.hooks;
++      if (!Array.isArray(hooks) || hooks.length !== 2) throw new TypeError('interaction.hooks must contain two force vectors');
++      const contacts = value.lineContacts === undefined ? [] : value.lineContacts;
++      if (!Array.isArray(contacts)) throw new TypeError('interaction.lineContacts must be an array');
++      return { hooks: [force(hooks[0]), force(hooks[1])], lineContacts: Array.from(contacts, c => {
++        if (!c || (c.leader !== 0 && c.leader !== 1) || !Number.isFinite(c.t) || c.t < 0 || c.t > 1) {
++          throw new RangeError('line contact requires leader 0 or 1 and t in [0,1]');
++        }
++        return { leader: c.leader, t: c.t, force: force(c.force) };
++      }) };
++    }
++    function applyInteraction(l, interaction) {
++      const actual = emptyInteraction();
++      if (interaction) {
++        actual.hooks = interaction.hooks.map(copy);
++        actual.hooks.forEach((f, i) => { actual.nodes[4 + i] = copy(f); });
++        actual.lineContacts = interaction.lineContacts.map(c => {
++          // Drawn slack has no dynamic interior nodes. Never fake its response by
++          // pushing its endpoints: only a geometrically taut leader admits this
++          // quasi-static virtual-work endpoint distribution (t=0 at the ring).
++          const taut = distance(leaderAnchor(), nodes[4 + c.leader]) >= o.leaderLengths[c.leader] - 1e-6;
++          if (taut) {
++            actual.nodes[3] = add(actual.nodes[3], scale(c.force, 1 - c.t));
++            actual.nodes[4 + c.leader] = add(actual.nodes[4 + c.leader], scale(c.force, c.t));
++          }
++          return { leader: c.leader, t: c.t, force: copy(c.force), taut, applied: taut };
++        });
++        actual.nodes.forEach((f, i) => {
++          // Skip exact zeros: the uncoupled arithmetic path stays bit-for-bit
++          // identical, including its original force summation/integration order.
++          if (f.x || f.y || f.z) l.f[i] = add(l.f[i], f);
++          actual.total = add(actual.total, f);
++        });
++      }
++      lastInteraction = actual;
++    }
+     const leaderAnchor = () => add(nodes[3], point(0, -.006, 0));
+     const leadFloorRadius = () => {
+       const d = P.leadDimensions(o.leadMassG);
+@@ -268,9 +325,10 @@
+         ...[0, 1].map(i => cable(leaderAnchor(), nodes[4 + i], o.leaderLengths[i], o.subDiameter, o))];
+     }
+     function loads() {
++      const hookMassG = o.hookMassG ?? C.HOOK_MASS_G;
+       const f = Array.from({ length: 6 }, () => point()), masses = [o.floatMassG / 1000 * (1 - cm), o.floatMassG / 1000 * cm,
+         (o.leadMassG + C.SEAT_MASS_G) / 1000, C.SWIVEL_MASS_G / 1000,
+-        (C.HOOK_MASS_G + o.baitMassG / 2) / 1000, (C.HOOK_MASS_G + o.baitMassG / 2) / 1000];
++        (hookMassG + o.baitMassG / 2) / 1000, (hookMassG + o.baitMassG / 2) / 1000];
+       // One additional float seat plus six small stopper beans (12mg total), not another lead seat/swivel.
+       const floatFittingsMass = .020 / 1000, beanMass = .012 / 1000;
+       masses[0] += floatFittingsMass + beanMass / 2; masses[2] += beanMass / 2;
+@@ -283,7 +341,7 @@
+       buoy(2, (leadVolume + (C.SEAT_MASS_G / 1000 + beanMass / 2) / C.SEAT_DENSITY) * wet(nodes[2].y - .009, nodes[2].y + .009, o.waterY));
+       buoy(3, masses[3] / C.STEEL_DENSITY * wet(nodes[3].y - .003, nodes[3].y + .003, o.waterY));
+       for (let i = 4; i < 6; i++) {
+-        buoy(i, C.HOOK_MASS_G / 1000 / C.STEEL_DENSITY * wet(nodes[i].y - .0155, nodes[i].y, o.waterY)
++        buoy(i, hookMassG / 1000 / C.STEEL_DENSITY * wet(nodes[i].y - .0155, nodes[i].y, o.waterY)
+           + sphereWet(nodes[i].y - C.BAIT_OFFSET, o.baitRadius, o.waterY));
+       }
+       const strands = cables(), pairs = [[-1, 0], [0, 2], [2, 3], [3, 4], [3, 5]];
+@@ -313,11 +371,13 @@
+       nodes = [foot, add(foot, point(0, FL, 0)), lead, ring,
+         add(ring, point(-.009, -o.leaderLengths[0] + .001, 0)), add(ring, point(.009, -o.leaderLengths[1] + .001, .003))];
+       velocities = nodes.map(() => point());
++      lastInteraction = emptyInteraction();
+       last = { wind: 0, upper: 0, lower: 0, leaders: [0, 0], support: 0, rod: point() };
+       return api;
+     }
+-    function integrate(h) {
++    function integrate(h, interaction) {
+       const l = loads(), old = nodes.map(copy), inv = l.effective.map(m => 1 / Math.max(m, 1e-6));
++      applyInteraction(l, interaction);
+       const tensions = [0, 0, 0, 0, 0];
+       let support = 0, rod = point(0, l.rodLoad, 0);
+       for (let i = 0; i < nodes.length; i++) {
+@@ -396,10 +456,13 @@
+       last = { wind: tensions[0], upper: tensions[1], lower: tensions[2], leaders: tensions.slice(3), support, rod };
+       time += h;
+     }
+-    function step(dt) {
++    function step(dt, interaction) {
+       if (!Number.isFinite(dt) || dt < 0 || dt > 60) throw new RangeError('dt must be finite and in [0,60] seconds');
+-      const n = Math.ceil(dt * 240);
+-      for (let i = 0; i < n; i++) integrate(dt / n);
++      const input = interactionInput(interaction), n = Math.ceil(dt * 240);
++      if (!n) lastInteraction = emptyInteraction();
++      // The supplied forces are held constant over dt; leader tautness is tested
++      // afresh at each original <=1/240s substep, before predicting positions.
++      for (let i = 0; i < n; i++) integrate(dt / n, input);
+       return api;
+     }
+     function settle(seconds = 20) {
+@@ -413,6 +476,16 @@
+       o = normalize(Object.assign({}, o, p, { rodTip: Object.assign({}, o.rodTip, p.rodTip || {}) }));
+       coordinate = clamp(coordinate, o.leadAboveSwivel, o.leadAboveSwivel + (o.leadLocked ? 0 : o.leadTravel));
+       return api;
++    }
++    // No loads(), hydrostatics, cable curves, or marker construction here: fish
++    // behavior reads this once per 1/240s step. All returned data are detached.
++    function getInteractionState() {
++      return { time, nodes: { floatFoot: copy(nodes[0]), floatTop: copy(nodes[1]),
++        lead: copy(nodes[2]), swivel: copy(nodes[3]), leaderAnchor: leaderAnchor(),
++        hooks: [copy(nodes[4]), copy(nodes[5])], rod: copy(o.rodTip) },
++        velocities: { hooks: [copy(velocities[4]), copy(velocities[5])] },
++        options: Object.assign({}, o, { leaderLengths: o.leaderLengths.slice(), rodTip: copy(o.rodTip) }),
++        velocityY: velocities[0].y };
+     }
+     function snapshot() {
+       const l = loads(), strands = l.strands, axis = sub(nodes[1], nodes[0]);
+@@ -441,6 +514,7 @@
+         markers: { floatStops: [.010, .006].map(d => pointAlong(strands[0].points, 1 - d / strands[0].length))
+           .concat([.006, .010].map(d => pointAlong(strands[1].points, d / strands[1].length))), leadStops: [upperStop, lowerStop] },
+         leadCoordinate: coordinate, velocityY: velocities[0].y, velocities: velocities.map(copy),
++        lastInteraction: json(lastInteraction),
+         evaluation: { buoyancyN, weightN, bottomSupportN: last.support, rodReaction: copy(last.rod), rodTensionN: norm(last.rod),
+           surfaceSupportN: l.surfaceSupport, windSurfaceLength: strands[0].surfaceLength,
+           lineMassG: l.lineMass * 1000, lineBuoyancyG: o.waterDensity * l.lineWet * 1000,
+@@ -452,7 +526,7 @@
+           contacts: c, tension: { wind: norm(last.rod), upper: last.upper, lower: last.lower, leaders: last.leaders.slice() },
+           maxLengthError: Math.max(...errors), options: json(o) } };
+     }
+-    const api = { get options() { return json(o); }, configure, reset, step, settle, snapshot,
++    const api = { get options() { return json(o); }, configure, reset, step, settle, snapshot, getInteractionState,
+       get velocities() { return velocities.map(copy); } };
+     reset(); return api;
+   }
+--- baseline/tests/fish-coupling.test.cjs
++++ current/tests/fish-coupling.test.cjs
+@@ -46,3 +46,162 @@
+     }
+   }
+ });
++
++test('optional hook mass preserves legacy options, validates atomically and keeps default physics exact', () => {
++  const ordinary = T.create(), explicit = T.create({ hookMassG: .025 });
++  assert.equal(Object.hasOwn(ordinary.options, 'hookMassG'), false);
++  assert.equal(Object.hasOwn(T.normalize({ hookMassG: undefined }), 'hookMassG'), false);
++  assert.equal(T.normalize({ hookMassG: 1 }).hookMassG, .3);
++  assert.equal(T.normalize({ hookMassG: 0 }).hookMassG, 0);
++  ordinary.step(.4); explicit.step(.4);
++  const a = ordinary.snapshot(), b = explicit.snapshot();
++  delete b.options.hookMassG; delete b.evaluation.options.hookMassG;
++  assert.deepEqual(b, a, 'explicit standard hook changes no geometry, forces or trajectory');
++  for (const hookMassG of [NaN, Infinity, -Infinity, -.001, null, '0.1']) {
++    const before = explicit.snapshot();
++    assert.throws(() => explicit.configure({ hookMassG, leadMassG: 9 }));
++    assert.deepEqual(explicit.snapshot(), before);
++    assert.throws(() => T.create({ hookMassG }));
++  }
++  explicit.configure({ hookMassG: .08 }); explicit.configure({ baitMassG: .5 });
++  assert.equal(explicit.options.hookMassG, .08, 'other configuration changes retain an explicit hook mass');
++});
++
++test('hook mass changes real steel weight and displaced volume at identical geometry, then real settlement', () => {
++  const C = require('../src/physics.js').constants;
++  const light = T.create({ floatToSwivel: .32, hookMassG: .005 });
++  const heavy = T.create({ floatToSwivel: .32, hookMassG: .15 });
++  const a = light.snapshot(), b = heavy.snapshot(), deltaKg = 2 * (.15 - .005) / 1000;
++  assert.deepEqual(a.nodes, b.nodes); assert.deepEqual(a.curves, b.curves);
++  assert.ok(a.nodes.hooks.every(hook => hook.y < a.options.waterY));
++  assert.ok(Math.abs(b.evaluation.weightN - a.evaluation.weightN - deltaKg * C.GRAVITY) < 1e-15);
++  const steelVolume = deltaKg / C.STEEL_DENSITY;
++  assert.ok(Math.abs(b.evaluation.displacedVolume - a.evaluation.displacedVolume - steelVolume) < 1e-18);
++  assert.ok(Math.abs(b.evaluation.buoyancyN - a.evaluation.buoyancyN - steelVolume * a.options.waterDensity * C.GRAVITY) < 1e-15);
++  light.settle(20); heavy.settle(20);
++  const settledLight = light.snapshot(), settledHeavy = heavy.snapshot();
++  assert.ok(settledLight.nodes.floatFoot.y > settledHeavy.nodes.floatFoot.y + .05);
++  assert.ok(settledLight.evaluation.maxLengthError < .001);
++  assert.ok(settledHeavy.evaluation.maxLengthError < .001);
++  assert.deepEqual(settledLight.options.leaderLengths, settledHeavy.options.leaderLengths);
++  assert.equal(settledLight.options.hookExtent, settledHeavy.options.hookExtent);
++});
++
++test('light state matches physical nodes and is detached without advancing time', () => {
++  const rig = T.create().step(.2), full = rig.snapshot(), state = rig.getInteractionState();
++  for (const key of ['floatFoot', 'floatTop', 'lead', 'swivel', 'leaderAnchor', 'hooks', 'rod']) assert.deepEqual(state.nodes[key], full.nodes[key]);
++  assert.deepEqual(state.velocities.hooks, full.velocities.slice(4));
++  assert.deepEqual(state.options, full.options);
++  assert.equal(state.velocityY, full.velocityY); assert.equal(state.time, full.time);
++  assert.equal(state.curves, undefined);
++  state.nodes.hooks[0].y = 50; state.nodes.swivel.x = 50;
++  state.velocities.hooks[0].y = 50; state.options.leaderLengths[0] = 50; state.options.rodTip.x = 50;
++  assert.deepEqual(rig.snapshot(), full);
++});
++
++test('invalid forces and contact inputs fail atomically before physics advances', () => {
++  const rig = T.create().step(.1), before = rig.snapshot();
++  const invalid = [
++    { hooks: [vec(NaN), vec()] }, { hooks: [vec(), vec(0, Infinity)] },
++    { hooks: [vec()] }, { hooks: Array(2) }, { hooks: [{ x: 1, y: 2 }, vec()] },
++    { lineContacts: [{ leader: 2, t: .5, force: vec() }] },
++    { lineContacts: [{ leader: 0, t: NaN, force: vec() }] },
++    { lineContacts: [{ leader: 0, t: -.01, force: vec() }] },
++    { lineContacts: [{ leader: 1, t: 1.01, force: vec() }] },
++    { lineContacts: [{ leader: 0, t: .5, force: vec(0, 0, -Infinity) }] },
++    { lineContacts: [null] }, { lineContacts: Array(1) }, { lineContacts: {} },
++    { nodes: { floatFoot: vec() } }, { floatTop: vec() }, [], 1
++  ];
++  for (const input of invalid) {
++    assert.throws(() => rig.step(dt, input));
++    assert.deepEqual(rig.snapshot(), before);
++  }
++});
++
++test('hook acts on its true node with real slack empty travel, not direct float motion', () => {
++  const options = { floatToSwivel: .7 }, a = T.create(options), b = T.create(options);
++  a.settle(8); b.settle(8);
++  const before = a.snapshot();
++  assert.ok(before.options.leaderLengths[0] - dist(before.nodes.leaderAnchor, before.nodes.hooks[0]) > .08);
++  a.step(dt, { hooks: [vec(.001), vec()] }); b.step(dt);
++  const pulled = a.snapshot(), free = b.snapshot();
++  assert.ok(dist(pulled.nodes.hooks[0], free.nodes.hooks[0]) > 1e-5);
++  for (const key of ['floatFoot', 'floatTop', 'swivel']) assert.deepEqual(pulled.nodes[key], free.nodes[key]);
++  assert.deepEqual(pulled.lastInteraction.nodes.slice(0, 4), [vec(), vec(), vec(), vec()]);
++  assert.deepEqual(pulled.lastInteraction.hooks, [vec(.001), vec()]);
++  assert.equal(pulled.evaluation.tension.leaders[0], 0);
++});
++
++test('hook-only forces pull the existing taut rig, conserve lengths and naturally recover', () => {
++  const options = { floatToSwivel: .32, leadMassG: 3.8 }, a = T.create(options), b = T.create(options);
++  a.settle(8); b.settle(8);
++  const originalMass = a.snapshot().evaluation.lineMassG;
++  for (let i = 0; i < 120; i++) {
++    a.step(dt, { hooks: [vec(0, -.008), vec()] }); b.step(dt);
++    const s = a.snapshot();
++    assert.ok(s.evaluation.maxLengthError < .001);
++    assert.equal(s.evaluation.lineMassG, originalMass);
++    assert.deepEqual(s.options.leaderLengths, [.12, .15]);
++    assert.deepEqual(s.lastInteraction.nodes.slice(0, 4), [vec(), vec(), vec(), vec()]);
++  }
++  const pulled = a.snapshot(), free = b.snapshot();
++  assert.ok(dist(pulled.nodes.floatFoot, free.nodes.floatFoot) > .05);
++  assert.ok(pulled.nodes.floatTop.y < free.nodes.floatTop.y - .05);
++  a.settle(12); b.settle(12);
++  assert.ok(dist(a.snapshot().nodes.floatFoot, b.snapshot().nodes.floatFoot) < 1e-4);
++  assert.deepEqual(a.snapshot().lastInteraction.total, vec());
++});
++
++test('taut contact distributes actual Newton force only to the ring and selected hook', () => {
++  const control = T.create(); control.settle(8); control.step(dt);
++  const free = control.snapshot();
++  for (const t of [0, .25, 1]) {
++    const rig = T.create(); rig.settle(8);
++    const state = rig.getInteractionState();
++    assert.ok(Math.abs(dist(state.nodes.leaderAnchor, state.nodes.hooks[1]) - state.options.leaderLengths[1]) < 1e-6);
++    const force = vec(.001, -.002, .003), input = { lineContacts: [{ leader: 1, t, force }] };
++    rig.step(dt, input);
++    const s = rig.snapshot(), actual = s.lastInteraction;
++    assert.equal(actual.lineContacts[0].applied, true); assert.equal(actual.lineContacts[0].taut, true);
++    assert.deepEqual(actual.hooks, [vec(), vec()]);
++    assert.deepEqual(actual.nodes.slice(0, 3), [vec(), vec(), vec()]); assert.deepEqual(actual.nodes[4], vec());
++    for (const k of ['x', 'y', 'z']) {
++      assert.equal(actual.nodes[3][k], force[k] * (1 - t) || 0);
++      assert.equal(actual.nodes[5][k], force[k] * t || 0);
++      assert.ok(Math.abs(actual.total[k] - force[k]) < 1e-18);
++    }
++    assert.ok(s.evaluation.maxLengthError < .001);
++    assert.ok(dist(s.nodes.swivel, free.nodes.swivel) + dist(s.nodes.hooks[1], free.nodes.hooks[1]) > 1e-6,
++      'contact changes actual integrated nodes, not only diagnostics');
++    input.lineContacts[0].force.x = 99; actual.nodes[3].x = 99;
++    assert.notEqual(rig.snapshot().lastInteraction.nodes[3].x, 99);
++  }
++});
++
++test('slack line contact applies no endpoint approximation and exactly follows unforced physics', () => {
++  const options = { floatToSwivel: .7 }, a = T.create(options), b = T.create(options);
++  a.settle(8); b.settle(8);
++  for (let i = 0; i < 24; i++) {
++    a.step(dt, { lineContacts: [{ leader: 0, t: .5, force: vec(.1, -.1, .1) }] }); b.step(dt);
++    assert.deepEqual(legacySnapshot(a), legacySnapshot(b));
++    const actual = a.snapshot().lastInteraction;
++    assert.equal(actual.lineContacts[0].applied, false); assert.equal(actual.lineContacts[0].taut, false);
++    assert.deepEqual(actual.total, vec());
++    assert.deepEqual(actual.nodes, Array.from({ length: 6 }, () => vec()));
++  }
++});
++
++test('constant multi-substep forces are deterministic and never sticky after release/reset', () => {
++  const a = T.create(), b = T.create(), input = { hooks: [vec(.0001, -.0002), vec(0, 0, .0001)] };
++  a.step(1 / 60, input);
++  for (let i = 0; i < 4; i++) b.step(dt, input);
++  assert.deepEqual(a.snapshot(), b.snapshot());
++  const c = T.create().step(1 / 60, input);
++  assert.deepEqual(c.snapshot(), a.snapshot());
++  a.step(dt);
++  assert.deepEqual(a.snapshot().lastInteraction.hooks, [vec(), vec()]);
++  assert.deepEqual(a.snapshot().lastInteraction.total, vec());
++  b.reset(); assert.deepEqual(b.snapshot().lastInteraction, T.create().snapshot().lastInteraction);
++  c.step(0, input);
++  assert.deepEqual(c.snapshot().lastInteraction.total, vec(), 'zero elapsed time applies no force');
++});

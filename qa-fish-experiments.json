@@ -1,0 +1,1123 @@
+{
+  "seed": 20261125,
+  "dt": 0.004166666666666667,
+  "ticks": 4000,
+  "experiments": {
+    "nibble": {
+      "ticks": 4000,
+      "heldSamples": 11,
+      "nonzeroTicks": 133,
+      "contactTicks": 0,
+      "appliedContactTicks": 0,
+      "maxRequestedForceN": 0.0006750000000000001,
+      "maxFloatFootRiseM": 0.0015646657075406578,
+      "maxFloatFootDropM": -0.0001040819932127679,
+      "maxFloatFootDisplacementM": 0.0030805508257021417,
+      "maxLengthErrorM": 0.000002181168499322539,
+      "states": [
+        "cruise",
+        "discover",
+        "approach",
+        "inspect",
+        "suck",
+        "spit",
+        "flee"
+      ],
+      "events": [
+        {
+          "time": 0,
+          "state": "cruise",
+          "label": "自由巡游",
+          "experiment": null
+        },
+        {
+          "time": 0,
+          "state": "discover",
+          "label": "发现饵料",
+          "experiment": "nibble"
+        },
+        {
+          "time": 0.1833333333333335,
+          "state": "approach",
+          "label": "靠近饵料",
+          "experiment": "nibble"
+        },
+        {
+          "time": 2.2500000000000067,
+          "state": "inspect",
+          "label": "观察和试探",
+          "experiment": "nibble"
+        },
+        {
+          "time": 2.500000000000019,
+          "state": "suck",
+          "label": "吸入饵料",
+          "experiment": "nibble"
+        },
+        {
+          "time": 3.0541666666667133,
+          "state": "spit",
+          "label": "吐出饵料",
+          "experiment": "nibble"
+        },
+        {
+          "time": 3.3041666666667258,
+          "state": "flee",
+          "label": "受惊逃离",
+          "experiment": "nibble"
+        },
+        {
+          "time": 4.208333333333415,
+          "state": "cruise",
+          "label": "自由巡游",
+          "experiment": null
+        }
+      ],
+      "failedCapture": false,
+      "finalState": "cruise",
+      "finalFloatFootDisplacementM": 0.0030805505324194068,
+      "finalFloatFootVerticalOffsetM": -2.220446049250313e-15,
+      "finalFloatFootSpeedMps": 5.36878157868241e-10,
+      "finalForceN": 0
+    },
+    "quick": {
+      "ticks": 4000,
+      "heldSamples": 3,
+      "nonzeroTicks": 48,
+      "contactTicks": 0,
+      "appliedContactTicks": 0,
+      "maxRequestedForceN": 0.0009644035199859216,
+      "maxFloatFootRiseM": 0.001171175520519041,
+      "maxFloatFootDropM": -0.00008155105437324117,
+      "maxFloatFootDisplacementM": 0.0012872168007310517,
+      "maxLengthErrorM": 0.0000021792099665976505,
+      "states": [
+        "cruise",
+        "discover",
+        "approach",
+        "inspect",
+        "suck",
+        "spit",
+        "flee"
+      ],
+      "events": [
+        {
+          "time": 0,
+          "state": "cruise",
+          "label": "自由巡游",
+          "experiment": null
+        },
+        {
+          "time": 0,
+          "state": "discover",
+          "label": "发现饵料",
+          "experiment": "quick"
+        },
+        {
+          "time": 0.1833333333333335,
+          "state": "approach",
+          "label": "靠近饵料",
+          "experiment": "quick"
+        },
+        {
+          "time": 2.2500000000000067,
+          "state": "inspect",
+          "label": "观察和试探",
+          "experiment": "quick"
+        },
+        {
+          "time": 2.500000000000019,
+          "state": "suck",
+          "label": "吸入饵料",
+          "experiment": "quick"
+        },
+        {
+          "time": 2.700000000000029,
+          "state": "spit",
+          "label": "吐出饵料",
+          "experiment": "quick"
+        },
+        {
+          "time": 2.9500000000000415,
+          "state": "flee",
+          "label": "受惊逃离",
+          "experiment": "quick"
+        },
+        {
+          "time": 3.854166666666753,
+          "state": "cruise",
+          "label": "自由巡游",
+          "experiment": null
+        }
+      ],
+      "failedCapture": false,
+      "finalState": "cruise",
+      "finalFloatFootDisplacementM": 0.0012872151541057628,
+      "finalFloatFootVerticalOffsetM": -1.5543122344752192e-15,
+      "finalFloatFootSpeedMps": 1.2581392396478834e-10,
+      "finalForceN": 0
+    },
+    "spit": {
+      "ticks": 4000,
+      "heldSamples": 18,
+      "nonzeroTicks": 217,
+      "contactTicks": 0,
+      "appliedContactTicks": 0,
+      "maxRequestedForceN": 0.0009644035199859216,
+      "maxFloatFootRiseM": 0.0015781948587928474,
+      "maxFloatFootDropM": -0.00010972675774745255,
+      "maxFloatFootDisplacementM": 0.003943875396927571,
+      "maxLengthErrorM": 0.0000021797865731587596,
+      "states": [
+        "cruise",
+        "discover",
+        "approach",
+        "inspect",
+        "suck",
+        "swim",
+        "spit",
+        "flee"
+      ],
+      "events": [
+        {
+          "time": 0,
+          "state": "cruise",
+          "label": "自由巡游",
+          "experiment": null
+        },
+        {
+          "time": 0,
+          "state": "discover",
+          "label": "发现饵料",
+          "experiment": "spit"
+        },
+        {
+          "time": 0.1833333333333335,
+          "state": "approach",
+          "label": "靠近饵料",
+          "experiment": "spit"
+        },
+        {
+          "time": 2.2500000000000067,
+          "state": "inspect",
+          "label": "观察和试探",
+          "experiment": "spit"
+        },
+        {
+          "time": 2.500000000000019,
+          "state": "suck",
+          "label": "吸入饵料",
+          "experiment": "spit"
+        },
+        {
+          "time": 3.0541666666667133,
+          "state": "swim",
+          "label": "含饵游动",
+          "experiment": "spit"
+        },
+        {
+          "time": 3.4041666666667307,
+          "state": "spit",
+          "label": "吐出饵料",
+          "experiment": "spit"
+        },
+        {
+          "time": 3.654166666666743,
+          "state": "flee",
+          "label": "受惊逃离",
+          "experiment": "spit"
+        },
+        {
+          "time": 4.558333333333395,
+          "state": "cruise",
+          "label": "自由巡游",
+          "experiment": null
+        }
+      ],
+      "failedCapture": false,
+      "finalState": "cruise",
+      "finalFloatFootDisplacementM": 0.003943875221665807,
+      "finalFloatFootVerticalOffsetM": -2.220446049250313e-15,
+      "finalFloatFootSpeedMps": 3.221683099736657e-10,
+      "finalForceN": 0
+    },
+    "lift": {
+      "ticks": 4000,
+      "heldSamples": 43,
+      "nonzeroTicks": 518,
+      "contactTicks": 0,
+      "appliedContactTicks": 0,
+      "maxRequestedForceN": 0.0009644035199859216,
+      "maxFloatFootRiseM": 0.023116302157572766,
+      "maxFloatFootDropM": -0.0023495910867339376,
+      "maxFloatFootDisplacementM": 0.02316360681322901,
+      "maxLengthErrorM": 0.00000220602829093669,
+      "states": [
+        "cruise",
+        "discover",
+        "approach",
+        "inspect",
+        "suck",
+        "lift",
+        "spit",
+        "flee"
+      ],
+      "events": [
+        {
+          "time": 0,
+          "state": "cruise",
+          "label": "自由巡游",
+          "experiment": null
+        },
+        {
+          "time": 0,
+          "state": "discover",
+          "label": "发现饵料",
+          "experiment": "lift"
+        },
+        {
+          "time": 0.1833333333333335,
+          "state": "approach",
+          "label": "靠近饵料",
+          "experiment": "lift"
+        },
+        {
+          "time": 2.2500000000000067,
+          "state": "inspect",
+          "label": "观察和试探",
+          "experiment": "lift"
+        },
+        {
+          "time": 2.500000000000019,
+          "state": "suck",
+          "label": "吸入饵料",
+          "experiment": "lift"
+        },
+        {
+          "time": 3.0541666666667133,
+          "state": "lift",
+          "label": "含饵抬头",
+          "experiment": "lift"
+        },
+        {
+          "time": 4.658333333333389,
+          "state": "spit",
+          "label": "吐出饵料",
+          "experiment": "lift"
+        },
+        {
+          "time": 4.908333333333375,
+          "state": "flee",
+          "label": "受惊逃离",
+          "experiment": "lift"
+        },
+        {
+          "time": 5.81249999999999,
+          "state": "cruise",
+          "label": "自由巡游",
+          "experiment": null
+        }
+      ],
+      "failedCapture": false,
+      "finalState": "cruise",
+      "finalFloatFootDisplacementM": 0.0028024301463768827,
+      "finalFloatFootVerticalOffsetM": 2.220446049250313e-15,
+      "finalFloatFootSpeedMps": 2.1095487091269235e-9,
+      "finalForceN": 0
+    },
+    "sideways": {
+      "ticks": 4000,
+      "heldSamples": 43,
+      "nonzeroTicks": 518,
+      "contactTicks": 0,
+      "appliedContactTicks": 0,
+      "maxRequestedForceN": 0.0009644035199859216,
+      "maxFloatFootRiseM": 0.0071384019574669555,
+      "maxFloatFootDropM": -0.023512430032387233,
+      "maxFloatFootDisplacementM": 0.04105941147904383,
+      "maxLengthErrorM": 0.000002689449104725794,
+      "states": [
+        "cruise",
+        "discover",
+        "approach",
+        "inspect",
+        "suck",
+        "swim",
+        "spit",
+        "flee"
+      ],
+      "events": [
+        {
+          "time": 0,
+          "state": "cruise",
+          "label": "自由巡游",
+          "experiment": null
+        },
+        {
+          "time": 0,
+          "state": "discover",
+          "label": "发现饵料",
+          "experiment": "sideways"
+        },
+        {
+          "time": 0.1833333333333335,
+          "state": "approach",
+          "label": "靠近饵料",
+          "experiment": "sideways"
+        },
+        {
+          "time": 2.2500000000000067,
+          "state": "inspect",
+          "label": "观察和试探",
+          "experiment": "sideways"
+        },
+        {
+          "time": 2.500000000000019,
+          "state": "suck",
+          "label": "吸入饵料",
+          "experiment": "sideways"
+        },
+        {
+          "time": 3.0541666666667133,
+          "state": "swim",
+          "label": "含饵游动",
+          "experiment": "sideways"
+        },
+        {
+          "time": 4.658333333333389,
+          "state": "spit",
+          "label": "吐出饵料",
+          "experiment": "sideways"
+        },
+        {
+          "time": 4.908333333333375,
+          "state": "flee",
+          "label": "受惊逃离",
+          "experiment": "sideways"
+        },
+        {
+          "time": 5.81249999999999,
+          "state": "cruise",
+          "label": "自由巡游",
+          "experiment": null
+        }
+      ],
+      "failedCapture": false,
+      "finalState": "cruise",
+      "finalFloatFootDisplacementM": 0.04105936140037182,
+      "finalFloatFootVerticalOffsetM": -7.421834047338649e-8,
+      "finalFloatFootSpeedMps": 4.516523938129607e-8,
+      "finalForceN": 0
+    },
+    "down": {
+      "ticks": 4000,
+      "heldSamples": 43,
+      "nonzeroTicks": 518,
+      "contactTicks": 0,
+      "appliedContactTicks": 0,
+      "maxRequestedForceN": 0.0009644035199859216,
+      "maxFloatFootRiseM": 0.0015652490895021742,
+      "maxFloatFootDropM": -0.0003432318806054768,
+      "maxFloatFootDisplacementM": 0.007741192604216673,
+      "maxLengthErrorM": 0.000002235019889509915,
+      "states": [
+        "cruise",
+        "discover",
+        "approach",
+        "inspect",
+        "suck",
+        "swim",
+        "spit",
+        "flee"
+      ],
+      "events": [
+        {
+          "time": 0,
+          "state": "cruise",
+          "label": "自由巡游",
+          "experiment": null
+        },
+        {
+          "time": 0,
+          "state": "discover",
+          "label": "发现饵料",
+          "experiment": "down"
+        },
+        {
+          "time": 0.1833333333333335,
+          "state": "approach",
+          "label": "靠近饵料",
+          "experiment": "down"
+        },
+        {
+          "time": 2.2500000000000067,
+          "state": "inspect",
+          "label": "观察和试探",
+          "experiment": "down"
+        },
+        {
+          "time": 2.500000000000019,
+          "state": "suck",
+          "label": "吸入饵料",
+          "experiment": "down"
+        },
+        {
+          "time": 3.0541666666667133,
+          "state": "swim",
+          "label": "含饵游动",
+          "experiment": "down"
+        },
+        {
+          "time": 4.658333333333389,
+          "state": "spit",
+          "label": "吐出饵料",
+          "experiment": "down"
+        },
+        {
+          "time": 4.908333333333375,
+          "state": "flee",
+          "label": "受惊逃离",
+          "experiment": "down"
+        },
+        {
+          "time": 5.81249999999999,
+          "state": "cruise",
+          "label": "自由巡游",
+          "experiment": null
+        }
+      ],
+      "failedCapture": false,
+      "finalState": "cruise",
+      "finalFloatFootDisplacementM": 0.007741192325199969,
+      "finalFloatFootVerticalOffsetM": -2.220446049250313e-15,
+      "finalFloatFootSpeedMps": 2.287503714950084e-10,
+      "finalForceN": 0
+    },
+    "rub": {
+      "ticks": 4000,
+      "heldSamples": 0,
+      "nonzeroTicks": 330,
+      "contactTicks": 332,
+      "appliedContactTicks": 332,
+      "maxRequestedForceN": 0.0015,
+      "maxFloatFootRiseM": 0.0013884635139395085,
+      "maxFloatFootDropM": -0.006705114557440939,
+      "maxFloatFootDisplacementM": 0.11884058486373494,
+      "maxLengthErrorM": 0.0000021816516393019514,
+      "states": [
+        "cruise",
+        "discover",
+        "approach",
+        "inspect",
+        "rub",
+        "flee"
+      ],
+      "events": [
+        {
+          "time": 0,
+          "state": "cruise",
+          "label": "自由巡游",
+          "experiment": null
+        },
+        {
+          "time": 0,
+          "state": "discover",
+          "label": "发现饵料",
+          "experiment": "rub"
+        },
+        {
+          "time": 0.1833333333333335,
+          "state": "approach",
+          "label": "靠近饵料",
+          "experiment": "rub"
+        },
+        {
+          "time": 2.870833333333371,
+          "state": "inspect",
+          "label": "观察和试探",
+          "experiment": "rub"
+        },
+        {
+          "time": 3.1208333333333833,
+          "state": "rub",
+          "label": "蹭线",
+          "experiment": "rub"
+        },
+        {
+          "time": 4.725000000000052,
+          "state": "flee",
+          "label": "受惊逃离",
+          "experiment": "rub"
+        },
+        {
+          "time": 5.629166666666667,
+          "state": "cruise",
+          "label": "自由巡游",
+          "experiment": null
+        }
+      ],
+      "failedCapture": false,
+      "finalState": "cruise",
+      "finalFloatFootDisplacementM": 0.11884044050558892,
+      "finalFloatFootVerticalOffsetM": -2.1618145273905043e-8,
+      "finalFloatFootSpeedMps": 3.166545026204592e-8,
+      "finalForceN": 0
+    },
+    "probe": {
+      "ticks": 4000,
+      "heldSamples": 10,
+      "nonzeroTicks": 136,
+      "contactTicks": 0,
+      "appliedContactTicks": 0,
+      "maxRequestedForceN": 0.0015000000000000002,
+      "maxFloatFootRiseM": 0.0030258331582814213,
+      "maxFloatFootDropM": -0.00020091816991407718,
+      "maxFloatFootDisplacementM": 0.0035341825861141974,
+      "maxLengthErrorM": 0.0000021816235037455667,
+      "states": [
+        "cruise",
+        "discover",
+        "approach",
+        "inspect",
+        "suck",
+        "spit",
+        "flee"
+      ],
+      "events": [
+        {
+          "time": 0,
+          "state": "cruise",
+          "label": "自由巡游",
+          "experiment": null
+        },
+        {
+          "time": 0,
+          "state": "discover",
+          "label": "发现饵料",
+          "experiment": "probe"
+        },
+        {
+          "time": 0.1833333333333335,
+          "state": "approach",
+          "label": "靠近饵料",
+          "experiment": "probe"
+        },
+        {
+          "time": 2.2500000000000067,
+          "state": "inspect",
+          "label": "观察和试探",
+          "experiment": "probe"
+        },
+        {
+          "time": 2.500000000000019,
+          "state": "suck",
+          "label": "吸入饵料",
+          "experiment": "probe"
+        },
+        {
+          "time": 2.662500000000027,
+          "state": "spit",
+          "label": "吐出饵料",
+          "experiment": "probe"
+        },
+        {
+          "time": 2.862500000000037,
+          "state": "inspect",
+          "label": "观察和试探",
+          "experiment": "probe"
+        },
+        {
+          "time": 3.1458333333333846,
+          "state": "suck",
+          "label": "吸入饵料",
+          "experiment": "probe"
+        },
+        {
+          "time": 3.366666666666729,
+          "state": "spit",
+          "label": "吐出饵料",
+          "experiment": "probe"
+        },
+        {
+          "time": 3.566666666666739,
+          "state": "inspect",
+          "label": "观察和试探",
+          "experiment": "probe"
+        },
+        {
+          "time": 3.8166666666667513,
+          "state": "suck",
+          "label": "吸入饵料",
+          "experiment": "probe"
+        },
+        {
+          "time": 4.000000000000093,
+          "state": "spit",
+          "label": "吐出饵料",
+          "experiment": "probe"
+        },
+        {
+          "time": 4.200000000000082,
+          "state": "flee",
+          "label": "受惊逃离",
+          "experiment": "probe"
+        },
+        {
+          "time": 5.004166666666703,
+          "state": "cruise",
+          "label": "自由巡游",
+          "experiment": null
+        }
+      ],
+      "failedCapture": false,
+      "finalState": "cruise",
+      "finalFloatFootDisplacementM": 0.003534068831413063,
+      "finalFloatFootVerticalOffsetM": -2.220446049250313e-15,
+      "finalFloatFootSpeedMps": 9.135241090911296e-10,
+      "finalForceN": 0
+    }
+  },
+  "configurationSensitivity": [
+    {
+      "options": {
+        "floatToSwivel": 0.32
+      },
+      "ticks": 4000,
+      "heldSamples": 43,
+      "nonzeroTicks": 518,
+      "contactTicks": 0,
+      "appliedContactTicks": 0,
+      "maxRequestedForceN": 0.0009326974349575038,
+      "maxFloatFootRiseM": 0.0259778008690269,
+      "maxFloatFootDropM": -0.005981515417293082,
+      "maxFloatFootDisplacementM": 0.02601873612672809,
+      "maxLengthErrorM": 0.000002221330508346553,
+      "states": [
+        "cruise",
+        "discover",
+        "approach",
+        "inspect",
+        "suck",
+        "lift",
+        "spit",
+        "flee"
+      ],
+      "events": [
+        {
+          "time": 0,
+          "state": "cruise",
+          "label": "自由巡游",
+          "experiment": null
+        },
+        {
+          "time": 0,
+          "state": "discover",
+          "label": "发现饵料",
+          "experiment": "lift"
+        },
+        {
+          "time": 0.1833333333333335,
+          "state": "approach",
+          "label": "靠近饵料",
+          "experiment": "lift"
+        },
+        {
+          "time": 2.2500000000000067,
+          "state": "inspect",
+          "label": "观察和试探",
+          "experiment": "lift"
+        },
+        {
+          "time": 2.500000000000019,
+          "state": "suck",
+          "label": "吸入饵料",
+          "experiment": "lift"
+        },
+        {
+          "time": 3.0541666666667133,
+          "state": "lift",
+          "label": "含饵抬头",
+          "experiment": "lift"
+        },
+        {
+          "time": 4.658333333333389,
+          "state": "spit",
+          "label": "吐出饵料",
+          "experiment": "lift"
+        },
+        {
+          "time": 4.908333333333375,
+          "state": "flee",
+          "label": "受惊逃离",
+          "experiment": "lift"
+        },
+        {
+          "time": 5.81249999999999,
+          "state": "cruise",
+          "label": "自由巡游",
+          "experiment": null
+        }
+      ],
+      "failedCapture": false,
+      "finalState": "cruise",
+      "finalFloatFootDisplacementM": 0.0028030780640475594,
+      "finalFloatFootVerticalOffsetM": -0.000010348799458714808,
+      "finalFloatFootSpeedMps": 0.00001121724686596869,
+      "finalForceN": 0
+    },
+    {
+      "options": {
+        "floatToSwivel": 0.7
+      },
+      "ticks": 4000,
+      "heldSamples": 43,
+      "nonzeroTicks": 518,
+      "contactTicks": 0,
+      "appliedContactTicks": 0,
+      "maxRequestedForceN": 0.0009659059638244781,
+      "maxFloatFootRiseM": 8.881784197001252e-16,
+      "maxFloatFootDropM": -1.1102230246251565e-16,
+      "maxFloatFootDisplacementM": 3.3787958450132084e-9,
+      "maxLengthErrorM": 0,
+      "states": [
+        "cruise",
+        "discover",
+        "approach",
+        "inspect",
+        "suck",
+        "lift",
+        "spit",
+        "flee"
+      ],
+      "events": [
+        {
+          "time": 0,
+          "state": "cruise",
+          "label": "自由巡游",
+          "experiment": null
+        },
+        {
+          "time": 0,
+          "state": "discover",
+          "label": "发现饵料",
+          "experiment": "lift"
+        },
+        {
+          "time": 0.1833333333333335,
+          "state": "approach",
+          "label": "靠近饵料",
+          "experiment": "lift"
+        },
+        {
+          "time": 2.2500000000000067,
+          "state": "inspect",
+          "label": "观察和试探",
+          "experiment": "lift"
+        },
+        {
+          "time": 2.500000000000019,
+          "state": "suck",
+          "label": "吸入饵料",
+          "experiment": "lift"
+        },
+        {
+          "time": 3.0541666666667133,
+          "state": "lift",
+          "label": "含饵抬头",
+          "experiment": "lift"
+        },
+        {
+          "time": 4.658333333333389,
+          "state": "spit",
+          "label": "吐出饵料",
+          "experiment": "lift"
+        },
+        {
+          "time": 4.908333333333375,
+          "state": "flee",
+          "label": "受惊逃离",
+          "experiment": "lift"
+        },
+        {
+          "time": 5.81249999999999,
+          "state": "cruise",
+          "label": "自由巡游",
+          "experiment": null
+        }
+      ],
+      "failedCapture": false,
+      "finalState": "cruise",
+      "finalFloatFootDisplacementM": 1.994818959016506e-9,
+      "finalFloatFootVerticalOffsetM": 4.440892098500626e-16,
+      "finalFloatFootSpeedMps": 2.9309887850104133e-13,
+      "finalForceN": 0
+    },
+    {
+      "options": {
+        "floatToSwivel": 0.32,
+        "baitMassG": 1.2
+      },
+      "ticks": 4000,
+      "heldSamples": 43,
+      "nonzeroTicks": 518,
+      "contactTicks": 0,
+      "appliedContactTicks": 0,
+      "maxRequestedForceN": 0.0013097584828947574,
+      "maxFloatFootRiseM": 0.06259562314030731,
+      "maxFloatFootDropM": -0.011419394028159724,
+      "maxFloatFootDisplacementM": 0.06267733159110675,
+      "maxLengthErrorM": 0.000018224905761893284,
+      "states": [
+        "cruise",
+        "discover",
+        "approach",
+        "inspect",
+        "suck",
+        "lift",
+        "spit",
+        "flee"
+      ],
+      "events": [
+        {
+          "time": 0,
+          "state": "cruise",
+          "label": "自由巡游",
+          "experiment": null
+        },
+        {
+          "time": 0,
+          "state": "discover",
+          "label": "发现饵料",
+          "experiment": "lift"
+        },
+        {
+          "time": 0.1833333333333335,
+          "state": "approach",
+          "label": "靠近饵料",
+          "experiment": "lift"
+        },
+        {
+          "time": 2.2500000000000067,
+          "state": "inspect",
+          "label": "观察和试探",
+          "experiment": "lift"
+        },
+        {
+          "time": 2.500000000000019,
+          "state": "suck",
+          "label": "吸入饵料",
+          "experiment": "lift"
+        },
+        {
+          "time": 3.0541666666667133,
+          "state": "lift",
+          "label": "含饵抬头",
+          "experiment": "lift"
+        },
+        {
+          "time": 4.658333333333389,
+          "state": "spit",
+          "label": "吐出饵料",
+          "experiment": "lift"
+        },
+        {
+          "time": 4.908333333333375,
+          "state": "flee",
+          "label": "受惊逃离",
+          "experiment": "lift"
+        },
+        {
+          "time": 5.81249999999999,
+          "state": "cruise",
+          "label": "自由巡游",
+          "experiment": null
+        }
+      ],
+      "failedCapture": false,
+      "finalState": "cruise",
+      "finalFloatFootDisplacementM": 0.0044545324146505775,
+      "finalFloatFootVerticalOffsetM": 0.000057469005207422263,
+      "finalFloatFootSpeedMps": 0.00002337138741142827,
+      "finalForceN": 0
+    }
+  ],
+  "hookMassSensitivity": [
+    {
+      "options": {
+        "floatToSwivel": 0.32,
+        "hookMassG": 0.005
+      },
+      "ticks": 5000,
+      "heldSamples": 43,
+      "nonzeroTicks": 518,
+      "contactTicks": 0,
+      "appliedContactTicks": 0,
+      "maxRequestedForceN": 0.0009327072164549651,
+      "maxFloatFootRiseM": 0.013019130318792538,
+      "maxFloatFootDropM": -0.0032258899095680693,
+      "maxFloatFootDisplacementM": 0.013036269400442044,
+      "maxLengthErrorM": 9.82687942158167e-7,
+      "states": [
+        "cruise",
+        "discover",
+        "approach",
+        "inspect",
+        "suck",
+        "lift",
+        "spit",
+        "flee"
+      ],
+      "events": [
+        {
+          "time": 0,
+          "state": "cruise",
+          "label": "自由巡游",
+          "experiment": null
+        },
+        {
+          "time": 0,
+          "state": "discover",
+          "label": "发现饵料",
+          "experiment": "lift"
+        },
+        {
+          "time": 0.1833333333333335,
+          "state": "approach",
+          "label": "靠近饵料",
+          "experiment": "lift"
+        },
+        {
+          "time": 2.2500000000000067,
+          "state": "inspect",
+          "label": "观察和试探",
+          "experiment": "lift"
+        },
+        {
+          "time": 2.500000000000019,
+          "state": "suck",
+          "label": "吸入饵料",
+          "experiment": "lift"
+        },
+        {
+          "time": 3.0541666666667133,
+          "state": "lift",
+          "label": "含饵抬头",
+          "experiment": "lift"
+        },
+        {
+          "time": 4.658333333333389,
+          "state": "spit",
+          "label": "吐出饵料",
+          "experiment": "lift"
+        },
+        {
+          "time": 4.908333333333375,
+          "state": "flee",
+          "label": "受惊逃离",
+          "experiment": "lift"
+        },
+        {
+          "time": 5.81249999999999,
+          "state": "cruise",
+          "label": "自由巡游",
+          "experiment": null
+        }
+      ],
+      "failedCapture": false,
+      "finalState": "cruise",
+      "finalFloatFootDisplacementM": 0.002035525974136503,
+      "finalFloatFootVerticalOffsetM": -1.7842331900830288e-7,
+      "finalFloatFootSpeedMps": 5.931384403903564e-7,
+      "finalForceN": 0
+    },
+    {
+      "options": {
+        "floatToSwivel": 0.32,
+        "hookMassG": 0.15
+      },
+      "ticks": 5000,
+      "heldSamples": 43,
+      "nonzeroTicks": 518,
+      "contactTicks": 0,
+      "appliedContactTicks": 0,
+      "maxRequestedForceN": 0.0015000000000000002,
+      "maxFloatFootRiseM": 0.03033240840077467,
+      "maxFloatFootDropM": -0.025259189030361617,
+      "maxFloatFootDisplacementM": 0.030371927621626604,
+      "maxLengthErrorM": 0.000018083279898516158,
+      "states": [
+        "cruise",
+        "discover",
+        "approach",
+        "inspect",
+        "suck",
+        "lift",
+        "spit",
+        "flee"
+      ],
+      "events": [
+        {
+          "time": 0,
+          "state": "cruise",
+          "label": "自由巡游",
+          "experiment": null
+        },
+        {
+          "time": 0,
+          "state": "discover",
+          "label": "发现饵料",
+          "experiment": "lift"
+        },
+        {
+          "time": 0.1833333333333335,
+          "state": "approach",
+          "label": "靠近饵料",
+          "experiment": "lift"
+        },
+        {
+          "time": 2.2500000000000067,
+          "state": "inspect",
+          "label": "观察和试探",
+          "experiment": "lift"
+        },
+        {
+          "time": 2.500000000000019,
+          "state": "suck",
+          "label": "吸入饵料",
+          "experiment": "lift"
+        },
+        {
+          "time": 3.0541666666667133,
+          "state": "lift",
+          "label": "含饵抬头",
+          "experiment": "lift"
+        },
+        {
+          "time": 4.658333333333389,
+          "state": "spit",
+          "label": "吐出饵料",
+          "experiment": "lift"
+        },
+        {
+          "time": 4.908333333333375,
+          "state": "flee",
+          "label": "受惊逃离",
+          "experiment": "lift"
+        },
+        {
+          "time": 5.81249999999999,
+          "state": "cruise",
+          "label": "自由巡游",
+          "experiment": null
+        }
+      ],
+      "failedCapture": false,
+      "finalState": "cruise",
+      "finalFloatFootDisplacementM": 0.0024378387242614805,
+      "finalFloatFootVerticalOffsetM": 5.914428280462403e-9,
+      "finalFloatFootSpeedMps": 2.2397463607052458e-10,
+      "finalForceN": 0
+    }
+  ],
+  "note": "Snapshots sampled every 12 ticks; actual force and physical-node extrema observed each tick. Horizontal release offset is not expected to vanish in the original rig."
+}

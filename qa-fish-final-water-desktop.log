@@ -1,0 +1,237 @@
+Navigated; inspecting page
+STATE {
+  options: {
+    leadMassG: 4,
+    floatMassG: 0.6,
+    baitMassG: 0.34,
+    baitDensity: 1100,
+    baitRadius: 0.003329067050248536,
+    hookExtent: 0.019329067050248536,
+    waterY: 0.83,
+    bottomY: 0.055,
+    waterDensity: 998.2336361398824,
+    lineMaterial: 'nylon',
+    lineDensity: 1140,
+    mainDiameter: 0.00022,
+    subDiameter: 0.00016,
+    mainLength: 1.2,
+    floatToSwivel: 0.42,
+    windOnSurface: true,
+    leadAboveSwivel: 0.055,
+    leadTravel: 0.08,
+    leadLocked: true,
+    leaderLengths: [ 0.12, 0.15 ],
+    rodTip: { x: -0.5, y: 1.1, z: 0.025 }
+  },
+  time: 21.5374999999991,
+  nodes: {
+    rod: { x: -0.5, y: 1.1, z: 0.025 },
+    floatFoot: {
+      x: -0.1815129488065534,
+      y: 0.6503604493959347,
+      z: 0.025312931613431396
+    },
+    floatTop: {
+      x: -0.1815129488604798,
+      y: 0.9103604751802384,
+      z: 0.02531293161337393
+    },
+    lead: {
+      x: -0.18151294872934157,
+      y: 0.2853604252455888,
+      z: 0.025312931613512377
+    },
+    swivel: {
+      x: -0.1815129487364559,
+      y: 0.23035828264380004,
+      z: 0.0253129316134984
+    },
+    leaderAnchor: {
+      x: -0.1815129487364559,
+      y: 0.22435828264380003,
+      z: 0.0253129316134984
+    },
+    hooks: [ [Object], [Object] ]
+  },
+  curves: {
+    wind: [
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      ... 191 more items
+    ],
+    upper: [
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object]
+    ],
+    lower: [
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object]
+    ],
+    leaders: [ [Array], [Array] ]
+  },
+  markers: {
+    floatStops: [ [Object], [Object], [Object], [Object] ],
+    leadStops: [ [Object], [Object] ]
+  },
+  leadCoordinate: 0.055,
+  velocityY: -5.005862391271876e-10,
+  velocities: [
+    {
+      x: 1.2843059948863811e-11,
+      y: -5.005862391271876e-10,
+      z: -1.815214645262131e-13
+    },
+    {
+      x: 5.454703355667334e-10,
+      y: -5.006661751849606e-10,
+      z: -1.0458300891968975e-12
+    },
+    {
+      x: -8.50652881467795e-11,
+      y: -5.005329484220056e-10,
+      z: 2.6229018956769323e-13
+    },
+    {
+      x: -1.1537437671904627e-11,
+      y: -4.953171206523166e-10,
+      z: 3.1308289294429414e-13
+    },
+    {
+      x: 4.200639835971742e-11,
+      y: -5.013489623451051e-10,
+      z: -5.495603971894525e-14
+    },
+    {
+      x: 2.6219026949547697e-11,
+      y: -4.953171206523166e-10,
+      z: -2.4980018054066022e-14
+    }
+  ],
+  lastInteraction: {
+    hooks: [ [Object], [Object] ],
+    lineContacts: [],
+    nodes: [ [Object], [Object], [Object], [Object], [Object], [Object] ],
+    total: { x: 0, y: 0, z: 0 }
+  },
+  evaluation: {
+    buoyancyN: 0.050434132018781316,
+    weightN: 0.050604185511642856,
+    bottomSupportN: 0.00003478415514621636,
+    rodReaction: { x: 0, y: 0.00006707181646166596, z: 0 },
+    rodTensionN: 0.00006707181646166596,
+    surfaceSupportN: 0.00006819783396217449,
+    windSurfaceLength: 0.2854537729741484,
+    lineMassG: 0.05819084107650074,
+    lineBuoyancyG: 0.034524769183606384,
+    lineApparentMassG: 0.023666071892894356,
+    floatDisplacedVolume: 0.000004383111948717166,
+    displacedVolume: 0.0000051519504297502845,
+    exposureM: 0.08036047518023848,
+    tiltRad: 0,
+    staticResidualN: 3.127085171480883e-10,
+    status: 'hooks-bottom',
+    contacts: { hooks: [Array], lead: false, float: false },
+    tension: {
+      wind: 0.00006707181646166596,
+      upper: 0.036895658457117585,
+      lower: 0.0010102513153301383,
+      leaders: [Array]
+    },
+    maxLengthError: 0.0000021426017887613003,
+    options: {
+      leadMassG: 4,
+      floatMassG: 0.6,
+      baitMassG: 0.34,
+      baitDensity: 1100,
+      baitRadius: 0.003329067050248536,
+      hookExtent: 0.019329067050248536,
+      waterY: 0.83,
+      bottomY: 0.055,
+      waterDensity: 998.2336361398824,
+      lineMaterial: 'nylon',
+      lineDensity: 1140,
+      mainDiameter: 0.00022,
+      subDiameter: 0.00016,
+      mainLength: 1.2,
+      floatToSwivel: 0.42,
+      windOnSurface: true,
+      leadAboveSwivel: 0.055,
+      leadTravel: 0.08,
+      leadLocked: true,
+      leaderLengths: [Array],
+      rodTip: [Object]
+    }
+  },
+  topY: 0.9103604751802384,
+  leadMass: 4,
+  castPhase: 0,
+  paused: false
+}
+ACTION {
+  passed: 58,
+  samples: [
+    { percent: 100, scope: [Object], main: [Object] },
+    { percent: 35, scope: [Object], main: [Object] },
+    { percent: 0, scope: [Object], main: [Object] },
+    { percent: 100, scope: [Object], main: [Object] }
+  ],
+  depth: {
+    passed: 23,
+    reports: [
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object]
+    ]
+  }
+}
+SCREENSHOT preview-fish-final-water-desktop.png ERRORS 0
+HUD {
+  text: '浮研 FLOAT LAB\n' +
+    '静观水面 · 风线默认贴水\n' +
+    '实时观察\n' +
+    '已暂停\n' +
+    '铅皮质量\n' +
+    '4.00 g\n' +
+    '露出漂目\n' +
+    '5.1 目\n' +
+    '移漂\n' +
+    '移铅\n' +
+    '剪铅皮\n' +
+    '线长固定 · 主线 120 cm · 子线 12 / 15 cm\n' +
+    '暂停 · 单钩触底 · 锁铅',
+  info: { frame: 1009, calls: 43, triangles: 303574, points: 0, lines: 519 }
+}

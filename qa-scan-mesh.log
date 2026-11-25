@@ -1,0 +1,11 @@
+✔ licensed scan, frozen model-derived swept body and actual oral-rim centroid share identity (2.796292ms)
+✔ independent actual deformed render vertices stay above gravel/rock and within all six bounds across yaw/pitch/corners (433.500791ms)
+✔ continuous lateral wave is contained by exported support, independently against full render mesh (130.633042ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 852.752042

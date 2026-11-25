@@ -1,0 +1,42 @@
+{
+  "artifact": {
+    "bytes": 5283289,
+    "sha256": "f920da6c856b5b599e9ceabbf9faf97b3f81a7f2141a543f960198bc46ef9d5a",
+    "matchesCurrentBuild": true,
+    "syntaxAndEmbeddingChecks": 19
+  },
+  "unit": {
+    "passed": 188,
+    "failed": 0,
+    "evidence": "qa-performance-unit.log"
+  },
+  "functional": {
+    "groups": 10,
+    "checks": 1203,
+    "errors": 0,
+    "evidence": "qa-fish-final-summary.json"
+  },
+  "performance": {
+    "passed": true,
+    "cases": 9,
+    "verificationLog": "qa-performance-verification.log",
+    "verifierNegativeCases": 10,
+    "reports": [
+      "qa-performance-baseline-final.json",
+      "qa-performance-after.json",
+      "qa-performance-retina.json"
+    ]
+  },
+  "frozenSourceSHA256": {
+    "src/crucian-mesh.js": "45267ac8a86abc7843f6678a499236dae7354d859f26196b38a828529683924f",
+    "src/fish-body.js": "7ba095d627430f9c5ddda7a927bd714e9da31b3e02789fe91e681859902da613"
+  },
+  "baselineArtifactSHA256": "e8fb553f4a3ea8462fe40df60b1fa2bde27262eb2afdf141bcedc6b7dba52145",
+  "limitations": [
+    "Apple M3 Pro / headless Chrome 158 / ANGLE Metal; not all hardware",
+    "Mobile viewport simulation is not a real phone or Safari",
+    "Fresh document navigation, not flushed OS/shader caches",
+    "Full readiness is about 0.2s slower than warm baseline due to staged loading and prewarm",
+    "CPU timings are JS/driver submission, not GPU timer measurements"
+  ]
+}

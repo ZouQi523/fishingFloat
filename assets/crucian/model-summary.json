@@ -1,0 +1,20 @@
+{
+  "name": "Blender crucian carp",
+  "units": "metres",
+  "axes": "+X head / +Y up / +Z left",
+  "mouthLocal": [
+    0.09,
+    0.0,
+    -0.0
+  ],
+  "mouthSource": {
+    "mesh": "Oral_lip_actual_rim",
+    "kind": "centroid of actual front oral rim",
+    "vertexCount": 40
+  },
+  "counts": {
+    "meshes": 46,
+    "vertices": 11082,
+    "triangles": 3694
+  }
+}
