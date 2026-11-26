@@ -117,7 +117,7 @@ module.exports = async function browserRegression() {
   e=settle();ok(e.topY>initialY,'cutting lead increases float exposure');
   const before=e.nodes.floatFoot.y;el('btnRecast').click();ok(state().time===0&&!near(state().nodes.floatFoot.y,before),'recast resets full connected geometry and time');
   el('btnRigReset').click();settle();
-  for(const key of ['Rig','Float','Tank']){el('btnView'+key).click();ok(document.querySelectorAll('#observationBar button[id^="btnView"][aria-pressed="true"]').length===1&&el('btnView'+key).classList.contains('active'),'exclusive view selection '+key);}
+  for(const key of ['Rig','Float','Angler','Tank']){el('btnView'+key).click();ok(document.querySelectorAll('#observationBar button[id^="btnView"][aria-pressed="true"]').length===1&&el('btnView'+key).classList.contains('active'),'exclusive view selection '+key);}
   el('physicsPanel').open=true;
   const panel=el('physicsPanel').getBoundingClientRect(),b=el('observationBar').getBoundingClientRect();
   ok(panel.top>=0&&panel.bottom<=innerHeight+1,'expanded scrollable parameter panel fits viewport');

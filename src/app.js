@@ -79,7 +79,7 @@ window.__FLOAT_APP_READY__ = (async function () {
   controls.maxDistance = 5.5;
   controls.minPolarAngle = 0.75;
   controls.maxPolarAngle = 1.82;
-  controls.minAzimuthAngle = -1.05;
+  controls.minAzimuthAngle = -1.95;
   controls.maxAzimuthAngle = 1.05;
   controls.update();
 
@@ -1103,14 +1103,33 @@ window.__FLOAT_APP_READY__ = (async function () {
   }
 
   let cameraTween=null;
+  // Main view was a 38° telephoto; a normal-lens field of view reads the tank more
+  // naturally, while the close-up views keep their tighter framing.
+  function viewFov(mode){
+    const portrait=innerWidth/innerHeight<.8;
+    if(mode==='tank')return portrait?52:45;
+    if(mode==='angler')return portrait?50:44;
+    return 38;
+  }
+  const VIEW_BUTTONS=[['Tank','tank'],['Float','float'],['Rig','rig'],['Angler','angler']];
   function setView(mode) {
     viewMode=mode;
     const n=rigState.nodes;
     const portrait=innerWidth/innerHeight<.8;
-    camera.fov=portrait&&mode==='tank'?50:38;camera.updateProjectionMatrix();
+    camera.fov=viewFov(mode);camera.updateProjectionMatrix();
     let target,position;
-    if(mode==='tank'){target=new T.Vector3(portrait?-.17:-.30,.72,0);position=new T.Vector3(portrait?-.05:.12,1.08,portrait?5.1:2.95);}
-    else if(mode==='rig'){
+    if(mode==='tank'){
+      target=new T.Vector3(portrait?-.17:-.30,.72,0);
+      position=new T.Vector3(portrait?-.05:.12,1.08,portrait?5.1:2.95);
+    }else if(mode==='angler'){
+      // Angler's seat: eye height at the bank, just left/front of the rod butt and
+      // outside the front glass, looking out across the water at the float.
+      // The offset is relative to the real float pose, so re-seating the float or
+      // recasting keeps the same over-the-water framing.
+      target=vec(n.floatFoot).lerp(vec(n.floatTop),.55);
+      target.y=Math.max(WATER_Y+.02,target.y);
+      position=target.clone().add(portrait?new T.Vector3(-1.45,.56,1.30):new T.Vector3(-1.25,.50,1.00));
+    }else if(mode==='rig'){
       target=vec(n.lead).lerp(vec(n.hooks[1]),.40);target.y=Math.max(GRAVEL_Y+.075,target.y)+(portrait?.035:0);
       position=target.clone().add(new T.Vector3(.075,.075,portrait?.92:.65));
     }else{
@@ -1119,9 +1138,9 @@ window.__FLOAT_APP_READY__ = (async function () {
       position=target.clone().add(new T.Vector3(.065,.04,portrait?.84:.67));
     }
     cameraTween={from:camera.position.clone(),to:position,a:controls.target.clone(),b:target,t:0,start:performance.now()};
-    ['Tank','Float','Rig'].forEach(k=>{const btn=document.getElementById('btnView'+k);const active=k.toLowerCase()===mode;btn.classList.toggle('active',active);btn.setAttribute('aria-pressed',String(active));});
+    VIEW_BUTTONS.forEach(([key,id])=>{const btn=document.getElementById('btnView'+key);const active=id===mode;btn.classList.toggle('active',active);btn.setAttribute('aria-pressed',String(active));});
   }
-  ['Tank','Float','Rig'].forEach(k=>document.getElementById('btnView'+k).addEventListener('click',()=>{closeSeatEditor();setView(k.toLowerCase());}));
+  VIEW_BUTTONS.forEach(([key,id])=>document.getElementById('btnView'+key).addEventListener('click',()=>{closeSeatEditor();setView(id);}));
   // Take the rig to a separate workbench; the tank never acquires edit handles.
   const seatWorkshop=window.SeatWorkshop.create({
     getOptions:()=>rig.options,
@@ -1378,7 +1397,7 @@ window.__FLOAT_APP_READY__ = (async function () {
     optics.resize(w,h);
     camera.aspect = w / h;
     // 竖屏时拉远一点，保证整缸可见
-    camera.fov = w / h < .8 && viewMode==='tank' ? 50 : 38;
+    camera.fov = viewFov(viewMode);
     camera.updateProjectionMatrix();
     positionFloatScope();
   }
