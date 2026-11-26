@@ -661,11 +661,16 @@ window.__FLOAT_APP_READY__ = (async function () {
 
   function makeStrand(isSub, color, samples = NA) {
     const tube=new T.Mesh(makeTube(samples,6,.0001),lineMat);
-    tube.renderOrder=4; tube.frustumCulled=false;
+    // Underwater strands must be composited by the water volume (renderOrder 3,
+    // an opaque screen-space medium). Drawing them after it put the line over the
+    // opaque water at 0% clarity, so the rig stayed visible when nothing below the
+    // surface should be. Tube/guide now render before the volume; the capture pass
+    // still contains them, so 35%/100% clarity shows them attenuated/correctly.
+    tube.renderOrder=1; tube.frustumCulled=false;
     const geometry=new T.BufferGeometry();
     geometry.setAttribute('position',new T.BufferAttribute(new Float32Array(samples*3),3));
     const guide=new T.Line(geometry,new T.LineBasicMaterial({color,transparent:true,opacity:.30,depthWrite:false}));
-    guide.renderOrder=5;guide.frustumCulled=false;
+    guide.renderOrder=2;guide.frustumCulled=false;
     scene.add(tube,guide);
     return {tube,guide,isSub,samples};
   }
