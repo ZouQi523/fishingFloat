@@ -150,7 +150,9 @@ function fixture(options = {}) {
       if (options.afterRender) options.afterRender(f, camera);
       if (failures.after) throw failures.after;
     }, ...overrides });
-  f.scope = f.create();
+  // Existing framing tests assert immediate following; the delayed camera is
+  // exercised by dedicated tests below with an injected clock.
+  f.scope = f.create({ followDelay: 0, ...(options.scopeOverrides || {}) });
   // Normalize JSON snapshots across the VM realm for strict structural assertions.
   const snapshot = f.scope.snapshot;
   f.scope.snapshot = () => plain(snapshot());
@@ -243,6 +245,67 @@ test('actual independent camera is 20 degrees; waterline .56 and field .24 are s
     objects(f.scene).forEach((o, i) => assert.deepEqual(Array.from(o.matrixWorld.elements), transforms[i]));
     assertOriginalObjects(f); previous = snapshot;
   }
+});
+
+test('observation window pans to horizontal float motion with a fixed delay so movement stays visible', () => {
+  let nowMs = 0;
+  const f = fixture();
+  const scope = f.create({ now: () => nowMs });
+  for (let i = 0; i < 90; i++) { nowMs += 16; scope.render(); }
+  const before = scope.snapshot();
+  assert.equal(before.followDelaySeconds, 1.2);
+  assert.equal(before.followLagging, true);
+  const startX = before.camera.target[0];
+  // Move the float 8 cm sideways and render the very next frame.
+  f.source.position.x += .08; f.scene.updateMatrixWorld(true);
+  nowMs += 16; scope.render();
+  const moved = scope.snapshot();
+  close(moved.camera.target[0], startX, 1e-6);
+  close(moved.followCenter.x, startX, 1e-6);
+  assert.ok(moved.rawFollowCenter.x - moved.followCenter.x > .07,
+    'framing centre lags the actual float by the horizontal displacement');
+  // A gradual large vertical excursion must not be zoomed away instantly either.
+  for (let i = 0; i < 30; i++) {
+    f.pose(WATER + .04 + i * .012); f.source.position.x += .08; f.scene.updateMatrixWorld(true);
+    nowMs += 16; scope.render();
+  }
+  const dipped = scope.snapshot();
+  assert.ok(dipped.rawFieldHeightM > dipped.fieldHeightM + .1, 'zoom/framing lags the gradual vertical move');
+  close(dipped.fieldHeightM, before.fieldHeightM, 2e-3);
+  // After the delay the camera has panned and zoomed to the new framing.
+  for (let i = 0; i < 90; i++) { nowMs += 16; scope.render(); }
+  const settled = scope.snapshot();
+  close(settled.camera.target[0], startX + .08, 2e-3);
+  close(settled.followCenter.x, settled.rawFollowCenter.x, 2e-3);
+  close(settled.fieldHeightM, settled.rawFieldHeightM, 2e-3);
+});
+
+test('discontinuous reset or recast snaps the delayed observer instead of flying in', () => {
+  let nowMs = 0;
+  const f = fixture();
+  const scope = f.create({ now: () => nowMs });
+  for (let i = 0; i < 90; i++) { nowMs += 16; scope.render(); }
+  const before = scope.snapshot().camera.target[0];
+  // A reset/recast jumps the float far in a single frame.
+  f.source.position.x += .4; f.scene.updateMatrixWorld(true);
+  nowMs += 16; scope.render();
+  const snapped = scope.snapshot();
+  close(snapped.camera.target[0], before + .4, 2e-3);
+  close(snapped.followCenter.x, snapped.rawFollowCenter.x, 1e-9);
+});
+
+test('observation window can disable the framing delay for immediate following', () => {
+  let nowMs = 0;
+  const f = fixture();
+  const scope = f.create({ now: () => nowMs, followDelay: 0 });
+  nowMs += 16; scope.render();
+  const before = scope.snapshot();
+  assert.equal(before.followDelaySeconds, 0);
+  assert.equal(before.followLagging, false);
+  f.source.position.x += .08; f.scene.updateMatrixWorld(true);
+  nowMs += 16; scope.render();
+  const moved = scope.snapshot();
+  close(moved.camera.target[0], before.camera.target[0] + .08, 2e-3);
 });
 
 test('shared optics capture precedes original scene callbacks and main optics restore follows them', () => {
@@ -341,7 +404,7 @@ test('hidden source meshes do not expand framing or get made visible by the inse
 });
 
 test('camera follows moved original source across frames with unchanged mesh, material and UUID identities', () => {
-  const f = fixture(); let previous;
+  const f = fixture({ scopeOverrides: { followDelay: 0 } }); let previous;
   for (const [x, z, exposure] of [[.2, -.3, .05], [1.3, -.8, .07], [-.6, .2, .035]]) {
     f.parent.position.x = x; f.parent.position.z = z; f.pose(WATER + exposure, 8); f.scope.render();
     const snapshot = f.scope.snapshot();

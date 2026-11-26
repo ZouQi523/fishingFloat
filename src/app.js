@@ -507,8 +507,11 @@ window.__FLOAT_APP_READY__ = (async function () {
   })();
 
   /* 左侧观漂：同一副浮漂几何、同一个物理快照，独立固定视角。 */
+  // Observation window pans to the float with a 1.2 s delay so horizontal
+  // movement stays visible instead of being cancelled by instant re-centring.
+  const SCOPE_FOLLOW_DELAY_S=1.2;
   const floatScope = window.FloatScope.create({THREE:T,renderer,scene,source:floatGroup,
-    floatLength:F_LEN,tipLength:S_BODY0,bandLength:BAND,waterY:WATER_Y,
+    floatLength:F_LEN,tipLength:S_BODY0,bandLength:BAND,waterY:WATER_Y,followDelay:SCOPE_FOLLOW_DELAY_S,
     beforeRender:(viewCamera,viewport)=>optics.capture([waterVol,meniscus,arrowB,arrowW,arrowR],viewCamera,viewport),
     afterRender:()=>optics.bindCamera(camera)});
   function positionFloatScope() {

@@ -13,6 +13,7 @@ module.exports=async function({send,evaluate}){
     await frame();const x=await inspect(),q=x.r.floatScope;
     assert(q.rendered,'viewport rendered');
     assert(q.elevationDegrees===20,'20 degree diagnostic');
+    assert(q.followDelaySeconds===1.2&&q.followLagging===true,'scope camera pans with a finite 1.2 s delay');
     const d=q.camera.position.map((v,i)=>v-q.camera.target[i]);
     assert(near(Math.atan2(d[1],Math.hypot(d[0],d[2]))*180/Math.PI,20),'actual camera elevation');
     assert(q.sameScene&&q.sceneUuid===x.r.sceneUuid&&q.sourceUuid===x.r.floatUuid,'second camera observes original scene and original float');
@@ -33,6 +34,9 @@ module.exports=async function({send,evaluate}){
   // First-use shader compilation can postpone initial camera frames beyond the
   // navigation delay. Do not mistake an unfinished preset tween for a click.
   await evaluate('new Promise(resolve=>{function stable(){if(!floatLab.getRenderState().camera.transitioning)resolve();else requestAnimationFrame(stable);}requestAnimationFrame(stable);})');
+  // The delayed observer needs one full delay period with a static float before
+  // comparisons: earlier history still contains the load-time settling motion.
+  await evaluate('new Promise(r=>setTimeout(r,1600))');
   let first=await check();
   assert(first.s.paused,'pause for deterministic checks');
   const before=first.s,cam=first.r.camera;

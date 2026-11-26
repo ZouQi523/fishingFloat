@@ -15,6 +15,36 @@
     const target=new T.Vector3(),top=new T.Vector3(),axis=new T.Vector3();
     const size=new T.Vector2(),savedViewport=new T.Vector4(),savedScissor=new T.Vector4();
     const meshes=[];
+    // Framing centre follows the float with a fixed wall-clock delay instead of
+    // snapping: when the float is dragged sideways it visibly shifts inside the
+    // window first, then the camera pans over. Vertical exposure is not tracked
+    // (the base field is fixed), so bobbing/顿口 remain directly visible too.
+    const followDelay=Math.max(0,options.followDelay===undefined?1.2:(Number(options.followDelay)||0));
+    const clock=typeof options.now==='function'?options.now
+      :()=>global.performance&&typeof global.performance.now==='function'?global.performance.now():Date.now();
+    const followHistory=[];
+    function delayedFollow(x,z,f){
+      if(!(followDelay>0))return{x,z,f};
+      const t=clock();
+      const previous=followHistory[followHistory.length-1];
+      if(previous&&(Math.hypot(x-previous.x,z-previous.z)>.15||Math.abs(f-previous.f)>.12)){
+        // A reset/recast/parameter edit is a discontinuity, not observed drift:
+        // snap the observer instead of replaying a one-second fly-in.
+        followHistory.length=0;
+        followHistory.push({t,x,z,f});
+        return{x,z,f};
+      }
+      followHistory.push({t,x,z,f});
+      const horizon=t-followDelay*1000;
+      // Keep a one-second tail so interpolation never runs out of samples.
+      while(followHistory.length>2&&followHistory[0].t<horizon-1000)followHistory.shift();
+      if(followHistory[0].t>horizon)return{x:followHistory[0].x,z:followHistory[0].z,f:followHistory[0].f};
+      let i=followHistory.length-1;
+      while(i>0&&followHistory[i].t>horizon)i--;
+      const a=followHistory[i],b=followHistory[Math.min(i+1,followHistory.length-1)];
+      const u=b.t>a.t?Math.max(0,Math.min(1,(horizon-a.t)/(b.t-a.t))):1;
+      return{x:a.x+(b.x-a.x)*u,z:a.z+(b.z-a.z)*u,f:a.f+(b.f-a.f)*u};
+    }
     // Geometry is examined solely for framing. It is never copied or modified.
     source.traverse(object=>{
       if(object.isMesh&&object.geometry&&object.geometry.attributes.position){
@@ -91,18 +121,25 @@
         cssTop=upper-rect.top;cssHeight=Math.max(0,bottom-upper);
       }
       const aspect=viewport.width>0&&viewport.height>0?viewport.width/viewport.height:.75;
-      const followX=submerged?top.x:(minX+maxX)/2,followZ=submerged?top.z:(minZ+maxZ)/2;
-      let fieldHeight=baseField;
+      const rawFollowX=submerged?top.x:(minX+maxX)/2,rawFollowZ=submerged?top.z:(minZ+maxZ)/2;
+      let rawFieldHeight=baseField;
       if(!submerged&&Number.isFinite(minV)&&aspect>0){
-        const above=maxV+sin*followZ,below=Math.min(minV,minMirrorV)+sin*followZ;
-        fieldHeight=Math.max(baseField,(maxX-minX)/(aspect*.88),above/(waterFraction-.06),-below/(1-waterFraction-.06));
+        const above=maxV+sin*rawFollowZ,below=Math.min(minV,minMirrorV)+sin*rawFollowZ;
+        rawFieldHeight=Math.max(baseField,(maxX-minX)/(aspect*.88),above/(waterFraction-.06),-below/(1-waterFraction-.06));
       }
-      target.set(followX,waterY+(waterFraction-.5)*fieldHeight/cos,followZ);
+      // The delayed observer keeps pan, tilt framing and zoom from reacting instantly:
+      // a drift/dip is seen moving first, then the camera settles over it.
+      const follow=delayedFollow(rawFollowX,rawFollowZ,rawFieldHeight);
+      const fieldHeight=follow.f;
+      target.set(follow.x,waterY+(waterFraction-.5)*fieldHeight/cos,follow.z);
       camera.position.copy(target).add(new T.Vector3(0,sin,cos));camera.lookAt(target);
       camera.left=-fieldHeight*aspect/2;camera.right=fieldHeight*aspect/2;camera.top=fieldHeight/2;camera.bottom=-fieldHeight/2;
       camera.updateProjectionMatrix();camera.updateMatrixWorld();
       const waterline=dom('floatScopeWaterline');if(waterline)waterline.style.top=(cssTop+cssHeight*waterFraction)+'px';
-      last={elevationDegrees:20,camera:{position:camera.position.toArray(),target:target.toArray(),uuid:camera.uuid},
+      last={elevationDegrees:20,followDelaySeconds:followDelay,followLagging:followDelay>0,
+        followCenter:{x:follow.x,z:follow.z},rawFollowCenter:{x:rawFollowX,z:rawFollowZ},
+        rawFieldHeightM:rawFieldHeight,
+        camera:{position:camera.position.toArray(),target:target.toArray(),uuid:camera.uuid},
         sourceTop:top.toArray(),sourceAxis:axis.toArray(),sourceUuid:source.uuid,sceneUuid:scene.uuid,
         exposedLengthM:submerged?0:exposedLength,submerged,waterY,fieldHeightM:fieldHeight,viewport,
         sameScene:true,viewStyle:'scene-camera',clippingAboveWater:false,waterlineVisible:false,rendered:false,
