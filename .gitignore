@@ -15,3 +15,6 @@ node_modules/
 # 仅保留最终采用的 assets/candidates/research-ffish-ccd31440
 assets/candidates/research-ffish-1059a32b/
 assets/candidates/research-ffish-14a40202/
+
+# 本地浏览器验证用的临时用户目录
+.chrome-*/

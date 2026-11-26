@@ -245,7 +245,14 @@
           const visibility = new Map([mesh, ...hidden].map(object => [object, object.visible]));
           const renderTarget = (buffer, renderCamera) => {
             renderer.setRenderTarget(buffer);
-            renderer.setViewport(0, 0, buffer.width, buffer.height);
+            // Do NOT call renderer.setViewport(0, 0, buffer.width, buffer.height) here:
+            // setViewport stores CSS-like values and multiplies them by the renderer's
+            // pixel ratio, which only applies to the canvas drawing buffer. Rendering
+            // into a render target already uses the target's own device-pixel viewport
+            // (see three.js setRenderTarget / RenderTarget.setSize). Scaling it again
+            // zoomed/cropped every optical capture whenever the adaptive pixel ratio
+            // was not exactly 1 (e.g. 0.82/0.66/1.5), leaving ghost floats in the
+            // observation window and stale rectangles in the water.
             renderer.setScissorTest(false);
             renderer.autoClear = true;
             renderer.render(scene, renderCamera);

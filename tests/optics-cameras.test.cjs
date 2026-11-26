@@ -54,13 +54,23 @@ function fixture(lighting) {
     getViewport(out) { return out.copy(this.viewport); },
     getScissor(out) { return out.copy(this.scissor); },
     getScissorTest() { return this.scissorTest; },
-    setViewport(...args) { args.length === 1 ? this.viewport.copy(args[0]) : this.viewport.set(...args); },
+    targetViewportOverrides: [],
+    setViewport(...args) {
+      // three.js only scales canvas viewport coordinates by the pixel ratio; a bound
+      // render target keeps its own device-pixel viewport from setRenderTarget.
+      if (this.target && Number.isFinite(this.target.width)) this.targetViewportOverrides.push([...args]);
+      args.length === 1 ? this.viewport.copy(args[0]) : this.viewport.set(...args);
+    },
     setScissor(...args) { args.length === 1 ? this.scissor.copy(args[0]) : this.scissor.set(...args); },
     setScissorTest(value) { this.scissorTest = value; },
     setRenderTarget(target, face = 0, mip = 0) {
       this.target = target; this.cubeFace = face; this.mipLevel = mip;
-      this.viewport.set(0, 0, 9999, 9999); this.scissor.set(0, 0, 9999, 9999);
-      this.scissorTest = true;
+      // Mirror three.js: binding a render target installs the target's own
+      // device-pixel viewport/scissor instead of the canvas rectangles.
+      const real = target && Number.isFinite(target.width) && Number.isFinite(target.height);
+      this.viewport.set(0, 0, real ? target.width : 9999, real ? target.height : 9999);
+      this.scissor.set(0, 0, real ? target.width : 9999, real ? target.height : 9999);
+      this.scissorTest = real ? !!target.scissorTest : true;
     },
     render(renderScene, renderCamera) {
       renderScene.updateMatrixWorld(true); renderCamera.updateMatrixWorld(true);
@@ -507,5 +517,22 @@ test('staggered views avoid synchronized six-pass reflection spikes after initia
     const before=f.renderer.captures.length;
     f.optics.capture([f.waterVolume]);f.optics.capture([f.waterVolume],f.scope,{width:300,height:480});
     assert.ok(f.renderer.captures.length-before<=(frame===0?4:3));
+  }
+});
+
+test('optical captures keep render-target device resolution instead of canvas-scaled viewports', () => {
+  // Regression: capture used to call renderer.setViewport(0,0,buffer.width,buffer.height)
+  // after binding a render target. three.js scales setViewport by the canvas pixel
+  // ratio, so any adaptive ratio other than exactly 1 zoomed/cropped the refraction
+  // and reflection captures and left ghost floats in the observation window.
+  const f = fixture(), { optics, renderer } = f;
+  optics.resize(1200, 800);
+  optics.capture([f.waterVolume, f.hidden]);
+  optics.capture([f.waterVolume, f.hidden], f.scope, { width: 300, height: 480 });
+  assert.deepEqual(renderer.targetViewportOverrides, [],
+    'must not override a bound render target viewport with canvas coordinates');
+  for (const capture of renderer.captures) {
+    assert.deepEqual(capture.viewport, [0, 0, capture.target.width, capture.target.height],
+      'each optical pass must cover its target\'s full device resolution');
   }
 });
